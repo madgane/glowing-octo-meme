@@ -1,0 +1,11 @@
+
+In this method, titled as \acf{QM} \ac{SRA} scheme, we limit the resource allocation over the spatial dimension only by performing \ac{JSFRA} design over each sub-channel in an instant. This scheme can be considered in a system employing the \ac{FFR} like power restrictions on certain sub-channels. It can also be used to reduce the problem dimension by limiting the allocation over the spatial dimension only. It is well suited for the persistent scheduling like schemes, where certain sub-channels are dedicated to only certain users. Imposing the user restrictions in the \ac{JSFRA} scheme adds a non-convex constraint which will be difficult to solve. 
+
+For a scheduling slot, the precoders are designed over each sub-channel in a sequential manner with the corresponding user queues are updated with the total transmission allocations made in the previous sub-channels on the same slot.
+
+The queue update is common for \ac{SRA} and band-wise \ac{Q-WSRM} schemes, and the queue length controls the design of precoders for the allocation of spatial resources for each sub-channel. The queues are updated before designing the precoders for each sub-channel \me{n} as
+\begin{equation}
+Q_{k,n} = \max{\Big \lbrace Q_k - \sum_{j = 1}^{n-1} \, \sum_{l = 1}^{L} \, t_{l,k,j} ,0 \Big \rbrace }, \; \forall \; k \in \mathcal{U}
+\label{eqn-weight}
+\end{equation}
+where \me{Q_k} is given by \eqref{eqn-2a} for the user \me{k}. The weight for the sub-channel \me{n} is given by \eqref{eqn-weight}, which uses the allotted transmission bits \me{t_{l,k,j}} evaluated from the earlier sub-channels \me{j < n}. The \ac{QM} \ac{SRA} scheme depends on the permutation pattern of the sub-channel selection order for the precoder design and the performance.

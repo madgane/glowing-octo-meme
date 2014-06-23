@@ -1,0 +1,16 @@
+
+In order to solve for an iterative precoder design algorithm, the \ac{KKT} expressions for the problem in \eqref{kkt-mse-1} are obtained by differentiating the Lagrangian by assuming the equality constraint for \eqref{kkt-mse-1.2} and \eqref{kkt-mse-1.3} as
+\begin{IEEEeqnarray}{RCL} \label{kkt-mse-2}
+\nabla_{t_{l,k,n}} : &-q \left [ a_k \, \left (Q_k - \sum_{n = 1}^N \sum_{l=1}^L t_{l,k,n} \right )^{(q-1)} \right ] + \sigma_{l,k,n}\,\log(2) &= 0 \IEEEyessubnumber \label{kkt-mse-2.1} \\
+\nabla_{\epsilon_{l,k,n}} : &-\alpha_{l,k,n} + \dfrac{\sigma_{l,k,n}}{\tilde{\epsilon}_{l,k,n}} &= 0 \IEEEyessubnumber \label{kkt-mse-2.2} \\
+\nabla_{\mvec{m}{l,k,n}} : &\sum_{y \in \mc{U}} \sum_{x=1}^L \alpha_{x,y,n} \mvec{H}{b_k,y,n}^\herm \mvec{w}{x,y,n} \mvec{w}{x,y,n}^\herm \mvec{H}{b_k,y,n} \mvec{m}{l,k,n} + \delta_b \mvec{m}{l,k,n} &= \alpha_{l,k,n} \mvec{H}{b_k,k,n}^\herm \mvec{w}{l,k,n}, \IEEEyessubnumber \label{kkt-mse-2.3} \\
+\nabla_{\mvec{w}{l,k,n}} : & \sum_{(x,y) \neq (l,k)} \mvec{H}{b_y,k,n} \mvec{m}{x,y,n} \mvec{m}{x,y,n}^\herm \mvec{H}{b_y,k,n}^\herm \mvec{w}{l,k,n}  + \mathbf{I}_{N_R} \mvec{w}{l,k,n} &= \mvec{H}{b_k,k,n} \; \mvec{m}{l,k,n} \IEEEyessubnumber \label{kkt-mse-2.4}
+\end{IEEEeqnarray}
+in addition to the primal constraints given in \eqref{kkt-mse-1.2}, \eqref{kkt-mse-1.3} and \eqref{kkt-mse-1.4}, the complementary slackness criterions are given by
+\begin{IEEEeqnarray}{rCl}\label{kkt-mse-3}
+\alpha_{l,k,n} \underbrace{\left ( \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{(x,y) \neq (l,k)} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_y,y,n} \mvec{m}{x,y,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 - \epsilon_{l,k,n} \right )}_{ = 0} &=& 0 \IEEEyessubnumber \label{kkt-mse-3.2} \\
+\sigma_{l,k,n} \underbrace{\left ( \log(\tilde{\epsilon}_{l,k,n}) + \frac{\left ( {\epsilon}_{l,k,n} - \tilde{\epsilon}_{l,k,n} \right ) }{\tilde{\epsilon}_{l,k,n}} + t_{l,k,n} \, \log(2) \right )}_{=0} &=& 0 \IEEEyessubnumber \label{kkt-mse-3.3} \\
+\delta_b \left ( \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \text{tr} \, (\mvec{M}{k,n} \mvec{M}{k,n}^\herm) - P_{{\max}}\right ) &=& 0. \IEEEyessubnumber \label{kkt-mse-3.4}
+\end{IEEEeqnarray}
+
+In the expressions \eqref{kkt-mse-3.2} and \eqref{kkt-mse-3.3}, the value inside the braces are \me{=0} due to the equality constraints. Now, the dual variables corresponding to the equality constraints satisfies  \me{\alpha_{l,k,n} \geq 0} and \me{\sigma_{l,k,n} \geq 0}. The total power constraint in \eqref{kkt-mse-3.4} need not be tight to make the dual variable \me{\delta_b} to be greater than zero. In cases where the total power required to obtain the desired transmission rate is strictly less than \me{P_{\max}}, \me{\delta_b} must be zero to satisfy the complementary slackness criterion defined in \eqref{kkt-mse-3.4}. Upon solving the \ac{KKT} expressions in \eqref{kkt-mse-2} and \eqref{kkt-mse-3}, we obtain the iterative algorithm defined in the Section \ref{sec-4.3}.

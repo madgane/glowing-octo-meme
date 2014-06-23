@@ -1,0 +1,75 @@
+The centralized problem described in \eqref{eqn-decent-1} can be solved in a distributed approach using the \ac{PD} method. The decentralized approach decomposes the centralized problem as a two level optimization problem in which the multiple sub problems are coordinated using a master problem. The coordination of the multiple subproblems can be carried out by exchanging the information across the coordinating \acp{BS} in \me{\mc{B}} via backhaul. The distributed solution is achieved by fixing the interference level \me{\zeta_{l,k,n,b}, \forall k \in \mc{U}_{b_k}} from the \acp{BS} \me{b \in \bar{\mc{B}}_{b_k}} so as to decouple the variables \me{\zeta_{l,k,n,b}} \cite{pennanen2011decentralized,bertsekas1999nonlinear}. Now, the subproblems are governed by the master problem by updating the interference thresholds at each iteration using the subgradients.
+
+As discussed in Section \ref{sec-4}, the constraint involving the coupling variables \eqref{eqn-9.1c} can be relaxed using the equivalent formulation in \eqref{eqn-decent-3}. Now, the subproblem for the \ac{BS} \me{b_k \in \mc{B}} can be obtained by grouping the terms relevant to the \ac{BS} \me{b_k} as
+\begin{IEEEeqnarray}{rCl} \label{eqn-primal-1}
+\underset{\substack{\gamma_{l,k,n} \\ \mvec{m}{l,k,n}, \beta_{l,k,n}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}}_{b_k} \|_q \IEEEyessubnumber \label{eqn-primal-1a} \\
+\text{subject to}&\quad&\sum_{n = 1}^N \sum_{k \in \mathcal{U}_{b_k}} \text{tr} \, (\mvec{M}{k,n} \mvec{M}{k,n}^\herm) \leq P_{{\max}}, \IEEEyessubnumber \label{eqn-primal-1c} \\
+&& \beta_{l,k,n} \geq \sum_{\substack{j = 1\\j \neq l}}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{{b_k},k,n} \mvec{m}{j,k,n} |^2 \nonumber \\
+&&\quad + \sum_{i \in \mc{U}_{b_k} \backslash \{k\}} \sum_{j = 1}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{{b_k},k,n} \mvec{m}{j,i,n} |^2 + \sum_{b \in \bar{\mc{B}}_{b_k}} \zeta_{l,k,n,b} \; + \; N_0 \IEEEyessubnumber \label{eqn-primal-1d} \\
+&& \zeta_{\pr{l},\pr{k},n,{b_k}} \geq \sum_{k \in \mc{U}_b} \sum_{l = 1}^L |\mvec{w}{\pr{l},\pr{k},n}^\herm \mvec{H}{b_k,\pr{k},n} \mvec{m}{l,k,n} |^2, \; \forall \pr{k} \in \bar{\mc{U}}_{b_k}, \; \forall n \in \mc{C} \IEEEyessubnumber \label{eqn-primal-1e} \\
+ & \quad & \text{and} \; \eqref{eqn-8} \IEEEyessubnumber,
+\end{IEEEeqnarray}
+where \me{\zeta_{\pr{l},\pr{k},n,{b_k}}} corresponds to the fixed maximum interference caused by the transmission from the \ac{BS} \me{b_k} to the \me{\ith{\pr{l}}} spatial stream of the \me{\ith{\pr{k}}} user. Let \me{\mbfa{\zeta}^{\set{b_k}}} be the vector representing the fixed interference levels relevant to the \ac{BS} \me{b_k} in a fully connected network (in practice it will be less), which is given by
+\begin{IEEEeqnarray}{RCL} \label{eqn-primal-2}
+\mbfa{\zeta}_{k,n,b} &=& \left [ \; \zeta_{1,k,n,b}, \dotsc, \zeta_{L,k,n,b} \; \right ] \IEEEyessubnumber \\
+\mbfa{\zeta}^{\set{b_k}}_n &=& \left [ \; \mbfa{\zeta}_{\mc{U}_{b_k}(1),n,\bar{\mc{B}}_{b_k}(1)}, \dotsc, \mbfa{\zeta}_{\mc{U}_{b_k}(1),n,\bar{\mc{B}}_{b_k}(|\bar{\mc{B}}_{b_k}|)}, \right . \nonumber \\
+&& \left . \dotsc, \mbfa{\zeta}_{\mc{U}_{b_k}(|\mc{U}_{b_k}|),n,\bar{\mc{B}}_{b_k}(|\bar{\mc{B}}_{b_k}|)}, \dotsc, \mbfa{\zeta}_{\bar{\mc{U}}_{b_k}(1),n,b_k}, \dotsc, \mbfa{\zeta}_{\bar{\mc{U}}_{b_k}(|\bar{\mc{U}}_{b_k}|),n,b_k} \; \right  ] \IEEEyessubnumber \\
+\mbfa{\zeta}^{\set{b_k}} &=& \left [ \; \mbfa{\zeta}^{(b_k)}_1, \dotsc, \mbfa{\zeta}^{(b_k)}_N \; \right ], \IEEEyessubnumber
+\end{IEEEeqnarray}
+where the length of the vector \me{\mbfa{\zeta}^{\set{b_k}}} is
+\begin{equation}
+n_{b_k} = | \mbfa{\zeta}^{\set{b_k}} | = \left ( |\bar{\mc{B}}_{b_k}| |\mc{U}_{b_k}| + |\bar{\mc{U}}_{b_k}|\right ) L N
+\label{primal-vec-len}
+\end{equation}
+
+The problem defined in \eqref{eqn-primal-1} is already decoupled across the \acp{BS} by fixing the inter-cell interference vector \eqref{eqn-primal-2} for all \acp{BS}. For a fixed interference threshold \me{\mbfa{\zeta}^{\set{b}}}, the precoders are designed using \eqref{eqn-primal-1}. The local subproblem \eqref{eqn-primal-1} solved at each \ac{BS} are coordinated by the master problem, which updates the interference thresholds \me{\mbfa{\zeta}^{\set{b}}, \forall b \in \mc{B}} for the next iteration. The master and the subproblems follows the classical \ac{BCDM} approach to achieve the optimal solution by alternating the variable set while keeping other set constant in an iterative manner. The master problem controlling multiple subproblems is given by
+\begin{IEEEeqnarray}{rCl} \label{eqn-primal-3}
+\underset{\mbfa{\zeta}}{\text{minimize}} & \quad & \sum_{b \in \mc{B}} \alpha^{\star}_b (\mbfa{\zeta}^{\set{b}}) \IEEEyessubnumber \\
+\text{subject to} & \quad & \mbfa{\zeta}^{\set{b}} \in \mathbb{R}_+^{n_b}, \forall b \in \mc{B}, \IEEEyessubnumber
+\end{IEEEeqnarray}
+where \me{\alpha^{\star}_b (\mbfa{\zeta}^{\set{b}})} denotes the optimal solution for \eqref{eqn-primal-1} with the previous value of \me{\mbfa{\zeta}^{(i-1)}}, where \me{\mbfa{\zeta}} is the global interference vector formed by stacking the interference vector associated with each \ac{BS} as \me{\mbfa{\zeta} = \left [ \mbfa{\zeta}^{\set{\mc{B}(0)}}, \mbfa{\zeta}^{\set{\mc{B}(1)}}, \ldots, \mbfa{\zeta}^{\set{\mc{B}(|\mc{B}|)}}\right ]}.
+
+The master problem to find the optimal \me{\mbfa{\zeta}^{\set{b_k}(i)}, \forall b_k \in \mc{B}} is given by the following subgradient method \cite{bertsekas1999nonlinear} as
+\begin{equation} \label{primal-sg-update}
+\zeta^{\set{b_k}(i)}_{l,k,n,b} = \left [\zeta_{l,k,n,b}^{\set{b_k}(i-1)} - \rho \, s_{l,k,n,b}^{\set{b_k}(i-1)} \right ]^+, \forall b \in \mc{B}, \forall k \in \bar{\mc{U}}_b,
+\end{equation}
+where \me{i} is the iteration index, \me{\rho} is the positive step size, and \me{s^{\set{b_k}(i-1)}_{l,k,n,b}} is the subgradient of the problem defined in \eqref{eqn-primal-3} evaluated at \me{\zeta^{(i-1)}_{l,k,n,b}}. To find the subgradient \me{s^{\set{b_k}(i-1)}_{l,k,n,b}}, the dual variables corresponding to the interference constraints are required, which can be obtained by forming the Lagrangian of the primal problem \eqref{eqn-primal-2} as
+\begin{IEEEeqnarray}{rCl} \label{eqn-primal-4}
+\underset{\substack{\gamma_{l,k,n}, \mvec{m}{l,k,n}, \\ \beta_{l,k,n}, \mu^{\set{b_k}}_{l,k,n}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}}_{b_k} \|_q \nonumber + \left ( \beta_{l,k,n} - \sum_{\substack{j = 1\\j \neq l}}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{{b_k},k,n} \mvec{m}{j,k,n} |^2 \right . \nonumber \\
+&& \left . \quad + \sum_{i \in \mc{U}_{b_k} \backslash \{k\}} \sum_{j = 1}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{{b_k},k,n} \mvec{m}{j,i,n} |^2 + \sum_{b \in \bar{\mc{B}}_{b_k}} \zeta^{(i-1)}_{l,k,n,b} \; + \; N_0 \right ) \, \mu^{\set{b_k}}_{l,k,n}  \nonumber \\
+&& + \quad \left ( \zeta^{(i-1)}_{\pr{l},\pr{k},n,{b_k}} - \sum_{k \in \mc{U}_b} \sum_{l = 1}^L |\mvec{w}{\pr{l},\pr{k},n}^\herm \mvec{H}{b_k,\pr{k},n} \mvec{m}{l,k,n} |^2 \right ) \, \mu^{\set{b_k}}_{\pr{l},\pr{k},n} , \; \forall \pr{k} \in \bar{\mc{U}}_{b_k}, \; \forall n \in \mc{C} \IEEEyessubnumber \\
+\text{subject to} &\quad& \eqref{eqn-primal-1c} \; \text{and} \; \eqref{eqn-8} \IEEEyessubnumber.
+\end{IEEEeqnarray}
+Now the primal and the dual variables \me{\mu^{\set{b_k}}_{l,k,n}} and \me{\mu^{\set{b_k}}_{\pr{l},\pr{k},n}} corresponding to the constraints \eqref{eqn-primal-1d} and \eqref{eqn-primal-1e} are obtained by solving \eqref{eqn-primal-4}.
+
+To obtain the next interference iterate at each \ac{BS}, the locally evaluated dual variables are exchanged among the \acp{BS} in the set \me{\mc{B}} in order to obtain the next interference vector in a distributed manner. Once we obtain the dual variables from all the \acp{BS}, the subgradients relevant to the \ac{BS} \me{b_k} are evaluated by taking the difference between the two \acp{BS} associated with each interference value, \textit{i.e}, \me{s^{\set{b_k}(i)}_{l,k,n,b} = \mu^{\set{b_k}}_{l,k,n} - \mu^{\set{b}}_{l,k,n}}. With the newly estimated subgradient value \me{s^{\set{b_k}(i)}_{l,k,n,b}}, the interference terms corresponding to the \ac{BS} \me{b_k} are updated using \eqref{primal-sg-update}.
+
+Once the interference vector converges \me{\mbfa{\zeta}^{\set{i}} \approx \mbfa{\zeta}^{\set{i-1}}} or iterated for certain times, say, \me{J_{\max}}, the \ac{SCA} update is performed by exchanging the transmit and the receive precoders to update the respective variables \me{\tilde{p}_{l,k,n}, \tilde{q}_{l,k,n}} and \me{\tilde{\beta}_{l,k,n}}. The \ac{SCA} update can also be performed until convergence or for certain threshold \me{I_{\max}}. The algorithmic representation of the \ac{PD} approach is detailed in Algorithm. \ref{algo-2}. In this case, we perform \ac{SCA} and the receiver update at the same instant compared with the update of the recieve beamformers after the \ac{SCA} convergence. The approach followed in the algorithm provides the same solution as that of the separate update, since the receive beamformers are optimal for the given transmit precoders.
+\begin{algorithm}
+ \SetAlgoLined
+ \DontPrintSemicolon
+ \BlankLine
+ \SetKwInput{KwInit}{Initialize}
+ \KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}, \fall n \in \mathcal{C}}}
+ \KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l \in \set{1,2,\dotsc,L}}}
+ \KwInit{\me{i=0} and the transmit precoders \me{\tilde{\mbf{m}}_{l,k,n}} randomly satisfying the total power constraint \eqref{eqn-4.3}}
+ update \me{\mvec{w}{l,k,n}} with \eqref{eqn-10} and \me{\tilde{\mbf{u}}_{l,k,n}} with \eqref{eqn-8} using \me{\tilde{\mbf{m}}_{l,k,n}} \;
+ initialize the interference threshold \me{\zeta_{l,k,n,b}^{\set{0}} \forall b \in \mc{B}, \forall k \in \bar{\mc{U}}_{b_k}, \forall l,n} \;
+ for each \ac{BS} \me{b \in \mc{B}}, perform the following procedure \;
+ \Repeat{convergence or \me{i \geq I_{\max}}}{
+    initialize \me{j=0} \;
+    \Repeat{convergence or \me{j \geq J_{\max}}}{
+        solve for the transmit precoders \me{\mvec{m}{l,k,n}} and dual variables \me{\mu^{\set{b}}_{l,k,n}} using \eqref{eqn-primal-4} \;
+        exchange \me{\mu^{\set{b}}_{l,k,n}} across the coordinating \acp{BS} in \me{\mc{B}} \;
+        update \me{\zeta^{\set{b}(j+1)}_{l,k,n,b}} using \eqref{primal-sg-update} locally \;
+        \me{j = j + 1} \;
+    }
+    update the receive beamformers \me{\mvec{w}{l,k,n}} using \eqref{eqn-10} with the recent precoders \me{\mvec{m}{l,k,n}} \;
+    exchange the transmit and the receive precoders \me{\mbf{M}_{k,n}} and \me{\mbf{W}_{k,n}} \me{\forall k \in \mc{U}_b} among the \acp{BS} in \me{\mc{B}} \;
+    update \me{\tilde{p}_{l,k,n}}, \me{\tilde{q}_{l,k,n}} and \me{\tilde{\beta}_{l,k,n}} with the recent precoders using \eqref{eqn-wsrm-expr} and \eqref{eqn-6.3} for the \ac{SCA} approach (or) \;
+    update \me{\tilde{\epsilon}_{l,k,n}} with the recent precoders using \eqref{eqn-mse-2.3} with equality for the \ac{MSE} formulation approach \;
+    $i = i + 1$ \;
+  }
+ \caption{\ac{PD} based decentralized \acs{JSFRA} scheme}
+  \label{algo-2}
+\end{algorithm}

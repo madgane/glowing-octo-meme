@@ -1,0 +1,54 @@
+So far, we have discussed the problem of minimizing the number of backlogged packets at the \acp{BS} using the precoders by formulating it as an optimization problem, which can be handled by the existing solvers CVX \cite{grant2008cvx}. In this section, we provide an iterative precoder design for the \ac{JSFRA} formulation approached via \ac{MSE} reformulation as discussed in \ref{sec-3.3}. Even though the \ac{JSFRA} scheme using \ac{SCA} approach and the \ac{MSE} reformulation approach obtained the solutions by relaxing the nonconvex constraints by the half spaces, the structure of the \ac{MSE} reformulation problem allows us to decouple the problem readily without further approximations.
+
+In order to come up with the iterative solution, we need to find the \ac{KKT} equations for the the \ac{MSE} reformulation problem defined in \eqref{eqn-mse-2}. It can be seen that the objective function \eqref{eqn-mse-2.1} has the norm function, which requires the sum of absolute values of the vector entries raised to the power \me{q}. Since the absolute of a function is not differentiable, the problem is usually solved by the subgradient approach. Since the subgradients are not unique and the selection of a subgradient and a step size are not guaranteed to be optimal, in this approach, we drop the absolute value operation for the queue deviation function so as to obtain a unique supporting vector. It is valid in the following special cases without affecting the optimal solution
+\begin{itemize}
+\item when the exponent \me{q} is odd and \me{q > 1} or,
+\item when the number of backlogged packets for each user is larger than the available resources for the transmission \me{Q_k \gg \sum_{n=1}^N \sum_{l=1}^L {t}_{l,k,n}}.
+\end{itemize}
+The first condition is from the fact that the differential of a function with power \me{q} leaves the power to \me{q-1}, which helps us to drop the absolute value condition when \me{q-1} is even. This condition cannot be applied for \me{q=1} since the rate constraint is eliminated by the differential operation.
+
+By removing the absolute value operator from \eqref{eqn-mse-2}, the problem can be rewritten as
+\begin{IEEEeqnarray}{rCl}\label{kkt-mse-1}
+\underset{\substack{t_{l,k,n},\gamma_{l,k,n}, \mvec{m}{l,k,n}, \\ \beta_{l,k,n}, \alpha_{l,k,n},\delta_{b}, \sigma_{l,k,n}}}{\text{minimize}} &\quad& \sum_{b \in \mc{B}} \sum_{k \in \mc{U}_b} \, a_k \, \left ( Q_k - \sum_{n = 1}^N \sum_{l = 1}^{L} t_{l,k,n} \right )^q \IEEEyessubnumber \label{kkt-mse-1.1} \\
+\text{subject to} & \quad & \nonumber \\
+\alpha_{l,k,n} : & \quad & \epsilon_{l,k,n} = \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{(x,y) \neq (l,k)} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_y,y,n} \mvec{m}{x,y,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 \IEEEyessubnumber \label{kkt-mse-1.2} \\
+\sigma_{l,k,n} : & \quad & - \log(\tilde{\epsilon}_{l,k,n}) - \frac{\left ( {\epsilon}_{l,k,n} - \tilde{\epsilon}_{l,k,n} \right ) }{\tilde{\epsilon}_{l,k,n}} = t_{l,k,n} \, \log(2) \IEEEyessubnumber \label{kkt-mse-1.3} \\
+\delta_b : & \quad& \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \text{tr} \, (\mvec{M}{k,n} \mvec{M}{k,n}^\herm) \leq P_{{\max}}, \fall b, \IEEEyessubnumber \label{kkt-mse-1.4}
+\end{IEEEeqnarray}
+where \me{\alpha_{l,k,n},\sigma_{l,k,n}} and \me{\delta_b} are the dual variables corresponding to the constraints defined in \eqref{kkt-mse-1.2}, \eqref{kkt-mse-1.3} and \eqref{kkt-mse-1.4}. The equality condition is used for \eqref{kkt-mse-1.2} and \eqref{kkt-mse-1.3}, since the variables \me{\epsilon_{l,k,n}} and \me{t_{l,k,n}} are used for the corresponding expressions on the other side.
+
+Now the Lagrangian of the problem expressed in \eqref{kkt-mse-1}, with the corresponding dual variables, is used obtain the \ac{KKT} expressions by partially differentiating with respect to the variables \me{t_{l,k,n}}, \me{\epsilon_{l,k,n}}, \me{m_{l,k,n}}, \me{w_{l,k,n}} and the dual variables \me{\alpha_{l,k,n},\sigma_{l,k,n}} and \me{\delta_b}. Since the problem of precoder design using \ac{MSE} reformulation is solved by the iterative method, we use the iteration index \me{i} in the superscript to represent the variables at the respective iteration instants. The discussions on the \ac{KKT} expressions are provided in the  Appendix \ref{a-1}. Upon solving the \ac{KKT} expressions, we obtain the following iterative solution with the variables update as
+\begin{IEEEeqnarray}{rCl} \label{kkt-mse-4}
+\alpha^{(i)}_{l,k,n} &=& \dfrac{\sigma_{l,k,n}^{(i)}}{\epsilon_{l,k,n}^{(i-1)}} \IEEEyessubnumber \label{kkt-mse-4.1} \\
+\sigma_{l,k,n}^{(i)} &=& \dfrac{q \left [ a_k \, \left (Q_k - \sum_{n = 1}^N \sum_{l=1}^L t_{l,k,n}^{(i-1)} \right )^{(q-1)} \right ]}{\log(2)} \IEEEyessubnumber \label{kkt-mse-4.2} \\
+\mvec{m}{l,k,n}^{(i)} &=& \left ( \sum_{x \in \mc{U}} \sum_{y=1}^L \alpha_{y,x,n}^{(i)} \mvec{H}{b_k,x,n}^\herm \mvec{w}{y,x,n}^{(i-1)} \mvec{w}{y,x,n}^{\herm \, {(i-1)}} \mvec{H}{b_k,x,n} + \delta_b \mbf{I}_{N_T} \right )^{-1} \alpha^{(i)}_{l,k,n} \mvec{H}{b_k,k,n}^\herm \mvec{w}{l,k,n}^{(i-1)} \IEEEyessubnumber \label{kkt-mse-4.3} \\
+\epsilon_{l,k,n}^{(i)} &=& \left | 1 - \mvec{w}{l,k,n}^{\herm \, (i-1)} \mvec{H}{b_k,k,n} \mvec{m}{l,k,n}^{(i)} \right |^2 + \sum_{(x,y) \neq (l,k)} \left | \mvec{w}{l,k,n}^{\mathrm{H} \, (i-1)} \mvec{H}{b_y,y,n} \mvec{m}{x,y,n}^{(i)} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}^{(i-1)}\|^2 \IEEEyessubnumber \label{kkt-mse-4.4} \\
+t_{l,k,n}^{(i)} &=&  -\log_2(\epsilon_{l,k,n}^{(i-1)}) - \frac{\left ( \epsilon_{l,k,n}^{(i)} - \epsilon_{l,k,n}^{(i-1)} \right ) }{\log(2) \, \epsilon_{l,k,n}^{(i-1)}}, \IEEEyessubnumber \label{kkt-mse-4.5} \\
+\mvec{w}{l,k,n}^{(i)} &=& \left ( \sum_{(x,y) \neq (l,k)} \mvec{H}{b_y,k,n} \mvec{m}{x,y,n}^{(i-1)} \mvec{m}{x,y,n}^{\herm \, (i-1)} \mvec{H}{b_{y},k,n}^\herm + \mathbf{I}_{N_R} \right ) ^{-1} \; \mvec{H}{b_k,k,n} \; \mvec{m}{l,k,n}^{(i-1)}. \IEEEyessubnumber \label{kkt-mse-4.6}
+\end{IEEEeqnarray}
+
+The \ac{KKT} solutions provided in \eqref{kkt-mse-4} are solved in an iterative manner by initializing the \ac{MSE} variables \me{\epsilon_{l,k,n}^{(0)}} and the throughput variables \me{t_{l,k,n}^{(0)}} randomly. It can be initiated by solving \eqref{kkt-mse-4.4} and \eqref{kkt-mse-4.5} for a random transmit precoders \me{\mbf{M}_{k,n}} satisfying \eqref{kkt-mse-1.4}. It can be noted that the proposed iterative algorithm converges faster than the \acl{PD} and the \ac{ADMM} based \acl{DD} scheme, since the later schemes are based on the subgradient approach and the former one achieves the \ac{KKT} points at each iteration. In \eqref{kkt-mse-4}, all expressions provide the closed form solution for the respective variables except the transmit precoders in \eqref{kkt-mse-4.3}, which depends on the variable \me{\delta_b}. It can be seen that the variable \me{\delta_b} are associated only to the \ac{BS} \me{b}, which can be efficiently solved by the bisection method satisfying the power constraint \eqref{kkt-mse-1.4}. After each iteration instant, the transmit and the receive precoders are exchanged across the coordinating \acp{BS} in \me{\mc{B}} in order to reach the optimal point in the next iteration.
+
+The receive beamformers from the users can be informed to the coordinating \acp{BS} by using the precoded uplink pilot signaling, where the precoders used for the uplink pilots are the receive beamformers \me{\mvec{W}{k,n}} evaluated at the receivers. Upon receiving the uplink precoded pilots by the \ac{BS}, the effective channel \me{\mvec{W}{k,n}^{\herm \, (i-1)} \mvec{H}{b,k,n}} can be used in the expression \eqref{kkt-mse-4.3} to update the transmit precoders at the respective \acp{BS} \cite{komulainen2013effective}. The algorithmic representation of the \ac{KKT} based scheme is shown in Algorithm. \ref{algo-4}.
+\begin{algorithm}
+ \SetAlgoLined
+ \DontPrintSemicolon
+ \BlankLine
+ \SetKwInput{KwInit}{Initialize}
+ \KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}, \fall n \in \mathcal{C}}}
+ \KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l \in \set{1,2,\dotsc,L}}}
+ \KwInit{\me{i=1} and the transmit precoders \me{\mbf{m}^{(0)}_{l,k,n}} randomly satisfying the total power constraint \eqref{kkt-mse-1.4}}
+ \KwInit{\me{\epsilon_{l,k,n}^{(0)}} randomly, \me{\mvec{w}{l,k,n}^{(0)}} with \eqref{kkt-mse-4.6} and \me{{t}_{l,k,n}^{(0)}} using \eqref{kkt-mse-4.5}}
+ set the maximum iteration counter \me{I_{\max}} to a valid number \;
+ for each \ac{BS} \me{b \in \mc{B}}, perform the following procedure \;
+ \Repeat{convergence or \me{i \geq I_{\max}}}{
+	solve for the dual variables \me{\alpha_{l,k,n}^{(i)}} and \me{\sigma_{l,k,n}^{(i)}} using \eqref{kkt-mse-4.1} and \eqref{kkt-mse-4.2} \;
+	update the transmit precoders \me{\mvec{M}{k,n}^{(i)}} with \me{\delta_b} using \eqref{kkt-mse-4.3} by the bisection method satisfying \eqref{kkt-mse-1.4} \;
+	update the \ac{MSE} variable \me{\epsilon_{l,k,n}^{(i)}} and the throughput variable \me{t_{l,k,n}^{(i)}} using \eqref{kkt-mse-4.4} and \eqref{kkt-mse-4.5} \;
+	evaluate the receive beamforming vector \me{\mvec{W}{k,n}} by \eqref{kkt-mse-4.6} \;
+	exchange the transmit and the receive precoders \me{\mvec{M}{k,n}^{(i)}, \mvec{W}{k,n}^{(i)}} across the coordinating \acp{BS} in \me{\mc{B}} \;
+	$i = i + 1$ \;
+  }
+ \caption{\ac{KKT} approach for the \ac{JSFRA} scheme}
+  \label{algo-4}
+\end{algorithm}

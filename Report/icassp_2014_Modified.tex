@@ -1,0 +1,85 @@
+
+\documentclass[journal]{./../Styles/IEEEtran}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx,acronym}
+\usepackage[ruled]{algorithm2e}
+\usepackage{subeqnarray,multirow,cite,array}
+\usepackage{color}
+
+\acrodef{MSE}{mean squared error}
+\acrodef{BC}{broadcast channel}
+\acrodef{MC}{multi-cell}
+\acrodef{BS}{base station}
+\acrodef{MIMO}{multiple-input multiple-output}
+\acrodef{SISO}{single-input single-output}
+\acrodef{MU}{multi-user}
+\acrodef{MU-MIMO}{\acl{MU} \acl{MIMO}}
+\acrodef{OFDM}{orthogonal frequency division multiplexing}
+\acrodef{WSRM}{weighted sum rate maximization}
+\acrodef{QoS}{quality of service}
+\acrodef{SCA}{successive convex approximation}
+\acrodef{SNR}{signal-to-noise ratio}
+\acrodef{MMSE}{minimum \acl{MSE}}
+\acrodef{SIR}{signal-to-interference ratio}
+\acrodef{SINR}{signal-to-interference-plus-noise ratio}
+\acrodef{Q-WSRM}{queue \acl{WSRM}}
+\acrodef{QM}{queue minimizing}
+\acrodef{SRA}{spatial resource allocation}
+\acrodef{JSFRA}{joint space-frequency resource allocation}
+\acrodef{WMMSE}{weighted \acl{MMSE}}
+\acrodef{KKT}{Karush-Kuhn-Tucker}
+\acrodef{GP}{geometric programming}
+\acrodef{SOC}{second-order cone}
+\acrodef{BCDM}{block coordinate descent method}
+
+
+\newcommand{\mbf}[1]{\mathbf{#1}}
+\newcommand{\me}[1]{\( #1 \)}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\fall}{\; \forall \;}
+\newcommand{\set}[1]{\left \lbrace #1 \right \rbrace }
+\newcommand{\mvec}[2]{\mathbf{#1}_{#2}}
+
+\graphicspath{{./../Figures/}}
+\DeclareGraphicsExtensions{.eps}
+
+\title{Queue Aware Precoder Design for Space Frequency Resource Allocation}
+\author{{Ganesh Venkatraman, Antti T\"{o}lli, Le-Nam Tran and Markku Juntti}
+{Centre for Wireless Communications (CWC), Department of Communications Engineering (DCE), \\
+University of Oulu, Oulu, FI-90014\\
+Email: \{gvenkatr, antti.tolli, le.nam.tran, markku.juntti\}@ee.oulu.fi}
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\end{abstract}
+
+\acresetall
+
+
+
+
+
+
+
+
+
+
+
+\acresetall
+\section{conclusions}\label{sec-5}
+In this paper, we proposed algorithms to minimize the number of queued packets in a coordinated manner by designing the precoders jointly across the space-frequency dimension for a multi-cell \ac{MU-MIMO} system. The proposed \ac{QM} \ac{JSFRA} scheme adopting the \ac{SCA} technique models the nonconvex constraint as a convex constraint in an iterative manner to design the precoders for the \ac{QM} objective. The \ac{JSFRA} scheme provides better convergence and performance over the traditional per sub-channel \ac{Q-WSRM} approach with the proper queue updates. The impact of varying the exponent used in the objective were also studied with the number of packets remained after the scheduling instant. The decentralized version, which provides independent precoder design with the minimal information exchange will be addressed in our future work.
+
+\section*{Acknowledgement}
+This work has been supported by the Finnish Funding Agency for Technology and Innovation (Tekes), Nokia Siemens Networks, Xilinx Ireland, Renesas Mobile Europe, Academy of Finland.
+
+\vfill
+\bibliographystyle{./../Styles/IEEEtran}
+\bibliography{./../Library/kirja_survey}
+
+
+\end{document} 
