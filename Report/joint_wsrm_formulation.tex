@@ -1,18 +1,13 @@
 
-The \ac{WSRM} technique is predominantly used to design the precoders for the \ac{MIMO} \ac{BC} channels to maximize the weighted sum throughput in the downlink direction. The weights are used to provide different priorities to the users based on their requirements and \ac{QoS} criterion. Since the objective of this work is mainly concerned with the reduction of the number of queued packets, we use the length of the queued packets for each user as the respective weights. Using the length of the queued packets as the corresponding weights is obtained from the well known algorithm, called the \textit{backpreassure algorithm}, which is used to decide the routing decisions for each node in the network to efficiently send the packets to the desired destination with minimal packet drops and delay. The backpreassure algorithm is the outcome of minimizing the Lyapunov drift conditioned over the current queue states \me{\mbf{Q}(i - 1)}, where \me{\mbf{Q}} is the vector formed by stacking the number of queued packets of each user in the system. Assuming the queue length grows according to \eqref{eqn-2a} for all the users, the Lyapunov drift is given by \cite{georgiadis2006resource,neely2010stochastic}
-\begin{equation}
-L(i) = \frac{1}{2} \, \| \mbf{Q}(i) \|^2_2 = \frac{1}{2} \, \sum_{k \in \mc{U}} Q_k(i)^2.
+The \ac{WSRM} technique is predominantly used to design the precoders for the \ac{MIMO} \ac{BC} channels to maximize the weighted sum throughput in the downlink direction. The weights are used to provide different priorities to the users based on their requirements and \ac{QoS} criterion. Since the objective of this work is mainly concerned with the reduction of the number of queued packets, we use the length of the queued packets for each user as the respective weights. Using the length of the queued packets as the corresponding weights is obtained from the well known algorithm, called the \textit{backpreassure algorithm}, which is used to decide the routing decisions for each node in the network to efficiently send the packets to the desired destination with minimal packet drops and delay. The backpreassure algorithm is the outcome of minimizing the Lyapunov drift conditioned over the current queue states \me{\mbf{Q}(i - 1)}, where \me{\mbf{Q}} is the vector formed by stacking the number of queued packets of each user in the system. Assuming the queue length grows according to \eqref{eqn-2a} for all the users, the Lyapunov drift conditioned over different channel realizations is given by \cite{georgiadis2006resource,neely2010stochastic}
+\begin{equation} \label{eqn-3.1.0}
+\Delta(i) = \frac{1}{2} \, \sum_{k \in \mc{U}} \, \mathrm{E}_H \Big{[}  \left ( Q_k(i)^2 - Q_k(i-1)^2 \right ) \vert \, \mbf{Q}(i - 1) \Big{]}.
 \end{equation}
-The conditional Lyapunov drift is given by taking expectation over all channel realizations as
+Now, by substituting \eqref{eqn-2a} in \eqref{eqn-3.1.0}, the resulting expression can be upper bounded by
 \begin{equation}
-\Delta(i) = \mathrm{E}_H \left [ L(i) - L(i - 1) | \mbf{Q}(i - 1) \right ],
-\label{eqn-3.1.0}
+\Delta(i)\leq \mathrm{E}_H \Big{[} \mbf{Q}(i-1) \left \lbrace \mbfa{\lambda}(i) - \mbf{t}(i) \right \rbrace | \mbf{Q}(i-1) \Big{]} + \mathrm{E}_H \left [ \mbfa{\lambda}^2(i-1) \right ] + \mathrm{E}_H \left [ \mbf{t}^2(i-1) \right ],
 \end{equation}
-since the transmission depends on the channel condition. Now, by substituting \eqref{eqn-2a} in \eqref{eqn-3.1.0}, the resulting expression can be upper bounded by
-\begin{equation}
-\Delta(i)\leq \sum_{k \in \mc{U}} \, \mathrm{E}_H \left [ \mbf{Q}(i-1) \left ( \mbf{\lambda}(i) - \mbf{t}(i) \right ) | \mbf{Q}(i-1) \right ] + \mathrm{E}_H \left [ \mbf{\lambda}^2(i-1) \right ] + \mathrm{E} \left [ \mbf{t}^2(i-1) \right ],
-\end{equation}
-where \me{\mbf{\lambda}} and \me{\mbf{t}} are the stacked arrivals and transmissions of all users. Since the expectation is conditioned over \me{\mbf{Q}(i-1)} and the second order statistics of the arrivals and the transmissions are bounded \cite{neely2010stochastic}, the drift minimization solution is given as
+where \me{\mbfa{\lambda}} and \me{\mbf{t}} are the stacked arrivals and transmissions of all users. Since the expectation is conditioned over \me{\mbf{Q}(i-1)} and the second order statistics of the arrivals and the transmissions are bounded \cite{neely2010stochastic}, the drift minimization solution is given as
 \begin{equation}
 \underset{\mbf{t}(i)}{\text{minimize}} \sum_{k \in \mc{U}} \, Q_k(i-1) \: t_k(i).
 \label{backpreassure}

@@ -25,17 +25,16 @@ Table \ref{tbl-1} shows the channel seen by the users over each sub-channel foll
 \end{table*}
 
 In order to understand the behavior in a \ac{MIMO} framework, we consider a system with \me{N=3} sub-channels and \me{N_B = 2} \acp{BS}, each equipped with \me{N_T = 4} transmit antennas operating at \me{10}dB \ac{SNR}, serving \me{K = 8} users with \me{N_R} antennas each. The users are assumed to be at the cell-edge with the maximum interference seen from the neighboring \acp{BS} is limited to \me{-3} dB and each \ac{BS} are associated with \me{|\mc{U}_b|} users respectively.
-
 \begin{figure*}
 \centering
 \begin{subfigure}{0.49\textwidth}
-\includegraphics[width=1.0\textwidth]{NewFigures/centralized-1a}
+\includegraphics[width=1.0\textwidth]{fig-1}
 \caption{\me{4 \times 1} system}
 \label{fig-1}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.49\textwidth}
-\includegraphics[width=1.0\textwidth]{NewFigures/centralized-2a}
+\includegraphics[width=1.0\textwidth]{fig-2}
 \caption{\me{4 \times 2} system}
 \label{fig-2}
 \end{subfigure}
@@ -50,9 +49,9 @@ Fig. \ref{fig-1} shows the performance of the above discussed schemes for a sing
 \hline
 \me{q} & \multicolumn{8}{c|}{user indices} & \me{\chi} \\
 \hline
-\me{1} & 12.0 &  6.15 &  5.32 & 12.0 &  6.95 & 11.1 & 11.9 & 10.8 & 19.71 \\
-\me{2} & 11.9 & 7.3 & 5.9 & 10.1 & 9.19 & 10.1 & 10.8 & 10.3 & 20.48 \\
-\me{\infty} & 9.15 & 9.15 & 9.15 & 9.15 & 9.16 & 9.15 & 9.15 & 9.15 & 22.75 \\
+\me{1} & 12.0 &  4.22 &  5.51 & 9.21 &  8.04 & 12.0 & 12.0 & 9.84 & 23.18 \\
+\me{2} & 9.65 & 7.67 & 8.57 & 8.79 & 8.63 & 9.13 & 9.54 & 9.08 & 24.94 \\
+\me{\infty} & 8.71 & 8.71 & 8.71 & 8.71 & 8.71 & 8.71 & 8.71 & 8.71 & 26.34 \\
 \hline
 \end{tabular}
 \caption{Queue information for \me{N=5} sub-channels}
