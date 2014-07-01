@@ -1,11 +1,11 @@
-In this section, we provide an alternative formulation for the \ac{QM} \ac{JSFRA} scheme using the \ac{MSE} equivalence with the capacity as in \cite{wmmse_shi,kaleva2012weighted} for the \ac{WSRM} problem. The proposed formulation uses the well known relation between the capacity and the \ac{MSE} given by \me{C(\gamma) = \log_2 \left ( {1}/{\epsilon} \right )}, where \me{\epsilon = {1} / {(1 + \gamma)}} is the \ac{MSE} expression for decoding the transmitted symbols using \ac{MMSE} receivers and \me{C} being the capacity of the system. Using the \ac{MSE} relation, \eqref{eqn-6} is written as
+In this section, we provide an alternative formulation for the \ac{QM} \ac{JSFRA} scheme using the \ac{MSE} equivalence with the capacity as in \cite{wmmse_shi,kaleva2012weighted} for the \ac{WSRM} problem. The proposed formulation uses the well known relation between the capacity and the \ac{MSE} given by \me{C(\gamma) = \log_2 \left ( {1}/{\epsilon} \right )}, where \me{\epsilon = {1} / {(1 + \gamma)}} is the \ac{MSE} expression for decoding the transmitted symbols using \ac{MMSE} receivers and \me{C} being the capacity of the system. Let \me{{v}^{\prime}_k = Q_k - \sum_{n=1}^N \sum_{l=1}^L t_{l,k,n}} denotes the queue deviation corresponding to the user \me{k} and \me{\tilde{{v}}^{\prime}_k \triangleq a_k^{1/{q}}v^{\prime}_k} represents the weighted equivalent. Now, using the \ac{MSE} relation, \eqref{eqn-6} is written as
 \begin{IEEEeqnarray}{rCl}\label{eqn-mse-1}
-\text{minimize} &\quad& \|  \tilde{\mbf{v}}  \|_q \IEEEyessubnumber \label{eqn-mse-1.1} \\
+\underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\\\epsilon_{l,k,n},\mvec{w}{l,k,n}}}{\text{minimize}} &\quad& \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-1.1} \\
 \text{subject to} & \quad & t_{l,k,n} \leq -\log_2(\epsilon_{l,k,n}), \IEEEyessubnumber \label{eqn-mse-1.2} \\
 & \quad & \epsilon_{l,k,n} \geq  \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{(j,i) \neq (l,k)} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,i,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 \IEEEyessubnumber \label{eqn-mse-1.3} \\
 &\quad& \text{and} \; \eqref{eqn-4.3},  \IEEEyessubnumber \label{eqn-mse-1.4}
 \end{IEEEeqnarray}
-where \eqref{eqn-mse-1.3} bounds the \ac{MSE} by \me{\epsilon_{l,k,n}} and \eqref{eqn-mse-1.2} relaxes the transmitted rate \me{\mvec{t}{l,k,n}} using the the \ac{MSE} relation.
+where \eqref{eqn-mse-1.3} bounds the \ac{MSE} by \me{\epsilon_{l,k,n}} and \eqref{eqn-mse-1.2} relaxes the transmitted rate \me{{t}_{l,k,n}} using the the \ac{MSE} relation.
 
 The \ac{QM} \ac{JSFRA} problem using alternative \ac{MSE} formulation given by \eqref{eqn-mse-1} is non-convex due to the set defined by the constraint \eqref{eqn-mse-1.2}. In order to solve this efficiently, we use the \ac{SCA} method as discussed earlier in Section \ref{sec-3.2} by using the linear under estimator for the convex function on the r.h.s of \eqref{eqn-mse-1.2}. The first order Taylor approximation around a fixed \ac{MSE} value \me{\tilde{\epsilon}_{l,k,n}} for \eqref{eqn-mse-1.2} is given by
 \begin{IEEEeqnarray}{rCl}
@@ -15,8 +15,10 @@ The \ac{QM} \ac{JSFRA} problem using alternative \ac{MSE} formulation given by \
 
 Now, using the above approximation for the rate constraint, the optimization problem is solved for the optimal precoders \me{\mvec{m}{l,k,n}}, \acp{MSE} \me{\epsilon_{l,k,n}} and the users rates over each sub-channel \me{t_{l,n,k}}. Once the optimal values are available, the local \ac{MSE} value \me{\tilde{\epsilon}_{l,k,n}} is now updated with the new value \me{\epsilon_{l,k,n}}. The optimization problem can be given as
 \begin{IEEEeqnarray}{rCl}\label{eqn-mse-2}
-\text{minimize} &\quad& \|  \tilde{\mbf{v}}  \|_q \IEEEyessubnumber \label{eqn-mse-2.1} \\
+\underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\\\epsilon_{l,k,n},\mvec{w}{l,k,n}}}{\text{minimize}} &\quad& \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-2.1} \\
 \text{subject to} & \quad & \eqref{eqn-4.3}, \: \eqref{mse-lin}  \IEEEyessubnumber \label{eqn-mse-2.2} \\
 & \quad & \epsilon_{l,k,n} \geq  \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{(j,i) \neq (l,k)} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,i,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 \IEEEyessubnumber \label{eqn-mse-2.3}.
 \end{IEEEeqnarray}
-The algorithmic representation is similar to Algorithm \ref{algo-1}, with \eqref{eqn-9} is replaced by \eqref{eqn-mse-2}. The convergence of the \ac{MSE} reformulation algorithm follows the similar comments drawn in \cite{christensen2008weighted,wmmse_shi}. Since at each \ac{KKT} point, the gradient of the original problem and the \ac{MSE} reformulation problem are made equal by the weights in the \ac{MSE} reformulation, the problem is guaranteed to converge to the optimal solution by following the same stationary \ac{KKT} points.
+
+\subsubsection*{Convergence}
+The convergence of the \ac{MSE} reformulation algorithm follows the similar comments drawn in \cite{christensen2008weighted,wmmse_shi}. Since at each \ac{KKT} point, the gradient of the original problem and the \ac{MSE} reformulation problem are made equal by the weights used in the \ac{MSE} reformulation, the problem is guaranteed to converge to the optimal solution by following the same stationary \ac{KKT} points.
