@@ -25,13 +25,13 @@ and hence \me{f(\tilde{\mbf{u}}_{l,k,n})=(p_{l,k,n}^2 + q_{l,k,n}^2)/\beta_{l,k,
 \end{equation}
 In summary, for the fixed linear receivers, the \ac{JSFRA} problem to find transmit beamformers is shown by
 \begin{IEEEeqnarray}{rCl}\label{eqn-9}
-\underset{\substack{\gamma_{l,k,n} \\ \mvec{m}{l,k,n}, \beta_{l,k,n}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}} \|_q \IEEEyessubnumber\label{eqn-9.1a} \\
+\underset{\substack{\gamma_{l,k,n},p_{l,k,n},q_{l,k,n} \\ \mvec{m}{l,k,n}, \beta_{l,k,n}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}} \|_q \IEEEyessubnumber\label{eqn-9.1a} \\
 \text{subject to} & \quad & \beta_{l,k,n} \geq  N_0 + \hspace{-0.75em} \sum_{(j,i) \neq (l,k)} \hspace{-0.75em} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2, \IEEEyessubnumber \label{eqn-9.1c} \\
 & \quad&\sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \text{tr} \, (\mvec{M}{k,n} \mvec{M}{k,n}^\herm) \leq P_{{\max}}, \fall b, \IEEEyessubnumber \label{eqn-9.1d} \\
 & \quad & \text{and } \eqref{eqn-8} \IEEEyessubnumber \label{eqn-9.1e}.
 \end{IEEEeqnarray}
 
-The proposed algorithm is referred as \ac{QM} \ac{JSFRA} scheme with a sum power constraint which is outlined in Algorithm \ref{algo-1}. The iterative procedure repeats until the improvement on the objective is less than a predetermined tolerance parameter or the maximum number of iterations is reached. Instead of initializing \me{\tilde{\mbf{u}}_{l,k,n}} arbitrarily to a feasible point, transmit precoders can also be initialized with any feasible point \me{\tilde{\mbf{m}}_{l,k,n}}, which is then used to find \me{\tilde{\mbf{u}}_{l,k,n}} in an efficient manner as briefed in Algorithm \ref{algo-1}. In Algorithm \ref{algo-1}, the \ac{SCA} iterations are carried until convergence or for maximum of \me{I_{\max}} iterations for the optimal \me{\mbf{w}_{l,k,n}} receive beamformers and the outer iterations are for the convergence of the number of queued bits, which is limited by the maximum of \me{J_{\max}} iterations.
+The proposed algorithm is referred as \ac{QM} \ac{JSFRA} scheme with a per \ac{BS} power constraint which is outlined in Algorithm \ref{algo-1}. The iterative procedure repeats until the improvement on the objective is less than a predetermined tolerance parameter or the maximum number of iterations is reached. Instead of initializing \me{\tilde{\mbf{u}}_{l,k,n}} arbitrarily to a feasible point, transmit precoders can also be initialized with any feasible point \me{\tilde{\mbf{m}}_{l,k,n}}, which is then used to find \me{\tilde{\mbf{u}}_{l,k,n}} in an efficient manner as briefed in Algorithm \ref{algo-1}. In Algorithm \ref{algo-1}, the \ac{SCA} iterations are carried until convergence or for maximum of \me{I_{\max}} iterations for the optimal \me{\mbf{w}_{l,k,n}} receive beamformers and the outer iterations are for the convergence of the number of queued bits, which is limited by the maximum of \me{J_{\max}} iterations.
 \begin{algorithm}
  \SetAlgoLined
  \DontPrintSemicolon

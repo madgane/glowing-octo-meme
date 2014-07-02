@@ -17,14 +17,14 @@ The first term in \eqref{drift-exp} can be neglected from the optimization, sinc
 \end{equation}
 In \eqref{backpreassure}, the expectation operator is dropped since it is maximized by maximizing the function inside it. Now from \eqref{backpreassure}, the optimization variables \me{\mbf{t}(i)}, which is the vectorized transmission rates, are to be identified for each user for the current slot \me{i}. Since the current system can exploit both space and frequency resources through \ac{MIMO} \ac{OFDM} model, the transmission rates \me{\mbf{t}(i)} for the current instant can be controlled using the transmit precoders \me{\mbf{M}_{k,n}} designed for each user over each sub-channel resource. Since the decision variables \me{\mbf{t}(i)} depends on the queue state at \me{\mbf{Q}(i - 1)}, we drop the time variable \me{i} for the easy representation. The above problem defined in \eqref{backpreassure} can be rewritten to include the space-frequency allocation variable, namely \me{\mbf{M}_{k,n}}, as
 \begin{IEEEeqnarray}{rCl} \label{q_gen_sum}
-\underset{\substack{\mvec{M}{k,n},\gamma_{l,k,n} \\ t_{l,k,n}}}{\text{maximize}} &\quad& \sum_{k \in \mc{U}} \, Q_k \left ( \sum_{n = 1}^N \sum_{l=1}^L t_{l,k,n} \right ) \IEEEyessubnumber \label{eqn-3.1.1} \\
+\underset{\substack{\mvec{M}{k,n},\gamma_{l,k,n} \\ t_{l,k,n},\mvec{W}{k,n}}}{\text{maximize}} &\quad& \sum_{k \in \mc{U}} \, Q_k \left ( \sum_{n = 1}^N \sum_{l=1}^L t_{l,k,n} \right ) \IEEEyessubnumber \label{eqn-3.1.1} \\
 \text{subject to.} & \quad & t_{l,k,n} \leq \log_2(1+\gamma_{l,k,n}) \IEEEyessubnumber \label{eqn-3.1.2} \\
 & \quad &\sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \text{tr} \, (\mvec{M}{k,n} \mvec{M}{k,n}^\herm) \leq P_{{\max}}, \fall b, \IEEEyessubnumber \label{eqn-3.1.3} \\
 & \quad & \sum_{n=1}^N \sum_{l = 1}^L t_{l,k,n} \leq Q_k, \fall k \in \mc{U} \IEEEyessubnumber \label{eqn-3.1.4}
 \end{IEEEeqnarray}
 where \eqref{eqn-3.1.4} is due to the \me{[x]^+} operation in \eqref{eqn-2a} and \me{\gamma_{l,k,n}} is defined in \eqref{eq:SINR}. By using the number of queued packets as the weights, the resources can be allocated to the user with the more number of backlogged packets, which essentially does the allocation in a greedy manner. As a special case of the problem defined in \eqref{q_gen_sum}, we can formulate the sum rate maximization problem by setting the weights in \eqref{eqn-3.1.1} as unity, leading to the problem as
 \begin{IEEEeqnarray}{rCl}\label{gen_sum}
-\underset{\substack{\mvec{M}{k,n},\gamma_{l,k,n} \\ t_{l,k,n}}}{\text{maximize}} &\quad& \sum_{k \in \mc{U}} \, \sum_{n = 1}^N \sum_{l=1}^L t_{l,k,n} \IEEEyessubnumber \\
+\underset{\substack{\mvec{M}{k,n},\gamma_{l,k,n} \\ t_{l,k,n},\mvec{W}{k,n}}}{\text{maximize}} &\quad& \sum_{k \in \mc{U}} \, \sum_{n = 1}^N \sum_{l=1}^L t_{l,k,n} \IEEEyessubnumber \\
 \text{subject to.} & \quad & \eqref{eqn-3.1.1}, \eqref{eqn-3.1.2}, \eqref{eqn-3.1.3} \; \text{and} \; \eqref{eqn-3.1.4}. \IEEEyessubnumber
 \end{IEEEeqnarray}
 
