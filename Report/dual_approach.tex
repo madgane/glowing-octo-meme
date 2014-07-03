@@ -1,7 +1,7 @@
 
 In contrast to the \acl{PD} problem, the \acf{DD} performs the distributed precoder design by relaxing the interference constraints by including it in the objective function of each subproblem with a penalty pricing \cite{tolli2011decentralized,palomar2006tutorial}. In order to decouple the problem \eqref{eqn-decent-1}, the global coupling variables \me{\zeta_{l,k,n,b}} in \eqref{eqn-decent-3} are replaced by the local copies at each \ac{BS} \me{b} denoted by \me{\zeta^{\set{b}}_{l,k,n,b}, \fall b\in \mc{B}}, which is then used in the problem as an optimization variable.
 
-Let  \me{\mbfa{\zeta}^{\set{b_k}}} be the locally maintained vector formed by stacking the interference entries relevant to the \ac{BS} \me{b_k}. Let \me{\mbfa{\zeta}} be the complete interference entries of all \acp{BS} in the set \me{\mc{B}} stacked as a vector as
+Let  \me{\mbfa{\zeta}^{\set{b_k}}} be the locally maintained vector formed by stacking the interference entries relevant to the \ac{BS} \me{b_k}. Let \me{\mbfa{\zeta}} be the global interference entries of all \acp{BS} in the set \me{\mc{B}} stacked as a vector as
 \begin{IEEEeqnarray}{rCl}
 \mbfa{\zeta} &=& \left [ \zeta_{1,\bar{\mc{U}}_{1}(1),1,1}, \dotsc, \zeta_{L,\bar{\mc{U}}_{1}(1),1,1}, \dotsc, \zeta_{L,\bar{\mc{U}}_{1}(|\bar{\mc{U}}_{1}|),1,1},  \right. \nonumber \\
 &\quad& \left . \dotsc, \zeta_{L,\bar{\mc{U}}_{N_B}(|\bar{\mc{U}}_{N_B}|),1,N_B}, \dotsc, \zeta_{L,\bar{\mc{U}}_{N_B}(|\bar{\mc{U}}_{N_B}|),N,N_B} \right ] \IEEEyessubnumber \\
@@ -15,28 +15,27 @@ where \me{\mbfa{\zeta}(b_k)} denote the entries corresponding to the \ac{BS} \me
 && \zeta^{\set{b_k}}_{\pr{l},\pr{k},n,{b_k}} \geq \sum_{k \in \mc{U}_b} \sum_{l = 1}^L |\mvec{w}{\pr{l},\pr{k},n}^\herm \mvec{H}{b_k,\pr{k},n} \mvec{m}{l,k,n} |^2, \; \forall \pr{k} \in \bar{\mc{U}}_{b_k}, \; \forall n \in \mc{C} \IEEEyessubnumber \label{eqn-dual-1e} \\
 &\quad& \mbfa{\nu}^{\set{b_k}} \in \mathbb{R}^{n_{b_k}}_+, \; \eqref{eqn-8} \; \text{and} \; \eqref{eqn-primal-1c}. \IEEEyessubnumber \label{eqn-dual-1f}
 \end{IEEEeqnarray}
-It can be seen from the objective \eqref{eqn-dual-2a} that the global interference \me{\mbfa{\zeta}(b_k)} can be dropped from the objective \eqref{eqn-dual-2a} without affecting the optimal solution, since it is constant for the subproblems.
+It can be seen from the objective \eqref{eqn-dual-2a} that the global interference \me{\mbfa{\zeta}(b_k)} can be dropped from the objective \eqref{eqn-dual-2a} without affecting the optimal solution, since it is constant for the subproblems. The problem defined in \eqref{eqn-dual-2} can be decoupled to solve for the precoders at each \ac{BS} by using interference vector \me{\mbfa{\zeta}^{\set{b_k}}} as an optimization variable for the fixed interference price (dual variable) \me{\mbfa{\nu}^{\set{b_k}}}. In the current work, we consider the robust counterpart of the \acl{DD} scheme, namely \ac{ADMM} approach, which doesn't require any assumptions on the convexity of the functions for convergence \cite{boyd2011distributed}.
 
-Now, the problem defined in \eqref{eqn-dual-2} can be decoupled to solve for the precoders at each \ac{BS} by using interference vector \me{\mbfa{\zeta}^{\set{b_k}}} as a optimization variable for the fixed interference price (dual variable) \me{\mbfa{\nu}^{\set{b_k}}}. The convergence of the problem with the objective function \eqref{eqn-dual-2} is slower due to the linear penalty term for the interference assumptions at each \ac{BS}, thereby providing more emphasis only when the interference deviation is significantly large.
-
-In order to bound the interference assumptions \me{\zeta^{\set{b_k}}_{l,k,n,b}} and \me{\zeta^{\set{b}}_{l,k,n,b}} between the \acp{BS} \me{b_k} and \me{b}, adding a scaled quadratic penalty of the interference deviation provides better convergence properties without affecting the optimal solution \cite{bertsekas1999nonlinear,boyd2011distributed}. At the optimal point, the actual and the assumed (local) interference values are equal, thereby providing no contribution to the objective. This way of adding a scaled quadratic penalty term in the objective function is known as \ac{ADMM} method for solving the \acl{DD} problem. In addition to the faster convergence, it also identifies the optimal step size for the dual variable update. It can be shown that the optimal step size is equal to the scaling factor \me{\rho} used for the penalty term in the objective function \cite{bertsekas1999nonlinear,boyd2011distributed}. Now, the subproblem at each \ac{BS}, obtained via \ac{ADMM} decomposition, is given by
+In order to bound the interference assumptions \me{\zeta^{\set{b_k}}_{l,k,n,b}} and \me{\zeta^{\set{b}}_{l,k,n,b}} between the \acp{BS} \me{b_k} and \me{b}, the \ac{ADMM} method augments a scaled quadratic penalty of the interference deviation to the objective function \cite{bertsekas1999nonlinear,boyd2011distributed}. At the optimal point, the actual and the assumed (local) interference values will be equal and provides no contribution to the objective function. It can be shown that the optimal step size is equal to the scaling factor \me{\rho} used for the penalty term in the objective function \cite{bertsekas1999nonlinear,boyd2011distributed}. Now, the subproblem at each \ac{BS} for the \me{\ith{i}} iteration is give by
 \begin{IEEEeqnarray}{rCl} \label{eqn-dual-3}
-\underset{\substack{\gamma_{l,k,n}, \mvec{m}{l,k,n}, \\ \beta_{l,k,n}, \zeta^{\set{b_k}(i)}_{l,k,n,b}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}}_{b_k} \|_q + \mbfa{\nu}^{{\set{b_k}(i)}T} \mbfa{\zeta}^{\set{b_k}(i)} + \frac{\rho}{2} \left \| \, \mbfa{\zeta}^{(i)}(b_k) - \mbfa{\zeta}^{\set{b_k}(i)} \, \right \|^2_2 \IEEEyessubnumber \label{eqn-dual-3a} \\
+\underset{\substack{\gamma_{l,k,n}, \mvec{m}{l,k,n}, \\ \beta_{l,k,n}, \zeta^{\set{b_k}(i)}_{l,k,n,b}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}}_{b_k} \|_q + \mbfa{\nu}^{{\set{b_k}(i)}T} \mbfa{\zeta}^{\set{b_k}(i)} + \frac{\rho}{2} \Big \| \, \underbrace{\mbfa{\zeta}^{(i)}(b_k)}_{\text{global iterate}} - \underbrace{\mbfa{\zeta}^{\set{b_k}(i)}}_{\text{local iterate}} \, \Big \|^2_2 \IEEEyessubnumber \label{eqn-dual-3a} \\
 \text{subject to} & \quad & \eqref{eqn-dual-1d} - \eqref{eqn-dual-1f} \IEEEyessubnumber \label{eqn-dual-3b},
 \end{IEEEeqnarray}
-where \me{(i)} represents the current iteration counter or information exchange counter and \me{\mbfa{\zeta}^{(i)}} denotes the updated interference level obtained from the \me{\ith{(i-1)}} information exchange of the local interference vector \me{\mbfa{\zeta}^{\set{b}(i-1)}, \forall b \in \mc{B}}.
+where \me{(i)} represents the current iteration or the information exchange index and \me{\mbfa{\zeta}^{(i)}} denotes the updated global interference level from the \me{\ith{(i-1)}} information exchange of the local interference vector \me{\mbfa{\zeta}^{\set{b}(i-1)}, \forall b \in \mc{B}}.
 
-Once the subproblems are solved at each \ac{BS}, the update for the global interference vector and the dual variables can be performed at the \acp{BS} locally by exchanging the local copies of the interference vector \me{\mbfa{\zeta}^{\set{b}}, \forall b \in \mc{B}}. Since the entries in \me{\mbfa{\zeta}^{(i)}} relates exactly two \acp{BS} only, each entry in the \me{\mbfa{\zeta}^{(i)}} can be updated using a function operating on the local copies from the corresponding \acp{BS}. For instance, the entry \me{\zeta^{(i)}_{l,\mc{U}_{b_k}(1),n,b}} depends on the local interference value \me{\zeta^{\set{b_k}(i-1)}_{l,\mc{U}_{b_k}(1),n,b}} assumed by the \ac{BS} \me{b_k} and the actual interference caused by the \ac{BS} \me{b} as in \me{\zeta^{\set{b}(i-1)}_{l,\mc{U}_{b_k}(1),n,b}}. It can be updated by either using
-\begin{subeqnarray}
-\zeta_{l,\mc{U}_{b_k}(1),n,b}^{(i)} &=& \zeta^{\set{b}(i-1)}_{l,\mc{U}_{b_k}(1),n,b} \, \text{(or)}\slabel{zeta_update-1} \\
-\zeta_{l,\mc{U}_{b_k}(1),n,b}^{(i)} &=& \frac{1}{2} \, \left ( \, \zeta^{\set{b}(i-1)}_{l,\mc{U}_{b_k}(1),n,b} + \zeta^{\set{b_k}(i-1)}_{l,\mc{U}_{b_k}(1),n,b} \, \right ), \slabel{zeta_update-2}
-\end{subeqnarray}
-as discussed briefly in \cite{tolli2011decentralized}. The dual variable entries in the vector \me{\mbfa{\nu}^{\set{b_k}}}, which is the stacked dual variables corresponding to the interference equality constraint at the \ac{BS} \me{b_k}, are updated using the subgradient as
+Once the local problems are solved at each \ac{BS}, the update for the global interference vector \me{\mbfa{\zeta}^{(i)}} and the dual variables \me{\mbfa{\nu}^{\set{b}(i)}} can be performed at each \ac{BS} independently by exchanging the corresponding local copies of the interference vector \me{\mbfa{\zeta}^{\set{b}}, \forall b \in \mc{B}}. Since the entries in \me{\mbfa{\zeta}^{(i)}} relates exactly two \acp{BS} only, each entry in the \me{\mbfa{\zeta}^{(i)}} can be updated by exchanging the local copies from the corresponding two \acp{BS} only. For instance, the entry \me{\zeta^{(i)}_{l,\mc{U}_{b_k}(1),n,b}} depends on the local interference value \me{\zeta^{\set{b_k}(i-1)}_{l,\mc{U}_{b_k}(1),n,b}} assumed by the \ac{BS} \me{b_k} and the actual interference caused by the \ac{BS} \me{b} as in \me{\zeta^{\set{b}(i-1)}_{l,\mc{U}_{b_k}(1),n,b}} as
+\begin{equation}
+\zeta_{l,\mc{U}_{b_k}(1),n,b}^{(i)} = \frac{1}{2} \, \left ( \, \zeta^{\set{b}(i-1)}_{l,\mc{U}_{b_k}(1),n,b} + \zeta^{\set{b_k}(i-1)}_{l,\mc{U}_{b_k}(1),n,b} \, \right ).
+\label{zeta_update}
+\end{equation}
+The dual variable entries in the vector \me{\mbfa{\nu}^{\set{b_k}}}, which is the stacked dual variables corresponding to the interference equality constraint at the \ac{BS} \me{b_k}, are updated using the subgradient as
 \begin{equation}\label{dual-sg-update}
 \nu^{\set{b_k}(i)}_{l,k,n,b} = \nu^{\set{b_k}(i-1)}_{l,k,n,b} + \rho \, \left (\zeta^{\set{b_k}(i-1)}_{l,k,n,b} - \zeta^{\set{b}(i-1)}_{l,k,n,b} \right ), \forall b,b_k \in \mc{B}, \forall k \in \bar{\mc{U}}_{b}.
 \end{equation}
 
-The \ac{ADMM} approach uses the quadratic penalty term in the objective for better convergence properties compared to the plain \ac{DD} scheme. The addition of the quadratic term in the objective translates the objective function into a strict convex function. The subproblem defined by \eqref{eqn-dual-3} is convex and the objective has the convex function, therefore the convergence is guaranteed as discussed in \cite{scutari,boyd2011distributed}. The algorithmic representation of the \ac{ADMM} based approach for decentralization is given in Algorithm \ref{algo-3}.
+\subsubsection*{Convergence}
+The convergence of the \ac{ADMM} method follows the same argument as the centralized algorithm if each distributed algorithm is allowed to converge to the optimal value for a fixed \ac{SCA} point. Since subproblem solved at each \ac{BS} is convex, the \ac{ADMM} method converges to the optimal value \cite{boyd2011distributed} for a given \ac{SCA} point. The receive beamformers are updated at each \ac{SCA} update provides monotonic increase in the objective function, since the \ac{MMSE} receive beamformers are optimal for the fixed transmit precoders obtained by solving the subproblems until convergence. The algorithmic representation of the \ac{ADMM} based approach for decentralization is given in Algorithm \ref{algo-3}.
 \begin{algorithm}
  \SetAlgoLined
  \DontPrintSemicolon
@@ -46,7 +45,7 @@ The \ac{ADMM} approach uses the quadratic penalty term in the objective for bett
  \KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l \in \set{1,2,\dotsc,L}}}
  \KwInit{\me{i=0} and the transmit precoders \me{\tilde{\mbf{m}}_{l,k,n}} randomly satisfying the total power constraint \eqref{eqn-4.3}}
  update \me{\mvec{w}{l,k,n}} with \eqref{eqn-10} and \me{\tilde{\mbf{u}}_{l,k,n}} with \eqref{eqn-8} using \me{\tilde{\mbf{m}}_{l,k,n}} \;
- initialize the interference vectors \me{\mbfa{\zeta}^{(0)} = \mbfa{0}^{\mathrm{T}}} \;
+ initialize the global interference vectors \me{\mbfa{\zeta}^{(0)} = \mbfa{0}^{\mathrm{T}}} \;
  initialize the interference threshold \me{\mbfa{\nu}^{\set{b}(0)} \forall b \in \mc{B} = 0} \;
  for each \ac{BS} \me{b \in \mc{B}}, perform the following procedure \;
  \Repeat{convergence or \me{i \geq I_{\max}}}{
@@ -55,16 +54,16 @@ The \ac{ADMM} approach uses the quadratic penalty term in the objective for bett
         solve for the transmit precoders \me{\mvec{M}{k,n}} and the local interference \me{\mbfa{\zeta}^{\set{b}}} using \eqref{eqn-dual-3} \;
         exchange \me{\mbfa{\zeta}^{\set{b}(j)}} across the coordinating \acp{BS} in \me{\mc{B}} \;
 		update the dual variables in \me{\mbfa{\nu}^{\set{b}(j+1)}} using \eqref{dual-sg-update} \;
-        update the interference vector \me{\mbfa{\zeta}^{\set{b}(j+1)}} using \eqref{zeta_update-1} or \eqref{zeta_update-2} \;
+        update the global interference vector \me{\mbfa{\zeta}^{(j+1)}} using \eqref{zeta_update} \;
 		\me{j = j + 1} \;
     }
     update the receive beamformers \me{\mvec{w}{l,k,n}} using \eqref{eqn-10} with the recent precoders \me{\mvec{m}{l,k,n}} \;
-    exchange the transmit and the receive precoders \me{\mbf{M}_{k,n}} and \me{\mbf{W}_{k,n}} \me{\forall k \in \mc{U}_b} among the \acp{BS} in \me{\mc{B}} \;
+    exchange the receive precoders \me{\mbf{W}_{k,n}} \me{\forall k \in \mc{U}_b} among the \acp{BS} in \me{\mc{B}} \;
     update \me{\tilde{p}_{l,k,n}}, \me{\tilde{q}_{l,k,n}} and \me{\tilde{\beta}_{l,k,n}} with the recent precoders using \eqref{eqn-wsrm-expr} and \eqref{eqn-6.3} for the \ac{SCA} approach (or)\;
     update \me{\tilde{\epsilon}_{l,k,n}} with the recent precoders using \eqref{eqn-mse-2.3} with equality for the \ac{MSE} formulation approach \;
     $i = i + 1$ \;
   }
- \caption{\ac{ADMM} based decentralized \acs{JSFRA} scheme}
+ \caption{Decentralization via \ac{ADMM} for \acs{JSFRA} scheme}
   \label{algo-3}
 \end{algorithm}
 

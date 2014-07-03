@@ -55,11 +55,11 @@ To obtain the next interference iterate at each \ac{BS}, the locally evaluated d
         \me{j = j + 1} \;
     }
     update the receive beamformers \me{\mvec{w}{l,k,n}} using \eqref{eqn-10} with the recent precoders \me{\mvec{m}{l,k,n}} \;
-    exchange the transmit and the receive precoders \me{\mbf{M}_{k,n}} and \me{\mbf{W}_{k,n}} \me{\forall k \in \mc{U}_b} among the \acp{BS} in \me{\mc{B}} \;
+    exchange the receive precoders \me{\mbf{W}_{k,n}} \me{\forall k \in \mc{U}_b} among the \acp{BS} in \me{\mc{B}} \;
     update \me{\tilde{p}_{l,k,n}}, \me{\tilde{q}_{l,k,n}} and \me{\tilde{\beta}_{l,k,n}} with the recent precoders using \eqref{eqn-wsrm-expr} and \eqref{eqn-6.3} for the \ac{SCA} approach (or) \;
     update \me{\tilde{\epsilon}_{l,k,n}} with the recent precoders using \eqref{eqn-mse-2.3} with equality for the \ac{MSE} formulation approach \;
     $i = i + 1$ \;
   }
- \caption{\ac{PD} based decentralized \acs{JSFRA} scheme}
+ \caption{Decentralization via Primal Decomposition for \acs{JSFRA} scheme}
   \label{algo-2}
 \end{algorithm}
