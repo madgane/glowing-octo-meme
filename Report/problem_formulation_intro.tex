@@ -1,10 +1,10 @@
 
 In this paper, we address the problem of resource allocation across the \ac{MIMO} \ac{OFDM} framework, which are shared by the users served by multiple \acp{BS}. In order to minimize the queued packets, the precoders are to be designed in a way to overcome the problem of allocating the resources more than required. In order to satisfy this constraint, we use the queue deviation as the utility function as compared to the traditional \ac{WSRM} objective discussed extensively in the literature \cite{christensen2008weighted,wmmse_shi}. For practical and tractability reasons, we impose a constraint that the maximum number of transmitted bits for the user \me{k} is limited by the packets available at the transmitter. As a result, the number of backlogged packets \me{v_k} remaining in the system for the user \me{k} is given by
 \begin{equation}
-v_k =  Q_k - \sum_{n = 1}^N \sum_{l = 1}^{L} \log_2(1+\gamma_{l,k,n}) \geq 0 \fall k \in \mathcal{U},
+v_k =  Q_k - \sum_{n = 1}^N \sum_{l = 1}^{L} \log_2(1+\gamma_{l,k,n}) \geq 0 \fall k \in \mathcal{U}.
 \label{eqn-4.2}
 \end{equation}
-where the expression \me{t_{l,k,n}} is replaced by maximum achievable rate by using the Gaussian signaling, which is equal to \me{\log_2(1 + \gamma_{l,k,n})} for a given \ac{SINR}. The above positivity constraint need to be satisified by \me{v_k} to avoid the excessive allocation of the resources.
+The above positivity constraint need to be satisified by \me{v_k} to avoid the excessive allocation of the resources.
 
 The precoder design problem can be given minimizing the absolute value of the deviation in \eqref{eqn-4.2} raised to the exponent \me{q} as \me{\text{minimize} \: \sum_{k \in \mc{U}} \, | v_k |^q}. The exponent \me{q} plays a vital role in the final allocation, which will be discussed later. Now, the problem of weighted queued packet minimization formulated as a $q$-norm minimization, is given by
 \begin{IEEEeqnarray}{rCl}\label{eqn-3}

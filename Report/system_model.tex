@@ -13,5 +13,8 @@ With the infinite buffer model assumption, let \me{Q_k} be the number of backlog
 Q_k(i) = \Big [ Q_k(i-1) - t_k(i-1) \Big ]^+ + \lambda_k(i),
 \label{eqn-2a}
 \end{equation}
-where \me{t_k} denote the transmissions in bits and \me{[x]^+ = \max{ \lbrace x,0  \rbrace}}. The total number of transmitted bits for the user \me{k} is given by \me{t_k(i) = \sum_{n = 1}^N \, \sum_{l = 1}^L \, t_{l,k,n}(i)},
-where \me{t_{l,k,n}} is the total number of bits that can be transmitted over \me{l^\mathrm{th}} spatial stream and on \me{n^\mathrm{th}} sub-channel at the \me{i^\mathrm{th}} instant. Note that the units of \me{t_k} and \me{Q_k} are in bits defined per channel use.
+where \me{[x]^+ = \max{ \lbrace x,0  \rbrace}} and \me{t_k} denotes the transmission in bits for user \me{k}. For \ac{MIMO} \ac{OFDM} system,
+\begin{equation}
+t_k(i) = \sum_{n = 1}^N \, \sum_{l = 1}^L \, t_{l,k,n}(i),
+\end{equation}
+where \me{t_{l,k,n} = \log_2(1 + \gamma_{l,k,n})} corresponds to the maximum rate achieved by Gaussian signaling on \me{l^\mathrm{th}} spatial stream and over \me{n^\mathrm{th}} sub-channel for the \ac{SINR} of \me{\gamma_{l,k,n}}. Note that the units of \me{t_k} and \me{Q_k} are in bits defined per channel use.
