@@ -1,21 +1,25 @@
 
-The queue minimizing algorithms are discussed extensively in the networking literature for providing congestion-free routing between any two nodes\footnote{refers to routers or PC's} in the network. It is achieved by finding a control policy considering the differential backlogs of the packets present in the source and the destination node, where control policy refers to the resource or rate allocation strategy. The control policy satisfying the condition is known as \emph{backpreassure algorithm}, discussed extensively in \cite{tassiulas,georgiadis2006resource,neely2010stochastic}. The algorithm assumes the physical layer rate as a fixed entity due to the wired infrastructure. In order to use the algorithm in the wireless network, the user rate variable \me{t_{k}} should be modeled in accordance with the wireless backbone network.
+The queue minimizing algorithms are discussed extensively in the networking literature for providing congestion-free routing between any two nodes\footnote{routers or user terminals} in the network. It is achieved by finding a control policy considering the differential backlogs of the packets present in the source and the destination node, where control policy refers to the resource or rate allocation strategy. The control policy satisfying the condition is known as \emph{backpreassure algorithm}, discussed extensively in \cite{tassiulas,georgiadis2006resource,neely2010stochastic}. The algorithm assumes the physical layer rate as a fixed entity due to the wired infrastructure. In order to use the algorithm in the wireless network, the user rate variable \me{t_{k}} should be modeled in accordance with the wireless backbone network.
 
-The \ac{Q-WSRM} scheme is formulated by extending the \emph{backpreassure algorithm} for the \ac{MIMO} \ac{OFDM} network, where multiple \acp{BS} acts like a source nodes and the user terminals as a receiver nodes. The user rate variables \me{t_k} are obtained by the design of the transmit and the receive precoders to maximize the weighted sum rate. The weights used in the precoder design algorithm should be a function of the number of backlogged packets corresponding to each user. In order find the weights, following the approach in \cite{neely2010stochastic}, we bound the Lyapunov function\footnote{\me{\mathrm{L}\sset{\mbf{Q}(i)} = \frac{1}{2} \, \sum_{k \in \mc{U}} Q^2_k(i)}} drift as
-\begin{IEEEeqnarray}{rCl}
+The \ac{Q-WSRM} scheme is formulated by extending the \emph{backpreassure algorithm} for the \ac{MIMO} \ac{OFDM} network, where multiple \acp{BS} act like a source nodes and the user terminals as a receiver nodes. The user rate variables \me{t_k} are obtained by the design of the transmit and the receive precoders to maximize the weighted sum rate. The weights used in the precoder design algorithm should be a function of the number of backlogged packets corresponding to each user. In order to find the weights, we adopt the Lyapunov drift minimization as discussed in \cite{neely2010stochastic}, where the Lyapunov function is given by the squared sum of the number backlogged packets as
+\begin{equation}
+\mathrm{L}\sset{\mbf{Q}(i)} = \frac{1}{2} \, \sum_{k \in \mc{U}} Q_k(i),
+\end{equation}
+where \me{\mbf{Q}(i)} denotes the stacked user queues at the \me{\ith{i}} slot. The Lyapunov function provides a measure of congestion in the system, as discussed in \cite[Ch. 3]{neely2010stochastic}. Now the Lyapunov function drift is given by
+\begin{IEEEeqnarray}{rCl}\label{eqn-3.1}
 \mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} &=& \frac{1}{2} \left [ \sum_{k \in \mc{U}} \, \Big ( \left [ Q_k(i) - t_k(i) \right ]^+ + \lambda_k(i) \Big )^2 - Q^2_k(i) \right ] \IEEEyessubnumber \label{eqn-3.1.0} \\
 &\leq& \sum_{k \in \mc{U}} \, \frac{\lambda^2_k(i) + t_k^2(i)}{2} + \sum_{k \in \mc{U}} Q_k(i) \set{ \lambda_k(i) - t_k(i) }, \IEEEyessubnumber \label{drift-exp}
 \end{IEEEeqnarray}
-where \me{\mbf{Q}(i)} denotes the stacked user queues at the \me{\ith{i}} slot and the inequality is due to the upper bound
+where the inequality is due to the upper bound
 \begin{equation}
 \sset{\max(Q-t,0) + \lambda)}^2 \leq Q^2 + t^2 + \lambda^2 + 2 Q (\lambda - t).
 \end{equation}
-Now the conditional Lyapunov drift for the instant \me{i} is given by
+In order to minimize the number of backlogged packets at each instant, minimization of the Lyapunov drift \eqref{eqn-3.1} is carried over all possible control decisions in the form of transmission rates \me{t_k} to users in the system. The Lyapunov drift conditioned on the current backlogged packets \me{\mbfa{Q}(i)} is given by
 \begin{IEEEeqnarray}{rCl}
-\Delta(\mbf{Q}(i)) &\triangleq& \mathbb{E} \set{\mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} \vert \mbf{Q}(i)} \IEEEyessubnumber \\
+\underset{\mbf{t}}{\text{minimize}} && \Delta(\mbf{Q}(i)) \triangleq \mathbb{E} \set{\mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} \vert \mbf{Q}(i)} \IEEEyessubnumber \\
  &\leq& \mathbb{E} \set {\sum_{k \in \mc{U}} \, \frac{\lambda^2_k(i) + t_k^2(i)}{2} \vert \mbf{Q}(i)} + \sum_{k \in \mc{U}} Q_k(i) A_k(i) + \mathbb{E}\set{\sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i)}, \IEEEyessubnumber
 \end{IEEEeqnarray}
-where the expectation depends on the control decisions made for the transmission variables \me{t_k} and the second term on the r.h.s is due to i.i.d assumption on the arrivals. We can bound the first term on the r.h.s by a constant \me{B} for all possible control actions taken for a given channel condition \cite{neely2010stochastic}, the resulting problem can be given as
+where the second term on the r.h.s is due to i.i.d assumption on the arrivals. We can bound the first term on the r.h.s by a constant \me{B} for all possible control actions taken for a given channel condition \cite{neely2010stochastic}, the resulting problem can be given as
 \begin{equation}
 \underset{t_k}{\text{maximize}} \quad \sum_{k \in \mc{U}} \, Q_k(i) \, t_k(i),
 \label{backpreassure}

@@ -4,7 +4,7 @@ img_extIsRegExp=false
 img_extensions=.eps .jpg .jpeg .png .pdf .ps .fig .gif
 kileprversion=2
 kileversion=2.1.3
-lastDocument=kkt_appendix.tex
+lastDocument=kkt_mse_approach.tex
 masterDocument=
 name=Journal-1
 pkg_extIsRegExp=false
@@ -59,7 +59,7 @@ Indentation Mode=normal
 Mode=LaTeX
 
 [document-settings,item:joint_wsrm_formulation.tex]
-Bookmarks=21,31
+Bookmarks=35,25
 Encoding=UTF-8
 Highlighting=LaTeX
 Indentation Mode=normal
@@ -165,12 +165,12 @@ Mode=LaTeX
 
 [item:../Library/kirja_survey.bib]
 archive=true
-column=0
+column=11
 encoding=UTF-8
 highlight=BibTeX
-line=267
+line=296
 mode=BibTeX
-open=true
+open=false
 order=9
 
 [item:abstract.tex]
@@ -195,12 +195,12 @@ order=-1
 
 [item:decomposition_solutions.tex]
 archive=true
-column=31
+column=74
 encoding=UTF-8
 highlight=LaTeX
 line=9
 mode=LaTeX
-open=true
+open=false
 order=13
 
 [item:dual_algorithm.tex]
@@ -215,10 +215,10 @@ order=1
 
 [item:dual_approach.tex]
 archive=true
-column=171
+column=227
 encoding=UTF-8
 highlight=LaTeX
-line=17
+line=1
 mode=LaTeX
 open=true
 order=3
@@ -245,12 +245,12 @@ order=-1
 
 [item:joint_wsrm_formulation.tex]
 archive=true
-column=40
+column=167
 encoding=UTF-8
 highlight=LaTeX
-line=32
+line=1
 mode=LaTeX
-open=true
+open=false
 order=6
 
 [item:journal-1.kilepr]
@@ -265,30 +265,30 @@ order=-1
 
 [item:kkt_appendix.tex]
 archive=true
-column=0
+column=139
 encoding=UTF-8
 highlight=LaTeX
-line=16
+line=15
 mode=LaTeX
 open=true
 order=4
 
 [item:kkt_mse_approach.tex]
 archive=true
-column=502
+column=0
 encoding=UTF-8
 highlight=LaTeX
-line=21
+line=31
 mode=LaTeX
 open=true
 order=5
 
 [item:mse_formulation.tex]
 archive=true
-column=50
+column=0
 encoding=UTF-8
 highlight=LaTeX
-line=23
+line=0
 mode=LaTeX
 open=false
 order=14
@@ -305,20 +305,20 @@ order=1
 
 [item:primal_approach_appendix.tex]
 archive=true
-column=56
+column=270
 encoding=UTF-8
 highlight=LaTeX
-line=62
+line=0
 mode=LaTeX
 open=true
 order=2
 
 [item:problem_formulation.tex]
 archive=true
-column=713
+column=690
 encoding=UTF-8
 highlight=LaTeX
-line=5
+line=7
 mode=LaTeX
 open=false
 order=7
@@ -330,15 +330,15 @@ encoding=UTF-8
 highlight=LaTeX
 line=13
 mode=LaTeX
-open=true
+open=false
 order=8
 
 [item:queue_minimizing_intro.tex]
 archive=true
-column=0
+column=491
 encoding=UTF-8
 highlight=LaTeX
-line=0
+line=3
 mode=LaTeX
 open=false
 order=4
@@ -350,25 +350,25 @@ encoding=UTF-8
 highlight=LaTeX
 line=10
 mode=LaTeX
-open=true
+open=false
 order=10
 
 [item:simulation_distributed.tex]
 archive=true
-column=15
+column=1339
 encoding=UTF-8
 highlight=LaTeX
-line=11
+line=26
 mode=LaTeX
-open=true
+open=false
 order=12
 
 [item:simulation_results.tex]
 archive=true
-column=457
+column=13
 encoding=UTF-8
 highlight=LaTeX
-line=26
+line=57
 mode=LaTeX
 open=false
 order=10
@@ -385,29 +385,29 @@ order=-1
 
 [item:system_model.tex]
 archive=true
-column=276
+column=269
 encoding=UTF-8
 highlight=LaTeX
 line=19
 mode=LaTeX
-open=true
+open=false
 order=7
 
 [item:wsrm_formulation.tex]
 archive=true
-column=39
+column=18
 encoding=UTF-8
 highlight=LaTeX
-line=30
+line=31
 mode=LaTeX
-open=true
+open=false
 order=11
 
 [view-settings,view=0,item:../Library/kirja_survey.bib]
-CursorColumn=0
-CursorLine=267
+CursorColumn=11
+CursorLine=296
 JumpList=
-ViMarks=.,267,0,[,267,0,],267,0
+ViMarks=.,296,11,[,296,11,],296,11
 
 [view-settings,view=0,item:acronyms.tex]
 CursorColumn=25
@@ -416,10 +416,10 @@ JumpList=
 ViMarks=.,0,0,[,0,0,],0,0
 
 [view-settings,view=0,item:decomposition_solutions.tex]
-CursorColumn=31
+CursorColumn=74
 CursorLine=9
 JumpList=
-ViMarks=.,19,20,[,19,13,],19,20
+ViMarks=.,9,0,[,9,0,],9,0
 
 [view-settings,view=0,item:dual_algorithm.tex]
 CursorColumn=45
@@ -428,8 +428,8 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:dual_approach.tex]
-CursorColumn=171
-CursorLine=17
+CursorColumn=227
+CursorLine=1
 JumpList=
 ViMarks=.,17,171,[,17,171,],17,171
 
@@ -440,28 +440,28 @@ JumpList=
 ViMarks=.,45,15,[,45,15,],45,15,a,59,0,b,52,0,c,40,0,d,41,0,e,9,0,f,46,0,g,87,0,h,91,0,i,90,0,j,45,0
 
 [view-settings,view=0,item:joint_wsrm_formulation.tex]
-CursorColumn=40
-CursorLine=32
+CursorColumn=167
+CursorLine=1
 JumpList=
-ViMarks=.,31,64,[,31,64,],31,64,a,21,14,b,21,14,c,31,0
+ViMarks=.,1,167,[,1,167,],1,167,a,25,14,b,25,14,c,35,0
 
 [view-settings,view=0,item:kkt_appendix.tex]
-CursorColumn=0
-CursorLine=16
+CursorColumn=139
+CursorLine=15
 JumpList=
 ViMarks=.,9,47,[,9,44,],9,47
 
 [view-settings,view=0,item:kkt_mse_approach.tex]
-CursorColumn=502
-CursorLine=21
+CursorColumn=0
+CursorLine=31
 JumpList=
-ViMarks=.,3,900,[,3,901,],3,900
+ViMarks=.,30,339,[,30,322,],30,339
 
 [view-settings,view=0,item:mse_formulation.tex]
-CursorColumn=50
-CursorLine=23
+CursorColumn=0
+CursorLine=0
 JumpList=
-ViMarks=.,23,718,[,23,718,],23,718
+ViMarks=.,2,0,[,1,0,],-1,-1
 
 [view-settings,view=0,item:primal_approach.tex]
 CursorColumn=617
@@ -470,16 +470,16 @@ JumpList=
 ViMarks=.,4,617,[,4,617,],4,617
 
 [view-settings,view=0,item:primal_approach_appendix.tex]
-CursorColumn=56
-CursorLine=62
+CursorColumn=270
+CursorLine=0
 JumpList=
 ViMarks=.,62,55,[,62,52,],62,55
 
 [view-settings,view=0,item:problem_formulation.tex]
-CursorColumn=713
-CursorLine=5
+CursorColumn=690
+CursorLine=7
 JumpList=
-ViMarks=.,10,76,[,10,67,],10,76
+ViMarks=.,7,689,[,7,685,],7,689
 
 [view-settings,view=0,item:problem_formulation_intro.tex]
 CursorColumn=971
@@ -500,16 +500,16 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:simulation_distributed.tex]
-CursorColumn=15
-CursorLine=11
-JumpList=
-ViMarks=.,56,74,[,56,74,],56,74
-
-[view-settings,view=0,item:simulation_results.tex]
-CursorColumn=457
+CursorColumn=1339
 CursorLine=26
 JumpList=
-ViMarks=.,53,74,[,53,75,],53,74
+ViMarks=.,42,785,[,42,780,],42,785
+
+[view-settings,view=0,item:simulation_results.tex]
+CursorColumn=13
+CursorLine=57
+JumpList=
+ViMarks=.,60,632,[,60,628,],60,632
 
 [view-settings,view=0,item:sub_channel_wsrm.tex]
 CursorColumn=18
@@ -518,13 +518,13 @@ JumpList=
 ViMarks=.,8,371,[,8,371,],8,371
 
 [view-settings,view=0,item:system_model.tex]
-CursorColumn=276
+CursorColumn=269
 CursorLine=19
 JumpList=
-ViMarks=.,19,275,[,19,273,],19,275
+ViMarks=.,19,268,[,19,259,],19,268
 
 [view-settings,view=0,item:wsrm_formulation.tex]
-CursorColumn=39
-CursorLine=30
+CursorColumn=18
+CursorLine=31
 JumpList=
-ViMarks=.,27,53,[,27,53,],27,53
+ViMarks=.,58,975,[,58,970,],58,975
