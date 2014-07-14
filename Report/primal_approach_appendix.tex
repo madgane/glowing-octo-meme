@@ -3,7 +3,7 @@ By fixing the interference values \me{\zeta_{\pr{l},\pr{k},n,{b_k}}} correspondi
 \underset{\substack{\gamma_{l,k,n} \\ \mvec{m}{l,k,n}, \beta_{l,k,n}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}}_{b_k} \|_q \IEEEyessubnumber \label{eqn-primal-1a} \\
 \text{subject to}&\quad&\sum_{n = 1}^N \sum_{k \in \mathcal{U}_{b_k}} \text{tr} \, (\mvec{M}{k,n} \mvec{M}{k,n}^\herm) \leq P_{{\max}}, \IEEEyessubnumber \label{eqn-primal-1c} \\
 && \beta_{l,k,n} \geq \sum_{\substack{j = 1\\j \neq l}}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{{b_k},k,n} \mvec{m}{j,k,n} |^2 \nonumber \\
-&&\quad + \sum_{i \in \mc{U}_{b_k} \backslash \{k\}} \sum_{j = 1}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{{b_k},k,n} \mvec{m}{j,i,n} |^2 + \sum_{b \in \bar{\mc{B}}_{b_k}} \zeta_{l,k,n,b} \; + \; N_0 \IEEEyessubnumber \label{eqn-primal-1d} \\
+&&\quad + \sum_{i \in \mc{U}_{b_k} \backslash \{k\}} \sum_{j = 1}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{{b_k},k,n} \mvec{m}{j,i,n} |^2 + \sum_{b \in \bar{\mc{B}}_{b_k}} \zeta_{l,k,n,b} \; + \; N_0\|\mvec{w}{l,k,n}\|^2 \IEEEyessubnumber \label{eqn-primal-1d} \\
 && \zeta_{\pr{l},\pr{k},n,{b_k}} \geq \sum_{k \in \mc{U}_b} \sum_{l = 1}^L |\mvec{w}{\pr{l},\pr{k},n}^\herm \mvec{H}{b_k,\pr{k},n} \mvec{m}{l,k,n} |^2, \; \forall \pr{k} \in \bar{\mc{U}}_{b_k}, \; \forall n \in \mc{C} \IEEEyessubnumber \label{eqn-primal-1e} \\
  & \quad & \text{and} \; \eqref{eqn-8} \IEEEyessubnumber,
 \end{IEEEeqnarray}

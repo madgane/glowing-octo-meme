@@ -10,7 +10,7 @@ where \me{\tilde{\mbf{v}}_b} denote the vector of of weighted queue deviation co
 Following the similar approach as in \cite{pennanen2011decentralized,tolli2011decentralized}, the coupling constraint\footnote{coupling constraint in \ac{MSE} scheme is given by  \eqref{eqn-mse-2.3}} given by \eqref{eqn-9.1c} can be expressed by grouping the interference contribution from each \acp{BS} in the system as
 \begin{IEEEeqnarray}{rCl}\label{eqn-decent-3}
 \beta_{l,k,n} & \geq & \sum_{\substack{j = 1\\j \neq l}}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{j,k,n} |^2 \nonumber \\
-&\quad& + \sum_{i \in \mc{U}_{b_k} \backslash \{k\}} \sum_{j = 1}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{j,i,n} |^2 + \sum_{b \in \bar{\mc{B}}_{b_k}} \zeta_{l,k,n,b} \; + \; N_0, \label{eqn-decent-3a}
+&\quad& + \sum_{i \in \mc{U}_{b_k} \backslash \{k\}} \sum_{j = 1}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{j,i,n} |^2 + \sum_{b \in \bar{\mc{B}}_{b_k}} \zeta_{l,k,n,b} \; + \; N_0\|\mvec{w}{l,k,n}\|^2, \label{eqn-decent-3a}
 \end{IEEEeqnarray}
 where \me{\zeta_{l,k,n,b}}, which is the total interference caused by the \ac{BS} \me{b} to the \me{\ith{l}} stream of user \me{k \in \mc{U}_{b_k}} on the \me{\ith{n}} sub-channel, is upper bounded by
 \begin{equation}

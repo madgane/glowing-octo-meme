@@ -3,13 +3,13 @@ In this approach, we present an iterative algorithm to solve \eqref{eqn-3} local
 \begin{IEEEeqnarray}{RCL}\label{eqn-6}
 \underset{\substack{\gamma_{l,k,n},\mvec{m}{l,k,n},\\\beta_{l,k,n},\mvec{w}{l,k,n}}}{\text{minimize}} & \quad & \|  \tilde{\mbf{v}}  \|_q \label{eqn-obj} \IEEEyessubnumber \\
 \text{subject to}& \quad &\gamma_{l,k,n} \leq \dfrac{\mvec{w}{l,k,n}^\herm \mvec{H}{l,k,n} \mvec{m}{l,k,n}}{\beta_{l,k,n}} \triangleq f(\tilde{\mbf{u}}_{l,k,n}),\IEEEyessubnumber \label{eqn-6.2} \\
-  & \quad & \beta_{l,k,n} \geq  N_0 + \hspace{-0.75em} \sum_{(j,i) \neq (l,k)} \hspace{-0.75em} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2, \IEEEyessubnumber \label{eqn-6.3} \\
+  & \quad & \beta_{l,k,n} \geq  N_0 \|\mvec{w}{l,k,n}\|^2 + \hspace{-0.75em} \sum_{(j,i) \neq (l,k)} \hspace{-0.75em} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2, \IEEEyessubnumber \label{eqn-6.3} \\
   & \quad &\eqref{eqn-4.3} \IEEEyessubnumber
 \end{IEEEeqnarray}
 where \me{\beta_{l,k,n}} denotes the total interference seen by the \me{l^\mathrm{th}} stream of the user \me{k} on the \me{n^\mathrm{th}} sub-channel and let \me{\tilde{\mbf{u}}_{l,k,n} \triangleq \{\mvec{w}{l,k,n}^\herm, \mvec{H}{b_k,k,n}, \mvec{m}{l,k,n},\beta_{l,k,n}\}} be the vector which needs to be identified for the optimal allocation. In this formulation, we relaxed the equality constraint in \eqref{eq:SINR} by the inequalities in \eqref{eqn-6.2} and \eqref{eqn-6.3}. However, this step is without loss of optimality leads to the same solution, since the inequalities in \eqref{eqn-6.2} and \eqref{eqn-6.3} are active for an optimal solution, following the same arguments as those in \cite{tran2012fast}. Intuitively, \eqref{eqn-6.2} denotes the \ac{SINR} constraint for \me{\gamma_{l,k,n}}, and \eqref{eqn-6.3} gives an upper bound for the interference seen by the user \me{k \in \mathcal{U}_b}. The problem in \eqref{eqn-6} is known to be NP-hard even for the single antenna case \cite{wmmse_shi,kaleva2013primal}. The reformulation in \eqref{eqn-6} allows a tractable solution as presented below. First, we note that the constraints \eqref{eqn-4.3} are convex with involved variables. Thus, we only need to deal with \eqref{eqn-6.2} and \eqref{eqn-6.3}. Towards this end, we resort to the traditional coordinate descent technique by fixing the transmit beamformers, and find the optimal linear receivers. The optimal linear receiver for the fixed transmit precoders \me{\mbf{M}_{i,n} \, \forall i \in \mc{U}, \, \forall n \in \mc{C}} is obtained by minimizing \eqref{eqn-3} w.r.t the \me{\mbf{w}_{l,k,n}}, and the closed form solution is given by
 \begin{IEEEeqnarray}{rCl}\label{eqn-10}
 \mvec{w}{l,k,n} &=& \mathbf{R}^{-1}_{l,k,n} \; \mvec{H}{b_k,k,n} \; \mvec{m}{l,k,n}, \IEEEyessubnumber \\
-\mvec{R}{l,k,n} &=& \displaystyle \sum_{i\in \mc{U}} \sum_{j=1}^L \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \mvec{m}{j,i,n}^\herm \mvec{H}{b_i,k,n}^\herm + \mathbf{I}_{N_R}, \IEEEyessubnumber
+\mvec{R}{l,k,n} &=& \displaystyle \sum_{i\in \mc{U}} \sum_{j=1}^L \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \mvec{m}{j,i,n}^\herm \mvec{H}{b_i,k,n}^\herm + N_0 \, \mathbf{I}_{N_R}, \IEEEyessubnumber
 \end{IEEEeqnarray}
 which is the \ac{MMSE} receive beamformers \cite{christensen2008weighted,wmmse_shi,kaleva2013primal}.
 
@@ -26,7 +26,7 @@ and hence \me{f(\tilde{\mbf{u}}_{l,k,n})=(p_{l,k,n}^2 + q_{l,k,n}^2)/\beta_{l,k,
 In summary, for the fixed linear receivers, the \ac{JSFRA} problem to find transmit beamformers is shown by
 \begin{IEEEeqnarray}{rCl}\label{eqn-9}
 \underset{\substack{\gamma_{l,k,n},p_{l,k,n},q_{l,k,n} \\ \mvec{m}{l,k,n}, \beta_{l,k,n}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}} \|_q \IEEEyessubnumber\label{eqn-9.1a} \\
-\text{subject to} & \quad & \beta_{l,k,n} \geq  N_0 + \hspace{-0.75em} \sum_{(j,i) \neq (l,k)} \hspace{-0.75em} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2, \IEEEyessubnumber \label{eqn-9.1c} \\
+\text{subject to} & \quad & \beta_{l,k,n} \geq  N_0\|\mvec{w}{l,k,n}\|^2 + \hspace{-0.75em} \sum_{(j,i) \neq (l,k)} \hspace{-0.75em} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2, \IEEEyessubnumber \label{eqn-9.1c} \\
 & \quad&\sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \text{tr} \, (\mvec{M}{k,n} \mvec{M}{k,n}^\herm) \leq P_{{\max}}, \fall b, \IEEEyessubnumber \label{eqn-9.1d} \\
 & \quad & \text{and } \eqref{eqn-8} \IEEEyessubnumber \label{eqn-9.1e}.
 \end{IEEEeqnarray}

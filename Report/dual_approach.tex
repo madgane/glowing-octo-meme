@@ -10,7 +10,7 @@ Let \me{\mbfa{\zeta}(b_k)} denotes the consensus entries corresponding to the \a
 \begin{IEEEeqnarray}{rCl} \label{eqn-dual-2} \label{eqn-dual-1}
 \underset{\substack{\gamma_{l,k,n}, \nu^{\set{b_k}}_{l,k,n,b} \\ \mvec{m}{l,k,n}, \beta_{l,k,n}, \zeta^{\set{b_k}}_{l,k,n,b}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}}_{b_k} \|_q + \mbfa{\nu}^{{\set{b_k}}T} \left ( \mbfa{\zeta}^{\set{b_k}} - \mbfa{\zeta}(b_k) \right ) \IEEEyessubnumber \label{eqn-dual-2a} \\
 \text{subject to} && \beta_{l,k,n} \geq \sum_{\substack{j = 1\\j \neq l}}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{{b_k},k,n} \mvec{m}{j,k,n} |^2 \nonumber \\
-&&\quad + \sum_{i \in \mc{U}_{b_k} \backslash \{k\}} \sum_{j = 1}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{{b_k},k,n} \mvec{m}{j,i,n} |^2 + \sum_{b \in \bar{\mc{B}}_{b_k}} \zeta^{\set{b_k}}_{l,k,n,b} \; + \; N_0 \IEEEyessubnumber \label{eqn-dual-1d} \\
+&&\quad + \sum_{i \in \mc{U}_{b_k} \backslash \{k\}} \sum_{j = 1}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{{b_k},k,n} \mvec{m}{j,i,n} |^2 + \sum_{b \in \bar{\mc{B}}_{b_k}} \zeta^{\set{b_k}}_{l,k,n,b} \; + \; N_0\|\mvec{w}{l,k,n}\|^2 \IEEEyessubnumber \label{eqn-dual-1d} \\
 && \zeta^{\set{b_k}}_{\pr{l},\pr{k},n,{b_k}} \geq \sum_{k \in \mc{U}_b} \sum_{l = 1}^L |\mvec{w}{\pr{l},\pr{k},n}^\herm \mvec{H}{b_k,\pr{k},n} \mvec{m}{l,k,n} |^2, \; \forall \pr{k} \in \bar{\mc{U}}_{b_k}, \; \forall n \in \mc{C} \IEEEyessubnumber \label{eqn-dual-1e} \\
 &\quad& \mbfa{\nu}^{\set{b_k}} \in \mathbb{R}^{n_{b_k}}_+, \; \eqref{eqn-8} \; \text{and} \; \eqref{eqn-primal-1c}. \IEEEyessubnumber \label{eqn-dual-1f}
 \end{IEEEeqnarray}
