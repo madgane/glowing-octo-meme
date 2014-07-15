@@ -4,7 +4,7 @@ img_extIsRegExp=false
 img_extensions=.eps .jpg .jpeg .png .pdf .ps .fig .gif
 kileprversion=2
 kileversion=2.1.3
-lastDocument=kkt_appendix.tex
+lastDocument=introduction.tex
 masterDocument=
 name=Journal-1
 pkg_extIsRegExp=false
@@ -52,7 +52,14 @@ Indentation Mode=normal
 Mode=LaTeX
 
 [document-settings,item:ieee_journal.tex]
-Bookmarks=52,87,90,40,91,41,7,59,9,45,46
+Bookmarks=54,89,7,92,42,93,9,43,61,47,48
+Encoding=UTF-8
+Highlighting=LaTeX
+Indentation Mode=normal
+Mode=LaTeX
+
+[document-settings,item:introduction.tex]
+Bookmarks=
 Encoding=UTF-8
 Highlighting=LaTeX
 Indentation Mode=normal
@@ -165,13 +172,13 @@ Mode=LaTeX
 
 [item:../Library/kirja_survey.bib]
 archive=true
-column=11
+column=74
 encoding=UTF-8
 highlight=BibTeX
-line=296
+line=207
 mode=BibTeX
-open=false
-order=9
+open=true
+order=5
 
 [item:abstract.tex]
 archive=true
@@ -185,10 +192,10 @@ order=-1
 
 [item:acronyms.tex]
 archive=true
-column=25
+column=34
 encoding=UTF-8
 highlight=LaTeX
-line=1
+line=16
 mode=LaTeX
 open=false
 order=-1
@@ -200,7 +207,7 @@ encoding=UTF-8
 highlight=LaTeX
 line=12
 mode=LaTeX
-open=true
+open=false
 order=15
 
 [item:dual_algorithm.tex]
@@ -220,28 +227,28 @@ encoding=UTF-8
 highlight=LaTeX
 line=12
 mode=LaTeX
-open=true
+open=false
 order=3
 
 [item:ieee_journal.tex]
 archive=true
-column=71
+column=32
 encoding=UTF-8
 highlight=LaTeX
-line=7
+line=85
 mode=LaTeX
 open=true
-order=0
+order=2
 
 [item:introduction.tex]
 archive=true
-column=0
-encoding=
-highlight=
-line=0
-mode=
-open=false
-order=-1
+column=19
+encoding=UTF-8
+highlight=LaTeX
+line=19
+mode=LaTeX
+open=true
+order=4
 
 [item:joint_wsrm_formulation.tex]
 archive=true
@@ -250,7 +257,7 @@ encoding=UTF-8
 highlight=LaTeX
 line=14
 mode=LaTeX
-open=true
+open=false
 order=11
 
 [item:journal-1.kilepr]
@@ -265,12 +272,12 @@ order=-1
 
 [item:kkt_appendix.tex]
 archive=true
-column=0
+column=167
 encoding=UTF-8
 highlight=LaTeX
-line=14
+line=6
 mode=LaTeX
-open=true
+open=false
 order=4
 
 [item:kkt_mse_approach.tex]
@@ -280,37 +287,37 @@ encoding=UTF-8
 highlight=LaTeX
 line=30
 mode=LaTeX
-open=true
+open=false
 order=5
 
 [item:mse_formulation.tex]
 archive=true
-column=717
+column=859
 encoding=UTF-8
 highlight=LaTeX
 line=1
 mode=LaTeX
 open=true
-order=8
+order=0
 
 [item:primal_approach.tex]
 archive=true
-column=617
+column=0
 encoding=UTF-8
 highlight=LaTeX
-line=4
+line=0
 mode=LaTeX
 open=true
 order=1
 
 [item:primal_approach_appendix.tex]
 archive=true
-column=67
+column=20
 encoding=UTF-8
 highlight=LaTeX
-line=25
+line=39
 mode=LaTeX
-open=true
+open=false
 order=2
 
 [item:problem_formulation.tex]
@@ -320,7 +327,7 @@ encoding=UTF-8
 highlight=LaTeX
 line=2
 mode=LaTeX
-open=true
+open=false
 order=7
 
 [item:problem_formulation_intro.tex]
@@ -330,7 +337,7 @@ encoding=UTF-8
 highlight=LaTeX
 line=5
 mode=LaTeX
-open=true
+open=false
 order=13
 
 [item:queue_minimizing_intro.tex]
@@ -340,7 +347,7 @@ encoding=UTF-8
 highlight=LaTeX
 line=3
 mode=LaTeX
-open=true
+open=false
 order=10
 
 [item:shortcuts.tex]
@@ -350,18 +357,18 @@ encoding=UTF-8
 highlight=LaTeX
 line=11
 mode=LaTeX
-open=true
+open=false
 order=6
 
 [item:simulation_distributed.tex]
 archive=true
-column=1339
+column=889
 encoding=UTF-8
 highlight=LaTeX
-line=26
+line=2
 mode=LaTeX
-open=false
-order=12
+open=true
+order=3
 
 [item:simulation_results.tex]
 archive=true
@@ -380,7 +387,7 @@ encoding=UTF-8
 highlight=LaTeX
 line=4
 mode=LaTeX
-open=true
+open=false
 order=9
 
 [item:system_model.tex]
@@ -390,7 +397,7 @@ encoding=UTF-8
 highlight=LaTeX
 line=6
 mode=LaTeX
-open=true
+open=false
 order=14
 
 [item:wsrm_formulation.tex]
@@ -400,20 +407,20 @@ encoding=UTF-8
 highlight=LaTeX
 line=28
 mode=LaTeX
-open=true
+open=false
 order=12
 
 [view-settings,view=0,item:../Library/kirja_survey.bib]
-CursorColumn=11
-CursorLine=296
+CursorColumn=74
+CursorLine=207
 JumpList=
 ViMarks=.,296,11,[,296,11,],296,11
 
 [view-settings,view=0,item:acronyms.tex]
-CursorColumn=25
-CursorLine=1
+CursorColumn=34
+CursorLine=16
 JumpList=
-ViMarks=.,0,0,[,0,0,],0,0
+ViMarks=.,29,32,[,29,13,],29,32
 
 [view-settings,view=0,item:decomposition_solutions.tex]
 CursorColumn=211
@@ -434,10 +441,16 @@ JumpList=
 ViMarks=.,12,204,[,12,204,],12,224
 
 [view-settings,view=0,item:ieee_journal.tex]
-CursorColumn=71
-CursorLine=7
+CursorColumn=32
+CursorLine=85
 JumpList=
-ViMarks=.,7,70,[,7,61,],7,70,a,59,0,b,52,0,c,40,0,d,41,0,e,9,0,f,46,0,g,87,0,h,91,0,i,90,0,j,45,0,k,7,0
+ViMarks=.,85,31,[,85,31,],85,31,a,61,0,b,54,0,c,42,0,d,43,0,e,9,0,f,48,0,g,89,0,h,93,0,i,92,0,j,47,0,k,7,0
+
+[view-settings,view=0,item:introduction.tex]
+CursorColumn=19
+CursorLine=19
+JumpList=
+ViMarks=.,19,18,[,19,17,],19,18
 
 [view-settings,view=0,item:joint_wsrm_formulation.tex]
 CursorColumn=52
@@ -446,8 +459,8 @@ JumpList=
 ViMarks=.,3,221,[,3,200,],3,221,a,25,14,b,25,14,c,35,0,d,3,0
 
 [view-settings,view=0,item:kkt_appendix.tex]
-CursorColumn=0
-CursorLine=14
+CursorColumn=167
+CursorLine=6
 JumpList=
 ViMarks=.,15,100,[,15,100,],15,100
 
@@ -458,20 +471,20 @@ JumpList=
 ViMarks=.,14,168,[,14,168,],14,168
 
 [view-settings,view=0,item:mse_formulation.tex]
-CursorColumn=717
+CursorColumn=859
 CursorLine=1
 JumpList=
-ViMarks=.,1,226,[,1,220,],1,226
+ViMarks=.,1,868,[,1,868,],1,876
 
 [view-settings,view=0,item:primal_approach.tex]
-CursorColumn=617
-CursorLine=4
+CursorColumn=0
+CursorLine=0
 JumpList=
 ViMarks=.,4,617,[,4,617,],4,617
 
 [view-settings,view=0,item:primal_approach_appendix.tex]
-CursorColumn=67
-CursorLine=25
+CursorColumn=20
+CursorLine=39
 JumpList=
 ViMarks=.,5,192,[,5,192,],5,212
 
@@ -500,10 +513,10 @@ JumpList=
 ViMarks=.,11,0,[,11,0,],11,0
 
 [view-settings,view=0,item:simulation_distributed.tex]
-CursorColumn=1339
-CursorLine=26
+CursorColumn=889
+CursorLine=2
 JumpList=
-ViMarks=.,42,785,[,42,780,],42,785
+ViMarks=.,2,888,[,2,879,],2,888
 
 [view-settings,view=0,item:simulation_results.tex]
 CursorColumn=13
