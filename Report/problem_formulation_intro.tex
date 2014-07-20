@@ -1,10 +1,10 @@
 
-In this paper, we address the problem of resource allocation across the \ac{MIMO} \ac{OFDM} framework, in which the resources are contended by the \acp{BS} to empty the respective user queued packets. In order to minimize the number of queued packets, the precoders are designed to utilize the available space-frequency resources efficiently by limiting the over utilization of the same. To achieve this, we use the queue deviation utility as compared to the traditional \ac{WSRM} objective discussed extensively in the literature \cite{christensen2008weighted,wmmse_shi}. For practical and tractability reasons, we impose a constraint that the maximum number of transmitted bits for the user \me{k} is limited by the total backlogged packets available at the transmitter. As a result, the number of backlogged packets \me{v_k} remaining in the system for the user \me{k} is given by
+We address the problem of resource allocation across the \ac{MIMO} \ac{OFDM} framework, in which the resources are contended by the \acp{BS} to empty the respective user queued packets. In order to minimize the number of queued packets, the precoders are designed to utilize the available space-frequency resources efficiently by limiting the over utilization of the same. To achieve this, we use the queue deviation utility as compared to the traditional \ac{WSRM} objective discussed extensively in the literature \cite{christensen2008weighted,wmmse_shi}. For practical and tractability reasons, we impose a constraint that the maximum number of transmitted bits for the user \me{k} is limited by the total backlogged packets available at the transmitter. As a result, the number of backlogged packets \me{v_k} remaining in the system for the user \me{k} is given by
 \begin{equation}
 v_k =  Q_k - \sum_{n = 1}^N \sum_{l = 1}^{L} \log_2(1+\gamma_{l,k,n}) \geq 0 \fall k \in \mathcal{U}.
 \label{eqn-4.2}
 \end{equation}
-The above positivity constraint need to be satisified by \me{v_k} to avoid the excessive allocation of the resources.
+The above positivity constraint need to be satisfied by \me{v_k} to avoid the excessive allocation of the resources.
 
 The objective function for the precoder design problem is given by minimizing the absolute value of the queue deviation in \eqref{eqn-4.2} raised to the exponent \me{q} as \me{\text{minimize} \: \sum_{k \in \mc{U}} \, | v_k |^q}. With this objective, the problem of weighted queued packet minimization is given by
 \begin{IEEEeqnarray}{rCl}\label{eqn-3}

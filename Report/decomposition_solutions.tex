@@ -2,7 +2,7 @@ This section addresses the distributed precoder designs for the proposed \ac{JSF
 
 To begin with, let \me{\bar{\mc{B}}_b} denote the set \me{\mc{B} \backslash \{b\}} and \me{\bar{\mc{U}}_b} represents the set \me{\mc{U} \backslash \mc{U}_b}. The centralized problem\footnote{\eqref{eqn-9} for the \ac{SCA} approach and \eqref{eqn-mse-2} for \ac{MSE} reformulation approach} can be equivalently written as
 \begin{IEEEeqnarray}{rCl} \label{eqn-decent-1}
-\underset{\substack{\gamma_{l,k,n},p_{l,k,n},q_{l,k,n} \\ \mvec{m}{l,k,n}, \beta_{l,k,n}}}{\text{minimize}} &\quad & \sum_{b \in \mc{B}} \| \tilde{\mbf{v}}_b \|_q \IEEEyessubnumber \label{eqn-decent-1a} \\
+\underset{\substack{\gamma_{l,k,n},p_{l,k,n},q_{l,k,n} \\ \mvec{M}{k,n},\mvec{W}{k,n}, \beta_{l,k,n}}}{\text{minimize}} &\quad & \sum_{b \in \mc{B}} \| \tilde{\mbf{v}}_b \|_q \IEEEyessubnumber \label{eqn-decent-1a} \\
 \text{subject to}&\quad& \eqref{eqn-9.1c} - \eqref{eqn-9.1e} \IEEEyessubnumber,
 \end{IEEEeqnarray}
 where \me{\tilde{\mbf{v}}_b} denote the vector of of weighted queue deviation corresponding to the users \me{k \in \mc{U}_b}.
