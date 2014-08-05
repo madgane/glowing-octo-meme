@@ -1,19 +1,19 @@
 
 To minimize the total number of backlogged packets, we consider minimizing \me{\ell_{q}}-norm of all the queue deviation given by
 \begin{equation}
-v_k =  Q_k - t_k = Q_k - \sum_{n = 1}^N \sum_{l = 1}^{L} \log_2(1+\gamma_{l,k,n}).
+v_k =  Q_k - t_k = Q_k - \sum_{n = 1}^N \sum_{l = 1}^{L} \log_2(1+\gamma_{l,k,n})
 \label{eqn-4.2}
 \end{equation}
 Explicitly, the considered problem is given by \me{\sum_{k \in \mc{U}} \, | v_k |^q}. With this objective, the problem of weighted queued packet minimization is given by
 \begin{IEEEeqnarray}{rCl}\label{eqn-3}
 \underset{\substack{\mvec{M}{k,n},\mvec{W}{k,n}}}{\text{minimize}} &\quad& \|  \tilde{\mbf{v}}  \|_q\IEEEyessubnumber \\
-\text{subject to} & \quad&\sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \text{tr} \, (\mvec{M}{k,n} \mvec{M}{k,n}^\herm) \leq P_{{\max}}, \fall b, \IEEEyessubnumber \label{eqn-4.3}
+\text{subject to} & \quad&\sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \text{tr} \, (\mvec{M}{k,n} \mvec{M}{k,n}^\herm) \leq P_{{\max}}, \fall b \IEEEyessubnumber \label{eqn-4.3}
 \end{IEEEeqnarray}
 where \me{\tilde{v}_k \triangleq a_k^{1/{q}}v_k}, \me{a_k} is the weighting factor which is incorporated to control user priority based on their respective \ac{QoS}, \me{\gamma_{l,k,n}} is defined in \eqref{eq:SINR}, \me{\mbf{M}_{k,n} \triangleq [ \, \mvec{m}{1,k,n} \, \mvec{m}{2,k,n} \dotsc \mvec{m}{L,k,n} \,]} comprises the beamformers associated with the user \me{k} for \me{n^\mathrm{th}} sub-channel transmission, and \me{\mbf{W}_{k,n} \triangleq [ \, \mvec{w}{1,k,n} \, \mvec{w}{2,k,n} \dotsc \mvec{w}{L,k,n} \,]} stacks the receive beamformers respectively. It can be easily extended for user specific streams \me{L_k} instead of using the common \me{L} streams for all users. In \eqref{eqn-4.3}, we consider the sum power constraint for each \ac{BS} across all sub-channels. Before discussing the proposed solutions, we consider the existing algorithm to solve the issue of minimizing the number of backlogged packets with additional constraints required by problem.
 
 For practical and tractability reasons, we impose a constraint that the maximum number of transmitted bits for the user \me{k} is limited by the total backlogged packets available at the transmitter. As a result, the number of backlogged packets \me{v_k} remaining in the system for the user \me{k} is given by
 \begin{equation}
-v_k =  Q_k - \sum_{n = 1}^N \sum_{l = 1}^{L} \log_2(1+\gamma_{l,k,n}) \geq 0.
+v_k =  Q_k - \sum_{n = 1}^N \sum_{l = 1}^{L} \log_2(1+\gamma_{l,k,n}) \geq 0
 \end{equation}
 The above positivity constraint need to be satisfied by \me{v_k} to avoid the excessive allocation of the resources.
 
@@ -22,4 +22,4 @@ Before proceeding further, we note that the constraint in \eqref{eqn-4.2} is han
 \item With \me{\ell_{q = 1}}, the objective results in greedy allocation \textit{i.e}, emptying the queue of users with good channel condition before considering the users with worse channel conditions. As a special case, it is easy to see that \eqref{eqn-3} reduces to the \ac{WSRM} problem \eqref{gen_sum} when the queue size is large enough for all users.
 \item With \me{\ell_{q = 2}}, the objective prioritizes users with higher number of queued packets before considering the users with a smaller number of backlogged packets. For example, it could be more ideal for the delay limited scenario when the packet arrival rates of the users are similar, since the backlogged packets is proportional to the delay in the transmission following the Little's law \cite{neely2010stochastic}.
 \item With \(\ell_{q = \infty} \), the objective minimizes the maximum number of queued packets among users with the current transmission, thereby providing queue fairness by allocating the resources proportional to the number of backlogged packets.
-\end{itemize}
+\end{itemize} 

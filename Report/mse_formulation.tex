@@ -1,18 +1,27 @@
 
-In this section, we present an alternative approach for solving the \acl{QM} \ac{JSFRA} problem by using the \ac{MSE} equivalence with the the achievable capacity presented in \cite{viswanath1999optimal,mse_duality}. It is given by \me{C(\gamma) = \log_2 \left ( {1}/{\epsilon(\gamma)} \right )}, where \me{\epsilon(\gamma) = {1} / {(1 + \gamma)}} is the \ac{MSE} for decoding the transmitted symbol at the reciever employing the \ac{MMSE} equalizer and \me{C(\gamma)} is the achievable capacity for the \ac{SINR} of \me{\gamma}. Using this equivalence, the \ac{WSRM} objective can be reformulated as the \ac{WMMSE} objective to obtain the precoders for the \ac{MU-MIMO} scenario as discussed in \cite{christensen2008weighted,wmmse_shi}. In this, we use the relation between the \ac{MSE} and the achievable capacity to solve the \ac{JSFRA} problem by employing \ac{MMSE} receivers.
+In this section, we solve the \ac{JSFRA} problem by exploiting the equivalence between the \ac{MSE} and the achievable capacity for the receivers designed based on the \ac{MMSE} criterion \cite{viswanath1999optimal,mse_duality}. The \ac{MSE} for the data symbol, represented as \me{\epsilon_{l,k,n}}, is given by
+\begin{subeqnarray} \label{mse-error}
+\epsilon_{l,k,n} &=& \mathbb{E} \big [ ( d_{l,k,n} - \hat{d}_{l,k,n} )^2 \big ] \\
+ &=&  \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,i,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2
+\end{subeqnarray}
+where \me{\mvec{m}{l,k,n}, \mvec{w}{l,k,n}} denotes the transmit and the receive beamformer and \me{\hat{d}_{l,k,n}} is the received symbol as in \eqref{eqn-1}. Now, replacing the receive beamformer in \eqref{mse-error} with the \ac{MMSE} receiver shown in \eqref{eqn-10}, we obtain the following relation between the \ac{MSE} and the \ac{SINR} as
+\begin{equation} \label{eqn-mse-eq}
+\epsilon_{l,k,n} = \dfrac{1}{1 + \gamma_{l,k,n}}
+\end{equation}
+where \me{\gamma_{l,k,n}} is the received \ac{SINR} as in \eqref{eq:SINR}. Using the equivalence in \eqref{eqn-mse-eq}, the \ac{WSRM} objective can be reformulated as the \ac{WMMSE} objective to obtain the precoders for the \ac{MU-MIMO} scenario as discussed in \cite{christensen2008weighted,wmmse_shi}.
 
 Let \me{{v}^{\prime}_k = Q_k - \sum_{n=1}^N \sum_{l=1}^L t_{l,k,n}} denotes the queue deviation corresponding to the user \me{k} and \me{\tilde{{v}}^{\prime}_k \triangleq a_k^{1/{q}}v^{\prime}_k} represents the weighted equivalent. Now, using the \ac{MSE} relation, \eqref{eqn-6} is written as
 \begin{IEEEeqnarray}{LL}\label{eqn-mse-1}
 \underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\\ \epsilon_{l,k,n},\mvec{w}{l,k,n}}} {\text{minimize}} & \quad \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-1.1} \\
-\text{subject to} & \quad t_{l,k,n} \leq -\log_2(\epsilon_{l,k,n}), \IEEEyessubnumber \label{eqn-mse-1.2} \\
+\text{subject to} & \quad t_{l,k,n} \leq -\log_2(\epsilon_{l,k,n}) \IEEEyessubnumber \label{eqn-mse-1.2} \\
  & \quad \epsilon_{l,k,n} \geq  \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,i,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 \IEEEyessubnumber \label{eqn-mse-1.3} \\
-& \quad \text{and} \; \eqref{eqn-4.3},  \IEEEyessubnumber \label{eqn-mse-1.4}
+& \quad \text{and} \; \eqref{eqn-4.3}  \IEEEyessubnumber \label{eqn-mse-1.4}
 \end{IEEEeqnarray}
 where \eqref{eqn-mse-1.3} bounds the \ac{MSE} by \me{\epsilon_{l,k,n}} and \eqref{eqn-mse-1.2} relaxes the transmitted rate \me{{t}_{l,k,n}} using the the \ac{MSE} relation.
 
 The \acl{QM} \ac{JSFRA} problem using alternative \ac{MSE} formulation given by \eqref{eqn-mse-1} is non-convex due to the constraint \eqref{eqn-mse-1.2}. In order to solve this efficiently, we use the \ac{SCA} method as discussed earlier in Section \ref{sec-3.2} by using the linear under estimator for the convex function on the r.h.s of \eqref{eqn-mse-1.2}. The first order Taylor approximation around a fixed \ac{MSE} value \me{\tilde{\epsilon}_{l,k,n}} for \eqref{eqn-mse-1.2} is given by
 \begin{IEEEeqnarray}{rCl}
-- \log_2(\tilde{\epsilon}_{l,k,n}) - \frac{\left ( {\epsilon}_{l,k,n} - \tilde{\epsilon}_{l,k,n} \right ) }{\log(2) \, \tilde{\epsilon}_{l,k,n}} &\geq& t_{l,k,n}.
+- \log_2(\tilde{\epsilon}_{l,k,n}) - \frac{\left ( {\epsilon}_{l,k,n} - \tilde{\epsilon}_{l,k,n} \right ) }{\log(2) \, \tilde{\epsilon}_{l,k,n}} &\geq& t_{l,k,n}
 \label{mse-lin}
 \end{IEEEeqnarray}
 
@@ -20,7 +29,7 @@ Now, using the above approximation for the rate constraint, the optimization pro
 \begin{IEEEeqnarray}{rCl}\label{eqn-mse-2}
 \underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\\\epsilon_{l,k,n}}}{\text{minimize}} &\quad& \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-2.1} \\
 \text{subject to} & \quad & \eqref{eqn-4.3}, \: \eqref{mse-lin}  \IEEEyessubnumber \label{eqn-mse-2.2} \\
-& \quad & \epsilon_{l,k,n} \geq  \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,i,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 \IEEEyessubnumber \label{eqn-mse-2.3}.
+& \quad & \epsilon_{l,k,n} \geq  \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,i,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 \IEEEyessubnumber \label{eqn-mse-2.3}
 \end{IEEEeqnarray}
 
 \subsubsection*{Convergence}

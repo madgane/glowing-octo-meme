@@ -3,28 +3,28 @@ The queue minimizing algorithms are discussed extensively in the networking lite
 
 The \ac{Q-WSRM} formulation extends the \emph{backpreassure algorithm} to the \ac{MIMO} \ac{OFDM} framework, in which the multiple \acp{BS} acts as the source nodes and the user terminals as the receiver nodes. The control policy in the form of transmit precoders are designed with the objective of minimizing the number of queued packets waiting at the \acp{BS}. The weights used in the precoder design algorithm should be a function of the number of backlogged packets corresponding to each user. In order to find the weights, we adopt the Lyapunov drift minimization as discussed in \cite{neely2010stochastic}, where the Lyapunov function is given by the squared sum of the number backlogged packets as
 \begin{equation}
-\mathrm{L}\sset{\mbf{Q}(i)} = \frac{1}{2} \, \sum_{k \in \mc{U}} Q_k(i),
+\mathrm{L}\sset{\mbf{Q}(i)} = \frac{1}{2} \, \sum_{k \in \mc{U}} Q_k(i)
 \end{equation}
 where \me{\mbf{Q}(i)} denotes the stacked user queues at the \me{\ith{i}} slot. The Lyapunov function provides a measure of congestion in the system, as discussed in \cite[Ch. 3]{neely2010stochastic}. Now the Lyapunov function drift is given by
 \begin{IEEEeqnarray}{rCl}\label{eqn-3.1}
 \mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} &=& \frac{1}{2} \left [ \sum_{k \in \mc{U}} \, \Big ( \left [ Q_k(i) - t_k(i) \right ]^+ + \lambda_k(i) \Big )^2 - Q^2_k(i) \right ] \IEEEyessubnumber \label{eqn-3.1.0} \\
-&\leq& \sum_{k \in \mc{U}} \, \frac{\lambda^2_k(i) + t_k^2(i)}{2} + \sum_{k \in \mc{U}} Q_k(i) \set{ \lambda_k(i) - t_k(i) }, \IEEEyessubnumber \label{drift-exp}
+&\leq& \sum_{k \in \mc{U}} \, \frac{\lambda^2_k(i) + t_k^2(i)}{2} + \sum_{k \in \mc{U}} Q_k(i) \set{ \lambda_k(i) - t_k(i) } \IEEEyessubnumber \label{drift-exp}
 \end{IEEEeqnarray}
 where the inequality is due to the upper bound
 \begin{equation}
-\sset{\max(Q-t,0) + \lambda)}^2 \leq Q^2 + t^2 + \lambda^2 + 2 Q (\lambda - t).
+\sset{\max(Q-t,0) + \lambda)}^2 \leq Q^2 + t^2 + \lambda^2 + 2 Q (\lambda - t)
 \end{equation}
 In order to minimize the number of backlogged packets at each instant, minimization of the Lyapunov drift \eqref{eqn-3.1} is carried over all possible control decisions in the form of transmission rates \me{t_k} to users in the system. The Lyapunov drift conditioned on the current backlogged packets \me{\mbfa{Q}(i)} is given by
 \begin{IEEEeqnarray}{rCl} \label{backpreassure-approx}
 \underset{\mbf{t}}{\text{minimize}} && \Delta(\mbf{Q}(i)) \triangleq \mathbb{E} \set{\mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} \vert \mbf{Q}(i)} \IEEEyessubnumber \\
- &\leq& \mathbb{E} \set {\sum_{k \in \mc{U}} \, \frac{\lambda^2_k(i) + t_k^2(i)}{2} \vert \mbf{Q}(i)} + \sum_{k \in \mc{U}} Q_k(i) A_k(i) + \mathbb{E}\set{\sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i)}, \IEEEyessubnumber
+ &\leq& \mathbb{E} \set {\sum_{k \in \mc{U}} \, \frac{\lambda^2_k(i) + t_k^2(i)}{2} \vert \mbf{Q}(i)} + \sum_{k \in \mc{U}} Q_k(i) A_k(i) + \mathbb{E}\set{\sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i)} \IEEEyessubnumber
 \end{IEEEeqnarray}
 where the second term on the r.h.s is due to i.i.d assumption on the arrivals. We can bound the first term on the r.h.s by a constant \me{B} for all possible control actions taken for a given channel condition \cite{neely2010stochastic}.
 
 Now the expression in \eqref{backpreassure-approx} looks similar to the \ac{WSRM} problem if the weights are replaced by the number of backlogged packets corresponding to the users. The above discussed approach is extended for the wireless networks in \cite{weeraddana2011resource}, where the queue weighted sum rate maximization is considered as the objective function to determine the transmit precoders. In order to avoid the excessive  allocation of the resources, we include an additional rate constraint \me{t_k \leq Q_k} to address \me{[x]^+} operation in \eqref{eqn-2a}. With this, the \ac{Q-WSRM} problem for a wireless system is given by
 \begin{IEEEeqnarray}{rCl} \label{q_gen_sum}
 \underset{\substack{\mvec{M}{k,n}, \mvec{W}{k,n}}}{\text{maximize}} &\quad& \sum_{k \in \mc{U}} \, Q_k \left ( \sum_{n = 1}^N \sum_{l=1}^L \log_2(1 + \gamma_{l,k,n}) \right ) \IEEEyessubnumber \label{eqn-3.1.1} \\
-\text{subject to.} & \quad & \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \text{tr} \, (\mvec{M}{k,n} \mvec{M}{k,n}^\herm) \leq P_{{\max}}, \fall b, \IEEEyessubnumber \label{eqn-3.1.3} \\
+\text{subject to.} & \quad & \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \text{tr} \, (\mvec{M}{k,n} \mvec{M}{k,n}^\herm) \leq P_{{\max}}, \fall b \IEEEyessubnumber \label{eqn-3.1.3} \\
 & \quad & \sum_{n=1}^N \sum_{l = 1}^L \log_2(1 + \gamma_{l,k,n}) \leq Q_k, \fall k \in \mc{U} \IEEEyessubnumber \label{eqn-3.1.4}
 \end{IEEEeqnarray}
 where the precoders are associated with the \me{\gamma_{l,k,n}} defined in \eqref{eq:SINR}. By using the number of queued packets as the weights, the resources can be allocated to the user with the more number of backlogged packets, which essentially does the allocation in a greedy manner.
@@ -32,6 +32,6 @@ where the precoders are associated with the \me{\gamma_{l,k,n}} defined in \eqre
 As a special case of the problem defined in \eqref{q_gen_sum}, we can formulate the sum rate maximization problem by setting the weights in \eqref{eqn-3.1.1} as unity, leading to the problem as
 \begin{IEEEeqnarray}{rCl}\label{gen_sum}
 \underset{\substack{\mvec{M}{k,n},\mvec{W}{k,n}}}{\text{maximize}} &\quad& \sum_{k \in \mc{U}} \, \sum_{n = 1}^N \sum_{l=1}^L \log_2(1 + \gamma_{l,k,n}) \IEEEyessubnumber \\
-\text{subject to.} & \quad & \eqref{eqn-3.1.1}, \eqref{eqn-3.1.3} \; \text{and} \; \eqref{eqn-3.1.4}. \IEEEyessubnumber
+\text{subject to.} & \quad & \eqref{eqn-3.1.1}, \eqref{eqn-3.1.3} \; \text{and} \; \eqref{eqn-3.1.4} \IEEEyessubnumber
 \end{IEEEeqnarray}
 The problem defined in \eqref{gen_sum} provides a greedy queue minimizing approach as compared to \eqref{q_gen_sum}, since the resource allocation is driven by the channel conditions in comparison with the number of queued packets as in \eqref{q_gen_sum}. Note that in both formulations, the resources allocated to the users are limited by the backlogged packets with an explicit rate constraint defined by \eqref{eqn-3.1.4}.
