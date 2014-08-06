@@ -24,15 +24,15 @@ By forming the Lagrangian of \eqref{kkt-mse-1} with the corresponding dual varia
 \mvec{m}{l,k,n}^{(i)} &=& \Big ( \sum_{x \in \mc{U}} \sum_{y=1}^L \alpha_{y,x,n}^{(i-1)} \mvec{H}{b_k,x,n}^\herm \mvec{w}{y,x,n}^{(i-1)} \mvec{w}{y,x,n}^{\herm \, {(i-1)}} \mvec{H}{b_k,x,n} + \delta_b \mbf{I}_{N_T} \Big )^{-1} \alpha^{(i-1)}_{l,k,n} \mvec{H}{b_k,k,n}^\herm \mvec{w}{l,k,n}^{(i-1)} \IEEEyessubnumber \label{kkt-mse-4.3} \\
 \epsilon_{l,k,n}^{(i)} &=& \left | 1 - \mvec{w}{l,k,n}^{\herm \, (i)} \mvec{H}{b_k,k,n} \mvec{m}{l,k,n}^{(i)} \right |^2 + \sum_{\mathclap{(x,y) \neq (l,k)}} \left | \mvec{w}{l,k,n}^{\mathrm{H} \, (i)} \mvec{H}{b_y,y,n} \mvec{m}{x,y,n}^{(i)} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}^{(i)}\|^2 \IEEEyessubnumber \label{kkt-mse-4.4} \\
 t_{l,k,n}^{(i)} &=&  -\log_2(\epsilon_{l,k,n}^{(i-1)}) - \frac{\left ( \epsilon_{l,k,n}^{(i)} - \epsilon_{l,k,n}^{(i-1)} \right ) }{\log(2) \, \epsilon_{l,k,n}^{(i-1)}} \IEEEyessubnumber \label{kkt-mse-4.5} \\
-\sigma_{l,k,n}^{(i)} &=& \frac{a_k \, q}{\log(2)}  \, \Big (Q_k - \sum_{n = 1}^N \sum_{l=1}^L t_{l,k,n}^{(i)} \Big )^{(q-1)}  \IEEEyessubnumber \label{kkt-mse-4.2} \\
-\alpha^{(i)}_{l,k,n} &=& \alpha^{(i-1)}_{l,k,n} + \rho \left ( \frac{\left [ \sigma_{l,k,n}^{(i)} \right ]^+}{\epsilon_{l,k,n}^{(i)}} - \alpha^{(i-1)}_{l,k,n} \right ) \IEEEyessubnumber \label{kkt-mse-4.1} \\
+\sigma_{l,k,n}^{(i)} &=& \max{\left (0, \frac{a_k \, q}{\log(2)}  \, \Big (Q_k - \sum_{n = 1}^N \sum_{l=1}^L t_{l,k,n}^{(i)} \Big )^{(q-1)}\right )}  \IEEEyessubnumber \label{kkt-mse-4.2} \\
+\alpha^{(i)}_{l,k,n} &=& \alpha^{(i-1)}_{l,k,n} + \rho \left ( \rfrac{\sigma_{l,k,n}^{(i)}}{\epsilon_{l,k,n}^{(i)}} - \alpha^{(i-1)}_{l,k,n} \right ) \IEEEyessubnumber \label{kkt-mse-4.1} \\
 \mvec{w}{l,k,n}^{(i)} &=& \Big ( \sum_{x\in\mc{U}}\sum_{y=1}^L \mvec{H}{b_x,k,n} \mvec{m}{y,x,n}^{(i)} \mvec{m}{y,x,n}^{\herm \, (i)} \mvec{H}{b_{x},k,n}^\herm + \mathbf{I}_{N_R} \Big ) ^{-1} \; \mvec{H}{b_k,k,n} \; \mvec{m}{l,k,n}^{(i)} \IEEEyessubnumber \label{kkt-mse-4.6}
 \end{IEEEeqnarray}
 The dual variable \me{\alpha^{(i)}} is updated with memory as in \eqref{kkt-mse-4.1} to avoid abrupt oscillations due to \me{\sigma < 0} from \eqref{kkt-mse-4.2} when \me{Q_k < \sum_{n=1}^N \sum_{l=1}^L {t}_{l,k,n}}. The parameter \me{\rho \in [0,1]} provides a linear combination of the previous to the current value of the dual variable, dictating system reaction for the excess allocation.
 
 The \ac{KKT} solutions provided in \eqref{kkt-mse-4} are solved in an iterative manner by initializing the transmit and the receive precoders \me{\mvec{M}{k,n},\mvec{W}{k,n}} with the single user beamforming and the \ac{MMSE} vectors. The dual variable \me{\alpha}'s corresponding to precoder weights are initialized with ones to provide equal priorities to all streams. Now, the closed form expressions in \eqref{kkt-mse-4} are evaluated sequentially until convergence or to a certain accuracy. In \eqref{kkt-mse-4}, all expressions are in closed form except the transmit precoders \eqref{kkt-mse-4.3}, which depends on the \ac{BS} specific dual variable \me{\delta_b}. It can be solved efficiently by the bisection method satisfying the power constraint \eqref{kkt-mse-1.4}. After each iteration instant, the transmit and the receive precoders are exchanged across the coordinating \acp{BS} in \me{\mc{B}} to obtain the next operating point.
 
-The receive beamformers from the users can be informed to the coordinating \acp{BS} by using the precoded uplink pilot signaling, where the precoders used for the uplink pilots are the receive beamformers \me{\sqrt{\alpha_{l,k,n}^{(i-1)}}\mvec{w}{l,k,n}^{\ast(i-1)}} evaluated at the receivers. Upon receiving the uplink precoded pilots by the \ac{BS}, the effective channel \me{\sqrt{\alpha_{l,k,n}^{(i-1)}} \mvec{w}{l,k,n}^{\ast \, (i-1)} \mvec{H}{b,k,n}^{\mathrm{T}}} can be used in the expression \eqref{kkt-mse-4.3} to update the transmit precoders at the respective \acp{BS} \cite{komulainen2013effective}, \me{\mbf{x}^{\ast}} represents the conjugate of \me{\mbf{x}}. The algorithmic representation of the \ac{KKT} based scheme is shown in Algorithm. \ref{algo-4}.
+In order to perform the distributed approach, we can consider the method proposed in \cite{komulainen2013effective}, where the users evaluate the \ac{MSE}, and the dual variable \me{\alpha_{l,k,n}} using the transmission made by all \acp{BS} using the transmit precoders \me{\mvec{m}{l,k,n}^{(i-1)}}. Once the dual variables are evaluated, the users will notify the dual variables and the receive beamformers to the \acp{BS} using the uplink precoded pilot signaling, where the precoders used for the uplink pilots are the receive beamformers \me{\mvec{\tilde{w}}{l,k,n}^{(i-1)} = \sqrt{\alpha_{l,k,n}^{(i-1)}}\mvec{w}{l,k,n}^{\ast(i-1)}} evaluated at the receivers. Upon receiving the uplink precoded pilots by the \ac{BS}, the effective channel \me{\mvec{H}{b,k,n}^{\mathrm{T}} \mvec{\tilde{w}}{l,k,n}^{(i-1)}} can be used in the expression \eqref{kkt-mse-4.3} to update the transmit precoders at the respective \acp{BS}, \me{\mbf{x}^{\ast}} represents the conjugate of \me{\mbf{x}}. The algorithmic representation of the distributed \ac{MSE}-\ac{KKT} scheme is shown in Algorithm. \ref{algo-4}. In this approach, the coordinating \acp{BS} are required to perform short transmissions to update the transmit and the receive beamformers before the actual data transmission.
 \begin{algorithm}
  \SetAlgoLined
  \DontPrintSemicolon
@@ -42,22 +42,22 @@ The receive beamformers from the users can be informed to the coordinating \acp{
  \KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l \in \set{1,2,\dotsc,L}}}
  \KwInit{\me{i=1} and the receive beamformers \me{\mbf{w}^{(0)}_{l,k,n}} randomly}
  \KwInit{\me{\epsilon_{l,k,n}^{(0)}} randomly and the dual variables \me{{\alpha}_{l,k,n}^{(0)} = 1}}
- set the maximum iteration counter \me{I_{\max}} to a valid number. \;
+ set the maximum iteration counter \me{I_{\max},J_{\max}} to a valid number. \;
  \Repeat{until convergence or \me{j \geq J_{\max}}}{
  \lForEach{\ac{BS} \me{b \in \mc{B}}}
  \Repeat{until convergence or \me{i \geq I_{\max}}}{
 	update the transmit precoders \me{\mvec{M}{k,n}^{(i)}} using \eqref{kkt-mse-4.3}, where \me{\delta_b} is identified by the bisection method satisfying \eqref{kkt-mse-1.4}. \;
-	update the \ac{MSE} \me{\epsilon_{l,k,n}^{(i)}} and the throughput \me{t_{l,k,n}^{(i)}} using \eqref{kkt-mse-4.4} and \eqref{kkt-mse-4.5}. \;
-	solve for the dual variables \me{\alpha_{l,k,n}^{(i)}} and \me{\sigma_{l,k,n}^{(i)}} using \eqref{kkt-mse-4.1} and \eqref{kkt-mse-4.2}. \;
-	$i = i + 1.$ \;
+    update \me{\epsilon_{l,k,n}^{(i)}}, \me{t_{l,k,n}^{(i)}}, \me{\sigma_{l,k,n}^{(i)}} and \me{\alpha_{l,k,n}^{(i)}} using \eqref{kkt-mse-4.4} and \eqref{kkt-mse-4.5}, \eqref{kkt-mse-4.2} and \eqref{kkt-mse-4.1} at the receivers using the transmit precoders \me{\mvec{M}{k,n}^{(i)}} from all \acp{BS}. \;
+    perform precoded uplink pilot transmission from all users with the precoder \me{\mvec{\tilde{w}}{l,k,n}^{(j)}}. \;
+    $i = i + 1.$ \;
   }
-  \me{j = j + 1}. \;
-  evaluate the receive beamforming vector \me{\mvec{W}{k,n}^{(i)}} using \eqref{kkt-mse-4.6}. \;
-  exchange the receive precoders \me{\mvec{W}{k,n}^{(i)}} and the dual variables \me{\alpha_{l,k,n}^{(i)}} across the coordinating \acp{BS} in \me{\mc{B}} using the uplink precoded pilots. \;
-  }
+ evaluate the receive beamforming vector \me{\mvec{W}{k,n}^{(j+1)}} using \eqref{kkt-mse-4.6}. \;
+ inform \acp{BS} using uplink precoded pilot transmission from all users with the precoder \me{\mvec{\tilde{w}}{l,k,n}^{(j+1)}}. \;
+ \me{j = j + 1}. \;
+ }
  \caption{\ac{KKT} approach for the \ac{JSFRA} scheme}
-  \label{algo-4}
+ \label{algo-4}
 \end{algorithm}
 
 \subsubsection*{Convergence}
-The iterative method presented in Algorithm \ref{algo-4} converges to the stationary point if the dual variables \me{\alpha_{l,k,n}} are allowed to converge. The convergence of the dual variable is guaranteed, since the problem is convex once we fix the receive precoders \me{\mvec{w}{l,k,n}} and the operating \ac{MSE} point \me{\epsilon_{l,k,n}} \cite{boyd2011distributed}. Once the dual variables are converged or iterated to a certain accuracy, the receivers are updated using the \ac{MMSE} objective. In this algorithm, when \me{t_k > Q_k}, 
+The iterative method presented in Algorithm \ref{algo-4} converges to the stationary point if the dual variables \me{\alpha_{l,k,n}} are allowed to converge. The convergence of the dual variable is guaranteed, since the problem is convex by fixing the receive precoders \me{\mvec{w}{l,k,n}} and the operating \ac{MSE} point \me{\epsilon_{l,k,n}} \cite{boyd2011distributed}. Once the dual variables are converged or iterated to a certain accuracy, the receivers are updated using the \ac{MMSE} objective. In this algorithm, when \me{t_k > Q_k}, \me{\sigma_{l,k,n}} will be zero (dual feasibility), thereby reducing the priority weights \me{\alpha_{l,k,n}} present in the transmit precoder expression in \eqref{kkt-mse-4.3}.
