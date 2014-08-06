@@ -42,14 +42,16 @@ In order to perform the distributed approach, we can consider the method propose
  \KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l \in \set{1,2,\dotsc,L}}}
  \KwInit{\me{i=1} and the receive beamformers \me{\mbf{w}^{(0)}_{l,k,n}} randomly}
  \KwInit{\me{\epsilon_{l,k,n}^{(0)}} randomly and the dual variables \me{{\alpha}_{l,k,n}^{(0)} = 1}}
+ for each \ac{BS} \me{b \in \mc{B}}, perform the following procedure \;
  set the maximum iteration counter \me{I_{\max},J_{\max}} to a valid number. \;
+ initialize \me{j = 0}. \;
  \Repeat{until convergence or \me{j \geq J_{\max}}}{
- \lForEach{\ac{BS} \me{b \in \mc{B}}}
+ initialize \me{i = 0}. \;
  \Repeat{until convergence or \me{i \geq I_{\max}}}{
 	update the transmit precoders \me{\mvec{M}{k,n}^{(i)}} using \eqref{kkt-mse-4.3}, where \me{\delta_b} is identified by the bisection method satisfying \eqref{kkt-mse-1.4}. \;
     update \me{\epsilon_{l,k,n}^{(i)}}, \me{t_{l,k,n}^{(i)}}, \me{\sigma_{l,k,n}^{(i)}} and \me{\alpha_{l,k,n}^{(i)}} using \eqref{kkt-mse-4.4} and \eqref{kkt-mse-4.5}, \eqref{kkt-mse-4.2} and \eqref{kkt-mse-4.1} at the receivers using the transmit precoders \me{\mvec{M}{k,n}^{(i)}} from all \acp{BS}. \;
     perform precoded uplink pilot transmission from all users with the precoder \me{\mvec{\tilde{w}}{l,k,n}^{(j)}}. \;
-    $i = i + 1.$ \;
+    \me{i = i + 1} \;
   }
  evaluate the receive beamforming vector \me{\mvec{W}{k,n}^{(j+1)}} using \eqref{kkt-mse-4.6}. \;
  inform \acp{BS} using uplink precoded pilot transmission from all users with the precoder \me{\mvec{\tilde{w}}{l,k,n}^{(j+1)}}. \;
