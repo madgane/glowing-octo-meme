@@ -26,18 +26,15 @@ Table \ref{tbl-1} lists the sub-channel wise channel seen by the users followed 
 In order to understand the behavior in a \ac{MIMO} framework, we consider a system with \me{N=3} sub-channels and \me{N_B = 3} \acp{BS}, each equipped with \me{N_T = 4} transmit antennas operating at \me{10}dB \ac{SNR}, serving \me{|\mc{U}_b| = 3} users each. The users are located with the maximum interference seen from the neighboring \acp{BS} is limited to \me{-6} dB, thereby simulating a realistic scenario. Fig. \ref{fig-1} shows the performance of the centralized schemes for a single receive antenna system. It compares the total number of \ac{SCA} updates required by the \ac{JSFRA}, \ac{SRA} and the \ac{Q-WSRM} schemes to perform the optimal allocations to minimize the total number of backlogged packets.
 \begin{figure*}
 \centering
-\begin{subfigure}{0.49\textwidth}
-\includegraphics[width=1.0\textwidth]{fig-1-1}
-\caption{\me{4 \times 1} system}
-\label{fig-1}
-\end{subfigure}
+\subfloat[][\me{N_T = 4, N_R = 1} system]{
+\includegraphics[width=0.48\textwidth]{fig-1-1}
+\label{fig-1}}
 \hfill
-\begin{subfigure}{0.49\textwidth}
-\includegraphics[width=1.0\textwidth]{fig-2-1}
-\caption{\me{4 \times 2} system}
-\label{fig-2}
-\end{subfigure}
-\caption{Convergence plot for \me{\lbrace N,N_B,K \rbrace = \lbrace 3,3,9 \rbrace} model}
+\subfloat[][\me{N_T = 4, N_R = 2} system]{
+\includegraphics[width=0.48\textwidth]{fig-2-1}
+\label{fig-2}}
+\caption{Number of backlogged packets at \ac{SCA} updates for \me{\lbrace N,N_B,K \rbrace = \lbrace 3,3,9 \rbrace} System}
+\label{fig-a}
 \end{figure*}
 
 In the sub-channel wise allocations, where the total transmit power is shared equally among the sub-channels, the precoders are designed for each sub-channels independently. In this approach, the precoders are coupled via the number of queued bits which are updated using \eqref{eqn-weight} before designing the precoders for the sub-channels. At each \ac{SCA} points, the number of queued bits are reduced significantly with the introduction of a new sub-channel since the algorithm starts with a random initial point before it converges to an optimal\footnote{due to the nonconvex nature of the original problem} precoders. The total number of backlogged bits at each \ac{SCA} update instant are plotted in Fig. \ref{fig-1} for the discussed centralized schemes and the convergence point are marked with the data tips. Fig. \ref{fig-2} compares the performance of the centralized algorithms for the \me{N_R = 2} receive antennas.
