@@ -49,7 +49,7 @@ The convergence of the \ac{ADMM} method follows the same argument as the central
         update the global interference vector \me{\mbfa{\zeta}^{(j+1)}} using \eqref{zeta_update} \;
 		\me{j = j + 1} \;
     }
-    update the receive beamformers \me{\mvec{w}{l,k,n}} using \eqref{eqn-10} with the recent precoders \me{\mvec{m}{l,k,n}} \;
+    update the receive beamformers \me{\mvec{w}{l,k,n}} using \eqref{eqn-10} by exchanging the recent precoders \me{\mvec{m}{l,k,n}} \;
     exchange the receive precoders \me{\mbf{W}_{k,n}} \me{\forall k \in \mc{U}_b} among the \acp{BS} in \me{\mc{B}} \;
     update \me{\tilde{p}_{l,k,n}}, \me{\tilde{q}_{l,k,n}} and \me{\tilde{\beta}_{l,k,n}} with the recent precoders using \eqref{eqn-wsrm-expr} and \eqref{eqn-6.3} for the \ac{SCA} approach (or)\;
     update \me{\tilde{\epsilon}_{l,k,n}} with the recent precoders using \eqref{eqn-mse-2.3} with equality for the \ac{MSE} formulation approach \;

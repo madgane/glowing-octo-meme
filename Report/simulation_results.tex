@@ -43,29 +43,29 @@ In order to understand the behavior in a \ac{MIMO} framework, we consider a syst
 \label{fig-a}
 \end{figure*}
 
-In the sub-channel wise allocations, where the total transmit power is shared equally among the sub-channels, the precoders are designed for each sub-channels independently. In this approach, the precoders are coupled via the number of queued bits which are updated using \eqref{eqn-weight} before designing the precoders for the sub-channels. At each \ac{SCA} points, the number of queued bits are reduced significantly with the introduction of a new sub-channel since the algorithm starts with a random initial point before it converges to an optimal\footnote{due to the nonconvex nature of the original problem} precoders. The total number of backlogged bits at each \ac{SCA} update instant are plotted in Fig. \ref{fig-1} for the discussed centralized schemes and the convergence point are marked with the data tips. Fig. \ref{fig-2} compares the performance of the centralized algorithms for the \me{N_R = 2} receive antennas.
-%\begin{table}
-%\centering
-%\renewcommand{\arraystretch}{1.25} \scriptsize
-%\begin{tabular}{|c|*{8}{c}|c|}
-%\hline
-%\me{q} & \multicolumn{8}{c|}{user indices} & \me{\chi} \\
-%\hline
-%\me{1} & 15.00 & 3.95 & 5.26 & 8.95 & 7.03 & 11.90 & 12.00 & 9.73 & 25.15 \\
-%\me{2} & 11.23 & 3.93 & 10.76 & 10.65 & 10.27 & 9.68 & 8.77 & 5.90 & 27.77 \\
-%\me{\infty} & 11.41 & 4.41 & 10.41 & 10.41 & 10.41 & 8.41 &  8.41 &  6.41 & 28.68 \\
-%\hline
-%\me{Q_k}  & 15.0 &  8.0 &  14.0 & 14.0 &  14.0 & 12.0 & 12.0 & 10.0  \\
-%\cline{1-9}
-%\end{tabular}
-%\caption{Queue information for the system \me{\lbrace N,N_B,K,N_R \rbrace = \lbrace 5,2,8,1 \rbrace}}
-%\label{tbl-3}
-%\end{table}
-\begin{figure}
+In the sub-channel wise allocations, where the total transmit power is shared equally among the sub-channels, the precoders are designed for each sub-channels independently. In this approach, the precoders are coupled via the number of queued bits which are updated using \eqref{eqn-weight} before designing the precoders for the sub-channels. At each \ac{SCA} points, the number of queued bits are reduced significantly with the introduction of a new sub-channel since the algorithm starts with a random initial point before it converges to an optimal\footnote{due to the nonconvex nature of the original problem} precoders. The total number of backlogged bits at each \ac{SCA} update instant are plotted in Fig. \ref{fig-1} for the discussed centralized schemes and the convergence point are marked with the data tips. Fig. \ref{fig-2} compares the performance of the centralized algorithms for the \me{N_R = 2} receive antennas. In this setup, we assume the queue sizes of the users are small enough to bring out the difference between the receiver performances for the \ac{JSFRA} solution discussed in Section \ref{sec-3.2.1}. In this scenario, the performance of the \ac{MMSE} receiver is not the same as the optimal receiver when the objective is not equivalent to the \ac{WSRM} approach.
+\begin{table}
 \centering
-\includegraphics[width=\columnwidth]{tbl-2}
+\renewcommand{\arraystretch}{1.25} \scriptsize
+\begin{tabular}{|c|*{8}{c}|c|}
+\hline
+\me{q} & \multicolumn{8}{c|}{user indices} & \me{\chi} \\
+\hline
+\me{1} & 15.00 & 3.95 & 5.26 & 8.95 & 7.03 & 11.90 & 12.00 & 9.73 & 25.15 \\
+\me{2} & 11.23 & 3.93 & 10.76 & 10.65 & 10.27 & 9.68 & 8.77 & 5.90 & 27.77 \\
+\me{\infty} & 11.41 & 4.41 & 10.41 & 10.41 & 10.41 & 8.41 &  8.41 &  6.41 & 28.68 \\
+\hline
+\me{Q_k}  & 15.0 &  8.0 &  14.0 & 14.0 &  14.0 & 12.0 & 12.0 & 10.0  \\
+\cline{1-9}
+\end{tabular}
 \caption{Queue information for the system \me{\lbrace N,N_B,K,N_R \rbrace = \lbrace 5,2,8,1 \rbrace}}
 \label{tbl-3}
-\end{figure}
+\end{table}
+%\begin{figure}
+%\centering
+%\includegraphics[width=\columnwidth]{tbl-2}
+%\caption{Queue information for the system \me{\lbrace N,N_B,K,N_R \rbrace = \lbrace 5,2,8,1 \rbrace}}
+%\label{tbl-3}
+%\end{figure}
 
-The behavior of the \ac{JSFRA} algorithm for different exponents \me{q} are outlined in the Fig. \ref{tbl-3} for the users located at the cell-edge of the system employing \me{N_T = 4} transmit antennas. The configuration is mentioned in the caption of Fig. \ref{tbl-3} along with the number of queued bits for each user. It is evident that the algorithm minimizes the queued bits for the \me{\ell_1} norm compared to the \me{\ell_2} norm, which is shown in the column displaying the total number of left over packets \me{\chi} in bits. The \me{\ell_{\infty}} norm provides fair allocation of the resources by making the left over packets \me{\chi_k = 3.58} bits. The \me{\ell_{\infty}} norm provides the fair allocation by making the queued deviation equal for all the users after the current allocation irrespective of their channel gains.
+The behavior of the \ac{JSFRA} algorithm for different exponents \me{q} are outlined in the Table. \ref{tbl-3} for the users located at the cell-edge of the system employing \me{N_T = 4} transmit antennas. The configuration is mentioned in the caption of Table. \ref{tbl-3} along with the number of queued bits for each user. It is evident that the algorithm minimizes the queued bits for the \me{\ell_1} norm compared to the \me{\ell_2} norm, which is shown in the column displaying the total number of left over packets \me{\chi} in bits. The \me{\ell_{\infty}} norm provides fair allocation of the resources by making the left over packets \me{\chi_k = 3.58} bits. The \me{\ell_{\infty}} norm provides the fair allocation by making the queued deviation equal for all the users after the current allocation irrespective of their channel gains.
