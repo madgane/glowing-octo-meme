@@ -30,12 +30,12 @@ Now, the optimal linear receiver for the fixed transmit precoders \me{\mbf{M}_{i
 \underset{\substack{\gamma_{l,k,n},p_{l,k,n},q_{l,k,n} \\ \mvec{w}{l,k,n}, \beta_{l,k,n}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}} \|_q \IEEEyessubnumber\label{eqn-9--1.1a} \\
 \text{subject to} & \quad & \eqref{eqn-9.1c}, \eqref{eqn-9.1d}, \eqref{eqn-9.1e}, \text{ and } \eqref{eqn-8} \IEEEyessubnumber \label{eqn-9--1.1b}
 \end{IEEEeqnarray}
-Now, solving for the optimal receiver using \ac{KKT} conditions, we obtian the following expression in an iterative manner around the \ac{SCA} point \me{\mbf{\tilde{w}}_{l,k,n}}
+Now, by solving for the optimal receiver using \ac{KKT} conditions, we obtian the following expression for the receive beamformer \me{\mvec{w}{l,k,n}} in an iterative manner as
 \begin{subeqnarray} \label{opt-rx}
 \mvec{R}{l,k,n} &=& \displaystyle \sum_{(j,i)\neq (l,k)} \mvec{H}{b_i,k,n} {\mbf{m}}_{j,i,n} {\mbf{m}}_{j,i,n}^\herm \mvec{H}{b_i,k,n}^\herm + N_0 \, \mathbf{I}_{N_R} \\
-\mvec{w}{l,k,n} &=& \left ( \frac{\tilde{\beta}_{l,k,n} {\mbf{m}}_{l,k,n}^\herm \mvec{H}{b_k,k,n}^\herm \tilde{\mbf{w}}_{l,k,n} }{\|\tilde{\mbf{w}}_{l,k,n} \mvec{H}{b_k,k,n} {\mbf{m}}_{l,k,n} \|^2} \right ) \, \mvec{R}{l,k,n}^{-1} \, \mvec{H}{b_k,k,n} {\mbf{m}}_{l,k,n}
+\mvec{w}{l,k,n}^{(i)} &=& \left ( \frac{\tilde{\beta}_{l,k,n} {\mbf{m}}_{l,k,n}^\herm \mvec{H}{b_k,k,n}^\herm \mbf{w}_{l,k,n}^{(i-1)} }{\|\mvec{w}{l,k,n}^{(i-1)} \mvec{H}{b_k,k,n} {\mbf{m}}_{l,k,n} \|^2} \right ) \, \mvec{R}{l,k,n}^{-1} \, \mvec{H}{b_k,k,n} {\mbf{m}}_{l,k,n}
 \end{subeqnarray}
-where the fractional term inside the brace is a constant. It can be seen that the optimal receiver expression in \eqref{opt-rx} is the scaled version of the \ac{MMSE} receiver, which is given by
+where \me{\mvec{w}{l,k,n}^{(i-1)}} denotes the receive beamformer found in the earlier iteration, around which the linear relaxation is performed to convexify the problem in \eqref{eqn-9--1}. It can be seen that the optimal receiver expression in \eqref{opt-rx} is the scaled version of the \ac{MMSE} receiver, which is given by
 \begin{IEEEeqnarray}{rCl}\label{eqn-10}
 \mvec{w}{l,k,n} &=& \mathbf{R}^{-1}_{l,k,n} \; \mvec{H}{b_k,k,n} \; \mvec{m}{l,k,n} \IEEEyessubnumber \\
 \mvec{R}{l,k,n} &=& \displaystyle \sum_{i\in \mc{U}} \sum_{j=1}^L \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \mvec{m}{j,i,n}^\herm \mvec{H}{b_i,k,n}^\herm + N_0 \, \mathbf{I}_{N_R} \IEEEyessubnumber
