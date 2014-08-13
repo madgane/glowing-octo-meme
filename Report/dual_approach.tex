@@ -1,5 +1,5 @@
 
-In this section, we discuss the \ac{ADMM} decomposition method, which is basically based on the \acf{DD}, but shows better convergence properties. In contrast to the \acl{PD} problem, the \acf{ADMM} method relaxes the interference constraints by including it in the objective function of each subproblem with a penalty pricing \cite{palomar2006tutorial,boyd2011distributed}. In order to decouple the problem \eqref{eqn-decent-1}, the coupling variables \me{\zeta_{l,k,n,b}} in \eqref{eqn-decent-3} are replaced by the respective local copies \me{\mbfa{\zeta}^{\set{b}}, \forall b \in \mc{B}}, which are then solved for an optimal solution. Now the sub problems are coupled by the global consensus vector \me{\mbfa{\zeta}} maintaining the complete stacked  interference profile of all users in the system as
+In this section, we discuss the \ac{ADMM} decomposition method, which is basically based on the \acl{DD}, but shows better convergence properties. In contrast to the \acl{PD} problem, the \ac{ADMM} method relaxes the interference constraints by including it in the objective function of each subproblem with a penalty pricing \cite{palomar2006tutorial,boyd2011distributed}. In order to decouple the problem \eqref{eqn-decent-1}, the coupling variables \me{\zeta_{l,k,n,b}} in \eqref{eqn-decent-3} are replaced by the respective local copies \me{\mbfa{\zeta}^{\set{b}}, \forall b \in \mc{B}}, which are then solved for an optimal solution. Now the sub problems are coupled by the global consensus vector \me{\mbfa{\zeta}} maintaining the complete stacked  interference profile of all users in the system as
 \begin{IEEEeqnarray}{rCl}
 \mbfa{\zeta} &=& \left [ \zeta_{1,\bar{\mc{U}}_{1}(1),1,1}, \dotsc, \zeta_{L,\bar{\mc{U}}_{1}(1),1,1}, \dotsc, \zeta_{L,\bar{\mc{U}}_{1}(|\bar{\mc{U}}_{1}|),1,1},  \right. \nonumber \\
 &\quad& \left . \dotsc, \zeta_{L,\bar{\mc{U}}_{N_B}(|\bar{\mc{U}}_{N_B}|),1,N_B}, \dotsc, \zeta_{L,\bar{\mc{U}}_{N_B}(|\bar{\mc{U}}_{N_B}|),N,N_B} \right ] \IEEEyessubnumber \\
@@ -33,7 +33,7 @@ The convergence of the \ac{ADMM} method follows the same argument as the central
  \DontPrintSemicolon
  \BlankLine
  \SetKwInput{KwInit}{Initialize}
- \KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}, \fall n \in \mathcal{C}}}
+ \KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}, \fall n \in \mathcal{N}}}
  \KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l \in \set{1,2,\dotsc,L}}}
  \KwInit{\me{i=0} and the transmit precoders \me{\tilde{\mbf{m}}_{l,k,n}} randomly satisfying the total power constraint \eqref{eqn-4.3}}
  update \me{\mvec{w}{l,k,n}} with \eqref{eqn-10} and \me{\tilde{\mbf{u}}_{l,k,n}} with \eqref{eqn-8} using \me{\tilde{\mbf{m}}_{l,k,n}} \;

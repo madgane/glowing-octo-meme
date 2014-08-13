@@ -9,7 +9,7 @@ Even though the rate constraints are implicitly present in the objective functio
 
 With the assumption of either one of the above conditions to be true, the problem in \eqref{eqn-mse-2} can be written as
 \begin{IEEEeqnarray}{rCl}\label{kkt-mse-1}
-\underset{\substack{t_{l,k,n},\mvec{M}{k,n}, \\ \sigma_{l,k,n},\mvec{W}{k,n}}}{\text{minimize}} &\hspace{0.5cm}& \sum_{b \in \mc{B}} \sum_{k \in \mc{U}_b} \, a_k \, \Big ( Q_k - \sum_{n = 1}^N \sum_{l = 1}^{L} t_{l,k,n} \Big )^q \IEEEyessubnumber \label{kkt-mse-1.1} \\
+\underset{\substack{t_{l,k,n},\mvec{M}{k,n}, \\ \epsilon_{l,k,n}, \mvec{W}{k,n}}}{\text{minimize}} &\hspace{0.5cm}& \sum_{b \in \mc{B}} \sum_{k \in \mc{U}_b} \, a_k \, \Big ( Q_k - \sum_{n = 1}^N \sum_{l = 1}^{L} t_{l,k,n} \Big )^q \IEEEyessubnumber \label{kkt-mse-1.1} \\
 \text{subject to} & \hspace{0.5cm} & \nonumber \\
 \alpha_{l,k,n} : & \hspace{0.5cm} & \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 +  N_0 \, \|\mvec{w}{l,k,n}\|^2 \\ \nonumber
 &\hspace{0.5cm}& \qquad {} \qquad {} + \sum_{\mathclap{(x,y) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_y,y,n} \mvec{m}{x,y,n} \right |^2 \leq \epsilon_{l,k,n} \IEEEyessubnumber \label{kkt-mse-1.2} \\
@@ -37,7 +37,7 @@ In order to perform the distributed approach, we can consider the method propose
  \DontPrintSemicolon
  \BlankLine
  \SetKwInput{KwInit}{Initialize}
- \KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}, \fall n \in \mathcal{C}}}
+ \KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}, \fall n \in \mathcal{N}}}
  \KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l \in \set{1,2,\dotsc,L}}}
  \KwInit{\me{i=1} and the receive beamformers \me{\mbf{w}^{(0)}_{l,k,n}} randomly}
  \KwInit{\me{\epsilon_{l,k,n}^{(0)}} randomly and the dual variables \me{{\alpha}_{l,k,n}^{(0)} = 1}}
