@@ -8,7 +8,7 @@ where \me{\mvec{m}{l,k,n}, \mvec{w}{l,k,n}} denotes the transmit and the receive
 \begin{equation} \label{eqn-mse-eq}
 \epsilon_{l,k,n} = \dfrac{1}{1 + \gamma_{l,k,n}}
 \end{equation}
-where \me{\gamma_{l,k,n}} is the received \ac{SINR} as in \eqref{eq:SINR}. Using the equivalence in \eqref{eqn-mse-eq}, the \ac{WSRM} objective can be reformulated as the \ac{WMMSE} objective to obtain the precoders for the \acs{MU}-\acs{MIMO} scenario as discussed in \cite{christensen2008weighted,wmmse_shi}.
+where \me{\gamma_{l,k,n}} is the received \ac{SINR} as in \eqref{eq:SINR}. Using the equivalence in \eqref{eqn-mse-eq}, the \ac{WSRM} objective can be reformulated as the \ac{WMMSE} equivalent to obtain the precoders for the \acs{MU}-\acs{MIMO} scenario as discussed in \cite{christensen2008weighted,wmmse_shi,hong2012decomposition}.
 
 Let \me{{v}^{\prime}_k = Q_k - \sum_{n=1}^N \sum_{l=1}^L t_{l,k,n}} denotes the queue deviation corresponding to the user \me{k} and \me{\tilde{{v}}^{\prime}_k \triangleq a_k^{1/{q}}v^{\prime}_k} represents the weighted equivalent. Now, using the \ac{MSE} relation, \eqref{eqn-6} is written as
 \begin{IEEEeqnarray}{LL}\label{eqn-mse-1}
@@ -17,7 +17,7 @@ Let \me{{v}^{\prime}_k = Q_k - \sum_{n=1}^N \sum_{l=1}^L t_{l,k,n}} denotes the 
  & \quad \epsilon_{l,k,n} \geq  \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,i,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 \IEEEyessubnumber \label{eqn-mse-1.3} \\
 & \quad \text{and} \; \eqref{eqn-4.3}  \IEEEyessubnumber \label{eqn-mse-1.4}
 \end{IEEEeqnarray}
-where \eqref{eqn-mse-1.3} bounds the \ac{MSE} by \me{\epsilon_{l,k,n}} and \eqref{eqn-mse-1.2} relaxes the transmitted rate \me{{t}_{l,k,n}} using the the \ac{MSE} relation.
+where \eqref{eqn-mse-1.3} bounds the \ac{MSE} by \me{\epsilon_{l,k,n}} and \eqref{eqn-mse-1.2} relaxes the transmitted rate \me{{t}_{l,k,n}} using the \ac{MSE} relation.
 
 The \acl{QM} \ac{JSFRA} problem using alternative \ac{MSE} formulation given by \eqref{eqn-mse-1} is non-convex due to the constraint \eqref{eqn-mse-1.2}. In order to solve this efficiently, we use the \ac{SCA} method as discussed earlier in Section \ref{sec-3.2} by using the linear under estimator for the convex function on the r.h.s of \eqref{eqn-mse-1.2}. The first order Taylor approximation around a fixed \ac{MSE} value \me{\tilde{\epsilon}_{l,k,n}} for \eqref{eqn-mse-1.2} is given by
 \begin{IEEEeqnarray}{rCl}
@@ -33,4 +33,4 @@ Now, using the above approximation for the rate constraint, the optimization pro
 \end{IEEEeqnarray}
 
 \subsubsection*{Convergence}
-The convergence of the \ac{MSE} reformulation approach follows the same arguments detailed in \cite{wmmse_shi,christensen2008weighted}. Since the transmit precoders are obtained by minimizing the weighted \ac{MSE} criterion, it converges to the stationary \ac{KKT} point at each iteration. The receiver updates are made based on the \ac{MMSE} criterion, it provides the optimal receive beamformers for the given transmit precoders. Alternating between these two precoder designs guarantees the monotonicity of the objective function used in the problem \eqref{eqn-mse-2}. The \ac{MSE} relaxation method converges to the same stationary \ac{KKT} point as of the original \ac{WSRM} problem by making the gradients equal.
+The convergence of the \ac{MSE} reformulation approach follows the same arguments detailed in \cite{wmmse_shi,hong2012decomposition}. Since the transmit precoders are obtained by minimizing the weighted \ac{MSE} criterion, it converges to the stationary \ac{KKT} point at each iteration. The receiver updates are made based on the \ac{MMSE} criterion, it provides the optimal receive beamformers for the given transmit precoders. Alternating between these two precoder designs guarantees the monotonicity of the objective function used in the problem \eqref{eqn-mse-2}. The \ac{MSE} relaxation method converges to the same stationary \ac{KKT} point as of the original \ac{WSRM} problem by making the gradients equal.
