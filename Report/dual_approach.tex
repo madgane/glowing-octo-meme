@@ -39,7 +39,7 @@ The convergence of the \ac{ADMM} method follows the same argument as the central
  update \me{\mvec{w}{l,k,n}} with \eqref{eqn-10} and \me{\tilde{\mbf{u}}_{l,k,n}} with \eqref{eqn-8} using \me{\tilde{\mbf{m}}_{l,k,n}} \;
  initialize the global interference vectors \me{\mbfa{\zeta}^{(0)} = \mbfa{0}^{\mathrm{T}}} \;
  initialize the interference threshold \me{\mbfa{\nu}^{\set{b}(0)} \forall b \in \mc{B} = 0} \;
- for each \ac{BS} \me{b \in \mc{B}}, perform the following procedure \;
+ \ForEach{\ac{BS} \me{b \in \mc{B}}}{
  \Repeat{convergence or \me{i \geq I_{\max}}}{
     initialize \me{j=0} \;
     \Repeat{convergence or \me{j \geq J_{\max}}}{
@@ -55,6 +55,7 @@ The convergence of the \ac{ADMM} method follows the same argument as the central
     update \me{\tilde{\epsilon}_{l,k,n}} with the recent precoders using \eqref{eqn-mse-2.3} with equality for the \ac{MSE} formulation approach \;
     $i = i + 1$ \;
   }
+ }
  \caption{Decentralization via \ac{ADMM} for \acs{JSFRA} scheme}
   \label{algo-3}
 \end{algorithm}

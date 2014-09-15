@@ -41,7 +41,7 @@ where \me{\mvec{w}{l,k,n}^{(i-1)}} is the receive beamformer from the earlier it
 \mvec{w}{l,k,n} &=& \mathbf{R}^{-1}_{l,k,n} \; \mvec{H}{b_k,k,n} \; \mvec{m}{l,k,n} \IEEEyessubnumber
 \end{IEEEeqnarray}
 
-The proposed algorithm is referred as \acl{QM} \ac{JSFRA} scheme with a per \ac{BS} power constraint which is outlined in Algorithm \ref{algo-1}. The iterative procedure repeats until the improvement on the objective is less than a predetermined tolerance parameter or the maximum number of iterations is reached. Instead of initializing \me{\tilde{\mbf{u}}_{l,k,n}} arbitrarily to a feasible point, transmit precoders can also be initialized with any feasible point \me{\tilde{\mbf{m}}_{l,k,n}}, which is then used to find \me{\tilde{\mbf{u}}_{l,k,n}} in an efficient manner as briefed in Algorithm \ref{algo-1}. In Algorithm \ref{algo-1}, the \ac{SCA} iterations are carried until convergence or for maximum of \me{I_{\max}} iterations for the optimal \me{\mbf{w}_{l,k,n}} receive beamformers and the outer iterations are for the convergence of the number of queued bits, which is limited by the maximum of \me{J_{\max}} iterations.
+The proposed algorithm is referred as \acl{QM} \ac{JSFRA} scheme with a per \ac{BS} power constraint which is outlined in Algorithm \ref{algo-1}. The iterative procedure repeats until the improvement on the objective is less than a predetermined tolerance parameter or the maximum number of iterations is reached. Instead of initializing \me{\tilde{\mbf{u}}_{l,k,n}} arbitrarily to a feasible point, transmit precoders can also be initialized with any feasible point \me{\tilde{\mbf{m}}_{l,k,n}}, which is then used to find \me{\tilde{\mbf{u}}_{l,k,n}} in an efficient manner as briefed in Algorithm \ref{algo-1}. For a fixed receive beamformer \me{\mvec{w}{l,k,n}}, the \ac{SCA} iteration is carried out until convergence or for the predefined iterations, say \me{J_{\max}} for the optimal transmit precoders \me{\mvec{m}{l,k,n}}. Next, the receive beamformers are updated based on either \eqref{opt-rx} or \eqref{eqn-10} using the fixed transmit precoders \me{\mvec{m}{l,k,n}}. This procedure is carried out until convergence of the queue deviation or for fixed number of iterations defined by \me{I_{\max}} as outlined in Algorithm \ref{algo-1}.
 \begin{algorithm}
  \SetAlgoLined
  \DontPrintSemicolon
@@ -49,16 +49,17 @@ The proposed algorithm is referred as \acl{QM} \ac{JSFRA} scheme with a per \ac{
  \SetKwInput{KwInit}{Initialize}
  \KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}, \fall n \in \mathcal{N}}}
  \KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l \in \set{1,2,\dotsc,L}}}
- \KwInit{\me{i=0}, \me{j=0} and the transmit precoders \me{\tilde{\mbf{m}}_{l,k,n}} randomly satisfying the total power constraint \eqref{eqn-4.3}}
+ \KwInit{\me{i=0} and the transmit precoders \me{\tilde{\mbf{m}}_{l,k,n}} randomly satisfying the total power constraint \eqref{eqn-4.3}}
  update \me{\mvec{w}{l,k,n}} with \eqref{eqn-10} and \me{\tilde{\mbf{u}}_{l,k,n}} with \eqref{eqn-8} using \me{\tilde{\mbf{m}}_{l,k,n}}.\;
- \Repeat{Queue convergence or \me{j \geq J_{\max}}}{
- \Repeat{\ac{SCA} convergence or \me{i \geq I_{\max}}}{
+ \Repeat{Queue convergence or \me{i \geq I_{\max}}}{
+ initialize \me{j = 0}. \;
+ \Repeat{\ac{SCA} convergence or \me{j \geq J_{\max}}}{
  solve for the transmit precoders \me{\mvec{m}{l,k,n}} using \eqref{eqn-9} \;
  update the constraint set \eqref{eqn-8} with \me{\tilde{p}_{l,k,n}}, \me{\tilde{q}_{l,k,n}} and \me{\tilde{\beta}_{l,k,n}} using \eqref{eqn-wsrm-expr} with the precoders \me{\mvec{m}{l,k,n}} obtained from the previous step. \;
- $i = i + 1$. \;
+ $j = j + 1$. \;
  }
  update the receive beamformers \me{\mvec{w}{l,k,n}} using \eqref{eqn-9--1} or \eqref{eqn-10} with the recent precoders \me{\mvec{m}{l,k,n}}. \;
- $j = j + 1$. \;
+ $i = i + 1$. \;
  }
  \caption{Algorithm of \acs{JSFRA} scheme}
  \label{algo-1}
