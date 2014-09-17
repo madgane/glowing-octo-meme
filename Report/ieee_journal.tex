@@ -1,6 +1,7 @@
 
-\documentclass[11pt,draftcls,onecolumn,letterpaper]{./../Styles/IEEEtran}
+\documentclass[10pt,final,twocolumn,letterpaper]{./../Styles/IEEEtran}
 
+\usepackage{etoolbox}
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx,acronym}
 \usepackage[ruled]{algorithm2e}
@@ -12,9 +13,14 @@
 \input{shortcuts}
 \input{acronyms}
 
-\doublespacing
+\newtoggle{single_column}
+\togglefalse{single_column}
 
-\title{Traffic aware Resource Allocation for \acs{MIMO}-\acs{OFDM} systems}
+\iftoggle{single_column}{
+	\doublespacing
+}
+
+\title{Traffic aware Resource Allocation schemes for Multi-Cell \acs{MIMO}-\acs{OFDM} systems}
 \author{
 	\IEEEauthorblockN{Ganesh Venkatraman, Antti T\"{o}lli, Le-Nam Tran and Markku Juntti} \\
 	\IEEEauthorblockA{Centre for Wireless Communications (CWC), \\ Department of Communications Engineering (DCE), \\
