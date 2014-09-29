@@ -8,11 +8,11 @@ n_{b_k} &=& |\mbfa{\zeta}^{\set{b_k}}| = N L \sum_{b \in \mc{B}} \left | \bar{\m
 
 Let \me{\mbfa{\zeta}(b_k)} denotes the consensus entries corresponding to the \ac{BS} \me{b_k}. Let \me{\mbfa{\nu}^{\set{b_k}}} represents the stacked dual variables corresponding to the equality condition \me{\mbfa{\zeta}^{\set{b_k}} = \mbfa{\zeta}(b_k)} used in the subproblems. In order to limit the local interference assumptions \me{\zeta^{\set{b_k}}_{l,k,n,b}} at the \acp{BS} \me{b_k}, the \ac{ADMM} method augments a scaled quadratic penalty of the interference deviation between the local and consensus value for the interference from the \ac{BS} \me{b} as \me{\zeta_{l,k,n,b}} in the objective function. At optimality, the locally assumed and the consensus interference values will be equal,  providing no contribution to the objective function. The optimal step size used to update the dual variables is the scaling factor \me{\rho} used to scale the penalty term in the objective function \cite{boyd2011distributed,bertsekas1999nonlinear}. The equality constraint for the local and the consensus interference vector \me{\mbfa{\zeta}^{\set{b_k}} = \mbfa{\zeta}(b_k)} present in each subproblem is relaxed by the taking the partial Lagrangian. Now, the subproblem at the \ac{BS} \me{b} for the \me{\ith{i}} iteration is given by
 \begin{IEEEeqnarray}{rCl} \label{eqn-dual-3}
-\underset{\substack{\gamma_{l,k,n}, \mvec{W}{k,n},\mvec{M}{k,n} \\ \beta_{l,k,n}, \mbfa{\zeta}^{\set{b}(i)}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}}_{b} \|_q + \mbfa{\nu}^{{\set{b}(i-1)}T} \left ( \mbfa{\zeta}^{\set{b}(i)} - \mbfa{\zeta}^{(i-1)}(b) \right ) + \frac{\rho}{2} \Big \| \, \underbrace{\mbfa{\zeta}^{(i-1)}(b)}_{\text{consensus}} - \underbrace{\mbfa{\zeta}^{\set{b}(i)}}_{\text{local}} \, \Big \|^2_2 \IEEEyessubnumber \label{eqn-dual-3a} \\
+\underset{\substack{\gamma_{l,k,n}, \mvec{W}{k,n},\mvec{M}{k,n} \\ \beta_{l,k,n}, \mbfa{\zeta}^{\set{b}(i)}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}}_{b} \|_q + \mbfa{\nu}^{{\set{b}(i-1)}T} \left ( \mbfa{\zeta}^{\set{b}(i)} - \mbfa{\zeta}^{(i-1)}(b) \right ) + \frac{\rho}{2} \Big \| \, \underbrace{\mbfa{\zeta}^{\set{b}(i)}}_{\text{local}} - \underbrace{\mbfa{\zeta}^{(i-1)}(b)}_{\text{consensus}} \, \Big \|^2_2 \IEEEyessubnumber \label{eqn-dual-3a} \\
 \text{subject to} && \beta_{l,k,n} \geq \sum_{\substack{j = 1\\j \neq l}}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{{b},k,n} \mvec{m}{j,k,n} |^2 + \sum_{{\hat{b}} \in \bar{\mc{B}}_{b}} \zeta^{\set{b}(i-1)}_{l,k,n,{\hat{b}}} \nonumber \\
 && \qquad {} \qquad {} + \sum_{i \in \mc{U}_{b} \backslash \{k\}} \sum_{j = 1}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{{b},k,n} \mvec{m}{j,i,n} |^2 + N_0\|\mvec{w}{l,k,n}\|^2 \IEEEyessubnumber \label{eqn-dual-1d} \\
 && \zeta^{\set{b}(i)}_{\pr{l},\pr{k},n,{b}} \geq \sum_{k \in \mc{U}_{\hat{b}}} \sum_{l = 1}^L |\mvec{w}{\pr{l},\pr{k},n}^\herm \mvec{H}{b,\pr{k},n} \mvec{m}{l,k,n} |^2, \; \forall \pr{k} \in \bar{\mc{U}}_{b}, \; \forall n \in \mc{C} \IEEEyessubnumber \label{eqn-dual-1e} \\
-&\quad& \eqref{eqn-8} \; \text{and} \; \eqref{eqn-primal-1c} \IEEEyessubnumber \label{eqn-dual-1f}
+&\quad& \eqref{eqn-8} \; \text{and} \; \eqref{eqn-4.3} \IEEEyessubnumber \label{eqn-dual-1f}
 \end{IEEEeqnarray}
 where the superscript \me{i} represents the current iteration or the information exchange index and \me{\mbfa{\zeta}^{(i-1)}} denotes the updated global interference level from the \me{\ith{(i-1)}} information exchange of the local interference vector \me{\mbfa{\zeta}^{\set{b}(i-1)}, \forall b \in \mc{B}}.
 
@@ -27,7 +27,8 @@ The dual variable entries in the vector \me{\mbfa{\nu}^{\set{b_k}}}, which is th
 \end{equation}
 
 \subsubsection*{Convergence}
-The convergence of the \ac{ADMM} method follows the same argument as the centralized algorithm if each distributed algorithm is allowed to converge to the optimal value for a fixed \ac{SCA} point. Since subproblem solved at each \ac{BS} is convex, the \ac{ADMM} method converges to the optimal value \cite{boyd2011distributed} for a given \ac{SCA} point. The receive beamformers are updated at each \ac{SCA} update provides monotonic increase in the objective function, since the \ac{MMSE} receive beamformers are optimal for the fixed transmit precoders obtained by solving the subproblems until convergence. The algorithmic representation of the \ac{ADMM} based approach for decentralization is given in Algorithm \ref{algo-3}.
+The convergence of the \ac{ADMM} method follows the same argument as the centralized algorithm if each distributed algorithm is allowed to converge to a stationary value for the fixed \ac{SCA} point. Since subproblem solved at each \ac{BS} is convex, the \ac{ADMM} method converges to a stationary value \cite{boyd2011distributed} for the fixed \ac{SCA} point. 
+The receive beamformers are updated along with the \ac{SCA} update of the tuple \me{\tilde{p}_{l,k,n}, \tilde{q}_{l,k,n}} and \me{\tilde{\beta}_{l,k,n}}. Combining the receiver update with the \ac{SCA} update improves the convergence speed due to the fact that the \ac{MMSE} receivers are optimal for the fixed transmit beamformers, providing monotonic  increase in the objective function. The algorithmic representation of the \ac{ADMM} based approach for decentralization is given in Algorithm \ref{algo-3}.
 \begin{algorithm}
  \SetAlgoLined
  \DontPrintSemicolon
@@ -49,8 +50,7 @@ The convergence of the \ac{ADMM} method follows the same argument as the central
         update the global interference vector \me{\mbfa{\zeta}^{(j+1)}} using \eqref{zeta_update} \;
 		\me{j = j + 1} \;
     }
-    update the receive beamformers \me{\mvec{w}{l,k,n}} using \eqref{eqn-10} by exchanging the recent precoders \me{\mvec{m}{l,k,n}} \;
-    exchange the receive precoders \me{\mbf{W}_{k,n}} \me{\forall k \in \mc{U}_b} among the \acp{BS} in \me{\mc{B}} \;
+    updated \me{\mvec{W}{k,n}} is notified to all \acp{BS} in \me{\mc{B}} by uplink precoded pilots as in \cite{komulainen2013effective},\;
     update \me{\tilde{p}_{l,k,n}}, \me{\tilde{q}_{l,k,n}} and \me{\tilde{\beta}_{l,k,n}} with the recent precoders using \eqref{eqn-wsrm-expr} and \eqref{eqn-6.3} for the \ac{SCA} approach (or)\;
     update \me{\tilde{\epsilon}_{l,k,n}} with the recent precoders using \eqref{eqn-mse-2.3} with equality for the \ac{MSE} formulation approach \;
     $i = i + 1$ \;

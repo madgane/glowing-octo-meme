@@ -1,5 +1,5 @@
 
-\documentclass[10pt,final,twocolumn,letterpaper]{./../Styles/IEEEtran}
+\documentclass[11pt,draftcls,onecolumn,letterpaper]{./../Styles/IEEEtran}
 
 \usepackage{etoolbox}
 \usepackage{amsmath,amssymb}
@@ -14,13 +14,13 @@
 \input{acronyms}
 
 \newtoggle{single_column}
-\togglefalse{single_column}
+\toggletrue{single_column}
 
 \iftoggle{single_column}{
 	\doublespacing
 }
 
-\title{Traffic aware Resource Allocation schemes for Multi-Cell \acs{MIMO}-\acs{OFDM} systems}
+\title{Traffic aware Precoding and Resource Allocation schemes for Multi-Cell \acs{MIMO}-\acs{OFDM} systems}
 \author{
 	\IEEEauthorblockN{Ganesh Venkatraman, Antti T\"{o}lli, Le-Nam Tran and Markku Juntti} \\
 	\IEEEauthorblockA{Centre for Wireless Communications (CWC), \\ Department of Communications Engineering (DCE), \\
@@ -106,8 +106,8 @@ This work has been supported by the Finnish Funding Agency for Technology and In
 
 \appendices
 
-\section{\acl{PD} approach} \label{a-2}
-\input{primal_approach_appendix}
+%\section{\acl{PD} approach} \label{a-2}
+%\input{primal_approach_appendix}
 
 \section{\ac{KKT} expressions for the Distributed MSE Formulation} \label{a-1}
 \input{kkt_appendix}
