@@ -1,9 +1,15 @@
 
-In this section, we solve the \ac{JSFRA} problem by exploiting the equivalence between the \ac{MSE} and the achievable capacity for the receivers designed based on the \ac{MMSE} criterion \cite{viswanath1999optimal,mse_duality}. The \ac{MSE} for the data symbol, represented as \me{\epsilon_{l,k,n}}, is given by
-\begin{subeqnarray} \label{mse-error}
-\epsilon_{l,k,n} &=& \mathbb{E} \big [ ( d_{l,k,n} - \hat{d}_{l,k,n} )^2 \big ] \\
- &=&  \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,i,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2
-\end{subeqnarray}
+In this section, we solve the \ac{JSFRA} problem by exploiting the equivalence between the \ac{MSE} and the achievable capacity for the receivers designed based on the \ac{MMSE} criterion \cite{viswanath1999optimal,mse_duality}. The \ac{MSE} \me{\epsilon_{l,k,n}}, for the data symbol is given by
+\iftoggle{single_column}{
+\begin{IEEEeqnarray}{rCl} \label{mse-error}
+	\mathbb{E} \big [ ( d_{l,k,n} - \hat{d}_{l,k,n} )^2 \big ] = \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,i,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2
+\end{IEEEeqnarray}
+}{
+\begin{IEEEeqnarray}{rCl} \label{mse-error}
+ \mathbb{E} \big [ ( d_{l,k,n} - \hat{d}_{l,k,n} )^2 \big ] = \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 \nonumber \\
+ + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,i,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2
+\end{IEEEeqnarray}
+}
 where \me{\mvec{m}{l,k,n}, \mvec{w}{l,k,n}} denotes the transmit and the receive beamformer and \me{\hat{d}_{l,k,n}} is the received symbol as in \eqref{eqn-1}. Now, replacing the receive beamformer in \eqref{mse-error} with the \ac{MMSE} receiver shown in \eqref{eqn-10}, we obtain the following relation between the \ac{MSE} and the \ac{SINR} as
 \begin{equation} \label{eqn-mse-eq}
 \epsilon_{l,k,n} = \dfrac{1}{1 + \gamma_{l,k,n}}
@@ -11,30 +17,55 @@ where \me{\mvec{m}{l,k,n}, \mvec{w}{l,k,n}} denotes the transmit and the receive
 where \me{\gamma_{l,k,n}} is the received \ac{SINR} as in \eqref{eq:SINR}. Using the equivalence in \eqref{eqn-mse-eq}, the \ac{WSRM} objective can be reformulated as the \ac{WMMSE} equivalent to obtain the precoders for the \acs{MU}-\acs{MIMO} scenario as discussed in \cite{christensen2008weighted,wmmse_shi,hong2012decomposition}.
 
 Let \me{{v}^{\prime}_k = Q_k - \sum_{n=1}^N \sum_{l=1}^L t_{l,k,n}} denote the queue deviation corresponding to the user \me{k} and \me{\tilde{{v}}^{\prime}_k \triangleq a_k^{1/{q}}v^{\prime}_k} represents the weighted equivalent. Now, using the \ac{MSE} relation, \eqref{eqn-6} is written as
-\begin{IEEEeqnarray}{LL}\label{eqn-mse-1}
-\underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\\ \epsilon_{l,k,n},\mvec{w}{l,k,n}}} {\text{minimize}} & \quad \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-1.1} \\
-\text{subject to} & \quad t_{l,k,n} \leq -\log_2(\epsilon_{l,k,n}) \IEEEyessubnumber \label{eqn-mse-1.2} \\
- & \quad \epsilon_{l,k,n} \geq  \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,i,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 \IEEEyessubnumber \label{eqn-mse-1.3} \\
-& \quad \text{and} \; \eqref{eqn-4.3}  \IEEEyessubnumber \label{eqn-mse-1.4}
+\iftoggle{single_column}{
+\begin{IEEEeqnarray}{rCl}\label{eqn-mse-1}
+\underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\\ \epsilon_{l,k,n},\mvec{w}{l,k,n}}} {\text{minimize}} & \quad & \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-1.1} \\
+\text{subject to} & \quad & t_{l,k,n} \leq -\log_2(\epsilon_{l,k,n}) \IEEEyessubnumber \label{eqn-mse-1.2} \\
+ & \quad & \epsilon_{l,k,n} \geq  \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,i,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 \IEEEyessubnumber \label{eqn-mse-1.3} \\
+& \quad &  \text{and} \; \eqref{eqn-4.3}  \IEEEyessubnumber \label{eqn-mse-1.4}
 \end{IEEEeqnarray}
-where \eqref{eqn-mse-1.3} bounds the \ac{MSE} by \me{\epsilon_{l,k,n}} and \eqref{eqn-mse-1.2} relaxes the transmitted rate \me{{t}_{l,k,n}} using the \ac{MSE} relation.
+}{
+\begin{IEEEeqnarray}{LL}\label{eqn-mse-1}
+	\underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\\ \epsilon_{l,k,n},\mvec{w}{l,k,n}}} {\text{minimize}} & \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-1.1} \\
+	\text{subject to} & t_{l,k,n} \leq -\log_2(\epsilon_{l,k,n}) \IEEEyessubnumber \label{eqn-mse-1.2} \\
+	& \epsilon_{l,k,n} \geq  \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 \nonumber \\
+	& \qquad \quad {} + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,i,n} \mvec{m}{j,i,n} \right |^2 \IEEEyessubnumber \label{eqn-mse-1.3} \\
+	&  \text{and} \; \eqref{eqn-4.3}  \IEEEyessubnumber \label{eqn-mse-1.4}
+\end{IEEEeqnarray}
+}
+where \eqref{eqn-mse-1.2} relaxes the transmitted rate \me{{t}_{l,k,n}} using the \ac{MSE} relation and \eqref{eqn-mse-1.3} bounds the \ac{MSE} by \me{\epsilon_{l,k,n}}.
 
-The \acl{QM} \ac{JSFRA} problem using alternative \ac{MSE} formulation given by \eqref{eqn-mse-1} is non-convex even for the fixed \me{\mvec{w}{l,k,n}} due to the constraint \eqref{eqn-mse-1.2}. In order to solve this efficiently, we use the \ac{SCA} method as discussed earlier in Section \ref{sec-3.2} by using the linear under estimator for the convex function on the r.h.s of \eqref{eqn-mse-1.2}. The first order Taylor approximation around a fixed \ac{MSE} value \me{\tilde{\epsilon}_{l,k,n}} for \eqref{eqn-mse-1.2} is given by
+The \acl{QM} \ac{JSFRA} problem using alternative \ac{MSE} formulation given by \eqref{eqn-mse-1} is non-convex even for the fixed \me{\mvec{w}{l,k,n}} due to the constraint \eqref{eqn-mse-1.2}. In order to solve this efficiently, we use the \ac{SCA} method as discussed earlier in Section \ref{sec-3.2} by using the linear under estimator for the convex function on the r.h.s of \eqref{eqn-mse-1.2}. The first order approximation around a fixed \ac{MSE} point \me{\tilde{\epsilon}_{l,k,n}} for \eqref{eqn-mse-1.2} is given by
 \begin{IEEEeqnarray}{rCl}
 - \log_2(\tilde{\epsilon}_{l,k,n}) - \frac{\left ( {\epsilon}_{l,k,n} - \tilde{\epsilon}_{l,k,n} \right ) }{\log(2) \, \tilde{\epsilon}_{l,k,n}} &\geq& t_{l,k,n}
 \label{mse-lin}
 \end{IEEEeqnarray}
 
 Now, using the above approximation for the rate constraint, the problem defined by \eqref{eqn-mse-1} can be solved optimal transmit precoders \me{\mvec{m}{l,k,n}}, \acp{MSE} \me{\epsilon_{l,k,n}} and the users rates over each sub-channel \me{t_{l,n,k}} for the fixed receive beamformers. Once the optimal precoders are obtained, the local \ac{MSE} variable  \me{\tilde{\epsilon}_{l,k,n}} is updated with the current update \me{\epsilon_{l,k,n}}. The optimization problem for a fixed receive beamformers \me{\mvec{w}{l,k,n}} is given as
+\iftoggle{single_column}{
 \begin{IEEEeqnarray}{rCl}\label{eqn-mse-2}
 \underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\\\epsilon_{l,k,n}}}{\text{minimize}} &\quad& \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-2.1} \\
 \text{subject to} & \quad & \eqref{eqn-4.3}, \: \eqref{mse-lin}  \IEEEyessubnumber \label{eqn-mse-2.2} \\
 & \quad & \epsilon_{l,k,n} \geq  \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,i,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 \IEEEyessubnumber \label{eqn-mse-2.3}
 \end{IEEEeqnarray}
-
+}{
+\begin{IEEEeqnarray}{rCl}\label{eqn-mse-2}
+	\underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\\\epsilon_{l,k,n}}}{\text{minimize}} &\quad& \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-2.1} \\
+	\text{subject to} & \quad & \eqref{eqn-4.3}, \: \eqref{mse-lin}  \IEEEyessubnumber \label{eqn-mse-2.2} \\
+	& \quad & \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + N_0 \|\mvec{w}{l,k,n}\|^2 \nonumber \\
+	&\quad& + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,i,n} \mvec{m}{j,i,n} \right |^2 \leq \epsilon_{l,k,n} \eqsub \label{eqn-mse-2.3}
+\end{IEEEeqnarray}
+}
 \subsubsection*{Convergence}
 Following the similar arguments as in  Section \ref{sec-3.2.1}, we can see that the \ac{SCA} subproblems converges to a stationary point of the original nonconvex problem at each iteration. The uniqueness of the transmit and the receive precoders are justified if the phase ambiguity from the stationary solution is eliminated. It can be seen from the \ac{MSE} expression \eqref{eqn-mse-2.3} that the phase rotations are fixed for both transmit and the receive precoders at the stationary point, which is evident from the following reformulation of \eqref{eqn-mse-2.3} as
+\iftoggle{single_column}{
 \begin{equation}
 \epsilon_{l,k,n} \geq  1 - 2 \Re{ \left \lbrace \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right \rbrace} + \sum_{\mathclap{\forall (j,i)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,i,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2
 \end{equation}
+}{
+\begin{multline}
+	\epsilon_{l,k,n} \geq  1 - 2 \Re{ \left \lbrace \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right \rbrace} \\ 
+	+ \sum_{\mathclap{\forall (j,i)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,i,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2
+\end{multline}
+}
 At each \ac{SCA} step, the transmit precoders are obtained uniquely by minimizing the weighted \ac{MSE} criterion due to the convex nature of the relaxed problem. Upon finding the optimal transmit precoders, the receive beamformers are updated using the \ac{MMSE} receivers. The \ac{MMSE} receiver minimizes the objective value for the fixed transmit precoders thereby leading to the monotonic convergence of the objective function. At each \ac{SCA} step, the optimal value of the previous iteration is also included in the domain of the problem, the objective value can either decrease or stays the same after each iteration.

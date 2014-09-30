@@ -5,7 +5,7 @@ The Fig. \ref{fig-d-1} plots the performance of the primal and the \ac{ADMM} sol
 \begin{figure*}
 \centering
 \subfloat[][System \me{\lbrace N,N_B,K,N_R \rbrace = \lbrace 3,2,8,1 \rbrace}]{
-\includegraphics[width=0.48\textwidth]{fig-3-1}
+\includegraphics[width=0.48\textwidth]{fig-3-2}
 \label{fig-d-1}
 }
 \hfill
@@ -38,7 +38,7 @@ Fig. \ref{fig-d-2} plots the performance of the centralized and the distributed 
 Fig. \ref{fig-d-3.1} compares the performances of the centralized algorithm based on the \ac{MSE} reformulation with the iterative approach proposed in Section \ref{sec-4.3} based on solving the \ac{KKT} conditions. In Fig. \ref{fig-d-3.1}, the plots are compared by the surplus number of backlogged packets at the end of each iteration or the \ac{SCA} update point. Fig. \ref{fig-d-3.1} shows that the \me{\ell_1} norm for \ac{JSFRA} scheme provides better performance over rest of the schemes due to its greedy objective. The \ac{KKT} approach for \me{\ell_1} norm is not defined due to the non-differentiability of the objective as discussed in the Section \ref{sec-4.3}, thereby performs the worst of all other approaches. The heuristic method used in the figure is obtained by forcing the dual variable \me{\sigma_{l,k,n}} in \eqref{kkt-mse-4.2} to \me{0} when the queue deviation is negative \me{Q_k - t_k < 0}, if not, then it will be the same as in \eqref{kkt-mse-4.2}. The additional condition can be justified due to the dropping of absolute value operator from the objective. It can be seen that the heuristic method oscillates near the optimal point with the deviation determined by the factor \me{\rho} used in \eqref{kkt-mse-4.1}.
 \begin{figure}
 \centering
-\includegraphics[width=\columnwidth]{fig-9-2-1}
+\includegraphics[width=\columnwidth]{fig-9-3}
 \caption{Convergence plot for \me{\lbrace N,N_B,K,N_R \rbrace = \lbrace 5,2,8,1 \rbrace} model}
 \label{fig-d-3.1}
 \end{figure}

@@ -1,11 +1,11 @@
 
-\documentclass[11pt,draftcls,onecolumn,letterpaper]{./../Styles/IEEEtran}
+\documentclass[10pt,final,twocolumn,letterpaper]{./../Styles/IEEEtran}
 
 \usepackage{etoolbox}
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx,acronym}
 \usepackage[ruled]{algorithm2e}
-\usepackage{subfig,subeqnarray,multirow,cite,array,setspace,fixltx2e,mathtools}
+\usepackage{subfig,subeqnarray,multirow,cite,array,setspace,fixltx2e,mathtools,lineno}
 
 \graphicspath{{./../Figures/}{./../Figures/Linux/}}
 \DeclareGraphicsExtensions{.eps}
@@ -14,7 +14,7 @@
 \input{acronyms}
 
 \newtoggle{single_column}
-\toggletrue{single_column}
+\togglefalse{single_column}
 
 \iftoggle{single_column}{
 	\doublespacing
@@ -38,9 +38,9 @@
 \input{abstract}
 \end{abstract}
 
-\begin{keywords}
-\acs{MIMO}-\acs{OFDM}, weighted sum rate maximization, precoder design, queue driven scheduling and precoder design
-\end{keywords}
+%\begin{keywords}
+%\acs{MIMO}-\acs{OFDM}, weighted sum rate maximization, precoder design, queue driven scheduling and precoder design
+%\end{keywords}
 
 \acresetall
 \section{Introduction} \label{sec-1}
@@ -58,11 +58,11 @@
 \subsection{Queue Weighted Sum Rate Maximization (\acs{Q-WSRM}) Formulation} \label{sec-3.1}
 \input{joint_wsrm_formulation}
 
-\subsection{\acs{JSFRA} scheme via Successive Convex Approximation (\acs{SCA})} \label{sec-3.2.1}
+\subsection{\acs{JSFRA} scheme via \ac{SCA} approach} \label{sec-3.2.1}
 \input{problem_formulation}
 \input{wsrm_formulation}
 
-\subsection{\ac{JSFRA} scheme via MSE reformulation} \label{sec-3.3}
+\subsection{\ac{JSFRA} scheme via \ac{MSE} reformulation} \label{sec-3.3}
 \input{mse_formulation}
 
 \subsection{Reduced Complexity Resource Allocation (Per Sub-Channel Resource Allocation)} \label{sec-3.4}

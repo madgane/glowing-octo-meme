@@ -1,5 +1,5 @@
 
-The complexity involved in the \ac{JSFRA} scheme scales significantly with the increase in the number of sub-channels considered in the formulation. In addition to the increased complexity, the rate of convergence to the optimal precoders also degrades due to its dependency on the problem size. In order to mitigate this, we provide an alternative sub-optimal solution, in which the precoders are designed over each sub-channel independently in a sequential manner by taking the remaining number of queued bits in the formulation. It can also be solved efficiently by using the distributed algorithms discussed in \cite{palomar2006tutorial,boyd2011distributed} to perform the precoder design over each sub-channel by relaxing the coupling power variable for each sub-channel. 
+The complexity involved in the \ac{JSFRA} scheme scales significantly with the increase in the number of sub-channels considered in the formulation. In addition to the increased complexity, the rate of convergence to the optimal precoders also degrades due to its dependency on the problem size. In order to mitigate this, we provide an alternative sub-optimal solution, in which the precoders are designed over each sub-channel independently in a sequential manner by taking the remaining number of queued bits in the formulation. The optimal approach is to decompose the problem over each sub-channel with a fixed transmit power constraint for each sub-channel. The power allocated for each sub-channel is controlled by a master problem based on different algorithms as discussed in \cite{palomar2006tutorial,boyd2011distributed}.
 
 The proposed \acl{QM} \ac{SRA} formulation enables us to solve for the transmit precoders of all the users associated with the coordinating \ac{BS} in the set \me{\mathcal{B}} over each sub-channel independently by fixing the transmit power on each sub-channel to a constant value \me{P_{\max,n}} as compared to the global power constraint defined by \eqref{eqn-4.3}. In contrast to the decomposition based approach for the sub-channel wise resource allocation, where the primal/dual variables are exchanged, this method requires the update on the number of queued bits before each sub-channel wise optimization. The total number of queued bits for each user are updated by the difference between the total number of queued bits present during the current slot to the total number of bits that are guaranteed by the earlier sub-channel allocations for the same slot as
 \begin{equation}
@@ -15,19 +15,19 @@ where \me{Q_{k,n}} is the total number of queued bits used in the optimization p
  \KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}}}
  \KwIn{permute \me{\mathcal{N} \rightarrow \tilde{\mathcal{N}}}}
  \For{\me{n \leftarrow 1 } \KwTo \me{N}}{
- update \me{Q_{k,n}} using \eqref{eqn-weight} and let \me{\hat{n} = \tilde{\mathcal{N}}(n)}. \;
+ update \me{Q_{k,n}} using \eqref{eqn-weight} and let \me{\hat{n} = \tilde{\mathcal{N}}(n)}\;
  \KwOut{\me{\mvec{m}{l,k,\hat{n}}} and \me{\mvec{w}{l,k,\hat{n}} \fall l \in \set{1,2,\dotsc,L}}}
- \KwInit{\me{i=0} and the transmit precoders \me{\tilde{\mbf{m}}_{l,k,\hat{n}}} randomly satisfying per sub-channel power constraint \me{P_{\max,\hat{n}}}}
- update \me{\mvec{w}{l,k,\hat{n}}} with \eqref{eqn-10} and \me{\tilde{\mbf{u}}_{l,k,\hat{n}}} with \eqref{eqn-8} using \me{\tilde{\mbf{m}}_{l,k,\hat{n}}}.\;
+ \KwInit{\me{i=0} and \me{\tilde{\mbf{m}}_{l,k,\hat{n}}} randomly satisfying per sub-channel power constraint \me{P_{\max,\hat{n}}}}
+ update \me{\mvec{w}{l,k,\hat{n}}} and \me{\tilde{\mbf{u}}_{l,k,\hat{n}}} using \eqref{eqn-10} and \eqref{eqn-8}\;
  \Repeat{Queue convergence or \me{i \geq I_{\max}}}{
- initialize \me{j = 0}. \;
+ initialize \me{j = 0}\;
  \Repeat{\ac{SCA} convergence or \me{j \geq J_{\max}}}{
- solve for the transmit precoders \me{\mvec{m}{l,k,\hat{n}}} using \eqref{eqn-9} with per sub-channel power constraint \me{P_{\max,\hat{n}}} \;
- update the constraint set \eqref{eqn-8} with \me{\tilde{p}_{l,k,\hat{n}}}, \me{\tilde{q}_{l,k,\hat{n}}} and \me{\tilde{\beta}_{l,k,\hat{n}}} using \eqref{eqn-wsrm-expr} with the precoders \me{\mvec{m}{l,k,\hat{n}}} obtained from the previous step. \;
- $j = j + 1$. \;
+ solve for \me{\mvec{m}{l,k,\hat{n}}} using \eqref{eqn-9} with per sub-channel power constraint \me{P_{\max,\hat{n}}}\;
+ update the constraint set \eqref{eqn-8} with \me{\tilde{u}_{l,k,\hat{n}}} and \me{\mvec{m}{l,k,\hat{n}}} using \eqref{eqn-wsrm-expr}\;
+ $j = j + 1$\;
  }
- update the receive beamformers \me{\mvec{w}{l,k,n}} using \eqref{eqn-10} with the recent precoders \me{\mvec{m}{l,k,n}}. \;
- $i = i + 1$. \;
+ update \me{\mvec{w}{l,k,n}} using \eqref{eqn-10} with the updated precoders \me{\mvec{m}{l,k,n}}\;
+ $i = i + 1$\;
  }
  }
  \caption{Algorithm of \acs{SRA} scheme}

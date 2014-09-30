@@ -1,11 +1,20 @@
 In this approach, we present an algorithm to solve \eqref{eqn-3} for the transmit precoders in a centralized way by using the idea of alternating optimization and successive convex approximation. Using \eqref{eq:SINR}, we can reformulate the problem defined in \eqref{eqn-3} as
-\begin{IEEEeqnarray}{RCL}\label{eqn-6}
+\iftoggle{single_column}{
+\begin{IEEEeqnarray}{rCl}\label{eqn-6}
 \underset{\substack{\gamma_{l,k,n},\mvec{m}{l,k,n},\\\beta_{l,k,n},\mvec{w}{l,k,n}}}{\text{minimize}} & \quad & \|  \tilde{\mbf{v}}  \|_q \label{eqn-obj} \IEEEyessubnumber \\
-\text{subject to}& \quad &\gamma_{l,k,n} \leq \dfrac{\left | \mvec{w}{l,k,n}^\herm \mvec{H}{l,k,n} \mvec{m}{l,k,n} \right |^2}{\beta_{l,k,n}} \triangleq f(\tilde{\mbf{u}}_{l,k,n}) \IEEEyessubnumber \label{eqn-6.2} \\
-  & \quad & \beta_{l,k,n} \geq  N_0 \|\mvec{w}{l,k,n}\|^2 + \hspace{-0.75em} \sum_{(j,i) \neq (l,k)} \hspace{-0.75em} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2 \IEEEyessubnumber \label{eqn-6.3} \\
+\text{subject to}& \quad &\gamma_{l,k,n} \leq \frac{ | \mvec{w}{l,k,n}^\herm \mvec{H}{l,k,n} \mvec{m}{l,k,n}  |^2}{\beta_{l,k,n}} \triangleq f(\tilde{\mbf{u}}_{l,k,n}) \IEEEyessubnumber \label{eqn-6.2} \\
+  & \quad & \beta_{l,k,n} \geq  \tilde{N}_0 + \hspace{-0.75em} \sum_{(j,i) \neq (l,k)} \hspace{-0.75em} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2 \IEEEyessubnumber \label{eqn-6.3} \\
   & \quad &\eqref{eqn-4.3} \IEEEyessubnumber
 \end{IEEEeqnarray}
-where \me{\tilde{\mbf{u}}_{l,k,n} \triangleq \{\mvec{w}{l,k,n}^\herm, \mvec{H}{b_k,k,n}, \mvec{m}{l,k,n},\beta_{l,k,n}\}} be the vector which needs to be identified for the optimal allocation. In this formulation, we relaxed the equality constraint in \eqref{eq:SINR} by the inequalities in \eqref{eqn-6.2} and \eqref{eqn-6.3}. However, this step without loss of optimality leads to the same solution, since the inequalities in \eqref{eqn-6.2} and \eqref{eqn-6.3} are active for an optimal solution, following the same arguments as those in \cite{tran2012fast}. Intuitively, \eqref{eqn-6.2} denotes the \ac{SINR} constraint for \me{\gamma_{l,k,n}}, and \eqref{eqn-6.3} gives an upper bound for the total interference seen by the user \me{k \in \mathcal{U}_b}, denoted by the variable \me{\beta_{l,k,n}}. Similar to the \ac{WSRM} problem in \cite{tran2012fast}, the problem can be shown to be NP-hard even for the single antenna case. The reformulation in \eqref{eqn-6} allows a tractable solution as presented below. First, we note that the constraints \eqref{eqn-4.3} are convex with involved variables. Thus, we only need to deal with \eqref{eqn-6.2} and \eqref{eqn-6.3}. Towards this end, we resort to the traditional coordinate descent technique by fixing the linear receivers, and finding the optimal transmit beamformers. Recall the original coordinate descent method assumes that the optimization variables belong to disjoint sets (Cartesian product of sets, to be precise) \cite{xu2013block}.
+}{
+\begin{IEEEeqnarray}{rCl}\label{eqn-6}
+	\underset{\substack{\gamma_{l,k,n},\mvec{m}{l,k,n},\\\beta_{l,k,n},\mvec{w}{l,k,n}}}{\text{minimize}} &\quad& \|  \tilde{\mbf{v}}  \|_q \label{eqn-obj} \IEEEyessubnumber \\
+	\text{subject to} &\quad& \gamma_{l,k,n} \leq \frac{ | \mvec{w}{l,k,n}^\herm \mvec{H}{l,k,n} \mvec{m}{l,k,n}|^2}{\beta_{l,k,n}} \triangleq f(\tilde{\mbf{u}}_{l,k,n}) \IEEEyessubnumber \eqspace \label{eqn-6.2} \\
+	&\quad& \beta_{l,k,n} \geq \tilde{N}_0 + \sum_{\mathclap{(j,i) \neq (l,k)}} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2 \IEEEyessubnumber \eqspace \label{eqn-6.3} \\
+	&\quad& \text{and } \eqref{eqn-4.3} \IEEEyessubnumber
+\end{IEEEeqnarray}
+}
+where \me{\tilde{\mbf{u}}_{l,k,n} \triangleq \{\mvec{w}{l,k,n}^\herm, \mvec{H}{b_k,k,n}, \mvec{m}{l,k,n},\beta_{l,k,n}\}} be the vector which needs to be identified for the optimal allocation and \me{\tilde{N}_0 = N_0\|\mvec{w}{l,k,n}\|^2} be the effective noise variance. In this formulation, we relaxed the equality constraint in \eqref{eq:SINR} by the inequalities in \eqref{eqn-6.2} and \eqref{eqn-6.3}. However, this step without loss of optimality leads to the same solution, since the inequalities in \eqref{eqn-6.2} and \eqref{eqn-6.3} are active for an optimal solution, following the same arguments as those in \cite{tran2012fast}. Intuitively, \eqref{eqn-6.2} denotes the \ac{SINR} constraint for \me{\gamma_{l,k,n}}, and \eqref{eqn-6.3} gives an upper bound for the total interference seen by the user \me{k \in \mathcal{U}_b}, denoted by the variable \me{\beta_{l,k,n}}. Similar to the \ac{WSRM} problem in \cite{tran2012fast}, the problem can be shown to be NP-hard even for the single antenna case. The reformulation in \eqref{eqn-6} allows a tractable solution as presented below. First, we note that the constraints \eqref{eqn-4.3} are convex with involved variables. Thus, we only need to deal with \eqref{eqn-6.2} and \eqref{eqn-6.3}. Towards this end, we resort to the traditional coordinate descent technique by fixing the linear receivers, and finding the optimal transmit beamformers. Recall the original coordinate descent method assumes that the optimization variables belong to disjoint sets (Cartesian product of sets, to be precise) \cite{xu2013block}.
 
 By fixing the receivers, the problem now is to find optimal transmit beamformers for a given set of linear receivers which is still a challenging task. We note that for fixed \me{\mvec{w}{l,k,n}}, \eqref{eqn-6.3} can be written as a \ac{SOC} constraint. Thus, the difficulty is due to the non-convexity in \eqref{eqn-6.2}. To arrive at a tractable formulation, we adopt the \ac{SCA} method to handle \eqref{eqn-6.2} by replacing the original non-convex constraint by the series of convex constraints. Note that the function \me{f(\tilde{\mbf{u}}_{l,k,n})} in \eqref{eqn-6.2} is convex for fixed \me{\mvec{w}{l,k,n}} since it is in fact the ratio between a quadratic form (of \me{\mvec{m}{l,k,n}}) over an affine function (of \me{\beta_{l,k,n}}) \cite{boyd2004convex}. According to the \ac{SCA} method, we relax \eqref{eqn-6.2} to a convex constraint in each iteration of the iterative procedure. Since \me{f(\tilde{\mbf{u}}_{l,k,n})} is convex, a concave approximation of \eqref{eqn-6.2} can be easily found by considering the first order approximation of \me{f(\tilde{\mbf{u}}_{l,k,n})} around the current operation point. For this purpose, let the real and imaginary component of the complex number \me{\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n}} be represented by
 \begin{subeqnarray} \label{eqn-wsrm-expr}
@@ -13,31 +22,37 @@ p_{l,k,n} &\triangleq& \Re \set{{\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m
 q_{l,k,n} &\triangleq& \Im \set{{\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n}}}
 \end{subeqnarray}
 and hence \me{f(\tilde{\mbf{u}}_{l,k,n})=(p_{l,k,n}^2 + q_{l,k,n}^2)/\beta_{l,k,n}}. Note that \me{p_{l,k,n}} and \me{q_{l,k,n}} are just symbolic notation and not the newly introduced optimization variables. In CVX \cite{grant2008cvx}, for example,  we declare \me{p_{l,k,n}} and \me{q_{l,k,n}} with the `\emph{expression}' qualifier. Suppose that the current value of \me{p_{l,k,n}} and \me{q_{l,k,n}} at a specific iteration are \me{\tilde{p}_{l,k,n}} and \me{\tilde{q}_{l,k,n}}, respectively. Using the first order Taylor approximation around the local point \me{ [ \, \tilde{p}_{l,k,n},\tilde{q}_{l,k,n},\tilde{\beta}_{l,k,n} \, ]^T}, we can approximate \eqref{eqn-6.2} by the following linear inequality constraint
-\begin{equation}
-\label{eqn-8}
-2 \dfrac{\tilde{p}_{l,k,n}}{\tilde{\beta}_{l,k,n}} \left ( p_{l,k,n} - \tilde{p}_{l,k,n} \right ) + 2 \dfrac{\tilde{q}_{l,k,n}}{\tilde{\beta}_{l,k,n}} \left ( q_{l,k,n} - \tilde{q}_{l,k,n} \right ) + \dfrac{\tilde{p}_{l,k,n}^2 + \tilde{q}^2_{l,k,n}}{\tilde{\beta}_{l,k,n}} \left (1 - \dfrac{\beta_{l,k,n} - \tilde{\beta}_{l,k,n}}{\tilde{\beta}_{l,k,n}} \right ) \geq \gamma_{l,k,n}
+\iftoggle{single_column}{
+\begin{equation}\label{eqn-8}
+	2 \frac{\tilde{p}_{l,k,n}}{\tilde{\beta}_{l,k,n}} \left ( p_{l,k,n} - \tilde{p}_{l,k,n} \right ) + 2 \frac{\tilde{q}_{l,k,n}}{\tilde{\beta}_{l,k,n}} \left ( q_{l,k,n} - \tilde{q}_{l,k,n} \right ) + \frac{\tilde{p}_{l,k,n}^2 + \tilde{q}^2_{l,k,n}}{\tilde{\beta}_{l,k,n}} \left (1 - \frac{\beta_{l,k,n} - \tilde{\beta}_{l,k,n}}{\tilde{\beta}_{l,k,n}} \right ) \geq \gamma_{l,k,n}
 \end{equation}
+}{
+\begin{multline}\label{eqn-8}
+	2 \frac{\tilde{p}_{l,k,n}}{\tilde{\beta}_{l,k,n}} \left ( p_{l,k,n} - \tilde{p}_{l,k,n} \right ) + 2 \frac{\tilde{q}_{l,k,n}}{\tilde{\beta}_{l,k,n}} \left ( q_{l,k,n} - \tilde{q}_{l,k,n} \right ) \\
+	 + \frac{\tilde{p}_{l,k,n}^2 + \tilde{q}^2_{l,k,n}}{\tilde{\beta}_{l,k,n}} \left (1 - \frac{\beta_{l,k,n} - \tilde{\beta}_{l,k,n}}{\tilde{\beta}_{l,k,n}} \right ) \geq \gamma_{l,k,n}
+\end{multline}
+}
 In summary, for the fixed linear receivers, the \ac{JSFRA} problem to find transmit beamformers is shown by
 \begin{IEEEeqnarray}{rCl}\label{eqn-9}
-\underset{\substack{\gamma_{l,k,n},p_{l,k,n},q_{l,k,n} \\ \mvec{m}{l,k,n}, \beta_{l,k,n}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}} \|_q \IEEEyessubnumber\label{eqn-9.1a} \\
-\text{subject to} & \quad & \beta_{l,k,n} \geq  N_0\|\mvec{w}{l,k,n}\|^2 + \hspace{-0.75em} \sum_{(j,i) \neq (l,k)} \hspace{-0.75em} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2 \IEEEyessubnumber \label{eqn-9.1c} \\
-& \quad&\sum_{n = 1}^N \sum_{k \in \mathcal{U}_b}\sum_{l = 1}^L \text{tr} \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}}, \fall b \IEEEyessubnumber \label{eqn-9.1d} \\
+\underset{\substack{\gamma_{l,k,n},\mvec{m}{l,k,n}\\\beta_{l,k,n}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}} \|_q \IEEEyessubnumber\label{eqn-9.1a} \\
+\text{subject to} & \quad & \beta_{l,k,n} \geq  \tilde{N}_0 + \hspace{-0.75em} \sum_{(j,i) \neq (l,k)} \hspace{-0.75em} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2 \IEEEyessubnumber \eqspace \label{eqn-9.1c} \\
+& \quad&\sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \text{tr} \, (\mvec{M}{k,n} \mvec{M}{k,n}^\herm) \leq P_{{\max}}, \fall b \IEEEyessubnumber \label{eqn-9.1d} \\
 & \quad & \text{and } \eqref{eqn-8} \IEEEyessubnumber \label{eqn-9.1e}
 \end{IEEEeqnarray}
 
 Now, the optimal linear receivers for the fixed transmit precoders \me{\mbf{m}_{j,i,n} \, \forall i \in \mc{U}, \, \forall n \in \mc{C}} are obtained by minimizing \eqref{eqn-3} w.r.t \me{\mbf{w}_{l,k,n}} as
 \begin{IEEEeqnarray}{rCl}\label{eqn-9--1}
-\underset{\substack{\gamma_{l,k,n},p_{l,k,n},q_{l,k,n} \\ \mvec{w}{l,k,n}, \beta_{l,k,n}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}} \|_q \IEEEyessubnumber\label{eqn-9--1.1a} \\
+\underset{\substack{\gamma_{l,k,n},\mvec{w}{l,k,n},\\\beta_{l,k,n}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}} \|_q \IEEEyessubnumber\label{eqn-9--1.1a} \\
 \text{subject to} & \quad & \eqref{eqn-9.1c}, \eqref{eqn-9.1d}, \eqref{eqn-9.1e}, \text{ and } \eqref{eqn-8} \IEEEyessubnumber \label{eqn-9--1.1b}
 \end{IEEEeqnarray}
 Solving \eqref{eqn-9--1} using \ac{KKT} conditions, we obtain the following iterative expression for the receive beamformer \me{\mvec{w}{l,k,n}} as
-\begin{subeqnarray} \label{opt-rx}
-\mvec{\widetilde{R}}{l,k,n} &=& \displaystyle \sum_{(j,i)\neq (l,k)} \mvec{H}{b_i,k,n} {\mbf{m}}_{j,i,n} {\mbf{m}}_{j,i,n}^\herm \mvec{H}{b_i,k,n}^\herm + N_0 \, \mathbf{I}_{N_R} \\
-\mvec{w}{l,k,n}^{(i)} &=& \left ( \frac{\tilde{\beta}_{l,k,n} {\mbf{m}}_{l,k,n}^\herm \mvec{H}{b_k,k,n}^\herm \mbf{w}_{l,k,n}^{(i-1)} }{\|\mvec{w}{l,k,n}^{(i-1)} \mvec{H}{b_k,k,n} {\mbf{m}}_{l,k,n} \|^2} \right ) \, \mvec{\widetilde{R}}{l,k,n}^{-1} \, \mvec{H}{b_k,k,n} {\mbf{m}}_{l,k,n}
-\end{subeqnarray}
+\begin{IEEEeqnarray}{rCl} \label{opt-rx}
+\mvec{\widetilde{R}}{l,k,n} &=& \displaystyle \sum_{\mathclap{(j,i)\neq (l,k)}} \mvec{H}{b_i,k,n} {\mbf{m}}_{j,i,n} {\mbf{m}}_{j,i,n}^\herm \mvec{H}{b_i,k,n}^\herm + N_0 \, \mathbf{I}_{N_R} \IEEEyessubnumber \\
+\mvec{w}{l,k,n}^{(i)} &=& \left ( \frac{\tilde{\beta}_{l,k,n} {\mbf{m}}_{l,k,n}^\herm \mvec{H}{b_k,k,n}^\herm \mbf{w}_{l,k,n}^{(i-1)} }{\|\mvec{w}{l,k,n}^{(i-1)} \mvec{H}{b_k,k,n} {\mbf{m}}_{l,k,n} \|^2} \right )\mvec{\widetilde{R}}{l,k,n}^{-1}\mvec{H}{b_k,k,n} {\mbf{m}}_{l,k,n} \IEEEyessubnumber \eqspace
+\end{IEEEeqnarray}
 where \me{\mvec{w}{l,k,n}^{(i-1)}} is the receive beamformer from the earlier iteration, upon which the linear relaxation is performed for the nonconvex constraint in \eqref{eqn-9--1}. Note that \eqref{opt-rx} is obtained by iterating over the fixed \me{\mvec{w}{l,k,n}^{(i-1)}} at each \ac{SCA} iteration until convergence or for fixed number of iterations. It can be seen that the optimal receiver expression in \eqref{opt-rx} is in fact a scaled version of the \ac{MMSE} receiver, which is given by
 \begin{IEEEeqnarray}{rCl}\label{eqn-10}
-\mvec{R}{l,k,n} &=& \displaystyle \sum_{i\in \mc{U}} \sum_{j=1}^L \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \mvec{m}{j,i,n}^\herm \mvec{H}{b_i,k,n}^\herm + N_0 \, \mathbf{I}_{N_R} \IEEEyessubnumber \\
+\mvec{R}{l,k,n} &=& \displaystyle \sum_{i\in \mc{U}} \sum_{j=1}^L \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \mvec{m}{j,i,n}^\herm \mvec{H}{b_i,k,n}^\herm + N_0 \, \mathbf{I}_{N_R} \IEEEyessubnumber \eqspace \\
 \mvec{w}{l,k,n} &=& \mathbf{R}^{-1}_{l,k,n} \; \mvec{H}{b_k,k,n} \; \mvec{m}{l,k,n} \IEEEyessubnumber
 \end{IEEEeqnarray}
 
@@ -49,17 +64,17 @@ The proposed algorithm is referred as \acl{QM} \ac{JSFRA} scheme with a per \ac{
  \SetKwInput{KwInit}{Initialize}
  \KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}, \fall n \in \mathcal{N}}}
  \KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l \in \set{1,2,\dotsc,L}}}
- \KwInit{\me{i=0} and the transmit precoders \me{\tilde{\mbf{m}}_{l,k,n}} randomly satisfying the total power constraint \eqref{eqn-4.3}}
- update \me{\mvec{w}{l,k,n}} with \eqref{eqn-10} and \me{\tilde{\mbf{u}}_{l,k,n}} with \eqref{eqn-8} using \me{\tilde{\mbf{m}}_{l,k,n}}.\;
+ \KwInit{\me{i=0} and transmit precoders \me{\tilde{\mbf{M}}_{k,n}} randomly satisfying the total power constraint \eqref{eqn-4.3}}
+ update \me{\mvec{W}{k,n}} and \me{\tilde{\mbf{u}}_{l,k,n}} using \eqref{eqn-10} and \eqref{eqn-8} using \me{\tilde{\mbf{M}}_{k,n}}\;
  \Repeat{Queue convergence or \me{i \geq I_{\max}}}{
- initialize \me{j = 0}. \;
+ initialize \me{j = 0}\;
  \Repeat{\ac{SCA} convergence or \me{j \geq J_{\max}}}{
- solve for the transmit precoders \me{\mvec{m}{l,k,n}} using \eqref{eqn-9} \;
- update the constraint set \eqref{eqn-8} with \me{\tilde{p}_{l,k,n}}, \me{\tilde{q}_{l,k,n}} and \me{\tilde{\beta}_{l,k,n}} using \eqref{eqn-wsrm-expr} with the precoders \me{\mvec{m}{l,k,n}} obtained from the previous step. \;
- $j = j + 1$. \;
+ solve for the transmit precoders \me{\mvec{m}{l,k,n}} using \eqref{eqn-9}\;
+ update the constraint set \eqref{eqn-8} with \me{\tilde{\mbf{u}}_{l,k,n}} and \me{\mvec{m}{l,k,n}} using \eqref{eqn-wsrm-expr}\;
+ $j = j + 1$\;
  }
- update the receive beamformers \me{\mvec{w}{l,k,n}} using \eqref{eqn-9--1} or \eqref{eqn-10} with the recent precoders \me{\mvec{m}{l,k,n}}. \;
- $i = i + 1$. \;
+ update the receive beamformers \me{\mvec{w}{l,k,n}} using \eqref{eqn-9--1} or \eqref{eqn-10} with the updated precoders \me{\mvec{m}{l,k,n}}\;
+ $i = i + 1$\;
  }
  \caption{Algorithm of \acs{JSFRA} scheme}
  \label{algo-1}
@@ -67,10 +82,10 @@ The proposed algorithm is referred as \acl{QM} \ac{JSFRA} scheme with a per \ac{
 
 \subsubsection*{Convergence}
 
-In order to prove the convergence of the proposed algorithm, we require the following conditions to be satisfied \cite{scutari}
+In order to prove the convergence of the proposed iterative algorithm, we require the following conditions to be satisfied at each step \cite{scutari}
 \begin{itemize}
 	\item convergence of the \ac{SCA} subproblem	
-	\item uniqueness of the transmit and the receive beamformers obtained
+	\item uniqueness of the transmit and the receive beamformers
 	\item monotonic convergence of the objective function
 \end{itemize}
 In the proposed solution, we replaced \eqref{eqn-6.2} by a convex constraint using the first order approximation, which is majorized by the quadratic-over-linear function in \eqref{eqn-6.2} from below around a fixed point \me{\tilde{\mbf{u}}^{(i)}_{l,k,n}}. Since the \ac{SCA} method is adopted in the proposed algorithm, the constraint approximation satisfies the following conditions as in \cite{marks1978technical}
@@ -79,8 +94,8 @@ In the proposed solution, we replaced \eqref{eqn-6.2} by a convex constraint usi
 	f(\tilde{\mbf{u}}^{(i)}_{l,k,n}) &=& \bar{f}(\tilde{\mbf{u}}^{(i)}_{l,k,n},\tilde{\mbf{u}}^{(i)}_{l,k,n}) \\
 	\nabla f(\tilde{\mbf{u}}^{(i)}_{l,k,n}) &=& \nabla \bar{f}(\tilde{\mbf{u}}^{(i)}_{l,k,n},\tilde{\mbf{u}}^{(i)}_{l,k,n})
 \end{subeqnarray}
-where \me{\bar{f}(\mbf{x},\mbf{x}^{(i)})} is the approximate function of \me{f(\mbf{x})} around the point \me{\mbf{x}^{\ast(i)}}. The stationary point of the relaxed formulation, which is a convex problem, satisfies the \ac{KKT} conditions of the original nonconvex problem, which can be obtained by using conditions in \eqref{sca-req}. It can be seen that the  \ac{SCA} relaxed formulation converges to a local stationary point at each iteration.
+where \me{\bar{f}(\mbf{x},\mbf{x}^{(i)})} is the approximate function of \me{f(\mbf{x})} around the point \me{\mbf{x}^{\ast(i)}}. The stationary point of the relaxed convex problem satisfies the \ac{KKT} conditions of the original nonconvex problem, which can be obtained by using conditions in \eqref{sca-req}. It can be seen that the  \ac{SCA} relaxed formulation converges to a local stationary point at each iteration.
 
 The uniqueness of the transmit and the receive beamformers can be justified by forcing one antenna to be real valued to exclude the phase ambiguity arising from the complex precoders. The monotonic convergence of the objective function can be justified by the following arguments. At each \ac{SCA} iteration, the relaxed subproblem is solved for the locally optimal transmit precoders to minimize the objective function. Since the \ac{SCA} subproblem is relaxed around the \me{\ith{i-1}} optimal point,\textit{i.e} \me{\mbf{x}^{\ast(i-1)}}, for the \me{\ith{i}} iteration, the domain of the problem in the \me{\ith{i}} step includes optimal point from the  \me{\ith{i-1}} iteration as well. Therefore, at each \ac{SCA} steps, the objective function can either be equal to or smaller than the previous value, thereby leading to the monotonic convergence of the objective function.
 
-Once the problem is converged to a stationary transmit precoders, the receive beamformers are updated based on the receivers mentioned in \eqref{opt-rx} or \eqref{eqn-10}. The monotonic nature of the objective function is preserved by the receive beamformer update, since the receiver minimizes the objective value for the fixed transmit precoders, the proposed \ac{JSFRA} scheme guarantees to converge to a stationary point of the original nonconvex problem.
+Once the problem is converged to a stationary transmit precoders, the receive beamformers are updated based on the receivers mentioned in \eqref{opt-rx} or \eqref{eqn-10}. The monotonic nature of the objective function is preserved by the receive beamformer update, since the receiver minimizes the objective value for the fixed transmit precoders, and hence the proposed \ac{JSFRA} scheme guarantees to converge to a stationary point of the original nonconvex problem.
