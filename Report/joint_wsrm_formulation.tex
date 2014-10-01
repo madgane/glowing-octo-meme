@@ -14,20 +14,26 @@ where the inequality is due to the upper bound
 \begin{equation}
 \sset{\max(Q-t,0) + \lambda)}^2 \leq Q^2 + t^2 + \lambda^2 + 2 Q (\lambda - t)
 \end{equation}
-In order to minimize the squared sum at each instant, minimization of the Lyapunov drift \eqref{eqn-3.1} is carried over all possible rate allocations in the form of transmission rates \me{t_k} to users in the system. The Lyapunov drift conditioned on the current backlogged packets \me{\mbfa{Q}(i)} is given by
-\iftoggle{single_column}{
+In order to minimize the squared sum at each instant, minimization of the Lyapunov drift \eqref{eqn-3.1} is carried over all possible rate allocations in the form of transmission rates \me{t_k} to users in the system. The Lyapunov drift conditioned on the current backlogged packets \me{\mbfa{Q}(i)} is given by \eqref{backpressure-approx}, 
+%\begin{IEEEeqnarray}{rCl} \label{backpressure-approx}
+%	\underset{\mbf{t}}{\text{minimize}} && \Delta(\mbf{Q}(i)) \triangleq \mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set{\mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} \vert \mbf{Q}(i)} \IEEEyessubnumber \\
+%	&\leq& \underbrace{\mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set {\sum_{k \in \mc{U}} \, \frac{\lambda^2_k(i) + t_k^2(i)}{2} \vert \mbf{Q}(i)}}_{\le B} + \sum_{k \in \mc{U}} Q_k(i) A_k(i) - \mathbb{E}_{\mbfa{\lambda},\mbf{t}}\set{\sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i)} \IEEEyessubnumber \label{backpreassure-approx-1b}
+%\end{IEEEeqnarray}
+%\begin{IEEEeqnarray}{CL} \label{backpressure-approx}
+%	& \underset{\mbf{t}}{\text{minimize}} \quad \mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set{\mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} \vert \mbf{Q}(i)} \IEEEyessubnumber \\
+%	\leq & \underbrace{\mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set {\sum_{k \in \mc{U}} \frac{\lambda^2_k(i) + t_k^2(i)}{2} \vert \mbf{Q}(i)}}_{\le B} + \sum_{k \in \mc{U}} Q_k(i) A_k(i) \nonumber \\
+%	& \qquad \qquad {} - \mathbb{E}_{\mbfa{\lambda},\mbf{t}}\set{\sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i)} \IEEEyessubnumber \label{backpreassure-approx-1b}
+%\end{IEEEeqnarray}	
+\begin{figure*}
 \begin{IEEEeqnarray}{rCl} \label{backpressure-approx}
-	\underset{\mbf{t}}{\text{minimize}} && \Delta(\mbf{Q}(i)) \triangleq \mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set{\mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} \vert \mbf{Q}(i)} \IEEEyessubnumber \\
-	&\leq& \underbrace{\mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set {\sum_{k \in \mc{U}} \, \frac{\lambda^2_k(i) + t_k^2(i)}{2} \vert \mbf{Q}(i)}}_{\le B} + \sum_{k \in \mc{U}} Q_k(i) A_k(i) - \mathbb{E}_{\mbfa{\lambda},\mbf{t}}\set{\sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i)} \IEEEyessubnumber \label{backpreassure-approx-1b}
-\end{IEEEeqnarray}
-}{
-\begin{IEEEeqnarray}{rCl} \label{backpressure-approx}
-	\underset{\mbf{t}}{\text{minimize}} && \mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set{\mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} \vert \mbf{Q}(i)} \IEEEyessubnumber \\
-	&\leq& \underbrace{\mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set {\sum_{k \in \mc{U}} \frac{\lambda^2_k(i) + t_k^2(i)}{2} \vert \mbf{Q}(i)}}_{\le B} + \sum_{k \in \mc{U}} Q_k(i) A_k(i) \nonumber \\
-	&& - \mathbb{E}_{\mbfa{\lambda},\mbf{t}}\set{\sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i)} \IEEEyessubnumber \label{backpreassure-approx-1b}
+	\underset{\mbf{t}}{\text{minimize}} &\quad& \mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set{\mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} \vert \mbf{Q}(i)} \IEEEyessubnumber \vspace{-0.25in}\\
+	& \leq & \sum_{k \in \mc{U}} Q_k(i) A_k(i) - \mathbb{E}_{\mbfa{\lambda},\mbf{t}}\set{\sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i)} + \overbrace{\mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set {\sum_{k \in \mc{U}} \frac{\lambda^2_k(i) + t_k^2(i)}{2} \vert \mbf{Q}(i)}}^{\le B}\IEEEyessubnumber \label{backpreassure-approx-1b}
 \end{IEEEeqnarray}	
-}
-where the second term in \eqref{backpreassure-approx-1b} follows from the Poisson arrival process. Assuming the second order moments of the transmissions and the arrival rates are bounded, it can be replaced by a upper bound \me{B} as in \eqref{backpreassure-approx-1b}, in order to eliminate from the optimization problem \cite{neely2010stochastic}. The expectation is performed across all possible arrivals and the transmission rates for the given number of queued packets \me{\mbf{Q}(i)} and the channel state information at the \me{\ith{i}} slot. 
+\vspace{-0.25in}
+\end{figure*}
+where the first term in \eqref{backpreassure-approx-1b} follows from the Poisson arrival process. 
+
+Assuming the second order moments of the transmissions and the arrival rates are bounded, it can be replaced by a upper bound \me{B} as in \eqref{backpreassure-approx-1b}, in order to eliminate from the optimization problem \cite{neely2010stochastic}. The expectation is performed across all possible arrivals and the transmission rates for the given number of queued packets \me{\mbf{Q}(i)} and the channel state information at the \me{\ith{i}} slot. 
 
 Now the expression in \eqref{backpressure-approx} looks similar to the \ac{WSRM} formulation if the weights in the \ac{WSRM} problem are replaced by the number of backlogged packets corresponding to the users. The above discussed approach is extended for the wireless networks in \cite{weeraddana2011resource}, where the queue weighted sum rate maximization is considered as the objective function to determine the transmit precoders. The \ac{Q-WSRM} formulation is given by optimizing each term inside the expectation operator \me{\mbf{E}_{\mbfa{\lambda},\mbf{t}}} in \eqref{backpreassure-approx-1b}, which maximizes the 
 \begin{IEEEeqnarray}{rCl} \label{q_gen_sum}

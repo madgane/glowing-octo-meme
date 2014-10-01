@@ -13,17 +13,19 @@
 \input{shortcuts}
 \input{acronyms}
 
+\newtoggle{enable_dist_fig}
 \newtoggle{single_column}
 \togglefalse{single_column}
+\togglefalse{enable_dist_fig}
 
 \iftoggle{single_column}{
 	\doublespacing
 }
 
-\title{Traffic aware Precoding and Resource Allocation schemes for Multi-Cell \acs{MIMO}-\acs{OFDM} systems}
+\title{Traffic aware Resource Allocation schemes for Multi-Cell \acs{MIMO}-\acs{OFDM} systems}
 \author{
 	\IEEEauthorblockN{Ganesh Venkatraman, Antti T\"{o}lli, Le-Nam Tran and Markku Juntti} \\
-	\IEEEauthorblockA{Centre for Wireless Communications (CWC), \\ Department of Communications Engineering (DCE), \\
+	\IEEEauthorblockA{Centre for Wireless Communications (CWC), Department of Communications Engineering (DCE), \\
 		University of Oulu, Oulu, FI-90014\\
 		Email: \{gvenkatr, antti.tolli, le.nam.tran, markku.juntti\}@ee.oulu.fi}
 }

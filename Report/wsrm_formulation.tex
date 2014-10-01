@@ -1,14 +1,14 @@
 In this approach, we present an algorithm to solve \eqref{eqn-3} for the transmit precoders in a centralized way by using the idea of alternating optimization and successive convex approximation. Using \eqref{eq:SINR}, we can reformulate the problem defined in \eqref{eqn-3} as
 \iftoggle{single_column}{
-\begin{IEEEeqnarray}{rCl}\label{eqn-6}
+\begin{IEEEeqnarray}{CCl}\label{eqn-6}
 \underset{\substack{\gamma_{l,k,n},\mvec{m}{l,k,n},\\\beta_{l,k,n},\mvec{w}{l,k,n}}}{\text{minimize}} & \quad & \|  \tilde{\mbf{v}}  \|_q \label{eqn-obj} \IEEEyessubnumber \\
 \text{subject to}& \quad &\gamma_{l,k,n} \leq \frac{ | \mvec{w}{l,k,n}^\herm \mvec{H}{l,k,n} \mvec{m}{l,k,n}  |^2}{\beta_{l,k,n}} \triangleq f(\tilde{\mbf{u}}_{l,k,n}) \IEEEyessubnumber \label{eqn-6.2} \\
   & \quad & \beta_{l,k,n} \geq  \tilde{N}_0 + \hspace{-0.75em} \sum_{(j,i) \neq (l,k)} \hspace{-0.75em} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2 \IEEEyessubnumber \label{eqn-6.3} \\
   & \quad &\eqref{eqn-4.3} \IEEEyessubnumber
 \end{IEEEeqnarray}
 }{
-\begin{IEEEeqnarray}{rCl}\label{eqn-6}
-	\underset{\substack{\gamma_{l,k,n},\mvec{m}{l,k,n},\\\beta_{l,k,n},\mvec{w}{l,k,n}}}{\text{minimize}} &\quad& \|  \tilde{\mbf{v}}  \|_q \label{eqn-obj} \IEEEyessubnumber \\
+\begin{IEEEeqnarray}{CCl}\label{eqn-6}
+	\underset{\substack{\gamma_{l,k,n},\mvec{m}{l,k,n},\\\beta_{l,k,n},\mvec{w}{l,k,n}}}{\text{minimize}} &\quad& \|  \tilde{\mbf{v}}  \|_q \label{eqn-obj} \IEEEyessubnumber \vspace{-0.25cm}\\
 	\text{subject to} &\quad& \gamma_{l,k,n} \leq \frac{ | \mvec{w}{l,k,n}^\herm \mvec{H}{l,k,n} \mvec{m}{l,k,n}|^2}{\beta_{l,k,n}} \triangleq f(\tilde{\mbf{u}}_{l,k,n}) \IEEEyessubnumber \eqspace \label{eqn-6.2} \\
 	&\quad& \beta_{l,k,n} \geq \tilde{N}_0 + \sum_{\mathclap{(j,i) \neq (l,k)}} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2 \IEEEyessubnumber \eqspace \label{eqn-6.3} \\
 	&\quad& \text{and } \eqref{eqn-4.3} \IEEEyessubnumber
@@ -21,34 +21,34 @@ By fixing the receivers, the problem now is to find optimal transmit beamformers
 p_{l,k,n} &\triangleq& \Re \set{{\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n}}} \\
 q_{l,k,n} &\triangleq& \Im \set{{\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n}}}
 \end{subeqnarray}
-and hence \me{f(\tilde{\mbf{u}}_{l,k,n})=(p_{l,k,n}^2 + q_{l,k,n}^2)/\beta_{l,k,n}}. Note that \me{p_{l,k,n}} and \me{q_{l,k,n}} are just symbolic notation and not the newly introduced optimization variables. In CVX \cite{grant2008cvx}, for example,  we declare \me{p_{l,k,n}} and \me{q_{l,k,n}} with the `\emph{expression}' qualifier. Suppose that the current value of \me{p_{l,k,n}} and \me{q_{l,k,n}} at a specific iteration are \me{\tilde{p}_{l,k,n}} and \me{\tilde{q}_{l,k,n}}, respectively. Using the first order Taylor approximation around the local point \me{ [ \, \tilde{p}_{l,k,n},\tilde{q}_{l,k,n},\tilde{\beta}_{l,k,n} \, ]^T}, we can approximate \eqref{eqn-6.2} by the following linear inequality constraint
+and hence \me{f(\tilde{\mbf{u}}_{l,k,n})=(p_{l,k,n}^2 + q_{l,k,n}^2)/\beta_{l,k,n}}. Note that \me{p_{l,k,n}} and \me{q_{l,k,n}} are just symbolic notation and not the newly introduced optimization variables. In CVX \cite{grant2008cvx}, for example,  we declare \me{p_{l,k,n}} and \me{q_{l,k,n}} with the `\emph{expression}' qualifier. Suppose that the current value of \me{p_{l,k,n}} and \me{q_{l,k,n}} at a specific iteration are \me{\tilde{p}_{l,k,n}} and \me{\tilde{q}_{l,k,n}}, respectively. Using the first order Taylor approximation around the local point \me{ [ \, \tilde{p}_{l,k,n},\tilde{q}_{l,k,n},\tilde{\beta}_{l,k,n} \, ]^T}, we can approximate \eqref{eqn-6.2} by the following linear inequality constraint as
 \iftoggle{single_column}{
 \begin{equation}\label{eqn-8}
 	2 \frac{\tilde{p}_{l,k,n}}{\tilde{\beta}_{l,k,n}} \left ( p_{l,k,n} - \tilde{p}_{l,k,n} \right ) + 2 \frac{\tilde{q}_{l,k,n}}{\tilde{\beta}_{l,k,n}} \left ( q_{l,k,n} - \tilde{q}_{l,k,n} \right ) + \frac{\tilde{p}_{l,k,n}^2 + \tilde{q}^2_{l,k,n}}{\tilde{\beta}_{l,k,n}} \left (1 - \frac{\beta_{l,k,n} - \tilde{\beta}_{l,k,n}}{\tilde{\beta}_{l,k,n}} \right ) \geq \gamma_{l,k,n}
 \end{equation}
 }{
 \begin{multline}\label{eqn-8}
-	2 \frac{\tilde{p}_{l,k,n}}{\tilde{\beta}_{l,k,n}} \left ( p_{l,k,n} - \tilde{p}_{l,k,n} \right ) + 2 \frac{\tilde{q}_{l,k,n}}{\tilde{\beta}_{l,k,n}} \left ( q_{l,k,n} - \tilde{q}_{l,k,n} \right ) \\
-	 + \frac{\tilde{p}_{l,k,n}^2 + \tilde{q}^2_{l,k,n}}{\tilde{\beta}_{l,k,n}} \left (1 - \frac{\beta_{l,k,n} - \tilde{\beta}_{l,k,n}}{\tilde{\beta}_{l,k,n}} \right ) \geq \gamma_{l,k,n}
+2 \frac{\tilde{p}_{l,k,n}}{\tilde{\beta}_{l,k,n}} \left ( p_{l,k,n} - \tilde{p}_{l,k,n} \right ) + 2 \frac{\tilde{q}_{l,k,n}}{\tilde{\beta}_{l,k,n}} \left ( q_{l,k,n} - \tilde{q}_{l,k,n} \right ) \\
++ \frac{\tilde{p}_{l,k,n}^2 + \tilde{q}^2_{l,k,n}}{\tilde{\beta}_{l,k,n}} \left (1 - \frac{\beta_{l,k,n} - \tilde{\beta}_{l,k,n}}{\tilde{\beta}_{l,k,n}} \right ) \geq \gamma_{l,k,n}
 \end{multline}
 }
 In summary, for the fixed linear receivers, the \ac{JSFRA} problem to find transmit beamformers is shown by
-\begin{IEEEeqnarray}{rCl}\label{eqn-9}
-\underset{\substack{\gamma_{l,k,n},\mvec{m}{l,k,n}\\\beta_{l,k,n}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}} \|_q \IEEEyessubnumber\label{eqn-9.1a} \\
+\begin{IEEEeqnarray}{CCl}\label{eqn-9}
+\underset{\substack{\mvec{m}{l,k,n},\\ \gamma_{l,k,n},,\beta_{l,k,n}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}} \|_q \IEEEyessubnumber\label{eqn-9.1a} \vspace{-0.15cm} \\
 \text{subject to} & \quad & \beta_{l,k,n} \geq  \tilde{N}_0 + \hspace{-0.75em} \sum_{(j,i) \neq (l,k)} \hspace{-0.75em} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2 \IEEEyessubnumber \eqspace \label{eqn-9.1c} \\
 & \quad&\sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \text{tr} \, (\mvec{M}{k,n} \mvec{M}{k,n}^\herm) \leq P_{{\max}}, \fall b \IEEEyessubnumber \label{eqn-9.1d} \\
 & \quad & \text{and } \eqref{eqn-8} \IEEEyessubnumber \label{eqn-9.1e}
 \end{IEEEeqnarray}
 
 Now, the optimal linear receivers for the fixed transmit precoders \me{\mbf{m}_{j,i,n} \, \forall i \in \mc{U}, \, \forall n \in \mc{C}} are obtained by minimizing \eqref{eqn-3} w.r.t \me{\mbf{w}_{l,k,n}} as
-\begin{IEEEeqnarray}{rCl}\label{eqn-9--1}
-\underset{\substack{\gamma_{l,k,n},\mvec{w}{l,k,n},\\\beta_{l,k,n}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}} \|_q \IEEEyessubnumber\label{eqn-9--1.1a} \\
+\begin{IEEEeqnarray}{CCl}\label{eqn-9--1}
+\underset{\substack{\gamma_{l,k,n},\mvec{w}{l,k,n},\beta_{l,k,n}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}} \|_q \IEEEyessubnumber\label{eqn-9--1.1a} \\
 \text{subject to} & \quad & \eqref{eqn-9.1c}, \eqref{eqn-9.1d}, \eqref{eqn-9.1e}, \text{ and } \eqref{eqn-8} \IEEEyessubnumber \label{eqn-9--1.1b}
 \end{IEEEeqnarray}
 Solving \eqref{eqn-9--1} using \ac{KKT} conditions, we obtain the following iterative expression for the receive beamformer \me{\mvec{w}{l,k,n}} as
 \begin{IEEEeqnarray}{rCl} \label{opt-rx}
 \mvec{\widetilde{R}}{l,k,n} &=& \displaystyle \sum_{\mathclap{(j,i)\neq (l,k)}} \mvec{H}{b_i,k,n} {\mbf{m}}_{j,i,n} {\mbf{m}}_{j,i,n}^\herm \mvec{H}{b_i,k,n}^\herm + N_0 \, \mathbf{I}_{N_R} \IEEEyessubnumber \\
-\mvec{w}{l,k,n}^{(i)} &=& \left ( \frac{\tilde{\beta}_{l,k,n} {\mbf{m}}_{l,k,n}^\herm \mvec{H}{b_k,k,n}^\herm \mbf{w}_{l,k,n}^{(i-1)} }{\|\mvec{w}{l,k,n}^{(i-1)} \mvec{H}{b_k,k,n} {\mbf{m}}_{l,k,n} \|^2} \right )\mvec{\widetilde{R}}{l,k,n}^{-1}\mvec{H}{b_k,k,n} {\mbf{m}}_{l,k,n} \IEEEyessubnumber \eqspace
+\mvec{w}{l,k,n}^{(i)} &=& \left ( \tfrac{\tilde{\beta}_{l,k,n} {\mbf{m}}_{l,k,n}^\herm \mvec{H}{b_k,k,n}^\herm \mbf{w}_{l,k,n}^{(i-1)} }{\|\mvec{w}{l,k,n}^{(i-1)} \mvec{H}{b_k,k,n} {\mbf{m}}_{l,k,n} \|^2} \right )\mvec{\widetilde{R}}{l,k,n}^{-1}\mvec{H}{b_k,k,n} {\mbf{m}}_{l,k,n} \IEEEyessubnumber \eqspace
 \end{IEEEeqnarray}
 where \me{\mvec{w}{l,k,n}^{(i-1)}} is the receive beamformer from the earlier iteration, upon which the linear relaxation is performed for the nonconvex constraint in \eqref{eqn-9--1}. Note that \eqref{opt-rx} is obtained by iterating over the fixed \me{\mvec{w}{l,k,n}^{(i-1)}} at each \ac{SCA} iteration until convergence or for fixed number of iterations. It can be seen that the optimal receiver expression in \eqref{opt-rx} is in fact a scaled version of the \ac{MMSE} receiver, which is given by
 \begin{IEEEeqnarray}{rCl}\label{eqn-10}
