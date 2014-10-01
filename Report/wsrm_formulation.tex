@@ -57,6 +57,7 @@ where \me{\mvec{w}{l,k,n}^{(i-1)}} is the receive beamformer from the earlier it
 \end{IEEEeqnarray}
 
 The proposed algorithm is referred as \acl{QM} \ac{JSFRA} scheme with a per \ac{BS} power constraint which is outlined in Algorithm \ref{algo-1}. The iterative procedure repeats until the improvement on the objective is less than a predetermined tolerance parameter or the maximum number of iterations is reached. Instead of initializing \me{\tilde{\mbf{u}}_{l,k,n}} arbitrarily to a feasible point, transmit precoders can also be initialized with any feasible point \me{\tilde{\mbf{m}}_{l,k,n}}, which is then used to find \me{\tilde{\mbf{u}}_{l,k,n}} in an efficient manner as briefed in Algorithm \ref{algo-1}. For a fixed receive beamformer \me{\mvec{w}{l,k,n}}, the \ac{SCA} iteration is carried out until convergence or for the predefined iterations, say \me{J_{\max}} for the optimal transmit precoders \me{\mvec{m}{l,k,n}}. Next, the receive beamformers are updated based on either \eqref{opt-rx} or \eqref{eqn-10} using the fixed transmit precoders \me{\mvec{m}{l,k,n}}. This procedure is carried out until convergence of the queue deviation or for fixed number of iterations defined by \me{I_{\max}} as outlined in Algorithm \ref{algo-1}.
+{\allowdisplaybreaks
 \begin{algorithm}
  \SetAlgoLined
  \DontPrintSemicolon
@@ -79,7 +80,7 @@ The proposed algorithm is referred as \acl{QM} \ac{JSFRA} scheme with a per \ac{
  \caption{Algorithm of \acs{JSFRA} scheme}
  \label{algo-1}
 \end{algorithm}
-
+}
 \subsubsection*{Convergence}
 
 In order to prove the convergence of the proposed iterative algorithm, we require the following conditions to be satisfied at each step \cite{scutari}

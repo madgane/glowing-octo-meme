@@ -16,32 +16,25 @@
 		\hline
 	\end{tabular}
 	\caption{Sub channel wise allocation for a scheduling instant}
-	\label{tbl-1}
+	\label{tbl-1}\vspace{-0.3in}
 \end{table*}
-%\begin{figure}
-%\centering
-%\includegraphics[width=\columnwidth]{tbl-1}
-%\caption{Allocation for a \ac{SISO} Model comparing different Algorithms}
-%\label{tbl-1}
-%\end{figure}
-
-In this section, we discuss the performance of the centralized algorithms from Section \ref{sec-3} for a few system configurations. To begin with, we consider a single cell \ac{SISO} model operating at \me{10} dB \ac{SNR} with \me{K = 3} users sharing \me{N = 3} sub-channel resources. The number of packets waiting at the transmitter for each user is given by \me{Q_k = 4,8} and \me{4} bits respectively. 
+\begin{figure*}
+	\centering
+	\subfloat[][System \me{\lbrace N,N_B,K,N_T,N_R \rbrace = \lbrace 4,3,9,4,1\rbrace}]{
+		\includegraphics[width=0.48\textwidth]{fig-1-4}
+		\label{fig-1}}
+	\hfill
+	\subfloat[][System \me{\lbrace N,N_B,K,N_T,N_R \rbrace = \lbrace 2,3,9,4,2\rbrace}]{
+		\includegraphics[width=0.48\textwidth]{fig-2-5}
+		\label{fig-2}}
+	\caption{Number of backlogged packets at the \ac{SCA} update points}
+	\label{fig-a}\vspace{-0.2in}
+\end{figure*}
+We discuss the performance of the centralized algorithms from Section \ref{sec-3} for some system configurations. To begin with, we consider a single cell \ac{SISO} model operating at \me{10} dB \ac{SNR} with \me{K = 3} users sharing \me{N = 3} sub-channel resources. The number of packets waiting at the transmitter for each user is given by \me{Q_k = 4,8} and \me{4} bits respectively. 
 
 Table. \ref{tbl-1} outlines the channel seen by the users over each sub-channel followed by the rates assigned by three different algorithms, \ac{Q-WSRME} allocation, \ac{JSFRA} approach and the band-wise \ac{Q-WSRM} scheme using \ac{WMMSE} design \cite{wmmse_shi}. The performance metric used for the comparison is the total number of backlogged bits left over at each slot after the allocation, which is denoted by \me{\chi = \sum_{k = 1}^K \; [ Q_k - t_k ]^+}. Even though \me{\mc{U}(1)} and \me{\mc{U}(3)} has equal number of backlogged packets of \me{Q_{1} = Q_{3} = 4} bits, user \me{\mc{U}(3)} got scheduled in the first sub-channel due to the better channel condition. In contrast, the \ac{JSFRA} approach assigns the first user on the first sub-channel, which reduces the total number of backlogged packets waiting at the transmitter. The rate allocated for \me{\mc{U}(2)} on the second sub-channel is higher in \ac{JSFRA} scheme compared to the other schemes. It is due to the efficient allocation of the total power shared across the sub-channels.
 
 For the \ac{MIMO} framework, we consider a system with \me{N=3} sub-channels and \me{N_B = 3} \acp{BS}, each equipped with \me{N_T = 4} transmit antennas operating at \me{10}dB \ac{SNR}, serving \me{|\mc{U}_b| = 3} users each. The path loss between the \acp{BS} and the users are uniformly generated from \me{[0,-3]} dB and the association is made by selecting the \ac{BS} with lowest path loss component. Fig. \ref{fig-1} shows the performance of the centralized schemes for a single receive antenna system. It compares the total number of \ac{SCA} updates required by the \ac{JSFRA}, \ac{SRA} and the \ac{Q-WSRME} schemes to perform the optimal allocations to minimize the total number of backlogged packets. The total number of queued packets for Fig. \ref{fig-1} is given by \me{Q_k = [14,15,14,8,12,9,12,11,11]} bits and for Fig. \ref{fig-2} is \me{Q_k = [9,12,8,12,5,4,10,8,5]} bits respectively.
-\begin{figure*}
-\centering
-\subfloat[][System \me{\lbrace N,N_B,K,N_T,N_R \rbrace = \lbrace 4,3,9,4,1\rbrace}]{
-\includegraphics[width=0.48\textwidth]{fig-1-4}
-\label{fig-1}}
-\hfill
-\subfloat[][System \me{\lbrace N,N_B,K,N_T,N_R \rbrace = \lbrace 2,3,9,4,2\rbrace}]{
-\includegraphics[width=0.48\textwidth]{fig-2-5}
-\label{fig-2}}
-\caption{Number of backlogged packets at the \ac{SCA} update points}
-\label{fig-a}
-\end{figure*}
 
 The performance of the centralized algorithms are compared by the total number of residual bits remaining in the system after each \ac{SCA} update in Fig. \ref{fig-a}. The \ac{Q-WSRM} algorithm is not optimal due to the problem of over allocation when the number of queued packets are small, as in Fig. \ref{fig-a}. In contrast, the \ac{Q-WSRME} algorithm provides more favorable allocation by including the explicit rate constraint to avoid the over allocation problem. It can be seen that the \ac{JSFRA} algorithms converge to the optimal point for all formulations proposed in Section \ref{sec-3.2.1}. It can be seen that all the algorithms are Pareto-optimal and provides different performance based on the weights used to find a point in the rate region. 
 
