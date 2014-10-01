@@ -1,10 +1,11 @@
 This section addresses the distributed precoder designs for the proposed \ac{JSFRA} scheme. The formulation in \eqref{eqn-9} or \eqref{eqn-mse-2} requires a centralized controller to perform the precoder design for all users belonging to the coordinating \acp{BS}. In order to design the precoders independently at each \ac{BS} with the minimal information exchange via backhaul, iterative decentralization methods are considered. In particular, the \acl{PD} and the \ac{ADMM} based \acl{DD} approaches are addressed.
 
 To begin with, let \me{\bar{\mc{B}}_b} denote the set \me{\mc{B} \backslash \{b\}} and \me{\bar{\mc{U}}_b} represents the set \me{\mc{U} \backslash \mc{U}_b}. In order to study the decomposition based solutions, we consider the solution proposed in the \eqref{eqn-9}, which is based on the Taylor approximation for the nonconvex constraint. The following discussions are equally valid for the \ac{MSE} based solution outlined in \eqref{eqn-mse-2} as well. Since the objective of \eqref{eqn-9} can be decoupled across each \ac{BS}, the centralized problem can be equivalently written as
+{\allowdisplaybreaks
 \begin{IEEEeqnarray}{CCl} \label{eqn-decent-1}
 \underset{\substack{\gamma_{l,k,n},\mvec{M}{k,n},\mvec{W}{k,n}, \beta_{l,k,n}}}{\text{minimize}} &\quad & \sum_{b \in \mc{B}} \| \tilde{\mbf{v}}_b \|_q \IEEEyessubnumber \label{eqn-decent-1a} \\
 \text{subject to}&\quad& \eqref{eqn-9.1c} - \eqref{eqn-9.1e} \IEEEyessubnumber,
-\end{IEEEeqnarray}
+\end{IEEEeqnarray}}
 where \me{\tilde{\mbf{v}}_b} denote the vector of of weighted queue deviation corresponding to the users \me{k \in \mc{U}_b}.
 
 Following the similar approach as in \cite{pennanen2011decentralized,tolli2011decentralized}, the coupling constraint in \eqref{eqn-9.1c} or \eqref{eqn-mse-1.3} can be expressed by grouping the interference contribution from each \acp{BS} in the coordinating set \me{\mathrm{B}} as

@@ -11,7 +11,7 @@ In this paper we adopt linear beamforming technique at \acp{BS}. Specifically, t
 + \mvec{w}{l,k,n}^\herm \sum_{i \in \mc{U} \backslash \set{k}} \mvec{H}{b_i,k,n} \sum_{j = 1}^L \mvec{m}{j,i,n}d_{j,i,n}
 \end{multline}
 }
-where \me{\mvec{H}{b,k,n} \in \mathbb{C}^{N_R \times N_T}} is the channel between \ac{BS} \me{b} and  user \me{k} on sub-channel \me{n}, and \me{\mvec{n}{k,n}} \me{\sim \mc{CN}(0,N_0)} is the additive noise vector for the user \me{k} on the \me{n^\mathrm{th}} sub-channel and \me{l^\mathrm{th}} spatial stream. In \eqref{eqn-1}, \me{L = rank(\mvec{H}{b,k,n}) = min(N_T,N_R)} is the maximum number of spatial streams.\footnote{\me{L} streams are initialized but after solving the problem, only \me{L_{k,n} \leq L} non-zero data streams are transmitted} Assuming independent detection of data streams, we can write the signal-to-interference-plus-noise ratio (SINR) as
+where \me{\mvec{H}{b,k,n} \in \mathbb{C}^{N_R \times N_T}} is the channel between \ac{BS} \me{b} and  user \me{k} on sub-channel \me{n}, and \me{\mvec{n}{k,n}} \me{\sim \mc{CN}(0,N_0)} is the additive noise vector for the user \me{k} on the \me{n^\mathrm{th}} sub-channel and \me{l^\mathrm{th}} spatial stream. In \eqref{eqn-1}, \me{L = rank(\mvec{H}{b,k,n}) = min(N_T,N_R)} is the maximum number of spatial streams\footnote{\me{L} streams are initialized but after solving the problem, only \me{L_{k,n} \leq L} non-zero data streams are transmitted}. Assuming independent detection of data streams, we can write the signal-to-interference-plus-noise ratio (SINR) as
 \begin{equation}\label{eq:SINR}
 \gamma_{l,k,n} = \dfrac{\left |\mvec{w}{l,k,n}^\herm \, \mvec{H}{b_k,k,n} \, \mvec{m}{l,k,n} \right |^2}{N_0\|\mvec{w}{l,k,n}\|^2 + \sum_{(j,i) \neq (l,k)} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2}
 \end{equation}
@@ -24,4 +24,4 @@ where \me{[x]^+ \equiv \max{ \lbrace x,0  \rbrace}} and \me{t_k} denotes the tra
 \begin{equation}
 t_k(i) = \sum_{n = 1}^N \, \sum_{l = 1}^L \, t_{l,k,n}(i)
 \end{equation}
-where \me{t_{l,k,n}} denotes the transmitted bits over \me{\ith{l}} spatial stream on the \me{\ith{n}} sub-channel. The maximum rate achieved over the \me{(l,n)} space-frequency resource is given by \me{t_{l,k,n} \leq \log_2(1 + \gamma_{l,k,n})} for the \ac{SINR} of \me{\gamma_{l,k,n}}.\footnote{This can be achieved by Gaussian signaling} Note that the units of \me{t_k} and \me{Q_k} are in bits defined per channel use. 
+where \me{t_{l,k,n}} denotes the transmitted bits over \me{\ith{l}} spatial stream on the \me{\ith{n}} sub-channel. The maximum rate achieved over the \me{(l,n)} space-frequency resource is given by \me{t_{l,k,n} \leq \log_2(1 + \gamma_{l,k,n})} for the \ac{SINR} of \me{\gamma_{l,k,n}}\footnote{This can be achieved by Gaussian signaling}. Note that the units of \me{t_k} and \me{Q_k} are in bits defined per channel use. 

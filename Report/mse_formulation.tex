@@ -35,7 +35,7 @@ Let \me{{v}^{\prime}_k = Q_k - \sum_{n=1}^N \sum_{l=1}^L t_{l,k,n}} denote the q
 \end{IEEEeqnarray}}
 }
 
-The \acl{QM} \ac{JSFRA} problem using alternative \ac{MSE} formulation given by \eqref{eqn-mse-1} is non-convex even for the fixed \me{\mvec{w}{l,k,n}} due to the constraint \eqref{eqn-mse-1.2}. In order to solve this efficiently, we use the \ac{SCA} method as discussed earlier in Section \ref{sec-3.2} by using the linear under estimator for the convex function on the r.h.s of \eqref{eqn-mse-1.2}. The first order approximation around a fixed \ac{MSE} point \me{\tilde{\epsilon}_{l,k,n}} for \eqref{eqn-mse-1.2} is given by
+The alternative \ac{MSE} formulation given by \eqref{eqn-mse-1} is non-convex even for the fixed \me{\mvec{w}{l,k,n}} due to the constraint \eqref{eqn-mse-1.2}. We adopt the \ac{SCA} method as in Section \ref{sec-3.2} to relax the constraint by a sequence of convex subsets using first order approximations around \me{\tilde{\epsilon}_{l,k,n}} as
 \begin{IEEEeqnarray}{rCl}
 - \log_2(\tilde{\epsilon}_{l,k,n}) - \frac{\left ( {\epsilon}_{l,k,n} - \tilde{\epsilon}_{l,k,n} \right ) }{\log(2) \, \tilde{\epsilon}_{l,k,n}} &\geq& t_{l,k,n}
 \label{mse-lin}
