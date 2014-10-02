@@ -1,30 +1,32 @@
 
-The queue minimizing algorithms are discussed extensively in the networking literature to provide congestion-free routing between any two nodes in the network\footnote{routers or user terminals}. One such algorithm  is the \emph{backpressure algorithm}, discussed in detail in \cite{tassiulas,georgiadis2006resource,neely2010stochastic}. The algorithm determines an optimal control policy in the form of rate or resource allocation for the nodes in the network by considering the differential backlogged packets between the source and the destination nodes. Even though the algorithm is primarily designed for the wired infrastructure, it can be extended to the wireless networks by designing the user rate variable \me{t_k} in accordance to the wireless network.
+The queue minimizing algorithms are discussed extensively in the networking literature to provide congestion-free routing between any two nodes in the network. One such algorithm  is the \emph{backpressure algorithm} \cite{tassiulas,georgiadis2006resource,neely2010stochastic}. It determines an optimal control policy in the form of rate or resource allocation for the nodes in the network by considering the differential backlogged packets between the source and the destination nodes. Even though the algorithm is primarily designed for the wired infrastructure, it can be extended to the wireless networks by designing the user rate variable \me{t_k} in accordance to the wireless network.
 
-The \ac{Q-WSRM} formulation extends the \emph{backpressure algorithm} to the \ac{MIMO}-\ac{OFDM} framework, in which the multiple \acp{BS} acts as the source nodes and the user terminals as the receiver nodes. The control policy in the form of transmit precoders are designed to minimize the number of queued packets waiting at the \acp{BS}. In order to find the optimal algorithm, we use the Lyapunov function which is predominantly used in the control theory for the system stability. Since at each time slot, the system can be described by the channel conditions and the number of backlogged packets of each user, Lyapunov function is used to provide a scalar measure, which grows large when the system moves towards the undesirable state. Following the approach in \cite{neely2010stochastic}, the scalar measure for the queue stability is given by
+The \ac{Q-WSRM} formulation extends the \emph{backpressure algorithm} to the \ac{MIMO}-\ac{OFDM} downlink framework, in which the multiple \acp{BS} act as the source nodes and the user terminals as the receiver nodes. The control policy in the form of transmit precoders is designed to minimize the number of queued packets waiting at the \acp{BS}. In order to find the optimal algorithm, we use the Lyapunov function which is predominantly used in the control theory for the system stability. Since at each time slot, the system can be described by the channel conditions and the number of backlogged packets of each user, the Lyapunov function is used to provide a scalar measure, which grows large when the system moves toward the undesirable state. Following the approach in \cite{neely2010stochastic}, the scalar measure for the queue stability is given by
 \begin{equation}
-\mathrm{L}\sset{\mbf{Q}(i)} = \frac{1}{2} \, \sum_{k \in \mc{U}} Q_k^2(i)
+\mathrm{L}\sset{\mbf{Q}(i)} = \frac{1}{2} \, \sum_{k \in \mc{U}} Q_k^2(i),
 \end{equation}
-where \me{\mbf{Q}(i)} denotes the stacked user queues at the \me{\ith{i}} slot and \me{\frac{1}{2}} is used for the convenience. The Lyapunov function provides a measure of congestion in the system, as discussed in \cite[Ch. 3]{neely2010stochastic}. The Lyapunov function drift, expressed as \me{\Delta(\mbf{Q}(i)) = \mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)}}, is given by 
+where \me{\mbf{Q}(i)} denotes the stacked user queues at the \me{\ith{i}} slot and \me{\frac{1}{2}} is used for the convenience. The Lyapunov function provides a measure of congestion in the system, as discussed in \cite[Ch. 3]{neely2010stochastic}. The Lyapunov function drift, expressed as \me{\mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)}}, is given by 
 \begin{IEEEeqnarray}{rCl}\label{eqn-3.1}
 &=&\frac{1}{2} \Big [ \sum_{k \in \mc{U}} \, \Big ( \left [ Q_k(i) - t_k(i) \right ]^+ + \lambda_k(i) \Big )^2 - Q^2_k(i) \Big ] \IEEEyessubnumber \label{eqn-3.1.0} \\
-&\leq& \sum_{k \in \mc{U}} \, \frac{\lambda^2_k(i) + t_k^2(i)}{2} + \sum_{k \in \mc{U}} Q_k(i) \set{ \lambda_k(i) - t_k(i) } \IEEEyessubnumber \label{drift-exp}
+&\leq& \sum_{k \in \mc{U}} \, \frac{\lambda^2_k(i) + t_k^2(i)}{2} + \sum_{k \in \mc{U}} Q_k(i) \set{ \lambda_k(i) - t_k(i) }, \IEEEyessubnumber \label{drift-exp}
 \end{IEEEeqnarray}
 where the inequality is due to the upper bound
 \begin{equation}
-\sset{\max(Q-t,0) + \lambda)}^2 \leq Q^2 + t^2 + \lambda^2 + 2 Q (\lambda - t)
+\sset{\max(Q-t,0) + \lambda)}^2 \leq Q^2 + t^2 + \lambda^2 + 2 Q (\lambda - t).
 \end{equation}
-In order to minimize the squared sum at each instant, minimization of the Lyapunov drift \eqref{eqn-3.1} is carried over all possible rate allocations in the form of transmission rates \me{t_k} to users in the system. The Lyapunov drift conditioned on the current backlogged packets \me{\mbfa{Q}(i)} is given by
+The total number of backlogged packets at any given instant \me{i} is reduced by minimizing the conditional expectation of the Lyapunov drift expression \eqref{drift-exp} given the current number of queued packets \me{\mbfa{Q}(i)} waiting in the system. The expectation is taken over all possible arrival and transmission rates of the users to obtain the optimal rate allocation strategy. 
+
+Now, the conditional Lyapunov drift, denoted by \me{\Delta{(\mbfa{Q}(i))}}, is given by
 \iftoggle{single_column}{
 \begin{IEEEeqnarray}{rCl} \label{backpressure-approx}
 	\underset{\mbf{t}}{\text{minimize}} && \Delta(\mbf{Q}(i)) \triangleq \mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set{\mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} \vert \mbf{Q}(i)} \IEEEyessubnumber \\
-	&\leq& \underbrace{\mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set {\sum_{k \in \mc{U}} \, \frac{\lambda^2_k(i) + t_k^2(i)}{2} \vert \mbf{Q}(i)}}_{\le B} + \sum_{k \in \mc{U}} Q_k(i) A_k(i) - \mathbb{E}_{\mbfa{\lambda},\mbf{t}}\set{\sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i)} \IEEEyessubnumber \label{backpreassure-approx-1b}
+	&\leq& \underbrace{\mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set {\sum_{k \in \mc{U}} \, \frac{\lambda^2_k(i) + t_k^2(i)}{2} \vert \mbf{Q}(i)}}_{\le B} + \sum_{k \in \mc{U}} Q_k(i) A_k(i) - \mathbb{E}_{\mbfa{\lambda},\mbf{t}}\set{\sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i)}, \IEEEyessubnumber \label{backpreassure-approx-1b}
 \end{IEEEeqnarray}}{
 {\allowdisplaybreaks
 \begin{IEEEeqnarray}{CL} \label{backpressure-approx}
 	& \underset{\mbf{t}}{\text{minimize}} \quad \mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set{\mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} \vert \mbf{Q}(i)} \IEEEyessubnumber \\
 	\leq & \underbrace{\mathbb{E}_{\mbfa{\lambda},\mbf{t}} \Big \lbrace \sum_{k \in \mc{U}} \frac{\lambda^2_k(i) + t_k^2(i)}{2} \vert \mbf{Q}(i) \Big \rbrace }_{\le B} + \sum_{k \in \mc{U}} Q_k(i) A_k(i) \nonumber \\
-	& \qquad \qquad {} - \mathbb{E}_{\mbfa{\lambda},\mbf{t}}\Big \lbrace \sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i) \Big \rbrace \IEEEyessubnumber \label{backpreassure-approx-1b}
+	& \qquad \qquad {} - \mathbb{E}_{\mbfa{\lambda},\mbf{t}}\Big \lbrace \sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i) \Big \rbrace, \IEEEyessubnumber \label{backpreassure-approx-1b}
 \end{IEEEeqnarray}}}
 %\begin{figure*}
 %\begin{IEEEeqnarray}{rCl} \label{backpressure-approx}
@@ -33,11 +35,9 @@ In order to minimize the squared sum at each instant, minimization of the Lyapun
 %\end{IEEEeqnarray}	
 %\vspace{-0.25in}
 %\end{figure*}
-where the first term in \eqref{backpreassure-approx-1b} follows from the Poisson arrival process. 
+where the first term in \eqref{backpreassure-approx-1b} follows from the Poisson arrival process. Since the transmission and the arrival rates are bounded, we can upper bound the second order moments in the first term of \eqref{backpreassure-approx-1b} by a constant \me{B} that can be eliminated from the optimization problem \cite{neely2010stochastic}.
 
-Assuming the second order moments of the transmissions and the arrival rates are bounded, it can be replaced by a upper bound \me{B} as in \eqref{backpreassure-approx-1b}, in order to eliminate from the optimization problem \cite{neely2010stochastic}. The expectation is performed across all possible arrivals and the transmission rates for the given number of queued packets \me{\mbf{Q}(i)} and the channel state information at the \me{\ith{i}} slot. 
-
-Now the expression in \eqref{backpressure-approx} looks similar to the \ac{WSRM} formulation if the weights in the \ac{WSRM} problem are replaced by the number of backlogged packets corresponding to the users. The above discussed approach is extended for the wireless networks in \cite{weeraddana2011resource}, where the queue weighted sum rate maximization is considered as the objective function to determine the transmit precoders. The \ac{Q-WSRM} formulation is given by optimizing each term inside the expectation operator \me{\mbf{E}_{\mbfa{\lambda},\mbf{t}}} in \eqref{backpreassure-approx-1b}, which maximizes the 
+The expression in \eqref{backpressure-approx} looks similar to the \ac{WSRM} formulation if the weights in the \ac{WSRM} problem are replaced by the number of backlogged packets corresponding to the users. The above discussed approach is extended for the wireless networks in \cite{weeraddana2011resource}, where the queue weighted sum rate maximization is considered as the objective function to determine the transmit precoders. Since the expectation can be minimized by minimizing the function inside, the \ac{Q-WSRM} formulation is given by 
 \begin{IEEEeqnarray}{rCl} \label{q_gen_sum}
 	\underset{\substack{\mvec{M}{k,n}, \mvec{W}{k,n}}}{\text{maximize}} &\quad& \sum_{k \in \mc{U}} \, Q_k \left ( \sum_{n = 1}^N \sum_{l=1}^L \log_2(1 + \gamma_{l,k,n}) \right ) \IEEEyessubnumber \label{eqn-3.1.1} \\
 	\text{subject to.} & \quad & \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \text{tr} \, (\mvec{M}{k,n} \mvec{M}{k,n}^\herm) \leq P_{{\max}}, \fall b \IEEEyessubnumber \label{eqn-3.1.3}
