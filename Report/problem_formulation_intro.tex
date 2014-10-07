@@ -1,9 +1,10 @@
 To minimize the total number of backlogged packets, we consider minimizing the weighted \me{\ell_{q}}-norm of the queue deviation given by
 \begin{equation}
-v_k =  Q_k - t_k = Q_k - \sum_{n = 1}^N \sum_{l = 1}^{L} \log_2(1+\gamma_{l,k,n}),
+v_k =  Q_k - t_k = Q_k - \sum_{n = 1}^N \sum_{l = 1}^{L} \log_2(1+\gamma_{l,k,n}).
 \label{eqn-4.2}
 \end{equation}
-Explicitly, the considered problem is given by \me{\sum_{k \in \mc{U}} \, a_k | v_k |^q}. With this objective, the problem of weighted queued packet minimization is given by
+
+Explicitly, the objective of the problem considered is given by \me{\sum_{k \in \mc{U}} \, a_k | v_k |^q}. With this objective function, the weighted queued packet minimization formulation is given by
 \begin{IEEEeqnarray}{rCl}\label{eqn-3}
 \underset{\substack{\mvec{M}{k,n},\mvec{W}{k,n}}}{\text{minimize}} &\quad& \|  \tilde{\mbf{v}}  \|_q\IEEEyessubnumber \\
 \text{subject to} & \quad&\sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \text{tr} \, (\mvec{M}{k,n} \mvec{M}{k,n}^\herm) \leq P_{{\max}}, \fall b, \IEEEyessubnumber \label{eqn-4.3}
@@ -12,7 +13,7 @@ where \me{\tilde{v}_k \triangleq a_k^{1/{q}}v_k} is the element of vector \me{\t
 
 For practical reasons, we may impose a constraint that the maximum number of transmitted bits for the user \me{k} is limited by the total number of backlogged packets available at the transmitter. As a result, the number of backlogged packets \me{v_k} for user \me{k} remaining in the system is given by
 \begin{equation} \label{rate_constraint_a}
-v_k =  Q_k - \sum_{n = 1}^N \sum_{l = 1}^{L} \log_2(1+\gamma_{l,k,n}) \geq 0
+v_k =  Q_k - \sum_{n = 1}^N \sum_{l = 1}^{L} \log_2(1+\gamma_{l,k,n}) \geq 0.
 \end{equation}
 The above positivity constraint need to be satisfied by \me{v_k} to avoid the excessive allocation of the resources.
 

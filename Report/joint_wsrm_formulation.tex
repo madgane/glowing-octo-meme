@@ -16,17 +16,17 @@ where the inequality is due to the upper bound
 \end{equation}
 The total number of backlogged packets at any given instant \me{i} is reduced by minimizing the conditional expectation of the Lyapunov drift expression \eqref{drift-exp} given the current number of queued packets \me{\mbfa{Q}(i)} waiting in the system. The expectation is taken over all possible arrival and transmission rates of the users to obtain the optimal rate allocation strategy. 
 
-Now, the conditional Lyapunov drift, denoted by \me{\Delta{(\mbfa{Q}(i))}}, is given by
+Now, the conditional Lyapunov drift, denoted by \me{\Delta{(\mbfa{Q}(i))}}, is given by the infimum over the transmission rate as
 \iftoggle{single_column}{
 \begin{IEEEeqnarray}{rCl} \label{backpressure-approx}
-	\underset{\mbf{t}}{\text{minimize}} && \Delta(\mbf{Q}(i)) \triangleq \mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set{\mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} \vert \mbf{Q}(i)} \IEEEyessubnumber \\
-	&\leq& \underbrace{\mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set {\sum_{k \in \mc{U}} \, \frac{\lambda^2_k(i) + t_k^2(i)}{2} \vert \mbf{Q}(i)}}_{\le B} + \sum_{k \in \mc{U}} Q_k(i) A_k(i) - \mathbb{E}_{\mbfa{\lambda},\mbf{t}}\set{\sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i)}, \IEEEyessubnumber \label{backpreassure-approx-1b}
+	\underset{\mbf{t}}{\text{inf}} && \Delta(\mbf{Q}(i)) \triangleq \mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set{\mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} \vert \mbf{Q}(i)} \IEEEyessubnumber \\
+	&\leq& \underbrace{\mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set {\sum_{k \in \mc{U}} \, \frac{\lambda^2_k(i) + t_k^2(i)}{2} \vert \mbf{Q}(i)}}_{\le B} + \sum_{k \in \mc{U}} Q_k(i) A_k(i) - \mathbb{E}_{\mbfa{\lambda},\mbf{t}}\set{\sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i)}, \eqsub \label{backpressure-approx-1b}
 \end{IEEEeqnarray}}{
 {\allowdisplaybreaks
 \begin{IEEEeqnarray}{CL} \label{backpressure-approx}
-	& \underset{\mbf{t}}{\text{minimize}} \quad \mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set{\mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} \vert \mbf{Q}(i)} \IEEEyessubnumber \\
+	\underset{\mbf{t}}{\text{inf}} \quad & \mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set{\mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} \vert \mbf{Q}(i)} \IEEEyessubnumber \\
 	\leq & \underbrace{\mathbb{E}_{\mbfa{\lambda},\mbf{t}} \Big \lbrace \sum_{k \in \mc{U}} \frac{\lambda^2_k(i) + t_k^2(i)}{2} \vert \mbf{Q}(i) \Big \rbrace }_{\le B} + \sum_{k \in \mc{U}} Q_k(i) A_k(i) \nonumber \\
-	& \qquad \qquad {} - \mathbb{E}_{\mbfa{\lambda},\mbf{t}}\Big \lbrace \sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i) \Big \rbrace, \IEEEyessubnumber \label{backpreassure-approx-1b}
+	& \qquad \qquad {} - \mathbb{E}_{\mbfa{\lambda},\mbf{t}}\Big \lbrace \sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i) \Big \rbrace, \eqsub \label{backpressure-approx-1b}
 \end{IEEEeqnarray}}}
 %\begin{figure*}
 %\begin{IEEEeqnarray}{rCl} \label{backpressure-approx}
@@ -35,16 +35,17 @@ Now, the conditional Lyapunov drift, denoted by \me{\Delta{(\mbfa{Q}(i))}}, is g
 %\end{IEEEeqnarray}	
 %\vspace{-0.25in}
 %\end{figure*}
-where the first term in \eqref{backpreassure-approx-1b} follows from the Poisson arrival process. Since the transmission and the arrival rates are bounded, we can upper bound the second order moments in the first term of \eqref{backpreassure-approx-1b} by a constant \me{B} that can be eliminated from the optimization problem \cite{neely2010stochastic}.
+where the first term in \eqref{backpressure-approx-1b} follows from the Poisson arrival process. Since the transmission and the arrival rates are bounded, we can upper bound the second order moments in the first term of \eqref{backpressure-approx-1b} by a constant \me{B} that can be eliminated from the optimization problem \cite{neely2010stochastic}.
 
 The expression in \eqref{backpressure-approx} looks similar to the \ac{WSRM} formulation if the weights in the \ac{WSRM} problem are replaced by the number of backlogged packets corresponding to the users. The above discussed approach is extended for the wireless networks in \cite{weeraddana2011resource}, where the queue weighted sum rate maximization is considered as the objective function to determine the transmit precoders. Since the expectation can be minimized by minimizing the function inside, the \ac{Q-WSRM} formulation is given by 
-\begin{IEEEeqnarray}{rCl} \label{q_gen_sum}
+\begin{IEEEeqnarray}{LCl} \label{q_gen_sum}
 	\underset{\substack{\mvec{M}{k,n}, \mvec{W}{k,n}}}{\text{maximize}} &\quad& \sum_{k \in \mc{U}} \, Q_k \left ( \sum_{n = 1}^N \sum_{l=1}^L \log_2(1 + \gamma_{l,k,n}) \right ) \IEEEyessubnumber \label{eqn-3.1.1} \\
-	\text{subject to.} & \quad & \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \text{tr} \, (\mvec{M}{k,n} \mvec{M}{k,n}^\herm) \leq P_{{\max}}, \fall b \IEEEyessubnumber \label{eqn-3.1.3}
+	\text{subject to.} & \quad & \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \text{tr} \, (\mvec{M}{k,n} \mvec{M}{k,n}^\herm) \leq P_{{\max}}, \fall b. \IEEEyessubnumber \label{eqn-3.1.3}
 \end{IEEEeqnarray}
+
 In order to avoid the excessive  allocation of the resources, we include an additional rate constraint \me{t_k \leq Q_k} to address \me{[x]^+} operation in \eqref{eqn-2a}. The rate constrained version of the \ac{Q-WSRM}, denoted by \ac{Q-WSRME} problem for a cellular system, is given by \label{q_gen_sum-1} with the additional constraint
 \begin{IEEEeqnarray}{rCl} \label{eqn-3.1.4}
-\sum_{n=1}^N \sum_{l = 1}^L \log_2(1 + \gamma_{l,k,n}) \leq Q_k, \fall k \in \mc{U}
+\sum_{n=1}^N \sum_{l = 1}^L \log_2(1 + \gamma_{l,k,n}) \leq Q_k, \fall k \in \mc{U},
 \end{IEEEeqnarray}
 where the precoders are associated with the \me{\gamma_{l,k,n}} defined in \eqref{eq:SINR}. By using the number of queued packets as the weights, the resources can be allocated to the user with the more number of backlogged packets, which essentially does the allocation in a greedy manner.
 
