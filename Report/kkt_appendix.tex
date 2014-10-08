@@ -1,5 +1,5 @@
 
-In order to solve for an iterative precoder design algorithm, the \ac{KKT} expressions for the problem in \eqref{kkt-mse-1} are obtained by differentiating the Lagrangian by assuming the equality constraint for \eqref{kkt-mse-1.2} and \eqref{kkt-mse-1.3}. At the stationary point, the following conditions are to be satisfied.
+In order to solve for an iterative precoder design algorithm, the \ac{KKT} expressions for the problem in \eqref{kkt-mse-1} are obtained by differentiating the Lagrangian by assuming the equality constraint for \eqref{kkt-mse-1.2} and \eqref{kkt-mse-1.3}. At the stationary points, following conditions are satisfied.
 \iftoggle{single_column}{
 \begin{IEEEeqnarray}{RCL} \label{kkt-mse-2}
 \nabla_{t_{l,k,n}} : &-q \left [ a_k \, \left (Q_k - \sum_{n = 1}^N \sum_{l=1}^L t_{l,k,n} \right )^{(q-1)} \right ] + \sigma_{l,k,n}\,\log(2) &= 0 \IEEEyessubnumber \label{kkt-mse-2.1} \\

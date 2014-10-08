@@ -1,5 +1,5 @@
 
-\documentclass[10pt,final,twocolumn,letterpaper]{./../Styles/IEEEtran}
+\documentclass[11pt,draft,onecolumn,a4paper]{./../Styles/IEEEtran}
 
 \usepackage{etoolbox}
 \usepackage{amsmath,amssymb}
@@ -15,7 +15,7 @@
 
 \newtoggle{enable_dist_fig}
 \newtoggle{single_column}
-\togglefalse{single_column}
+\toggletrue{single_column}
 \togglefalse{enable_dist_fig}
 
 \iftoggle{single_column}{
@@ -24,7 +24,7 @@
 
 \title{Traffic Aware Resource Allocation Schemes for Multi-Cell \acs{MIMO}-\acs{OFDM} Systems}
 \author{
-	\IEEEauthorblockN{Ganesh Venkatraman \IEEEmembership{Student Member,~IEEE}, Antti T\"{o}lli \IEEEmembership{Member,~IEEE}, Le-Nam Tran \IEEEmembership{Member,~IEEE} and Markku Juntti \IEEEmembership{Senior Member,~IEEE}}\thanks{
+	\IEEEauthorblockN{Ganesh Venkatraman \IEEEmembership{Student Member,~IEEE}, Antti T\"{o}lli \IEEEmembership{Member,~IEEE}, Le-Nam Tran \IEEEmembership{Member,~IEEE}, and Markku Juntti \IEEEmembership{Senior Member,~IEEE}}\thanks{
 	The authors are with the Centre for Wireless Communications (CWC), Department of Communications Engineering (DCE), University of Oulu, Oulu, FI-90014, (e-mail: \{gvenkatr, antti.tolli, le.nam.tran, markku.juntti\}@ee.oulu.fi)}}
 
 \begin{document}
@@ -38,7 +38,7 @@
 \end{abstract}
 
 \begin{IEEEkeywords}
-\acs{MIMO}-\acs{OFDM}, \acs{IBC}, Precoder design, \acs{WSRM}
+\acs{MIMO}-\acs{OFDM}, Queue minimizing precoder design, \acs{SCA}, Convex approximation.
 \end{IEEEkeywords}
 
 \acresetall

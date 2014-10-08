@@ -7,11 +7,11 @@ The \ac{Q-WSRM} formulation extends the \emph{backpressure algorithm} to the dow
 \end{equation}
 where \me{\mbf{Q}(i)} denotes the stacked user queues at the \me{\ith{i}} slot and \me{\tfrac{1}{2}} is used for the convenience. It provides a scalar measure of congestion present in the system \cite[Ch. 3]{neely2010stochastic}. 
 
-The optimal transmission rate vector \me{\mbf{t}} to minimize the total number of backlogged packets in the system is obtained by minimizing the Lyapunov function drift expressed as
+To minimize the total number of backlogged packets for an instant \me{i}, the optimal transmission rate of all users are obtained by minimizing the Lyapunov function drift expressed as  
 \iftoggle{single_column}{
-\begin{multline}\label{eqn-3.1}
+\begin{equation}\label{eqn-3.1}
 \mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} = \frac{1}{2} \Big [ \sum_{k \in \mc{U}} \, \Big ( \left [ Q_k(i) - t_k(i) \right ]^+ + \lambda_k(i) \Big )^2 - Q^2_k(i) \Big ].
-\end{multline}}{
+\end{equation}}{
 \begin{multline}\label{eqn-3.1}
 \mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} = \\ \frac{1}{2} \Big [ \sum_{k \in \mc{U}} \, \Big ( \left [ Q_k(i) - t_k(i) \right ]^+ + \lambda_k(i) \Big )^2 - Q^2_k(i) \Big ].
 \end{multline}}
@@ -29,7 +29,7 @@ The total number of backlogged packets at any given instant \me{i} is reduced by
 Now, the conditional Lyapunov drift, denoted by \me{\Delta{(\mbfa{Q}(i))}}, is given by the infimum over the transmission rate as
 \iftoggle{single_column}{
 \begin{IEEEeqnarray}{rCl} \label{backpressure-approx}
-	\underset{\mbf{t}}{\text{inf}} && \Delta(\mbf{Q}(i)) \triangleq \mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set{\mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} \vert \mbf{Q}(i)} \IEEEyessubnumber \\
+	\underset{\mbf{t}}{\text{inf}} &\quad& \Delta(\mbf{Q}(i)) \triangleq \mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set{\mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} \vert \mbf{Q}(i)} \IEEEyessubnumber \\
 	&\leq& \underbrace{\mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set {\sum_{k \in \mc{U}} \, \frac{\lambda^2_k(i) + t_k^2(i)}{2} \vert \mbf{Q}(i)}}_{\le B} + \sum_{k \in \mc{U}} Q_k(i) A_k(i) - \mathbb{E}_{\mbfa{\lambda},\mbf{t}}\set{\sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i)}, \eqsub \label{backpressure-approx-1b}
 \end{IEEEeqnarray}}{
 \begin{IEEEeqnarray}{CL} \label{backpressure-approx}
@@ -37,7 +37,7 @@ Now, the conditional Lyapunov drift, denoted by \me{\Delta{(\mbfa{Q}(i))}}, is g
 	\leq & \underbrace{\mathbb{E}_{\mbfa{\lambda},\mbf{t}} \Big \lbrace \sum_{k \in \mc{U}} \frac{\lambda^2_k(i) + t_k^2(i)}{2} \vert \mbf{Q}(i) \Big \rbrace }_{\le B} + \sum_{k \in \mc{U}} Q_k(i) A_k(i) \nonumber \\
 	& \qquad \qquad {} - \mathbb{E}_{\mbfa{\lambda},\mbf{t}}\Big \lbrace \sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i) \Big \rbrace, \eqsub \label{backpressure-approx-1b}
 \end{IEEEeqnarray}}
-where the first term in \eqref{backpressure-approx-1b} follows from the Poisson arrival process. Since the transmission and the arrival rates are bounded, we can upper bound the second order moments in the first term of \eqref{backpressure-approx-1b} by a constant \me{B} that can be eliminated from the optimization problem \cite{neely2010stochastic}.
+where the subscripts \me{\mbf{t}} and \me{\mbfa{\lambda}} represents the vector obtained by stacking the transmission and the arrival rate of all users present in the system. Since the transmission and the arrival rates are bounded, we can upper bound the second order moments in the first term of \eqref{backpressure-approx-1b} by a constant \me{B} in order to  eliminated from the optimization problem \cite{neely2010stochastic}. The second term in \eqref{backpressure-approx-1b} follows from the Poisson arrival process.
 
 The expression in \eqref{backpressure-approx} looks similar to the \ac{WSRM} formulation if the weights in the \ac{WSRM} problem are replaced by the number of backlogged packets corresponding to the users. The above discussed approach is extended for the wireless networks in \cite{weeraddana2011resource}, where the queue weighted sum rate maximization is considered as the objective function to determine the transmit precoders. Since the expectation can be minimized by minimizing the function inside, the \ac{Q-WSRM} formulation is given by 
 \begin{IEEEeqnarray}{LCl} \label{q_gen_sum}
