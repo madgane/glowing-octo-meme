@@ -21,8 +21,8 @@ Let \me{Q_k} be the number of backlogged packets destined for the user \me{k} at
 Q_k(i+1) = \Big [ Q_k(i) - t_k(i) \Big ]^+ + \lambda_k(i),
 \label{eqn-2a}
 \end{equation}
-where \me{[x]^+ \equiv \max{ \lbrace x,0  \rbrace}} and \me{t_k} denotes the number of transmitted packets or bits for user \me{k}. For a \ac{MIMO}-\ac{OFDM} system,
+where \me{[x]^+ \equiv \max{ \lbrace x,0  \rbrace}} and \me{t_k} denotes the number of transmitted packets or bits for user \me{k}. At the \me{\ith{i}} instant, transmission rate of the user \me{k} is given by
 \begin{equation}
 t_k(i) = \sum_{n = 1}^N \, \sum_{l = 1}^L \, t_{l,k,n}(i),
 \end{equation}
-where \me{t_{l,k,n}} denotes the number of transmitted packets or bits over \me{\ith{l}} spatial stream on the \me{\ith{n}} sub-channel. The maximum rate achieved over the \me{(l,n)} space-frequency resource is given by \me{t_{l,k,n} \leq \log_2(1 + \gamma_{l,k,n})} for the \ac{SINR} of \me{\gamma_{l,k,n}}\footnote{This can be achieved by Gaussian signaling}. Note that the units of \me{t_k} and \me{Q_k} are in bits defined per channel use. 
+where \me{t_{l,k,n}} denotes the number of transmitted packets or bits over \me{\ith{l}} spatial stream on the \me{\ith{n}} sub-channel. The maximum rate achieved over the \me{(l,n)} space-frequency resource is given by \me{t_{l,k,n} \leq \log_2(1 + \gamma_{l,k,n})} for the \ac{SINR} of \me{\gamma_{l,k,n}}\footnote{Upper bound is achieved by using Gaussian signaling}. Note that the units of \me{t_k} and \me{Q_k} are in bits defined per channel use. 

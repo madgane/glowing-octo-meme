@@ -2,17 +2,17 @@
 In this section, we solve the \ac{JSFRA} problem by exploiting the equivalence between the \ac{MSE} and the achievable capacity for the receivers designed based on the \ac{MMSE} criterion \cite{viswanath1999optimal,mse_duality}. The \ac{MSE} \me{\epsilon_{l,k,n}}, for the data symbol is given by
 \iftoggle{single_column}{
 \begin{IEEEeqnarray}{rCl} \label{mse-error}
-	\mathbb{E} \big [ ( d_{l,k,n} - \hat{d}_{l,k,n} )^2 \big ] = \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 = \epsilon_{l,k,n}
+	\mathbb{E} \big [ ( d_{l,k,n} - \hat{d}_{l,k,n} )^2 \big ] = \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 = \epsilon_{l,k,n},
 \end{IEEEeqnarray}
 }{
 \begin{multline} \label{mse-error}
  \mathbb{E} \big [ ( d_{l,k,n} - \hat{d}_{l,k,n} )^2 \big ] = \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 \\
- + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 = \epsilon_{l,k,n}
+ + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 = \epsilon_{l,k,n},
 \end{multline}
 }
 where \me{\mvec{m}{l,k,n}, \mvec{w}{l,k,n}} denotes the transmit and the receive beamformer and \me{\hat{d}_{l,k,n}} is the received symbol as in \eqref{eqn-1}. Now, replacing the receive beamformer in \eqref{mse-error} with the \ac{MMSE} receiver shown in \eqref{eqn-10}, we obtain the following relation between the \ac{MSE} and the \ac{SINR} as
 \begin{equation} \label{eqn-mse-eq}
-\epsilon_{l,k,n} = \frac{1}{1 + \gamma_{l,k,n}}
+\epsilon_{l,k,n} = \frac{1}{1 + \gamma_{l,k,n}},
 \end{equation}
 where \me{\gamma_{l,k,n}} is the received \ac{SINR} as in \eqref{eq:SINR}. Using the equivalence in \eqref{eqn-mse-eq}, the \ac{WSRM} objective can be reformulated as the \ac{WMMSE} equivalent to obtain the precoders for the \acs{MU}-\acs{MIMO} scenario as discussed in \cite{christensen2008weighted,wmmse_shi,hong2012decomposition}.
 
@@ -22,40 +22,38 @@ Let \me{{v}^{\prime}_k = Q_k - \sum_{n=1}^N \sum_{l=1}^L t_{l,k,n}} denote the q
 \underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\\ \epsilon_{l,k,n},\mvec{w}{l,k,n}}} {\text{minimize}} & \quad & \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-1.1} \\
 \text{subject to} & \quad & t_{l,k,n} \leq -\log_2(\epsilon_{l,k,n}) \IEEEyessubnumber \label{eqn-mse-1.2} \\
  & \quad & \epsilon_{l,k,n} \geq  \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 \IEEEyessubnumber \label{eqn-mse-1.3} \\
-& \quad &  \text{and} \; \eqref{eqn-4.3}  \IEEEyessubnumber \label{eqn-mse-1.4}
+& \quad &  \text{and} \; \eqref{eqn-4.3}.  \IEEEyessubnumber \label{eqn-mse-1.4}
 \end{IEEEeqnarray}
-}{
-{\allowdisplaybreaks
+}{{\allowdisplaybreaks
 \begin{IEEEeqnarray}{CL}\label{eqn-mse-1}
 	\underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\\ \epsilon_{l,k,n},\mvec{w}{l,k,n}}} {\text{minimize}} & \quad \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-1.1} \\
 	\text{subject to} & \quad t_{l,k,n} \leq -\log_2(\epsilon_{l,k,n}) \IEEEyessubnumber \label{eqn-mse-1.2} \\
 	& \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 \nonumber \\
 	& {} + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 \leq \epsilon_{l,k,n}\IEEEyessubnumber \label{eqn-mse-1.3} \\
-	&  \text{and} \; \eqref{eqn-4.3}  \IEEEyessubnumber \label{eqn-mse-1.4}
-\end{IEEEeqnarray}}
-}
+	&  \text{and} \; \eqref{eqn-4.3}. \IEEEyessubnumber \label{eqn-mse-1.4}
+\end{IEEEeqnarray}}}
 
 The alternative \ac{MSE} formulation given by \eqref{eqn-mse-1} is non-convex even for the fixed \me{\mvec{w}{l,k,n}} due to the constraint \eqref{eqn-mse-1.2}. We adopt the \ac{SCA} method as in Section \ref{sec-3.2} to relax the constraint by a sequence of convex subsets using first order approximations around \me{\tilde{\epsilon}_{l,k,n}} as
 \begin{IEEEeqnarray}{rCl}
-- \log_2(\tilde{\epsilon}_{l,k,n}) - \frac{\left ( {\epsilon}_{l,k,n} - \tilde{\epsilon}_{l,k,n} \right ) }{\log(2) \, \tilde{\epsilon}_{l,k,n}} &\geq& t_{l,k,n}
+- \log_2(\tilde{\epsilon}_{l,k,n}) - \frac{\left ( {\epsilon}_{l,k,n} - \tilde{\epsilon}_{l,k,n} \right ) }{\log(2) \, \tilde{\epsilon}_{l,k,n}} &\geq& t_{l,k,n},
 \label{mse-lin}
 \end{IEEEeqnarray}
 
 Now, using the above approximation for the rate constraint, the problem defined by \eqref{eqn-mse-1} can be solved optimal transmit precoders \me{\mvec{m}{l,k,n}}, \acp{MSE} \me{\epsilon_{l,k,n}} and the users rates over each sub-channel \me{t_{l,n,k}} for the fixed receive beamformers. Once the optimal precoders are obtained, the local \ac{MSE} variable  \me{\tilde{\epsilon}_{l,k,n}} is updated with the current update \me{\epsilon_{l,k,n}}. The optimization problem for a fixed receive beamformers \me{\mvec{w}{l,k,n}} is given as
 \begin{IEEEeqnarray}{CCl}\label{eqn-mse-2}
 \underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\epsilon_{l,k,n}}}{\text{minimize}} &\quad& \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-2.1} \\
-\text{subject to} & \quad & \eqref{eqn-4.3},\, \eqref{eqn-mse-1.3},\,\text{and} \:\eqref{mse-lin} \IEEEyessubnumber \label{eqn-mse-2.2}
+\text{subject to} & \quad & \eqref{eqn-4.3},\, \eqref{eqn-mse-1.3},\,\text{and} \:\eqref{mse-lin}. \IEEEyessubnumber \label{eqn-mse-2.2}
 \end{IEEEeqnarray}
 \subsubsection*{Convergence}
 Following the similar approach in Section \ref{sec-3.2.1}, at each iteration, the \ac{SCA} subproblems converge to a stationary point of the original nonconvex problem. The uniqueness of the precoders are justified if there is no phase ambiguity in the stationary solution. By reorganizing \eqref{eqn-mse-1.3}
 \iftoggle{single_column}{
 \begin{equation}
-\epsilon_{l,k,n} \geq  1 - 2 \Re{ \left \lbrace \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right \rbrace} + \sum_{\mathclap{\forall (j,i)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2
+\epsilon_{l,k,n} \geq  1 - 2 \Re{ \left \lbrace \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right \rbrace} + \sum_{\mathclap{\forall (j,i)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2,
 \end{equation}
 }{
 \begin{multline}
 	\epsilon_{l,k,n} \geq  1 - 2 \Re{ \left \lbrace \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right \rbrace} \\ 
-	+ \sum_{\mathclap{\forall (j,i)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2
+	+ \sum_{\mathclap{\forall (j,i)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2,
 \end{multline}
 }
 we can see that the ambiguity in the phase rotations for the transmit and the receive beamformers are avoided by the real component in the \ac{MSE} expression. 

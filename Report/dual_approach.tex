@@ -3,7 +3,7 @@ In this section, we discuss the \ac{ADMM} decomposition method, which is basical
 \begin{IEEEeqnarray}{ll}
 \mbfa{\zeta} &= \left [ \zeta_{1,\bar{\mc{U}}_{1}(1),1,1}, \dotsc, \zeta_{L,\bar{\mc{U}}_{1}(1),1,1}, \dotsc, \zeta_{L,\bar{\mc{U}}_{1}(|\bar{\mc{U}}_{1}|),1,1}, \right. \nonumber \\
 & \left . \dotsc, \zeta_{L,\bar{\mc{U}}_{N_B}(|\bar{\mc{U}}_{N_B}|),1,N_B}, \dotsc, \zeta_{L,\bar{\mc{U}}_{N_B}(|\bar{\mc{U}}_{N_B}|),N,N_B} \right ] \eqspace \IEEEyessubnumber \\
-n_{b_k} &= |\mbfa{\zeta}^{\set{b_k}}| = N L \sum_{b \in \mc{B}} \left | \bar{\mc{U}}_b\right | \IEEEyessubnumber
+n_{b_k} &= |\mbfa{\zeta}^{\set{b_k}}| = N L \sum_{b \in \mc{B}} \left | \bar{\mc{U}}_b\right |. \IEEEyessubnumber
 \end{IEEEeqnarray}
 
 Let \me{\mbfa{\zeta}(b_k)} denotes the consensus entries corresponding to the \ac{BS} \me{b_k}. Let \me{\mbfa{\nu}^{\set{b_k}}} represents the stacked dual variables corresponding to the equality condition \me{\mbfa{\zeta}^{\set{b_k}} = \mbfa{\zeta}(b_k)} used in the subproblems. In order to limit the local interference assumptions \me{\zeta^{\set{b_k}}_{l,k,n,b}} at the \acp{BS} \me{b_k}, the \ac{ADMM} method augments a scaled quadratic penalty of the interference deviation between the local and consensus value for the interference from the \ac{BS} \me{b} as \me{\zeta_{l,k,n,b}} in the objective function. At optimality, the locally assumed and the consensus interference values will be equal,  providing no contribution to the objective function. The optimal step size used to update the dual variables is the scaling factor \me{\rho} used to scale the penalty term in the objective function \cite{boyd2011distributed,bertsekas1999nonlinear}. The equality constraint for the local and the consensus interference vector \me{\mbfa{\zeta}^{\set{b_k}} = \mbfa{\zeta}(b_k)} present in each subproblem is relaxed by the taking the partial Lagrangian. Now, the subproblem at \ac{BS} \me{b} for the \me{\ith{i}} iteration is given by
@@ -13,10 +13,9 @@ Let \me{\mbfa{\zeta}(b_k)} denotes the consensus entries corresponding to the \a
 \text{subject to} && \beta_{l,k,n} \geq \sum_{\substack{j = 1\\j \neq l}}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{{b},k,n} \mvec{m}{j,k,n} |^2 + \sum_{{\hat{b}} \in \bar{\mc{B}}_{b}} \zeta^{\set{b}(i-1)}_{l,k,n,{\hat{b}}} \nonumber \\
 && \qquad {} \qquad {} + \sum_{i \in \mc{U}_{b} \backslash \{k\}} \sum_{j = 1}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{{b},k,n} \mvec{m}{j,i,n} |^2 + N_0\|\mvec{w}{l,k,n}\|^2 \IEEEyessubnumber \label{eqn-dual-1d} \\
 && \zeta^{\set{b}(i)}_{\pr{l},\pr{k},n,{b}} \geq \sum_{k \in \mc{U}_{\hat{b}}} \sum_{l = 1}^L |\mvec{w}{\pr{l},\pr{k},n}^\herm \mvec{H}{b,\pr{k},n} \mvec{m}{l,k,n} |^2 \; \forall \pr{k} \in \bar{\mc{U}}_{b}, \; \forall n \in \mc{N} \IEEEyessubnumber \label{eqn-dual-1e} \\
-&\quad& \eqref{eqn-8} \; \text{and} \; \eqref{eqn-4.3} \IEEEyessubnumber \label{eqn-dual-1f}
+&\quad& \eqref{eqn-8} \; \text{and} \; \eqref{eqn-4.3}, \IEEEyessubnumber \label{eqn-dual-1f}
 \end{IEEEeqnarray}
-}{
-{\allowdisplaybreaks
+}{{\allowdisplaybreaks
 \begin{IEEEeqnarray}{rCl} \label{eqn-dual-3}
 	\underset{\substack{\gamma_{l,k,n}, \mvec{W}{k,n},\mvec{M}{k,n} \\ \beta_{l,k,n}, \mbfa{\zeta}^{\set{b}(i)}}}{\text{minimize}} && \| \tilde{\mbf{v}}_{b} \|_q + \mbfa{\nu}^{{\set{b}(i-1)}T} \left ( \mbfa{\zeta}^{\set{b}(i)} - \mbfa{\zeta}^{(i-1)}(b) \right ) \vspace{-0.25cm} \nonumber \\
 	&& + \frac{\rho}{2} \Big \| \, \underbrace{\mbfa{\zeta}^{\set{b}(i)}}_{\text{local}} - \underbrace{\mbfa{\zeta}^{(i-1)}(b)}_{\text{consensus}} \, \Big \|^2_2 \IEEEyessubnumber \label{eqn-dual-3a} \vspace{-0.25cm} \\
@@ -24,52 +23,51 @@ Let \me{\mbfa{\zeta}(b_k)} denotes the consensus entries corresponding to the \a
 	\beta_{l,k,n} \geq \sum_{\mathclap{j = 1,j \neq l}}^L && |\mvec{w}{l,k,n}^\herm \mvec{H}{{b},k,n} \mvec{m}{j,k,n} |^2 + \sum_{{\hat{b}} \in \bar{\mc{B}}_{b}} \zeta^{\set{b}(i-1)}_{l,k,n,{\hat{b}}} \nonumber \\
 	+ \sum_{i \in \mc{U}_{b} \backslash \{k\}} \sum_{j = 1}^L && |\mvec{w}{l,k,n}^\herm \mvec{H}{{b},k,n} \mvec{m}{j,i,n} |^2 + N_0\|\mvec{w}{l,k,n}\|^2 \IEEEyessubnumber \eqspace \label{eqn-dual-1d} \\
 	\zeta^{\set{b}(i)}_{\pr{l},\pr{k},n,{b}} \geq \sum_{k \in \mc{U}_{\hat{b}}} && \sum_{l = 1}^L |\mvec{w}{\pr{l},\pr{k},n}^\herm \mvec{H}{b,\pr{k},n} \mvec{m}{l,k,n} |^2, \forall \pr{k} \in \bar{\mc{U}}_{b} \IEEEyessubnumber \eqspace \label{eqn-dual-1e} \\
-	&& \eqref{eqn-8} \; \text{and} \; \eqref{eqn-4.3} \IEEEyessubnumber \label{eqn-dual-1f}
-\end{IEEEeqnarray}}
-}
+	&& \eqref{eqn-8} \; \text{and} \; \eqref{eqn-4.3}, \IEEEyessubnumber \label{eqn-dual-1f}
+\end{IEEEeqnarray}}}
 where the superscript \me{i} represents the current iteration or the information exchange index and \me{\mbfa{\zeta}^{(i-1)}} denotes the updated global interference level from the \me{\ith{(i-1)}} information exchange of the local interference vector \me{\mbfa{\zeta}^{\set{b}(i-1)}, \forall b \in \mc{B}}.
 
 Now, the local problem \eqref{eqn-dual-3} at each \ac{BS} \me{b} is solved either by the \ac{SCA} approach discussed in Section \ref{sec-3.2.1} or by using the \ac{MSE} reformulation approach outlined in Section \ref{sec-3.3}. Once the local problems are solved at each \ac{BS}, the new update for the global interference vector \me{\mbfa{\zeta}^{(i)}} and the dual variables \me{\mbfa{\nu}^{\set{b}(i)}} are performed at each \ac{BS} independently by exchanging the corresponding local copies of the interference vector \me{\mbfa{\zeta}^{\set{b}(i)}, \forall b \in \mc{B}}. Since the entries in \me{\mbfa{\zeta}^{(i)}} relates exactly two \acp{BS} only, each entry in the \me{\mbfa{\zeta}^{(i)}} can be updated by exchanging the local copies from the corresponding two \acp{BS} only. For instance, the entry \me{\zeta^{(i)}_{l,\mc{U}_{b_k}(1),n,b}} depends on the local interference value \me{\zeta^{\set{b_k}(i)}_{l,\mc{U}_{b_k}(1),n,b}} assumed by the \ac{BS} \me{b_k} and the actual interference caused by the \ac{BS} \me{b} as in \me{\zeta^{\set{b}(i)}_{l,\mc{U}_{b_k}(1),n,b}} as
 \begin{equation}
-\zeta_{l,\mc{U}_{b_k}(1),n,b}^{(i)} = \frac{1}{2} \, \left ( \, \zeta^{\set{b}(i)}_{l,\mc{U}_{b_k}(1),n,b} + \zeta^{\set{b_k}(i)}_{l,\mc{U}_{b_k}(1),n,b} \, \right )
+\zeta_{l,\mc{U}_{b_k}(1),n,b}^{(i)} = \frac{1}{2} \, \left ( \, \zeta^{\set{b}(i)}_{l,\mc{U}_{b_k}(1),n,b} + \zeta^{\set{b_k}(i)}_{l,\mc{U}_{b_k}(1),n,b} \, \right ).
 \label{zeta_update}
 \end{equation}
 The dual variable vector \me{\mbfa{\nu}^{\set{b_k}}}, which is the stacked dual variables of the interference equality constraint at the \ac{BS} \me{b_k}, are updated using the subgradient as
 \begin{equation}\label{dual-sg-update}
-\nu^{\set{b_k}(i)}_{l,k,n,b} = \nu^{\set{b_k}(i-1)}_{l,k,n,b} + \rho \, \left (\zeta^{\set{b_k}(i)}_{l,k,n,b} - \zeta^{(i)}_{l,k,n,b} \right )
+\nu^{\set{b_k}(i)}_{l,k,n,b} = \nu^{\set{b_k}(i-1)}_{l,k,n,b} + \rho \, \left (\zeta^{\set{b_k}(i)}_{l,k,n,b} - \zeta^{(i)}_{l,k,n,b} \right ).
 \end{equation}
 The distributed precoder design using \ac{ADMM} approach is shown in Algorithm \ref{algo-3}.
 {\allowdisplaybreaks 
-	\begin{algorithm}
-		\SetAlgoLined
-		\DontPrintSemicolon
-		\BlankLine
-		\SetKwInput{KwInit}{Initialize}
-		\KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}, \fall n \in \mathcal{N}}}
-		\KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l \in \set{1,2,\dotsc,L}}}
-		\KwInit{\me{i=0} and the transmit precoders \me{\tilde{\mbf{m}}_{l,k,n}} randomly satisfying total power constraint \eqref{eqn-4.3}}
-		update \me{\mvec{w}{l,k,n}} with \eqref{eqn-10} and \me{\tilde{\mbf{u}}_{l,k,n}} with \eqref{eqn-8} \;
-		initialize the global interference vectors \me{\mbfa{\zeta}^{(0)} = \mbfa{0}^{\mathrm{T}}} \;
-		initialize the interference threshold \me{\mbfa{\nu}^{\set{b}(0)} \forall b \in \mc{B} = 0} \;
-		\ForEach{\ac{BS} \me{b \in \mc{B}}}{
-			\Repeat{convergence or \me{i \geq I_{\max}}}{
-				initialize \me{j=0} \;
-				\Repeat{convergence or \me{j \geq J_{\max}}}{
-					solve for \me{\mvec{M}{k,n}} and the local interference \me{\mbfa{\zeta}^{\set{b}}} using \eqref{eqn-dual-3} \;
-					exchange \me{\mbfa{\zeta}^{\set{b}(j)}} among \acp{BS} in \me{\mc{B}} \;
-					update dual variables in \me{\mbfa{\nu}^{\set{b}(j+1)}} using \eqref{dual-sg-update}\;
-					update the consensus vector \me{\mbfa{\zeta}^{(j+1)}} using \eqref{zeta_update}\;
-					\me{j = j + 1}\;
-				}
-				downlink precoded pilot transmission with \me{\mvec{M}{k,n}}\;
-				update \me{\mvec{W}{k,n}} and notify to all \acp{BS} in \me{\mc{B}} using uplink precoded pilots as in \cite{komulainen2013effective}\;
-				update \me{\tilde{\mbfa{u}}_{l,k,n}} using \eqref{eqn-6.3} and \eqref{eqn-wsrm-expr} for \ac{SCA} or \me{\tilde{\epsilon}_{l,k,n}} using \eqref{eqn-mse-1.3} for \ac{MSE} approach \;
-				$i = i + 1$ \;
+\begin{algorithm}
+	\SetAlgoLined
+	\DontPrintSemicolon
+	\BlankLine
+	\SetKwInput{KwInit}{Initialize}
+	\KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}, \fall n \in \mathcal{N}}}
+	\KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l \in \set{1,2,\dotsc,L}}}
+	\KwInit{\me{i=0} and the transmit precoders \me{\tilde{\mbf{m}}_{l,k,n}} randomly satisfying total power constraint \eqref{eqn-4.3}}
+	update \me{\mvec{w}{l,k,n}} with \eqref{eqn-10} and \me{\tilde{\mbf{u}}_{l,k,n}} with \eqref{eqn-8} \;
+	initialize the global interference vectors \me{\mbfa{\zeta}^{(0)} = \mbfa{0}^{\mathrm{T}}} \;
+	initialize the interference threshold \me{\mbfa{\nu}^{\set{b}(0)} \forall b \in \mc{B} = 0} \;
+	\ForEach{\ac{BS} \me{b \in \mc{B}}}{
+		\Repeat{convergence or \me{i \geq I_{\max}}}{
+			initialize \me{j=0} \;
+			\Repeat{convergence or \me{j \geq J_{\max}}}{
+				solve for \me{\mvec{M}{k,n}} and the local interference \me{\mbfa{\zeta}^{\set{b}}} using \eqref{eqn-dual-3} \;
+				exchange \me{\mbfa{\zeta}^{\set{b}(j)}} among \acp{BS} in \me{\mc{B}} \;
+				update dual variables in \me{\mbfa{\nu}^{\set{b}(j+1)}} using \eqref{dual-sg-update}\;
+				update the consensus vector \me{\mbfa{\zeta}^{(j+1)}} using \eqref{zeta_update}\;
+				\me{j = j + 1}\;
 			}
+			downlink precoded pilot transmission with \me{\mvec{M}{k,n}}\;
+			update \me{\mvec{W}{k,n}} and notify to all \acp{BS} in \me{\mc{B}} using uplink precoded pilots as in \cite{komulainen2013effective}\;
+			update \me{\tilde{\mbfa{u}}_{l,k,n}} using \eqref{eqn-6.3} and \eqref{eqn-wsrm-expr} for \ac{SCA} or \me{\tilde{\epsilon}_{l,k,n}} using \eqref{eqn-mse-1.3} for \ac{MSE} approach \;
+			$i = i + 1$ \;
 		}
-		\caption{Distributed \ac{JSFRA} scheme using \ac{ADMM}}
-		\label{algo-3}
-	\end{algorithm}
-}
+	}
+	\caption{Distributed \ac{JSFRA} scheme using \ac{ADMM}}
+	\label{algo-3}
+\end{algorithm}}
+
 \subsubsection*{Convergence}
 The convergence of the \ac{ADMM} method follows the same argument as the centralized algorithm if each distributed algorithm is allowed to converge to a stationary value for the fixed \ac{SCA} point. Since the subproblem solved at each \ac{BS} is convex, the \ac{ADMM} method converges to a stationary point \cite{boyd2011distributed} for the fixed \ac{SCA} value. The receive beamformers are updated along with the \ac{SCA} update of \me{\tilde{\mbf{u}}_{l,k,n}}. Combining the receiver update with the \ac{SCA} update improves the convergence speed due to the fact that the \ac{MMSE} receivers are optimal for the fixed transmit beamformers, providing monotonic increase in the objective function.
