@@ -5,7 +5,7 @@ The \ac{Q-WSRM} formulation extends the \emph{backpressure algorithm} to the dow
 \begin{equation}
 \mathrm{L}\sset{\mbf{Q}(i)} = \frac{1}{2} \, \sum_{k \in \mc{U}} Q_k^2(i),
 \end{equation}
-where \me{\mbf{Q}(i)} denotes the stacked user queues at the \me{\ith{i}} slot and \me{\tfrac{1}{2}} is used for the convenience. It provides a scalar measure of congestion present in the system \cite[Ch. 3]{neely2010stochastic}. 
+where \me{\mbf{Q}(i) = \sset{Q_1(i),Q_2(i),\dotsc,Q_K(i)}^\mathrm{T}} and \me{\tfrac{1}{2}} is used for the convenience. It provides a scalar measure of congestion present in the system \cite[Ch. 3]{neely2010stochastic}. 
 
 To minimize the total number of backlogged packets for an instant \me{i}, the optimal transmission rate of all users are obtained by minimizing the Lyapunov function drift expressed as  
 \iftoggle{single_column}{
@@ -37,7 +37,7 @@ Now, the conditional Lyapunov drift, denoted by \me{\Delta{(\mbfa{Q}(i))}}, is g
 	\leq & \underbrace{\mathbb{E}_{\mbfa{\lambda},\mbf{t}} \Big \lbrace \sum_{k \in \mc{U}} \frac{\lambda^2_k(i) + t_k^2(i)}{2} \vert \mbf{Q}(i) \Big \rbrace }_{\le B} + \sum_{k \in \mc{U}} Q_k(i) A_k(i) \nonumber \\
 	& \qquad \qquad {} - \mathbb{E}_{\mbfa{\lambda},\mbf{t}}\Big \lbrace \sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i) \Big \rbrace, \eqsub \label{backpressure-approx-1b}
 \end{IEEEeqnarray}}
-where the subscripts \me{\mbf{t}} and \me{\mbfa{\lambda}} represents the vector obtained by stacking the transmission and the arrival rate of all users present in the system. Since the transmission and the arrival rates are bounded, we can upper bound the second order moments in the first term of \eqref{backpressure-approx-1b} by a constant \me{B} in order to  eliminated from the optimization problem \cite{neely2010stochastic}. The second term in \eqref{backpressure-approx-1b} follows from the Poisson arrival process.
+where the subscripts \me{\mbf{t}} and \me{\mbfa{\lambda}} represents the vector formed by stacking the transmission and the arrival rate of all users in the system. Since the transmission and the arrival rates are bounded, the second order moments in the first term of \eqref{backpressure-approx-1b} can be bounded by a constant \me{B} without affecting the optimal solution of the problem \cite{neely2010stochastic}. The second term in \eqref{backpressure-approx-1b} follows from the Poisson arrival process.
 
 The expression in \eqref{backpressure-approx} looks similar to the \ac{WSRM} formulation if the weights in the \ac{WSRM} problem are replaced by the number of backlogged packets corresponding to the users. The above discussed approach is extended for the wireless networks in \cite{weeraddana2011resource}, where the queue weighted sum rate maximization is considered as the objective function to determine the transmit precoders. Since the expectation can be minimized by minimizing the function inside, the \ac{Q-WSRM} formulation is given by 
 \begin{IEEEeqnarray}{LCl} \label{q_gen_sum}
@@ -49,6 +49,6 @@ In order to avoid the excessive  allocation of the resources, we include an addi
 \begin{IEEEeqnarray}{rCl} \label{eqn-3.1.4}
 \sum_{n=1}^N \sum_{l = 1}^L \log_2(1 + \gamma_{l,k,n}) \leq Q_k, \fall k \in \mc{U},
 \end{IEEEeqnarray}
-where the precoders are associated with the \me{\gamma_{l,k,n}} defined in \eqref{eq:SINR}. By using the number of queued packets as the weights, the resources can be allocated to the user with the more number of backlogged packets, which essentially does the allocation in a greedy manner.
+where the precoders are associated with \me{\gamma_{l,k,n}} defined in \eqref{eq:SINR}. By using the number of queued packets as the weights, the resources can be allocated to the user with the more backlogged packets, which essentially does the allocation in a greedy manner.
 
-As a special case of the problem defined in \eqref{q_gen_sum}, we can formulate the sum rate maximization problem by setting the weights in \eqref{eqn-3.1.1} as unity, leading to the problem as in \eqref{q_gen_sum} with \me{Q_k = 1, \forall k \in \mc{U}}. This approach provides a greedy queue minimizing allocation as compared to \ac{Q-WSRME}, since the resource allocation is driven by the channel conditions in comparison with the number of queued packets as in \ac{Q-WSRME}. Note that in both formulations, the resources allocated to the users are limited by the backlogged packets with an explicit maximum rate constraint defined by \eqref{eqn-3.1.4}.
+As a special case of the problem defined in \eqref{q_gen_sum}, we can formulate the sum rate maximization problem by setting the weights in \eqref{eqn-3.1.1} as unity, leading to the problem as in \eqref{q_gen_sum} with \me{Q_k = 1, \forall k \in \mc{U}}. This approach provides a greedy queue minimizing allocation as compared to \ac{Q-WSRME}, since the resource allocation is driven by the channel conditions in comparison to the number of queued packets as in \ac{Q-WSRME}. Note that in both formulations, the resources allocated to the users are limited by the number of backlogged packets with an explicit maximum rate constraint defined by \eqref{eqn-3.1.4}.

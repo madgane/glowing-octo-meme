@@ -1,5 +1,5 @@
 
-\documentclass[11pt,draft,onecolumn,a4paper]{./../Styles/IEEEtran}
+\documentclass[10pt,final,twocolumn,a4paper]{./../Styles/IEEEtran}
 
 \usepackage{etoolbox}
 \usepackage{amsmath,amssymb}
@@ -15,7 +15,7 @@
 
 \newtoggle{enable_dist_fig}
 \newtoggle{single_column}
-\toggletrue{single_column}
+\togglefalse{single_column}
 \togglefalse{enable_dist_fig}
 
 \iftoggle{single_column}{
@@ -24,8 +24,8 @@
 
 \title{Traffic Aware Resource Allocation Schemes for Multi-Cell \acs{MIMO}-\acs{OFDM} Systems}
 \author{
-	\IEEEauthorblockN{Ganesh Venkatraman \IEEEmembership{Student Member,~IEEE}, Antti T\"{o}lli \IEEEmembership{Member,~IEEE}, Le-Nam Tran \IEEEmembership{Member,~IEEE}, and Markku Juntti \IEEEmembership{Senior Member,~IEEE}}\thanks{
-	The authors are with the Centre for Wireless Communications (CWC), Department of Communications Engineering (DCE), University of Oulu, Oulu, FI-90014, (e-mail: \{gvenkatr, antti.tolli, le.nam.tran, markku.juntti\}@ee.oulu.fi)}}
+	\IEEEauthorblockN{Ganesh Venkatraman \IEEEmembership{Student Member,~IEEE}\thanks{This work has been supported by the Finnish Funding Agency for Technology and Innovation (Tekes), Nokia Solutions Networks, Xilinx Ireland, Academy of Finland.}, Antti T\"{o}lli \IEEEmembership{Member,~IEEE}, Le-Nam Tran \IEEEmembership{Member,~IEEE}, and Markku Juntti \IEEEmembership{Senior Member,~IEEE}}\thanks{
+	The authors are with the Centre for Wireless Communications (CWC), Department of Communications Engineering (DCE), University of Oulu, Oulu, FI-90014, (e-mail: \{gvenkatr, antti.tolli, le.nam.tran, markku.juntti\}@ee.oulu.fi).}}
 
 \begin{document}
 
@@ -57,14 +57,14 @@
 \subsection{Queue Weighted Sum Rate Maximization (\acs{Q-WSRM}) Formulation} \label{sec-3.1}
 \input{joint_wsrm_formulation}
 
-\subsection{\acs{JSFRA} scheme via \ac{SCA} approach} \label{sec-3.2.1}
+\subsection{\acs{JSFRA} Scheme via \ac{SCA} approach} \label{sec-3.2.1}
 \input{problem_formulation}
 \input{wsrm_formulation}
 
-\subsection{\ac{JSFRA} scheme via \ac{MSE} reformulation} \label{sec-3.3}
+\subsection{\ac{JSFRA} Scheme via \ac{MSE} Reformulation} \label{sec-3.3}
 \input{mse_formulation}
 
-\subsection{Reduced Complexity Resource Allocation (Per Sub-Channel Resource Allocation)} \label{sec-3.4}
+\subsection{Reduced Complexity Resource Allocation} \label{sec-3.4}
 \input{sub_channel_wsrm}
 
 \section{Distributed Solutions} \label{sec-4}
@@ -83,7 +83,7 @@
 \input{dual_approach}
 %\input{dual_algorithm}
 
-\subsection{Decomposition using \ac{KKT} equations in \ac{MSE} formulation} \label{sec-4.3}
+\subsection{Decomposition Using \ac{KKT} Equations in \ac{MSE} Formulation} \label{sec-4.3}
 
 \input{kkt_mse_approach}
 
@@ -95,9 +95,6 @@
 
 \subsection{Distributed Solutions}
 \input{simulation_distributed}
-
-\section*{Acknowledgment}
-This work has been supported by the Finnish Funding Agency for Technology and Innovation (Tekes), Nokia Solutions Networks, Xilinx Ireland, Academy of Finland.
 
 \acresetall
 \section{Conclusions} \label{sec-6}
