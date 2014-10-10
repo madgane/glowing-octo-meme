@@ -17,7 +17,7 @@ In order to solve for an iterative precoder design algorithm, the \ac{KKT} expre
 	& \qquad {}  + \mathbf{I}_{N_R} \mvec{w}{l,k,n} = \mvec{H}{b_k,k,n} \; \mvec{m}{l,k,n}. \IEEEyessubnumber \label{kkt-mse-2.4}
 \end{IEEEeqnarray}}
 
-In addition to the primal constraints given in \eqref{kkt-mse-1.2}, \eqref{kkt-mse-1.3} and \eqref{kkt-mse-1.4}, the complementary slackness criterion must also be satisfied at the stationary point. Upon solving the above expression in \eqref{kkt-mse-2} with the complementary slackness conditions, we obtain the iterative algorithm to determine the transmit and the receive beamformers as shown in \eqref{kkt-mse-4}.
+In addition to the primal constraints given in \eqref{kkt-mse-1.2}, \eqref{kkt-mse-1.3} and \eqref{kkt-mse-1.4}, the complementary slackness criterion must also be satisfied at the stationary point. Upon solving the above expressions in \eqref{kkt-mse-2} with the complementary slackness conditions, we obtain the iterative algorithm to determine the transmit and the receive beamformers as shown in \eqref{kkt-mse-4}.
 %The total power constraint in \eqref{kkt-mse-3.4} need not be tight to make the dual variable \me{\delta_b} to be greater than zero. In cases where the total power required to obtain the desired transmission rate is strictly less than \me{P_{\max}}, \me{\delta_b} must be zero to satisfy the complementary slackness criterion defined in \eqref{kkt-mse-3.4}. Upon solving the \ac{KKT} expressions in \eqref{kkt-mse-2} and \eqref{kkt-mse-3}, we obtain the iterative algorithm defined in the Section \ref{sec-4.3}.
 %\iftoggle{single_column}{
 %\begin{IEEEeqnarray}{RCL}\label{kkt-mse-3}
