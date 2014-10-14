@@ -28,7 +28,7 @@ With the assumption of either one of the above conditions to be true, the proble
 }
 where \me{\alpha_{l,k,n},\sigma_{l,k,n}} and \me{\delta_b} are the dual variables corresponding to the constraints defined in \eqref{kkt-mse-1.2}, \eqref{kkt-mse-1.3} and \eqref{kkt-mse-1.4}. 
 
-The problem in \eqref{kkt-mse-1} is solved using the\ac{KKT} expressions, which is obtained by taking the derivative of the Lagrangian function w.r.t the primal and the dual variables as shown in the Appendix \ref{a-1}. Upon solving, we obtain the iterative solution as
+The problem in \eqref{kkt-mse-1} is solved using the \ac{KKT} expressions, which is obtained by taking the derivative of the Lagrangian function w.r.t the primal and the dual variables as shown in the Appendix \ref{a-1}. Upon solving, we obtain the iterative solution as
 \iftoggle{single_column}{
 \begin{IEEEeqnarray}{rCl} \label{kkt-mse-4}
 \mvec{m}{l,k,n}^{(i)} &=& \Big ( \sum_{x \in \mc{U}} \sum_{y=1}^L \alpha_{y,x,n}^{(i-1)} \mvec{H}{b_k,x,n}^\herm \mvec{w}{y,x,n}^{(i-1)} \mvec{w}{y,x,n}^{\herm \, {(i-1)}} \mvec{H}{b_k,x,n} + \delta_b \mbf{I}_{N_T} \Big )^{-1} \alpha^{(i-1)}_{l,k,n} \mvec{H}{b_k,k,n}^\herm \mvec{w}{l,k,n}^{(i-1)} \IEEEyessubnumber \label{kkt-mse-4.3} \\
@@ -77,4 +77,4 @@ In order to find the distributed solution, we can consider the method proposed i
 \end{algorithm}
 
 \subsubsection*{Convergence}
-The iterative method presented in Algorithm \ref{algo-4} converges to the stationary point if the dual variables \me{\alpha_{l,k,n}} are allowed to converge or for fixed number of iterations \me{J_{\max}}. The convergence of the dual variable is guaranteed, since the problem is convex by fixing the receive precoders \me{\mvec{w}{l,k,n}} and the operating \ac{MSE} point \me{\epsilon_{l,k,n}} \cite{boyd2011distributed}. Once the dual variables are converged or iterated to a certain accuracy, the receivers are updated using the \ac{MMSE} objective. In this algorithm, when \me{t_k > Q_k}, \me{\sigma_{l,k,n}} will be zero (dual feasibility), thereby reducing the priority weights \me{\alpha_{l,k,n}} present in the transmit precoder expression in \eqref{kkt-mse-4.3}.
+The iterative method presented in Algorithm \ref{algo-4} converges to a stationary point if the dual variables \me{\alpha_{l,k,n}} are allowed to converge or for fixed number of iterations \me{J_{\max}}. The convergence of the dual variable is guaranteed, since the problem is convex by fixing the receive beamformers \me{\mvec{w}{l,k,n}} and the operating \ac{MSE} point \me{\epsilon_{l,k,n}} \cite{boyd2011distributed}. Once the dual variables are converged or iterated for certain accuracy, the receivers are updated using the \ac{MMSE} objective. Since the \ac{MMSE} receiver is optimal for the fixed transmit precoders, the objective function will improve or stays the same after the receiver update leading to a monotonic convergence of the iterative algorithm provided in \eqref{kkt-mse-4}.
