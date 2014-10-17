@@ -46,7 +46,7 @@ Using the above approximation for the rate constraint, the problem defined in \e
 \text{subject to} & \quad & \eqref{eqn-4.3},\, \eqref{eqn-mse-1.3},\,\text{and} \:\eqref{mse-lin}. \IEEEyessubnumber \label{eqn-mse-2.2}
 \end{IEEEeqnarray}
 \subsubsection*{Convergence}
-Following similar approach as in Section \ref{sec-3.2.1}, at each iteration, the \ac{SCA} subproblems converge to a stationary point of the original nonconvex problem. The uniqueness of the precoders are justified if there is no phase ambiguity in the stationary solution. By reorganizing \eqref{eqn-mse-1.3}
+Following similar approach as in Section \ref{sec-3.2.1}, at each iteration, the \ac{SCA} subproblems converge to a stationary point of the original nonconvex problem. The uniqueness of the precoders are justified if there is no phase ambiguity in the stationary solution. By reorganizing \eqref{eqn-mse-1.3} as
 \iftoggle{single_column}{
 \begin{equation}
 \epsilon_{l,k,n} \geq  1 - 2 \Re{ \left \lbrace \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right \rbrace} + \sum_{\mathclap{\forall (j,i)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2,
@@ -59,4 +59,4 @@ Following similar approach as in Section \ref{sec-3.2.1}, at each iteration, the
 }
 we can see that the ambiguity in the phase rotations for the transmit and the receive beamformers are eliminated by the presence of real component in the \ac{MSE} expression. 
 
-At each \ac{SCA} iteration, the transmit precoders are obtained uniquely by minimizing \eqref{eqn-mse-1} due to the convex nature of the relaxed problem. Using the transmit precoders, the receive beamformers are obtained using the \ac{MMSE} receivers. The \ac{MMSE} receiver minimizes the objective value for the fixed transmit precoders, leading to the monotonic convergence of the objective function. At each \ac{SCA} step, the optimal value of the previous iteration is also included in the domain of the problem, and the objective value can either decrease or stays the same after each iteration.
+At each \ac{SCA} update, the transmit precoders are obtained uniquely by minimizing \eqref{eqn-mse-1} due to the convex nature of the relaxed problem. For a fixed transmit precoders, the \ac{MMSE} receiver improves the objective value \cite{christensen2008weighted,wmmse_shi}, leading to the monotonic convergence of the objective function. At each \ac{SCA} step, the optimal value of the previous iteration is also included in the domain of the problem, and the objective value can either decrease or stays the same after each iteration. Note that the objective function improves at each iteration, whereas the sum rate need not follow the same behavior.
