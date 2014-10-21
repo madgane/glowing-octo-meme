@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.8.13)  20 OCT 2014 12:03
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.8.13)  21 OCT 2014 18:42
 entering extended mode
 **ieee_journal.tex
 (Y:\Latex\glowing-octo-meme\Report\ieee_journal.tex
@@ -586,6 +586,6 @@ Here is how much of TeX's memory you used:
  9692 multiletter control sequences out of 15000+200000
  34686 words of font info for 88 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 36i,22n,47p,1702b,412s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,22n,47p,1679b,412s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on ieee_journal.dvi (13 pages, 139684 bytes).
+Output written on ieee_journal.dvi (13 pages, 139776 bytes).
