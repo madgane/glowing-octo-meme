@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.8.13)  21 OCT 2014 18:42
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.8.13)  23 OCT 2014 19:35
 entering extended mode
 **ieee_journal.tex
 (Y:\Latex\glowing-octo-meme\Report\ieee_journal.tex
@@ -408,20 +408,16 @@ File: omsptm.fd
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 33.
 
-Underfull \hbox (badness 6608) in paragraph at lines 33--33
-[][][]\OT1/ptm/m/n/8 The au-thors are with the Cen-tre for Wire-less Com-mu-ni-
-ca-tions
- []
-
-
-Underfull \hbox (badness 3568) in paragraph at lines 33--33
-\OT1/ptm/m/n/8 (CWC), De-part-ment of Com-mu-ni-ca-tions En-gi-neer-ing (DCE), 
-Uni-ver-
+Underfull \hbox (badness 5008) in paragraph at lines 33--33
+\OT1/ptm/m/n/8 Oulu, FI-90014, (e-mail: \OMS/cmsy/m/n/8 f\OT1/ptm/m/n/8 ganesh.
+venkatraman, antti.tolli, le.nam.tran,
  []
 
 (Y:\Latex\glowing-octo-meme\Report\abstract.tex
 Package acronym Info: Label `acro:MIMO' newly defined as it shall be overridden
 
+although it is yet undefined on input line 1.
+Package acronym Info: Label `acro:IBC' newly defined as it shall be overridden
 although it is yet undefined on input line 1.
 Package acronym Info: Label `acro:OFDM' newly defined as it shall be overridden
 
@@ -442,8 +438,7 @@ Package acronym Info: Label `acro:MU' newly defined as it shall be overridden
 although it is yet undefined on input line 3.
 Package acronym Info: Label `acro:MIMO' overridden on input line 3.
 Package acronym Info: Label `acro:OFDM' overridden on input line 3.
-Package acronym Info: Label `acro:IBC' newly defined as it shall be overridden
-although it is yet undefined on input line 3.
+Package acronym Info: Label `acro:IBC' overridden on input line 3.
 Package acronym Info: Label `acro:WSRM' newly defined as it shall be overridden
 
 although it is yet undefined on input line 9.
@@ -560,7 +555,10 @@ Overfull \hbox (4.51932pt too wide) in paragraph at lines 39--54
  [][][] 
  []
 
-[10]) (Y:\Latex\glowing-octo-meme\Report\simulation_distributed.tex [11]
+[10]) (Y:\Latex\glowing-octo-meme\Report\simulation_distributed.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11]
 File: ./../Figures/Linux/fig-3-2.eps Graphic file (type eps)
 
 <./../Figures/Linux/fig-3-2.eps>
@@ -580,12 +578,12 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <8> not available
 ) [13]
 (Y:\Latex\glowing-octo-meme\Report\ieee_journal.aux) ) 
 Here is how much of TeX's memory you used:
- 6546 strings out of 493922
- 97293 string characters out of 3147296
+ 6548 strings out of 493922
+ 97309 string characters out of 3147296
  197607 words of memory out of 3000000
- 9692 multiletter control sequences out of 15000+200000
+ 9694 multiletter control sequences out of 15000+200000
  34686 words of font info for 88 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  36i,22n,47p,1679b,412s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on ieee_journal.dvi (13 pages, 139776 bytes).
+Output written on ieee_journal.dvi (13 pages, 139804 bytes).

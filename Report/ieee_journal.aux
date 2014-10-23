@@ -47,6 +47,9 @@
 \undonewlabel{acro:MIMO}
 \newlabel{acro:MIMO}{{}{1}}
 \acronymused{MIMO}
+\undonewlabel{acro:IBC}
+\newlabel{acro:IBC}{{}{1}}
+\acronymused{IBC}
 \undonewlabel{acro:OFDM}
 \newlabel{acro:OFDM}{{}{1}}
 \acronymused{OFDM}
@@ -55,8 +58,6 @@
 \newlabel{acro:BS}{{}{1}}
 \acronymused{BS}
 \acronymused{BS}
-\acronymused{MIMO}
-\acronymused{IBC}
 \acronymused{WSRM}
 \undonewlabel{acro:SCA}
 \newlabel{acro:SCA}{{}{1}}
@@ -384,6 +385,7 @@
 \acronymused{SCA}
 \acronymused{MSE}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Decomposition based Approaches}{8}}
+\newlabel{sec-4a}{{\unhbox \voidb@x \hbox {IV-A}}{8}}
 \newlabel{sec-4.1}{{\unhbox \voidb@x \hbox {IV-A}1}{8}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}1}Primal Decomposition Approach}{8}}
 \acronymused{PD}
@@ -422,7 +424,7 @@
 \acronymused{BS}
 \citation{komulainen2013effective}
 \citation{boyd2011distributed}
-\citation{christensen2008weighted,wmmse_shi}
+\citation{kaleva2013decentralized,kaleva2013primal}
 \citation{kaleva2013decentralized,kaleva2013primal}
 \@LN@col{1}
 \newlabel{dual-sg-update}{{37}{9}}
@@ -446,15 +448,15 @@
 \acronymused{MMSE}
 \acronymused{KKT}
 \acronymused{MSE}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Decomposition Using \ac {KKT} Conditions for \ac {MSE} Formulation}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Decomposition via \ac {KKT} Conditions for \ac {MSE} Formulation}{9}}
 \newlabel{sec-4.3}{{\unhbox \voidb@x \hbox {IV-B}}{9}}
-\acronymused{ADMM}
+\acronymused{BS}
 \acronymused{MSE}
 \acronymused{KKT}
-\acronymused{WSRM}
 \@LN@col{2}
 \acronymused{WSRM}
-\acronymused{WSRM}
+\acronymused{Q-WSRME}
+\acronymused{JSFRA}
 \acronymused{KKT}
 \newlabel{kkt-mse-1}{{38}{9}}
 \newlabel{kkt-mse-1.1}{{38a}{9}}
@@ -465,19 +467,17 @@
 \newlabel{kkt-mse-4}{{39}{9}}
 \newlabel{kkt-mse-4.3}{{39a}{9}}
 \newlabel{kkt-mse-4.6}{{39b}{9}}
-\newlabel{kkt-mse-4.4}{{39c}{9}}
-\newlabel{kkt-mse-4.5}{{39d}{9}}
 \citation{komulainen2013effective}
-\citation{christensen2008weighted,wmmse_shi}
 \citation{wmmse_shi}
 \@LN@col{1}
+\newlabel{kkt-mse-4.4}{{39c}{10}}
+\newlabel{kkt-mse-4.5}{{39d}{10}}
 \newlabel{kkt-mse-4.2}{{39e}{10}}
 \newlabel{kkt-mse-4.1}{{39f}{10}}
 \acronymused{KKT}
 \acronymused{MMSE}
 \acronymused{BS}
 \acronymused{SCA}
-\acronymused{KKT}
 \acronymused{BS}
 \acronymused{MMSE}
 \acronymused{BS}
@@ -493,12 +493,10 @@
 \acronymused{MSE}
 \acronymused{BS}
 \acronymused{BS}
+\@LN@col{2}
 \acronymused{KKT}
 \acronymused{MSE}
 \acronymused{JSFRA}
-\@LN@col{2}
-\acronymused{WMMSE}
-\acronymused{MSE}
 \acronymused{KKT}
 \acronymused{JSFRA}
 \acronymused{BS}
@@ -519,6 +517,7 @@
 \acronymused{Q-WSRM}
 \acronymused{WMMSE}
 \acronymused{JSFRA}
+\acronymused{JSFRA}
 \@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Sub-channel-wise listing of channel gains and rate allocations by different algorithms for a scheduling instant}}{11}}
 \newlabel{tbl-1}{{I}{11}}
 \newlabel{fig-1}{{1a}{11}}
@@ -531,7 +530,6 @@
 \@LN@col{1}
 \@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Number of backlogged bits associated with each user for a system \( \delimiter "4266308 N,N_B,K,N_R \delimiter "5267309 = \delimiter "4266308 5,2,8,1 \delimiter "5267309  \).}}{11}}
 \newlabel{tbl-3}{{II}{11}}
-\acronymused{JSFRA}
 \acronymused{MIMO}
 \acronymused{BS}
 \acronymused{SNR}
@@ -539,8 +537,8 @@
 \acronymused{BS}
 \acronymused{SCA}
 \acronymused{Q-WSRM}
-\@LN@col{2}
 \acronymused{Q-WSRME}
+\@LN@col{2}
 \acronymused{JSFRA}
 \acronymused{Q-WSRME}
 \acronymused{JSFRA}
