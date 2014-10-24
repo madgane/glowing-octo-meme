@@ -28,7 +28,7 @@ With the assumption of either one of the above conditions to be true, the proble
 }
 where \me{\alpha_{l,k,n},\sigma_{l,k,n}} and \me{\delta_b} are the dual variables corresponding to the constraints defined in \eqref{kkt-mse-1.2}, \eqref{kkt-mse-1.3} and \eqref{kkt-mse-1.4}. 
 
-The problem in \eqref{kkt-mse-1} is solved using the \ac{KKT} expressions, which are obtained by the derivative of the Lagrangian function w.r.t the primal and the dual variables, complementary slackness conditions, and the primal, dual feasibility requirements as shown in Appendix \ref{a-1}. Upon solving, we obtain the iterative solution as
+The problem in \eqref{kkt-mse-1} is solved using the \ac{KKT} expressions, which are obtained by the derivative of the Lagrangian function w.r.t the primal variables, complementary slackness conditions, and the primal, dual feasibility requirements as shown in Appendix \ref{a-1}. Upon solving, we obtain the iterative solution as
 \iftoggle{single_column}{
 \begin{IEEEeqnarray}{rCl} \label{kkt-mse-4}
 \mvec{m}{l,k,n}^{(i)} &=& \Big ( \sum_{x \in \mc{U}} \sum_{y=1}^L \alpha_{y,x,n}^{(i-1)} \mvec{H}{b_k,x,n}^\herm \mvec{w}{y,x,n}^{(i-1)} \mvec{w}{y,x,n}^{\herm \, {(i-1)}} \mvec{H}{b_k,x,n} + \delta_b \mbf{I}_{N_T} \Big )^{-1} \alpha^{(i-1)}_{l,k,n} \mvec{H}{b_k,k,n}^\herm \mvec{w}{l,k,n}^{(i-1)} \IEEEyessubnumber \label{kkt-mse-4.3} \\
@@ -54,7 +54,7 @@ Since the dual variables \me{\alpha^{(i)}} and \me{\sigma^{(i)}} are interdepend
 
 The \ac{KKT} expressions in \eqref{kkt-mse-4} are solved in an iterative manner by initializing the transmit and the receive beamformers \me{\mvec{M}{k,n},\mvec{W}{k,n}} with the single user beamforming and the \ac{MMSE} vectors. The dual variable \me{\alpha}'s are initialized with ones to have equal priorities to all the users in the system. Then the transmit and the receive beamformers are evaluated using the expressions in \eqref{kkt-mse-4}. The transmit precoder in \eqref{kkt-mse-4.3} depends on the \ac{BS} specific dual variable \me{\delta_b}, which can be found by bisection search satisfying the total power constraint \eqref{kkt-mse-1.4}. Note that the fixed \ac{SCA} operating point is given by \me{\tilde{\epsilon}_{l,k,n} = \epsilon_{l,k,n}^{(i-1)}}, which is considered in the expression \eqref{kkt-mse-4}.
 
-To devise an algorithm for a practical implementation, we extend the decentralization methods discussed in \cite{komulainen2013effective}, for our problem of minimizing the total number of backlogged packets as follows. After receiving the updated transmit precoders from all \acp{BS} in \me{\mathcal{B}}, each user evaluates the \ac{MMSE} receiver in \eqref{kkt-mse-4.6} and notify them to the \acp{BS} via uplink precoded pilots. On receiving pilot signals, \acp{BS} update the \ac{MSE} in \eqref{mse-error} as 
+To devise an algorithm for a more practical implementation, we extend the decentralization methods discussed in \cite{komulainen2013effective}, for our problem of minimizing the total number of backlogged packets as follows. After receiving the updated transmit precoders from all \acp{BS} in \me{\mathcal{B}}, each user evaluates the \ac{MMSE} receiver in \eqref{kkt-mse-4.6} and notify them to the \acp{BS} via uplink precoded pilots. On receiving pilot signals, \acp{BS} update the \ac{MSE} in \eqref{mse-error} as 
 \begin{equation}
 \epsilon_{l,k,n}^{(i)} = 1 - \mvec{w}{l,k,n}^{(i)\herm} \mvec{H}{b_k,k,n} \mvec{m}{l,k,n}^{(i)}.
 \end{equation}

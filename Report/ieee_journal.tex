@@ -1,5 +1,5 @@
 
-\documentclass[10pt,final,twocolumn,letterpaper]{./../Styles/IEEEtran}
+\documentclass[11pt,draftcls,onecolumn,letterpaper]{./../Styles/IEEEtran}
 
 \usepackage{amsmath,amssymb}
 \usepackage{acronym,etoolbox}
@@ -16,7 +16,7 @@
 
 \newtoggle{enable_dist_fig}
 \newtoggle{single_column}
-\togglefalse{single_column}
+\toggletrue{single_column}
 \togglefalse{enable_dist_fig}
 
 \iftoggle{single_column}{
@@ -25,8 +25,7 @@
 
 \title{Traffic Aware Resource Allocation Schemes for Multi-Cell \acs{MIMO}-\acs{OFDM} Systems}
 \author{
-	\IEEEauthorblockN{Ganesh Venkatraman \IEEEmembership{Student Member,~IEEE}\thanks{This work has been supported by the Finnish Funding Agency for Technology and Innovation (Tekes), Nokia Solutions Networks, Xilinx Ireland, Academy of Finland. Part of this work has been published in ICASSP 2014 conference.}, Antti T\"{o}lli \IEEEmembership{Member,~IEEE}, Le-Nam Tran \IEEEmembership{Member,~IEEE}, and Markku Juntti \IEEEmembership{Senior Member,~IEEE}}\thanks{
-	The authors are with the Centre for Wireless Communications (CWC), Department of Communications Engineering (DCE), University of Oulu, Oulu, FI-90014, (e-mail: \{ganesh.venkatraman, antti.tolli, le.nam.tran, markku.juntti\}@ee.oulu.fi).}}
+	\IEEEauthorblockN{Ganesh Venkatraman\IEEEauthorrefmark{1} \thanks{This work is supported by the Finnish Funding Agency for Technology and Innovation (Tekes), Nokia Solutions Networks, Xilinx Ireland, Academy of Finland. Part of this work has been published in ICASSP 2014 conference.} \IEEEmembership{Student Member,~IEEE}, Antti T\"{o}lli\IEEEauthorrefmark{1} \IEEEmembership{Member,~IEEE}, Le-Nam Tran\IEEEauthorrefmark{2} \thanks{\IEEEauthorrefmark{2}Dr. L.-N. Tran is associated with the Department of Electronic Engineering, Maynooth University, Co. Kildare, Irealand, e-mail:ltran@eeng.nuim.ie} \IEEEmembership{Member,~IEEE}, and Markku Juntti\IEEEauthorrefmark{1} \IEEEmembership{Senior Member,~IEEE}}\thanks{\IEEEauthorrefmark{1}The authors are with the Centre for Wireless Communications (CWC), Department of Communications Engineering (DCE), University of Oulu, Oulu, FI-90014, (e-mail: \{ganesh.venkatraman, antti.tolli, markku.juntti\}@ee.oulu.fi).}}
 
 \begin{document}
 
@@ -39,7 +38,7 @@
 \end{abstract}
 
 \begin{IEEEkeywords}
-Convex approximations, \ac{MIMO}-\acs{IBC}, \ac{MIMO}-\ac{OFDM}, Precoder design, \acs{SCA}, \ac{WSRM}.
+convex approximations, \ac{MIMO}-\acs{IBC}, \ac{MIMO}-\ac{OFDM}, precoder design, \acs{SCA}, \ac{WSRM}.
 \end{IEEEkeywords}
 
 \acresetall
