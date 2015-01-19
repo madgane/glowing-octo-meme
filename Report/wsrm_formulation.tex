@@ -82,6 +82,7 @@ The proposed algorithm is referred to as \acl{QM} \ac{JSFRA} scheme with a per \
 \end{algorithm}
 }
 
+\begin{comment}
 \subsubsection*{Convergence}
 In order to prove the convergence of the proposed iterative algorithm, following conditions are to be satisfied \cite{scutari}
 \begin{itemize}
@@ -100,3 +101,5 @@ where \me{\bar{f}(\mbf{x},\mbf{x}^{(i)})} is the approximate function of \me{f(\
 The uniqueness of the transmit and the receive beamformers can be justified by forcing one antenna to be real valued to exclude the phase ambiguity arising from the complex precoders. The monotonic convergence of the objective function can be justified by the following arguments. At each \ac{SCA} iteration, the relaxed subproblem is solved for the locally optimal transmit precoders to minimize the objective function. Since the \ac{SCA} subproblem is relaxed around the \me{\ith{i-1}} optimal point, \textit{i.e},  \me{\mbf{x}^{\ast(i-1)}} for the \me{\ith{i}} iteration, the domain of the problem in the \me{\ith{i}} step includes optimal point from the  \me{\ith{i-1}} iteration as well. Therefore, at each \ac{SCA} step, the objective function can either be equal to or smaller than the previous value, thereby leading to the monotonic convergence of the objective function.
 
 Once the problem is converged to a stationary transmit precoders, the receive beamformers are updated based on the receivers in \eqref{opt-rx} or \eqref{eqn-10}. The monotonic nature of the objective function is preserved by the receive beamformer update, since the receiver minimizes the objective value for the fixed transmit precoders, and hence the proposed \ac{JSFRA} scheme is guaranteed to converge to a stationary point of the original nonconvex problem.
+
+\end{comment}

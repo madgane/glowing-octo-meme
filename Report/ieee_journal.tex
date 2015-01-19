@@ -1,12 +1,12 @@
 
-\documentclass[10pt,final,twocolumn,letterpaper]{./../Styles/IEEEtran}
+\documentclass[10pt,final,onecolumn,letterpaper]{./../Styles/IEEEtran}
 
 \usepackage{amsmath,amssymb}
 \usepackage{acronym,etoolbox}
 \usepackage[ruled]{algorithm2e}
 \usepackage[dvipdfmx]{graphicx}
 \usepackage[subrefformat=parens,labelformat=parens,labelseparator=period,caption=false]{subfig}
-\usepackage{subeqnarray,multirow,cite,array,setspace,fixltx2e,mathtools,lineno}
+\usepackage{subeqnarray,multirow,cite,array,setspace,fixltx2e,mathtools,lineno,verbatim,todonotes,inputenc}
 
 \graphicspath{{./../Figures/}{./../Figures/Linux/}}
 \DeclareGraphicsExtensions{.eps}
@@ -16,7 +16,7 @@
 
 \newtoggle{enable_dist_fig}
 \newtoggle{single_column}
-\togglefalse{single_column}
+\toggletrue{single_column}
 \togglefalse{enable_dist_fig}
 
 \iftoggle{single_column}{
@@ -29,6 +29,9 @@
 	The authors are with the Centre for Wireless Communications (CWC), Department of Communications Engineering (DCE), University of Oulu, Oulu, FI-90014, (e-mail: \{ganesh.venkatraman, antti.tolli, le.nam.tran, markku.juntti\}@ee.oulu.fi).}}
 
 \begin{document}
+
+\section{Response to reviewer comments}
+\input{review_comments}
 
 \maketitle
 
@@ -68,6 +71,9 @@ Convex approximations, \ac{MIMO}-\acs{IBC}, \ac{MIMO}-\ac{OFDM}, Precoder design
 
 \subsection{Reduced Complexity Resource Allocation} \label{sec-3.4}
 \input{sub_channel_wsrm}
+
+\subsection{Convergence Analysis} \label{sec-3.5}
+\input{convergence_centralized}
 
 \section{Distributed Solutions} \label{sec-4}
 
