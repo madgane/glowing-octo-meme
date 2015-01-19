@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.8.13)  19 JAN 2015 13:10
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.8.13)  19 JAN 2015 14:00
 entering extended mode
 **ieee_journal.tex
 (Y:\Latex\glowing-octo-meme\Report\ieee_journal.tex
@@ -726,7 +726,30 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 File: ./../Figures/Review/reviewer.eps Graphic file (type eps)
 
-<./../Figures/Review/reviewer.eps> [1]) [2]
+<./../Figures/Review/reviewer.eps> [1] [2]
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
+ [3]
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ú in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ù in font ptmr7t!
+) [4]
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 36.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
@@ -764,7 +787,7 @@ although it is yet undefined on input line 3.
 Package acronym Info: Label `acro:MIMO' overridden on input line 3.
 Package acronym Info: Label `acro:OFDM' overridden on input line 3.
 Package acronym Info: Label `acro:IBC' overridden on input line 3.
- [3]
+ [5]
 Package acronym Info: Label `acro:WSRM' overridden on input line 9.
 Package acronym Info: Label `acro:SCA' overridden on input line 9.
 Package acronym Info: Label `acro:MSE' overridden on input line 11.
@@ -776,49 +799,49 @@ although it is yet undefined on input line 11.
 Package acronym Info: Label `acro:ADMM' newly defined as it shall be overridden
 
 although it is yet undefined on input line 13.
- [4]
+ [6]
 Package acronym Info: Label `acro:JSFRA' overridden on input line 20.
 Package acronym Info: Label `acro:KKT' newly defined as it shall be overridden
 although it is yet undefined on input line 20.
 )
-(Y:\Latex\glowing-octo-meme\Report\system_model.tex [5]
+(Y:\Latex\glowing-octo-meme\Report\system_model.tex [7]
 Package acronym Info: Label `acro:SINR' newly defined as it shall be overridden
 
 although it is yet undefined on input line 28.
 )
-(Y:\Latex\glowing-octo-meme\Report\problem_formulation_intro.tex [6])
+(Y:\Latex\glowing-octo-meme\Report\problem_formulation_intro.tex [8])
 (Y:\Latex\glowing-octo-meme\Report\queue_minimizing_intro.tex)
-(Y:\Latex\glowing-octo-meme\Report\joint_wsrm_formulation.tex [7]
+(Y:\Latex\glowing-octo-meme\Report\joint_wsrm_formulation.tex [9]
 Package acronym Info: Label `acro:Q-WSRM' newly defined as it shall be overridd
 en
 although it is yet undefined on input line 4.
- [8]
+ [10]
 Package acronym Info: Label `acro:Q-WSRME' newly defined as it shall be overrid
 den
 although it is yet undefined on input line 48.
 )
-(Y:\Latex\glowing-octo-meme\Report\problem_formulation.tex [9])
+(Y:\Latex\glowing-octo-meme\Report\problem_formulation.tex [11])
 (Y:\Latex\glowing-octo-meme\Report\wsrm_formulation.tex
 Package acronym Info: Label `acro:SOC' newly defined as it shall be overridden
 although it is yet undefined on input line 19.
- [10]
+ [12]
 Overfull \vbox (1.2344pt too high) has occurred while \output is active []
 
 
-[11]) (Y:\Latex\glowing-octo-meme\Report\mse_formulation.tex [12]
+[13]) (Y:\Latex\glowing-octo-meme\Report\mse_formulation.tex [14]
 Package acronym Info: Label `acro:WMMSE' newly defined as it shall be overridde
 n
 although it is yet undefined on input line 18.
 )
-(Y:\Latex\glowing-octo-meme\Report\sub_channel_wsrm.tex [13]
+(Y:\Latex\glowing-octo-meme\Report\sub_channel_wsrm.tex [15]
 Package acronym Info: Label `acro:SRA' newly defined as it shall be overridden
 although it is yet undefined on input line 4.
 )
-(Y:\Latex\glowing-octo-meme\Report\convergence_centralized.tex [14])
-(Y:\Latex\glowing-octo-meme\Report\decomposition_solutions.tex [15])
+(Y:\Latex\glowing-octo-meme\Report\convergence_centralized.tex [16])
+(Y:\Latex\glowing-octo-meme\Report\decomposition_solutions.tex [17])
 (Y:\Latex\glowing-octo-meme\Report\primal_approach.tex)
-(Y:\Latex\glowing-octo-meme\Report\dual_approach.tex [16] [17])
-(Y:\Latex\glowing-octo-meme\Report\kkt_mse_approach.tex [18] [19])
+(Y:\Latex\glowing-octo-meme\Report\dual_approach.tex [18] [19])
+(Y:\Latex\glowing-octo-meme\Report\kkt_mse_approach.tex [20] [21])
 (Y:\Latex\glowing-octo-meme\Report\simulation_intro.tex)
 (Y:\Latex\glowing-octo-meme\Report\simulation_results.tex
 Package acronym Info: Label `acro:SISO' newly defined as it shall be overridden
@@ -835,26 +858,26 @@ Overfull \hbox (14.00024pt too wide) in paragraph at lines 26--30
  [][][][] 
  []
 
-[20] [21]) (Y:\Latex\glowing-octo-meme\Report\simulation_distributed.tex
-[22]
+[22] [23]) (Y:\Latex\glowing-octo-meme\Report\simulation_distributed.tex
+[24]
 File: ./../Figures/Linux/fig-3-2.eps Graphic file (type eps)
  <./../Figures/Linux/fig-3-2.eps>
 File: ./../Figures/Linux/fig-9-3.eps Graphic file (type eps)
- <./../Figures/Linux/fig-9-3.eps> [23])
-(Y:\Latex\glowing-octo-meme\Report\conclusions.tex) [24]
+ <./../Figures/Linux/fig-9-3.eps> [25])
+(Y:\Latex\glowing-octo-meme\Report\conclusions.tex) [26]
 (Y:\Latex\glowing-octo-meme\Report\kkt_appendix.tex)
-(Y:\Latex\glowing-octo-meme\Report\ieee_journal.bbl [25]
+(Y:\Latex\glowing-octo-meme\Report\ieee_journal.bbl [27]
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 96.
-) [26]
+) [28]
 (Y:\Latex\glowing-octo-meme\Report\ieee_journal.aux) ) 
 Here is how much of TeX's memory you used:
  16804 strings out of 493922
  315008 string characters out of 3147296
- 394228 words of memory out of 3000000
+ 394240 words of memory out of 3000000
  19711 multiletter control sequences out of 15000+200000
  34686 words of font info for 88 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  62i,23n,85p,1679b,436s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on ieee_journal.dvi (26 pages, 151676 bytes).
+Output written on ieee_journal.dvi (28 pages, 162408 bytes).
