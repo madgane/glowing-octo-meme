@@ -12,7 +12,7 @@ Following similar approach as in \cite{pennanen2011decentralized,tolli2011decent
 \iftoggle{single_column}{
 \begin{IEEEeqnarray}{rCl}\label{eqn-decent-3}
 \beta_{l,k,n} & \geq & \sum_{\substack{j = 1\\j \neq l}}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{j,k,n} |^2 \nonumber \\
-&\quad& + \sum_{i \in \mc{U}_{b_k} \backslash \{k\}} \sum_{j = 1}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{j,i,n} |^2 + \sum_{b \in \bar{\mc{B}}_{b_k}} \zeta_{l,k,n,b} \; + \; N_0\|\mvec{w}{l,k,n}\|^2,
+&\quad& + \sum_{i \in \mc{U}_{b_k} \backslash \{k\}} \sum_{j = 1}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{j,i,n} |^2 + \sum_{b \in \bar{\mc{B}}_{b_k}} \zeta_{l,k,n,b} \; + \; \enoise,
 \end{IEEEeqnarray}}{\allowdisplaybreaks
 \begin{multline}\label{eqn-decent-3}
 	N_0\|\mvec{w}{l,k,n}\|^2 + \sum_{\substack{j = 1,j \neq l}}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{j,k,n} |^2 + \sum_{b \in \bar{\mc{B}}_{b_k}} \zeta_{l,k,n,b}  \\

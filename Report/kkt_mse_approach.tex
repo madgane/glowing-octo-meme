@@ -12,7 +12,7 @@ With the assumption of either one of the above conditions to be true, the proble
 \begin{IEEEeqnarray}{rCl}\label{kkt-mse-1}
 \underset{\substack{t_{l,k,n},\mvec{M}{k,n}, \\ \epsilon_{l,k,n}, \mvec{W}{k,n}}}{\text{minimize}} &\hspace{0.5cm}& \sum_{b \in \mc{B}} \sum_{k \in \mc{U}_b} \, a_k \, \Big ( Q_k - \sum_{n = 1}^N \sum_{l = 1}^{L} t_{l,k,n} \Big )^q \IEEEyessubnumber \label{kkt-mse-1.1} \\
 \text{subject to} & \hspace{0.5cm} & \nonumber \\
-\alpha_{l,k,n} : & \hspace{0.5cm} & \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 +  N_0 \, \|\mvec{w}{l,k,n}\|^2 + \sum_{\mathclap{(x,y) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_y,k,n} \mvec{m}{x,y,n} \right |^2 \leq \epsilon_{l,k,n} \eqspace \IEEEyessubnumber \label{kkt-mse-1.2} \\
+\alpha_{l,k,n} : & \hspace{0.5cm} & \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 +  \enoise + \sum_{\mathclap{(x,y) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_y,k,n} \mvec{m}{x,y,n} \right |^2 \leq \epsilon_{l,k,n} \eqspace \IEEEyessubnumber \label{kkt-mse-1.2} \\
 \sigma_{l,k,n} : & \hspace{0.5cm} & \log(\tilde{\epsilon}_{l,k,n}) + \frac{\left ( {\epsilon}_{l,k,n} - \tilde{\epsilon}_{l,k,n} \right ) }{\tilde{\epsilon}_{l,k,n}} \leq -t_{l,k,n} \, \log(2) \IEEEyessubnumber \label{kkt-mse-1.3} \\
 \delta_b : & \hspace{0.5cm} & \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l = 1}^L \text{tr} \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}}, \fall b, \IEEEyessubnumber \label{kkt-mse-1.4}
 \end{IEEEeqnarray}
@@ -20,7 +20,7 @@ With the assumption of either one of the above conditions to be true, the proble
 \begin{IEEEeqnarray}{Rl}\label{kkt-mse-1}
 	\underset{\substack{t_{l,k,n},\mvec{M}{k,n}, \\ \epsilon_{l,k,n}, \mvec{W}{k,n}}}{\text{minimize}} & \quad \sum_{b \in \mc{B}} \sum_{k \in \mc{U}_b} \, a_k \, \Big ( Q_k - \sum_{n = 1}^N \sum_{l = 1}^{L} t_{l,k,n} \Big )^q \IEEEyessubnumber \label{kkt-mse-1.1} \\
 	\text{subject to} & \nonumber \\
-	\alpha_{l,k,n} : &  \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 +  N_0 \|\mvec{w}{l,k,n}\|^2 \nonumber \\
+	\alpha_{l,k,n} : &  \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 +  \enoise \nonumber \\
 	& + \sum_{\mathclap{(x,y) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_y,k,n} \mvec{m}{x,y,n} \right |^2 \leq \epsilon_{l,k,n} \IEEEyessubnumber \label{kkt-mse-1.2} \\
 	\sigma_{l,k,n} : &  \log_2(\tilde{\epsilon}_{l,k,n}) + \frac{\left ( {\epsilon}_{l,k,n} - \tilde{\epsilon}_{l,k,n} \right ) }{\log(2)\tilde{\epsilon}_{l,k,n}} \leq -t_{l,k,n} \IEEEyessubnumber \label{kkt-mse-1.3} \\
 	\delta_b : & \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l = 1}^L \text{tr} \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}}, \fall b, \IEEEyessubnumber \eqspace \label{kkt-mse-1.4}

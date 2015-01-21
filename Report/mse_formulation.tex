@@ -1,35 +1,34 @@
 
-In this section, we solve the \ac{JSFRA} problem by exploiting the equivalence between the \ac{MSE} and the achievable sum rate for the receivers designed based on the \ac{MMSE} criterion \cite{viswanath1999optimal,mse_duality}. The \ac{MSE} \me{\epsilon_{l,k,n}}, for the data symbol is given by
+In this section, we solve the \ac{JSFRA} problem by exploiting the equivalence between the \ac{MSE} and the achievable sum rate for the receivers designed based on the \ac{MMSE} criterion \cite{mse_duality}. The \ac{MSE} \me{\epsilon_{l,k,n}}, for the data symbol is given by
 \iftoggle{single_column}{
 \begin{multline} \label{mse-error}
-	\mathbb{E} \big [ ( d_{l,k,n} - \hat{d}_{l,k,n} )^2 \big ] = \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 \\
-	+ \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 = \epsilon_{l,k,n},
+	\epsilon_{l,k,n} = \mathbb{E} \big [ ( d_{l,k,n} - \hat{d}_{l,k,n} )^2 \big ] = \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + \enoise,
 \end{multline}
 }{
 \begin{multline} \label{mse-error}
- \mathbb{E} \big [ ( d_{l,k,n} - \hat{d}_{l,k,n} )^2 \big ] = \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 \\
- + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 = \epsilon_{l,k,n},
+ \epsilon_{l,k,n} = \mathbb{E} \big [ ( d_{l,k,n} - \hat{d}_{l,k,n} )^2 \big ] = \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 \\
+ + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + \enoise,
 \end{multline}
 }
-where \me{\hat{d}_{l,k,n}} is the estimate of the transmitted symbol. Now, replacing the receive beamformer in \eqref{mse-error} with the \ac{MMSE} receiver in \eqref{eqn-10}, we obtain the following relation between the \ac{MSE} and the \ac{SINR} as
+where \me{\hat{d}_{l,k,n}} is the estimate of the transmitted symbol. By using the \ac{MMSE} receive beamformer \eqref{eqn-10} in the \ac{MSE} expression \eqref{mse-error} and in the \ac{SINR} expression in \eqref{eq:SINR}, we can obtain the following relation between the \ac{MSE} and the \ac{SINR} as
 \begin{equation} \label{eqn-mse-eq}
-\epsilon_{l,k,n} = \frac{1}{1 + \gamma_{l,k,n}},
+\epsilon_{l,k,n} = \frac{1}{1 + \gamma_{l,k,n}}.
 \end{equation}
-where \me{\gamma_{l,k,n}} is the received \ac{SINR} as in \eqref{eq:SINR}. Using the equivalence in \eqref{eqn-mse-eq}, the \ac{WSRM} objective can be reformulated as the \ac{WMMSE} equivalent to obtain the precoders for the \acs{MU}-\acs{MIMO} scenario as discussed in \cite{christensen2008weighted,wmmse_shi,hong2012decomposition}.
+The above equivalence is valid only if the receivers are based on the \ac{MMSE} criterion. Using the equivalence in \eqref{eqn-mse-eq}, the \ac{WSRM} objective can be reformulated as the \ac{WMMSE} equivalent to obtain the precoders for the \acs{MU}-\acs{MIMO} scenario as discussed in \cite{christensen2008weighted,wmmse_shi,hong2012decomposition}. \review{Note that the receiver is invariably based on the \ac{MMSE} criterion irrespective of the \me{q} value used in the norm present in the objective function to obtain the optimal transmit precoders \me{\mvec{m}{l,k,n}}.}
 
 Let \me{{v}^{\prime}_k = Q_k - \sum_{n=1}^N \sum_{l=1}^L t_{l,k,n}} denote the queue deviation corresponding to user \me{k} and \me{\tilde{{v}}^{\prime}_k \triangleq a_k^{1/{q}}v^{\prime}_k} represents the weighted equivalent. By using the relaxed \ac{MSE} expression in \eqref{mse-error}, the problem in \eqref{eqn-3} can be expressed as
 \iftoggle{single_column}{
 \begin{IEEEeqnarray}{rCl}\label{eqn-mse-1}
 \underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\\ \epsilon_{l,k,n},\mvec{w}{l,k,n}}} {\text{minimize}} & \quad & \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-1.1} \\
 \text{subject to} & \quad & t_{l,k,n} \leq -\log_2(\epsilon_{l,k,n}) \IEEEyessubnumber \label{eqn-mse-1.2} \\
- & \quad & \epsilon_{l,k,n} \geq  \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 \eqspace \IEEEyessubnumber \label{eqn-mse-1.3} \\
+ & \quad & \epsilon_{l,k,n} \geq  \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + \enoise \eqspace \IEEEyessubnumber \label{eqn-mse-1.3} \\
 & \quad &  \text{and} \; \eqref{eqn-4.3}.  \IEEEyessubnumber \label{eqn-mse-1.4}
 \end{IEEEeqnarray}
 }{{\allowdisplaybreaks
 \begin{IEEEeqnarray}{CL}\label{eqn-mse-1}
 	\underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\\ \epsilon_{l,k,n},\mvec{w}{l,k,n}}} {\text{minimize}} & \quad \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-1.1} \\
 	\text{subject to} & \quad t_{l,k,n} \leq -\log_2(\epsilon_{l,k,n}) \IEEEyessubnumber \label{eqn-mse-1.2} \\
-	& \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2 \nonumber \\
+	& \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \enoise \nonumber \\
 	& {} + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 \leq \epsilon_{l,k,n}\IEEEyessubnumber \label{eqn-mse-1.3} \\
 	&  \text{and} \; \eqref{eqn-4.3}. \IEEEyessubnumber \label{eqn-mse-1.4}
 \end{IEEEeqnarray}}}

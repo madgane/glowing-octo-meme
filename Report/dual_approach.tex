@@ -11,7 +11,7 @@ Let \me{\mbfa{\zeta}(b_k)} denote the consensus entries corresponding to \ac{BS}
 \begin{IEEEeqnarray}{rCl} \label{eqn-dual-3}
 \underset{\substack{\gamma_{l,k,n}, \mvec{W}{k,n},\mvec{M}{k,n} \\ \beta_{l,k,n}, \mbfa{\zeta}^{\set{b}(i)}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}}_{b} \|_q + \mbfa{\nu}^{{\set{b}(i-1)}T} \left ( \mbfa{\zeta}^{\set{b}(i)} - \mbfa{\zeta}^{(i-1)}(b) \right ) + \frac{\rho}{2} \Big \| \, \underbrace{\mbfa{\zeta}^{\set{b}(i)}}_{\text{local}} - \underbrace{\mbfa{\zeta}^{(i-1)}(b)}_{\text{consensus}} \, \Big \|^2_2 \IEEEyessubnumber \label{eqn-dual-3a} \\
 \text{subject to} && \beta_{l,k,n} \geq \sum_{\substack{j = 1\\j \neq l}}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{{b},k,n} \mvec{m}{j,k,n} |^2 + \sum_{{\hat{b}} \in \bar{\mc{B}}_{b}} \zeta^{\set{b}(i-1)}_{l,k,n,{\hat{b}}} \nonumber \\
-&& \qquad {} \qquad {} + \sum_{i \in \mc{U}_{b} \backslash \{k\}} \sum_{j = 1}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{{b},k,n} \mvec{m}{j,i,n} |^2 + N_0\|\mvec{w}{l,k,n}\|^2 \IEEEyessubnumber \label{eqn-dual-1d} \\
+&& \qquad {} \qquad {} + \sum_{i \in \mc{U}_{b} \backslash \{k\}} \sum_{j = 1}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{{b},k,n} \mvec{m}{j,i,n} |^2 + \enoise \IEEEyessubnumber \label{eqn-dual-1d} \\
 && \zeta^{\set{b}(i)}_{\pr{l},\pr{k},n,{b}} \geq \sum_{k \in \mc{U}_{\hat{b}}} \sum_{l = 1}^L |\mvec{w}{\pr{l},\pr{k},n}^\herm \mvec{H}{b,\pr{k},n} \mvec{m}{l,k,n} |^2 \; \forall \pr{k} \in \bar{\mc{U}}_{b}, \; \forall n \in \mc{N} \IEEEyessubnumber \label{eqn-dual-1e} \\
 &\quad& \eqref{eqn-8} \; \text{and} \; \eqref{eqn-4.3}, \IEEEyessubnumber \label{eqn-dual-1f}
 \end{IEEEeqnarray}
@@ -21,7 +21,7 @@ Let \me{\mbfa{\zeta}(b_k)} denote the consensus entries corresponding to \ac{BS}
 	&& + \frac{\rho}{2} \Big \| \, \underbrace{\mbfa{\zeta}^{\set{b}(i)}}_{\text{local}} - \underbrace{\mbfa{\zeta}^{(i-1)}(b)}_{\text{consensus}} \, \Big \|^2_2 \IEEEyessubnumber \label{eqn-dual-3a}  \\
 	\text{subject to} &\quad& \nonumber \\
 	\beta_{l,k,n} \geq \sum_{\mathclap{j = 1,j \neq l}}^L && |\mvec{w}{l,k,n}^\herm \mvec{H}{{b},k,n} \mvec{m}{j,k,n} |^2 + \sum_{{\hat{b}} \in \bar{\mc{B}}_{b}} \zeta^{\set{b}(i-1)}_{l,k,n,{\hat{b}}} \nonumber \\
-	+ \sum_{i \in \mc{U}_{b} \backslash \{k\}} \sum_{j = 1}^L && |\mvec{w}{l,k,n}^\herm \mvec{H}{{b},k,n} \mvec{m}{j,i,n} |^2 + N_0\|\mvec{w}{l,k,n}\|^2 \IEEEyessubnumber \eqspace \label{eqn-dual-1d} \\
+	+ \sum_{i \in \mc{U}_{b} \backslash \{k\}} \sum_{j = 1}^L && |\mvec{w}{l,k,n}^\herm \mvec{H}{{b},k,n} \mvec{m}{j,i,n} |^2 + \enoise \IEEEyessubnumber \eqspace \label{eqn-dual-1d} \\
 	\zeta^{\set{b}(i)}_{\pr{l},\pr{k},n,{b}} \geq \sum_{k \in \mc{U}_{\hat{b}}} && \sum_{l = 1}^L |\mvec{w}{\pr{l},\pr{k},n}^\herm \mvec{H}{b,\pr{k},n} \mvec{m}{l,k,n} |^2, \forall \pr{k} \in \bar{\mc{U}}_{b} \IEEEyessubnumber \eqspace \label{eqn-dual-1e} \\
 	&& \eqref{eqn-8} \; \text{and} \; \eqref{eqn-4.3}, \IEEEyessubnumber \label{eqn-dual-1f}
 \end{IEEEeqnarray}}}

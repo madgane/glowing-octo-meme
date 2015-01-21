@@ -21,6 +21,12 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{boyd2011distributed}
+S.~Boyd, N.~Parikh, E.~Chu, B.~Peleato, and J.~Eckstein, ``{Distributed
+  optimization and statistical learning via the alternating direction method of
+  multipliers},'' \emph{Foundations and Trends{\textregistered} in Machine
+  Learning}, vol.~3, no.~1, pp. 1--122, 2011.
+
 \bibitem{admission_control}
 E.~Matskani, N.~Sidiropoulos, Z.-Q. Luo, and L.~Tassiulas, ``{Convex
   approximation techniques for joint multiuser downlink beamforming and
@@ -40,12 +46,6 @@ C.~Ng and H.~Huang, ``{Linear Precoding in Cooperative MIMO Cellular Networks
 L.~N. Tran, M.~Hanif, A.~T{\"o}lli, and M.~Juntti, ``{Fast Converging Algorithm
   for Weighted Sum Rate Maximization in Multicell MISO Downlink},'' \emph{IEEE
   Signal Processing Letters}, vol.~19, no.~12, pp. 872--875, 2012.
-
-\bibitem{viswanath1999optimal}
-P.~Viswanath, V.~Anantharam, and D.~N.~C. Tse, ``{Optimal sequences, power
-  control, and user capacity of synchronous CDMA systems with linear MMSE
-  multiuser receivers},'' \emph{IEEE Transactions on Information Theory},
-  vol.~45, no.~6, pp. 1968--1983, 1999.
 
 \bibitem{mse_duality}
 S.~Shi, M.~Schubert, and H.~Boche, ``{Downlink MMSE Transceiver Optimization
@@ -88,12 +88,6 @@ J.~Kaleva, A.~T{\"o}lli, and M.~Juntti, ``{Primal decomposition based
 D.~P. Palomar and M.~Chiang, ``{A tutorial on decomposition methods for network
   utility maximization},'' \emph{IEEE Journal on Selected Areas in
   Communications}, vol.~24, no.~8, pp. 1439--1451, 2006.
-
-\bibitem{boyd2011distributed}
-S.~Boyd, N.~Parikh, E.~Chu, B.~Peleato, and J.~Eckstein, ``{Distributed
-  optimization and statistical learning via the alternating direction method of
-  multipliers},'' \emph{Foundations and Trends{\textregistered} in Machine
-  Learning}, vol.~3, no.~1, pp. 1--122, 2011.
 
 \bibitem{pennanen2011decentralized}
 H.~Pennanen, A.~T{\"o}lli, and M.~Latva-Aho, ``{Decentralized coordinated
@@ -147,11 +141,15 @@ F.~Zhang and V.~Lau, ``{Cross-Layer MIMO Transceiver Optimization for
   Multimedia Streaming in Interference Networks},'' \emph{IEEE Transactions on
   Signal Processing}, vol.~62, no.~5, pp. 1235--1244, March 2014.
 
-\bibitem{xu2013block}
-Y.~Xu and W.~Yin, ``{A block coordinate descent method for regularized
-  multiconvex optimization with applications to nonnegative tensor
-  factorization and completion},'' \emph{SIAM Journal on Imaging Sciences},
-  vol.~6, no.~3, pp. 1758--1789, 2013.
+\bibitem{np_hard}
+Z.-Q. Luo and S.~Zhang, ``{Dynamic Spectrum Management: Complexity and
+  Duality},'' \emph{IEEE Journal of Selected Topics in Signal Processing},
+  vol.~2, no.~1, pp. 57--73, Feb 2008.
+
+\bibitem{marks1978technical}
+B.~R. Marks and G.~P. Wright, ``{A General Inner Approximation Algorithm for
+  Nonconvex Mathematical Programs},'' \emph{Operations Research}, vol.~26,
+  no.~4, pp. 681--683, 1978.
 
 \bibitem{boyd2004convex}
 S.~P. Boyd and L.~Vandenberghe, \emph{{Convex optimization}}.\hskip 1em plus
@@ -160,17 +158,6 @@ S.~P. Boyd and L.~Vandenberghe, \emph{{Convex optimization}}.\hskip 1em plus
 \bibitem{grant2008cvx}
 M.~Grant and S.~Boyd, ``{CVX}: Matlab software for disciplined convex
   programming, version 2.0 beta,'' \url{http://cvxr.com/cvx}, Sep. 2013.
-
-\bibitem{scutari}
-G.~Scutari, F.~Facchinei, P.~Song, D.~Palomar, and J.-S. Pang, ``{Decomposition
-  by Partial Linearization: Parallel Optimization of Multi-Agent Systems},''
-  \emph{IEEE Transactions on Signal Processing}, vol.~62, no.~3, pp. 641--656,
-  Feb 2014.
-
-\bibitem{marks1978technical}
-B.~R. Marks and G.~P. Wright, ``{A General Inner Approximation Algorithm for
-  Nonconvex Mathematical Programs},'' \emph{Operations Research}, vol.~26,
-  no.~4, pp. 681--683, 1978.
 
 \bibitem{komulainen2013effective}
 P.~Komulainen, A.~T{\"o}lli, and M.~Juntti, ``{Effective CSI Signaling and
