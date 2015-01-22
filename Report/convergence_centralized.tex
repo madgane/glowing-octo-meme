@@ -1,3 +1,51 @@
+
+\newcommand{\mx}{\mbf{x}}
+\newcommand{\my}{\mbf{y}}
+\newcommand{\mz}{\mbf{z}}
+
+\newcommand{\mxb}{{\mbf{x}}}
+\newcommand{\myb}{{\mbf{y}}}
+\newcommand{\iterate}[2]{{#1}^{(#2)}}
+
+Let us write the \ac{JSFRA} problem in \eqref{eqn-6} and \eqref{eqn-mse-1} as
+\begin{IEEEeqnarray}{RCL} \label{con}
+\underset{\mx,\my,\mz}{\text{minimize}} &\quad& f(\mz) \eqsub \label{con-obj} \\
+\text{subject to} &\quad& h(\mz) - g_0(\mx,\my) \leq 0 \eqsub \label{con-dc} \\
+&\quad& g_1(\mx,\my) \leq 0, \eqsub \label{con-cvx-blk} \\
+&\quad& g_2(\mx) \leq 0, \eqsub \label{con-cvx}
+\end{IEEEeqnarray}
+wher \me{g_2,f} are convex functions and \me{h} is a linear function. Let \me{g_0,g_1} are convex functions only on \me{\mx} or \me{\my} as the variable but not on both. Note that the \eqref{con-dc} correspond to the constraints in \eqref{eqn-6.2} and \eqref{eqn-mse-1.2} and \eqref{con-cvx-blk} corresponds to the constraints in \eqref{eqn-6.3} and \eqref{eqn-mse-1.3}. Other convex constraints are addressed by the constraint \eqref{con-cvx}. With this, the feasible set of the problem \eqref{con} is given by 
+\begin{IEEEeqnarray}{rl}
+\mc{F} &= \{ \mx,\my,\mz | h(\mz) - g_0(\mx,\my) \leq 0, g_1(\mx,\my) \leq 0, g_2(\mx) \leq 0\} \eqspace
+\end{IEEEeqnarray}
+
+Before proceeding further, let us define the following notations. Let \me{\iterate{\mx}{k}} denote the \me{\ith{k}} \ac{BCDM} operating point and \me{\mx_k} represent the \me{\ith{k}} \ac{SCA} approximation point. Since the problem \eqref{con} is nonconvex, it is not guaranteed to find an optimal solution. In order to solve for a suboptimal solution, let us resort to the \ac{BCDM} by fixing a block of variables and optimize for others. Since \ac{BCDM} is an iterative method, let us initialize the variable \me{\my} as \me{\iterate{\myb}{0} \in \mc{F}}. Now the problem in \eqref{con} is still nonconvex due to the constraint \eqref{con-dc}, which is now in \ac{DC} form. Following the approach presented in \cite{lipp2014variations,lanckriet2009convergence}, the function \me{g_0(\mx,\iterate{\myb}{0})} is majorized around \me{\mxb_0 \in \mc{F}} as
+\begin{equation} \label{con-relax}
+\hat{g}_o(\mx,\iterate{\myb}{0};\mxb_0) = {g}_0(\mxb_0,\iterate{\myb}{0}) + \nabla g_0(\mxb_0,\iterate{\myb}{0})^\mathrm{T} (\mx - \mx_0).
+\end{equation}
+Using the relaxation \eqref{con-relax}, the convex subproblem for the \me{\ith{i}} \ac{BCDM} iterate of \me{\myb} and the \me{\ith{k}} linear approximation of \me{\mxb} as
+\begin{IEEEeqnarray}{RCL} \label{con-m}
+	\underset{\mx,\my,\mz}{\text{minimize}} &\quad& f(\mz) \eqsub \label{con-obj-m} \\
+	\text{subject to} &\quad& h(\mz) - \hat{g}_0(\mx,\iterate{\myb}{i};\mx_k) \leq 0 \eqsub \label{con-dc-m} \\
+	&\quad& g_1(\mx,\iterate{\myb}{i}) \leq 0, \eqsub \label{con-cvx-blk-m} \\
+	&\quad& g_2(\mx) \leq 0, \eqsub \label{con-cvx-m}
+\end{IEEEeqnarray}
+Let the set defined by the problem in \eqref{con-relax} be represented as \me{\iterate{\mc{F}}{i}_k}. In order to prove the convergence of the convex subproblems \eqref{con-relax} for a fixed \me{\iterate{\myb}{i}}, let us assume that \eqref{con-relax} yields \me{\mx_{k+1}} as the final solution at the \me{\ith{k}} iteration. To show that \me{\mx_{k+1}} minimizes the objective function, let us assume that the previous point \me{\mx_k} is feasible around which the relaxation is made. It can be seen that 
+\begin{equation*}
+h(\mz) - {g}_0(\mx,\iterate{\myb}{i}) \leq h(\mz) - \hat{g}_0(\mx,\iterate{\myb}{i};\mxb_k) \leq 0
+\end{equation*}
+
+
+
+
+
+
+
+
+
+
+
+\begin{comment}
 In order to prove the convergence of the proposed iterative algorithm, following conditions are to be satisfied \cite{scutari}
 \begin{itemize}
 	\item convergence of the \ac{SCA} subproblem	
@@ -31,3 +79,4 @@ Following similar approach as in Section \ref{sec-3.2.1}, at each iteration, the
 we can see that the ambiguity in the phase rotations for the transmit and the receive beamformers are eliminated by the presence of real component in the \ac{MSE} expression. 
 
 At each \ac{SCA} update, the transmit precoders are obtained uniquely by minimizing \eqref{eqn-mse-1} due to the convex nature of the relaxed problem. For a fixed transmit precoders, the \ac{MMSE} receiver improves the objective value \cite{christensen2008weighted,wmmse_shi}, leading to the monotonic convergence of the objective function. At each \ac{SCA} step, the optimal value of the previous iteration is also included in the domain of the problem, and the objective value can either decrease or stays the same after each iteration. Note that the objective function improves at each iteration, whereas the sum rate need not follow the same behavior.
+\end{comment}

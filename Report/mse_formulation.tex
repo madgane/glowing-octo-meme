@@ -10,11 +10,11 @@ In this section, we solve the \ac{JSFRA} problem by exploiting the equivalence b
  + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + \enoise,
 \end{multline}
 }
-where \me{\hat{d}_{l,k,n}} is the estimate of the transmitted symbol. By using the \ac{MMSE} receive beamformer \eqref{eqn-10} in the \ac{MSE} expression \eqref{mse-error} and in the \ac{SINR} expression in \eqref{eq:SINR}, we can obtain the following relation between the \ac{MSE} and the \ac{SINR} as
+where \me{\hat{d}_{l,k,n}} is the estimate of the transmitted symbol. \review{Using the \ac{MMSE} receive beamformer \eqref{eqn-10} in the \ac{MSE} expression \eqref{mse-error} and in the \ac{SINR} expression \eqref{eq:SINR}, we can arrive at the following relation between the \ac{MSE} and the \ac{SINR} as}
 \begin{equation} \label{eqn-mse-eq}
 \epsilon_{l,k,n} = \frac{1}{1 + \gamma_{l,k,n}}.
 \end{equation}
-The above equivalence is valid only if the receivers are based on the \ac{MMSE} criterion. Using the equivalence in \eqref{eqn-mse-eq}, the \ac{WSRM} objective can be reformulated as the \ac{WMMSE} equivalent to obtain the precoders for the \acs{MU}-\acs{MIMO} scenario as discussed in \cite{christensen2008weighted,wmmse_shi,hong2012decomposition}. \review{Note that the receiver is invariably based on the \ac{MMSE} criterion irrespective of the \me{q} value used in the norm present in the objective function to obtain the optimal transmit precoders \me{\mvec{m}{l,k,n}}.}
+The above equivalence is valid only if the receivers are based on the \ac{MMSE} criterion. Using the equivalence in \eqref{eqn-mse-eq}, the \ac{WSRM} objective can be reformulated as the \ac{WMMSE} equivalent to obtain the precoders for the \acs{MU}-\acs{MIMO} scenario as discussed in \cite{christensen2008weighted,wmmse_shi,hong2012decomposition}. \review{Note that the receiver is invariably based on the \ac{MMSE} criterion irrespective of the \me{\ell_q} norm used in the objective function to obtain the optimal transmit precoders \me{\mvec{m}{l,k,n}}.}
 
 Let \me{{v}^{\prime}_k = Q_k - \sum_{n=1}^N \sum_{l=1}^L t_{l,k,n}} denote the queue deviation corresponding to user \me{k} and \me{\tilde{{v}}^{\prime}_k \triangleq a_k^{1/{q}}v^{\prime}_k} represents the weighted equivalent. By using the relaxed \ac{MSE} expression in \eqref{mse-error}, the problem in \eqref{eqn-3} can be expressed as
 \iftoggle{single_column}{
@@ -27,13 +27,13 @@ Let \me{{v}^{\prime}_k = Q_k - \sum_{n=1}^N \sum_{l=1}^L t_{l,k,n}} denote the q
 }{{\allowdisplaybreaks
 \begin{IEEEeqnarray}{CL}\label{eqn-mse-1}
 	\underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\\ \epsilon_{l,k,n},\mvec{w}{l,k,n}}} {\text{minimize}} & \quad \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-1.1} \\
-	\text{subject to} & \quad t_{l,k,n} \leq -\log_2(\epsilon_{l,k,n}) \IEEEyessubnumber \label{eqn-mse-1.2} \\
-	& \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \enoise \nonumber \\
-	& {} + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 \leq \epsilon_{l,k,n}\IEEEyessubnumber \label{eqn-mse-1.3} \\
-	&  \text{and} \; \eqref{eqn-4.3}. \IEEEyessubnumber \label{eqn-mse-1.4}
+	\text{subject to} & t_{l,k,n} \leq -\log_2(\epsilon_{l,k,n}) \IEEEyessubnumber \label{eqn-mse-1.2} \\
+	& \sum_{{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + \enoise \nonumber \\	
+	& \qquad + \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 \leq \epsilon_{l,k,n}\IEEEyessubnumber \label{eqn-mse-1.3} \\
+	& \quad \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \text{tr} \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}}, \fall b, \IEEEyessubnumber  \eqspace \label{eqn-mse-1.4}
 \end{IEEEeqnarray}}}
 
-An alternative \ac{MSE} formulation given by \eqref{eqn-mse-1} is non-convex even for the fixed \me{\mvec{w}{l,k,n}} due to the constraint \eqref{eqn-mse-1.2}. We adopt the \ac{SCA} method as in Section \ref{sec-3.2} to relax the constraint by a sequence of convex subsets using first order Taylor series approximation around a fixed \ac{MSE} point  \me{\tilde{\epsilon}_{l,k,n}} as
+An alternative \ac{MSE} formulation given by \eqref{eqn-mse-1} is non-convex even for the fixed \me{\mvec{w}{l,k,n}} due to the constraint \eqref{eqn-mse-1.2}, which is in fact a \ac{DC} constraint. We resort to the \ac{SCA} approach \cite{marks1978technical} by relaxing the constraint by a sequence of convex subsets using first order Taylor series approximation around a fixed \ac{MSE} point \me{\tilde{\epsilon}_{l,k,n}} as
 \begin{IEEEeqnarray}{rCl}
 - \log_2(\tilde{\epsilon}_{l,k,n}) - \frac{\left ( {\epsilon}_{l,k,n} - \tilde{\epsilon}_{l,k,n} \right ) }{\log(2) \, \tilde{\epsilon}_{l,k,n}} &\geq& t_{l,k,n},
 \label{mse-lin}
@@ -42,7 +42,7 @@ An alternative \ac{MSE} formulation given by \eqref{eqn-mse-1} is non-convex eve
 Using the above approximation for the rate constraint, the problem defined in \eqref{eqn-mse-1} is solved for optimal transmit precoders \me{\mvec{m}{l,k,n}}, \acp{MSE} \me{\epsilon_{l,k,n}}, and the user rates over each sub-channel \me{t_{l,n,k}} given the fixed receive beamformers. Once the optimal precoders are obtained, the local \ac{MSE} variable  \me{\tilde{\epsilon}_{l,k,n}} is updated with the current update \me{\epsilon_{l,k,n}}. The optimization problem for a fixed receive beamformers \me{\mvec{w}{l,k,n}} is given as
 \begin{IEEEeqnarray}{CCl}\label{eqn-mse-2}
 \underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\epsilon_{l,k,n}}}{\text{minimize}} &\quad& \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-2.1} \\
-\text{subject to} & \quad & \eqref{eqn-4.3},\, \eqref{eqn-mse-1.3},\,\text{and} \:\eqref{mse-lin}. \IEEEyessubnumber \label{eqn-mse-2.2}
+\text{subject to} & \quad & \eqref{eqn-mse-1.3},\eqref{eqn-mse-1.4},\,\text{and} \:\eqref{mse-lin}. \IEEEyessubnumber \label{eqn-mse-2.2}
 \end{IEEEeqnarray}
 
 \begin{comment}

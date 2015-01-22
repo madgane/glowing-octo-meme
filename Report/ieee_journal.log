@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.8.13)  21 JAN 2015 20:55
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.8.13)  22 JAN 2015 18:04
 entering extended mode
 **ieee_journal.tex
 (Y:\Latex\glowing-octo-meme\Report\ieee_journal.tex
@@ -272,6 +272,30 @@ eX Live/ChoF)
 \Gin@req@height=\dimen132
 \Gin@req@width=\dimen133
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Package option `usenames' ignored on input line 216.
+Package xcolor Info: Driver file: dvips.def on input line 225.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\dvips.def"
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\dvipsnam.def"
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\subfig\subfig.sty"
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 
@@ -401,26 +425,6 @@ Package: xkeyval 2012/10/14 v2.6b package option processing (HA)
 \XKV@depth=\count130
 File: xkeyval.tex 2012/10/14 v2.6b key=value parser (HA)
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
-Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
-File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
-)
-Package xcolor Info: Driver file: dvips.def on input line 225.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\dvips.def"
-File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
-)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
-Package xcolor Info: Model `RGB' extended on input line 1353.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
-)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\frontendlayer\tikz.sty"
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgf.sty"
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgfrcs.sty"
@@ -694,76 +698,33 @@ Package: inputenc 2008/03/30 v1.1d Input encoding file
 )
 (Y:\Latex\glowing-octo-meme\Report\shortcuts.tex)
 (Y:\Latex\glowing-octo-meme\Report\acronyms.tex)
-(Y:\Latex\glowing-octo-meme\Report\ieee_journal.aux
-
-LaTeX Warning: Label `fig-review' multiply defined.
-
-)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
+(Y:\Latex\glowing-octo-meme\Report\ieee_journal.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
- ABD: EveryShipout initializing macros
-(Y:\Latex\glowing-octo-meme\Report\review_comments.tex
-LaTeX Font Info:    Try loading font information for U+msa on input line 2.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 2.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-File: ./../Figures/Review/reviewer.eps Graphic file (type eps)
-
-<./../Figures/Review/reviewer.eps> [1
-
-]
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ú in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ù in font ptmr7t!
- [2] [3] [4]) [5
-
-]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 36.
+ABD: EveryShipout initializing macros
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 37.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 36.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 37.
 
-Underfull \hbox (badness 5008) in paragraph at lines 36--36
+Underfull \hbox (badness 5008) in paragraph at lines 37--37
 \OT1/ptm/m/n/8 Oulu, FI-90014, (e-mail: \OMS/cmsy/m/n/8 f\OT1/ptm/m/n/8 ganesh.
 venkatraman, antti.tolli, le.nam.tran,
  []
@@ -790,7 +751,7 @@ although it is yet undefined on input line 1.
 Package acronym Info: Label `acro:MSE' newly defined as it shall be overridden
 although it is yet undefined on input line 1.
 
-Underfull \hbox (badness 2772) in paragraph at lines 40--2
+Underfull \hbox (badness 2772) in paragraph at lines 41--2
 \OT1/ptm/b/n/9 sce-nario us-ing [][] or-thog-o-nal fre-quency di-vi-sion mul-ti
 -plex-ing
  []
@@ -813,14 +774,25 @@ although it is yet undefined on input line 11.
 Package acronym Info: Label `acro:ADMM' newly defined as it shall be overridden
 
 although it is yet undefined on input line 13.
- [6
+ [1
+
 
 ]
+LaTeX Font Info:    Try loading font information for U+msa on input line 15.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 15.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 Package acronym Info: Label `acro:JSFRA' overridden on input line 20.
 Package acronym Info: Label `acro:KKT' newly defined as it shall be overridden
 although it is yet undefined on input line 20.
 )
-(Y:\Latex\glowing-octo-meme\Report\system_model.tex [7]
+(Y:\Latex\glowing-octo-meme\Report\system_model.tex [2]
 Package acronym Info: Label `acro:SINR' newly defined as it shall be overridden
 
 although it is yet undefined on input line 29.
@@ -849,7 +821,7 @@ Underfull \hbox (badness 1616) in paragraph at lines 12--14
  []
 
 ) (Y:\Latex\glowing-octo-meme\Report\queue_minimizing_intro.tex)
-(Y:\Latex\glowing-octo-meme\Report\joint_wsrm_formulation.tex [8]
+(Y:\Latex\glowing-octo-meme\Report\joint_wsrm_formulation.tex [3]
 Package acronym Info: Label `acro:Q-WSRM' newly defined as it shall be overridd
 en
 although it is yet undefined on input line 4.
@@ -864,34 +836,45 @@ Overfull \hbox (2.17854pt too wide) in alignment at lines 43--46
 Package acronym Info: Label `acro:Q-WSRME' newly defined as it shall be overrid
 den
 although it is yet undefined on input line 48.
-) (Y:\Latex\glowing-octo-meme\Report\problem_formulation.tex [9])
+) (Y:\Latex\glowing-octo-meme\Report\problem_formulation.tex [4])
 (Y:\Latex\glowing-octo-meme\Report\wsrm_formulation.tex
 Overfull \hbox (3.14783pt too wide) in alignment at lines 17--17
  [] [] [] [][]
  []
 
 Package acronym Info: Label `acro:SOC' newly defined as it shall be overridden
-although it is yet undefined on input line 22.
-
-Underfull \vbox (badness 1946) has occurred while \output is active []
-
+although it is yet undefined on input line 20.
 Package acronym Info: Label `acro:DC' newly defined as it shall be overridden
-although it is yet undefined on input line 26.
+although it is yet undefined on input line 24.
 
-Overfull \hbox (0.80943pt too wide) in alignment at lines 53--58
+Overfull \hbox (0.80943pt too wide) in alignment at lines 51--55
  [] [] [] [][]
  []
 
 
-Overfull \hbox (12.04813pt too wide) in alignment at lines 60--63
+Overfull \hbox (12.18701pt too wide) in alignment at lines 57--60
  [] [] [] [][]
  []
 
-[10]) (Y:\Latex\glowing-octo-meme\Report\mse_formulation.tex
+
+Overfull \vbox (0.77516pt too high) has occurred while \output is active []
+
+
+[5]) (Y:\Latex\glowing-octo-meme\Report\mse_formulation.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 Package acronym Info: Label `acro:WMMSE' newly defined as it shall be overridde
 n
 although it is yet undefined on input line 17.
- [11])
+
+Overfull \hbox (5.3014pt too wide) in alignment at lines 34--34
+ [] [] [][]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6])
 (Y:\Latex\glowing-octo-meme\Report\sub_channel_wsrm.tex
 Package acronym Info: Label `acro:SRA' newly defined as it shall be overridden
 although it is yet undefined on input line 4.
@@ -899,10 +882,14 @@ Package acronym Info: Label `acro:QM' newly defined as it shall be overridden
 although it is yet undefined on input line 12.
 )
 (Y:\Latex\glowing-octo-meme\Report\convergence_centralized.tex
+Overfull \hbox (9.00748pt too wide) in alignment at lines 18--20
+ [] [] [][]
+ []
 
-LaTeX Warning: Citation `scutari' on page 12 undefined on input line 1.
+Package acronym Info: Label `acro:BCDM' newly defined as it shall be overridden
 
-[12]) (Y:\Latex\glowing-octo-meme\Report\decomposition_solutions.tex
+although it is yet undefined on input line 22.
+) (Y:\Latex\glowing-octo-meme\Report\decomposition_solutions.tex [7]
 Overfull \hbox (2.19899pt too wide) detected at line 20
  []$[]  \OML/cmm/m/it/10 N[]\OMS/cmsy/m/n/10 k\OT1/cmr/bx/n/10 w[]\OMS/cmsy/m/n
 /10 k[] \OT1/cmr/m/n/10 + [] \OMS/cmsy/m/n/10 j\OT1/cmr/bx/n/10 w[]H[]m[]\OMS/c
@@ -910,15 +897,18 @@ msy/m/n/10 j[] \OT1/cmr/m/n/10 + [] \OML/cmm/m/it/10 []$
  []
 
 ) (Y:\Latex\glowing-octo-meme\Report\primal_approach.tex)
-(Y:\Latex\glowing-octo-meme\Report\dual_approach.tex [13])
-(Y:\Latex\glowing-octo-meme\Report\kkt_mse_approach.tex [14]
-Underfull \vbox (badness 1377) has occurred while \output is active []
+(Y:\Latex\glowing-octo-meme\Report\dual_approach.tex [8])
+(Y:\Latex\glowing-octo-meme\Report\kkt_mse_approach.tex
+Underfull \vbox (badness 1259) has occurred while \output is active []
+
+ [9]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 )
 (Y:\Latex\glowing-octo-meme\Report\simulation_intro.tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [15]
+ [10]
 (Y:\Latex\glowing-octo-meme\Report\simulation_results.tex
 Package acronym Info: Label `acro:SISO' newly defined as it shall be overridden
 
@@ -939,43 +929,36 @@ Overfull \hbox (4.51932pt too wide) in paragraph at lines 39--54
  [][][] 
  []
 
-) (Y:\Latex\glowing-octo-meme\Report\simulation_distributed.tex [16]
+) (Y:\Latex\glowing-octo-meme\Report\simulation_distributed.tex
 File: ./../Figures/Linux/fig-3-2.eps Graphic file (type eps)
 
 <./../Figures/Linux/fig-3-2.eps>
 File: ./../Figures/Linux/fig-9-3.eps Graphic file (type eps)
- <./../Figures/Linux/fig-9-3.eps>
-Underfull \vbox (badness 1292) has occurred while \output is active []
+ <./../Figures/Linux/fig-9-3.eps> [11]
+Underfull \vbox (badness 2980) has occurred while \output is active []
 
-
-Underfull \vbox (badness 7740) has occurred while \output is active []
-
- [17])
+ [12])
 (Y:\Latex\glowing-octo-meme\Report\time_correlated.tex
 File: ./../Figures/Review/reviewer.eps Graphic file (type eps)
 
 <./../Figures/Review/reviewer.eps>)
 (Y:\Latex\glowing-octo-meme\Report\conclusions.tex)
-(Y:\Latex\glowing-octo-meme\Report\kkt_appendix.tex [18])
+(Y:\Latex\glowing-octo-meme\Report\appendix_tightness.tex [13])
+(Y:\Latex\glowing-octo-meme\Report\kkt_appendix.tex)
 (Y:\Latex\glowing-octo-meme\Report\ieee_journal.bbl
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 28.
-) [19]
-(Y:\Latex\glowing-octo-meme\Report\ieee_journal.aux)
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 90.
+ [14]) [15
 
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+]
+(Y:\Latex\glowing-octo-meme\Report\ieee_journal.aux) ) 
 Here is how much of TeX's memory you used:
- 16819 strings out of 493922
- 315217 string characters out of 3147296
- 397306 words of memory out of 3000000
- 19723 multiletter control sequences out of 15000+200000
+ 16929 strings out of 493922
+ 316746 string characters out of 3147296
+ 400291 words of memory out of 3000000
+ 19830 multiletter control sequences out of 15000+200000
  34686 words of font info for 88 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 62i,23n,85p,1522b,426s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,23n,85p,1482b,426s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on ieee_journal.dvi (19 pages, 197576 bytes).
+Output written on ieee_journal.dvi (15 pages, 159052 bytes).
