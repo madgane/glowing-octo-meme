@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.8.13)  23 JAN 2015 16:41
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.8.13)  24 JAN 2015 12:46
 entering extended mode
 **ieee_journal.tex
 (Y:\Latex\glowing-octo-meme\Report\ieee_journal.tex
@@ -930,29 +930,42 @@ File: ./../Figures/Review/reviewer.eps Graphic file (type eps)
 <./../Figures/Review/reviewer.eps>) [12]
 (Y:\Latex\glowing-octo-meme\Report\conclusions.tex)
 (Y:\Latex\glowing-octo-meme\Report\appendix_tightness.tex)
-(Y:\Latex\glowing-octo-meme\Report\convergence_centralized.tex
+(Y:\Latex\glowing-octo-meme\Report\convergence_centralized.tex [13]
 Package acronym Info: Label `acro:AO' newly defined as it shall be overridden
-although it is yet undefined on input line 23.
- [13]
+although it is yet undefined on input line 24.
+
+Overfull \hbox (16.78299pt too wide) detected at line 32
+[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 x\OML/cmm/m/it/10 ; \OT1/cmr/bx/n/10 y[]\OT
+1/cmr/m/n/10 ); \OT1/cmr/bx/n/10 x[]\OT1/cmr/m/n/10 )) = \OML/cmm/m/it/10 g[]\O
+T1/cmr/m/n/10 (\OT1/cmr/bx/n/10 x[]\OML/cmm/m/it/10 ; \OT1/cmr/bx/n/10 y[]\OT1/
+cmr/m/n/10 ) + \OMS/cmsy/m/n/10 r\OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 (\OT1/cmr/
+bx/n/10 x[]\OML/cmm/m/it/10 ; \OT1/cmr/bx/n/10 y[]\OT1/cmr/m/n/10 )[](\OT1/cmr/
+bx/n/10 x \OMS/cmsy/m/n/10   \OT1/cmr/bx/n/10 x[]\OT1/cmr/m/n/10 )\OML/cmm/m/it
+/10 :
+ []
+
+
+Underfull \vbox (badness 1874) has occurred while \output is active []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 4940) has occurred while \output is active []
 
  [14])
 (Y:\Latex\glowing-octo-meme\Report\kkt_appendix.tex)
 (Y:\Latex\glowing-octo-meme\Report\ieee_journal.bbl
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 90.
-) [15]
+ [15]) [16
+
+]
 (Y:\Latex\glowing-octo-meme\Report\ieee_journal.aux) ) 
 Here is how much of TeX's memory you used:
- 16944 strings out of 493922
- 316887 string characters out of 3147296
+ 16945 strings out of 493922
+ 316891 string characters out of 3147296
  404426 words of memory out of 3000000
- 19845 multiletter control sequences out of 15000+200000
+ 19846 multiletter control sequences out of 15000+200000
  34686 words of font info for 88 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 62i,23n,85p,1482b,426s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,23n,85p,1830b,426s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on ieee_journal.dvi (15 pages, 169636 bytes).
+Output written on ieee_journal.dvi (16 pages, 172924 bytes).
