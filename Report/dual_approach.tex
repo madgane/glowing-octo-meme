@@ -53,15 +53,15 @@ The distributed precoder design using \ac{ADMM} approach is shown in Algorithm \
 		\Repeat{convergence or \me{i \geq I_{\max}}}{
 			initialize \me{j=0} \;
 			\Repeat{convergence or \me{j \geq J_{\max}}}{
-				solve for \me{\mvec{M}{k,n}} and the local interference \me{\mbfa{\zeta}^{\set{b}}} using \eqref{eqn-dual-3} \;
+				solve for \me{\mvec{m}{l,k,n}} and the local interference \me{\mbfa{\zeta}^{\set{b}}} using \eqref{eqn-dual-3} \;
 				exchange \me{\mbfa{\zeta}^{\set{b}(j)}} among \acp{BS} in \me{\mc{B}} \;
 				update dual variables in \me{\mbfa{\nu}^{\set{b}(j+1)}} using \eqref{dual-sg-update}\;
 				update the consensus vector \me{\mbfa{\zeta}^{(j+1)}} using \eqref{zeta_update}\;
 				\me{j = j + 1}\;
 			}
-			downlink precoded pilot transmission with \me{\mvec{M}{k,n}}\;
-			update \me{\mvec{W}{k,n}} and notify to all \acp{BS} in \me{\mc{B}} using uplink precoded pilots as in \cite{komulainen2013effective}\;
-			update \me{\tilde{\mbfa{u}}_{l,k,n}} using \eqref{eqn-6.3} and \eqref{eqn-wsrm-expr} for \ac{SCA} or \me{\tilde{\epsilon}_{l,k,n}} using \eqref{eqn-mse-1.3} for \ac{MSE} approach \;
+			downlink precoded pilot transmission with \me{\mvec{m}{k,n}}\;
+			update \me{\mvec{l}{k,n}} and notify to all \acp{BS} in \me{\mc{B}} using uplink precoded pilots as in \cite{komulainen2013effective}\;
+			update \me{{\mbf{u}}_{l,k,n}} using \eqref{eqn-6.3} and \eqref{eqn-wsrm-expr} for \ac{SCA} or \me{\tilde{\epsilon}_{l,k,n}} using \eqref{eqn-mse-1.3} for \ac{MSE} approach \;
 			$i = i + 1$ \;
 		}
 	}
@@ -69,5 +69,7 @@ The distributed precoder design using \ac{ADMM} approach is shown in Algorithm \
 	\label{algo-3}
 \end{algorithm}}
 
+\begin{comment}
 \subsubsection*{Convergence}
 The convergence of the \ac{ADMM} method follows the same argument as the centralized algorithm if each distributed algorithm is allowed to converge to a stationary value for the fixed \ac{SCA} point. Since the subproblem solved at each \ac{BS} is convex, the \ac{ADMM} method converges to a stationary point \cite{boyd2011distributed} for the fixed \ac{SCA} value. The receive beamformers are updated along with the \ac{SCA} update of \me{\tilde{\mbf{u}}_{l,k,n}}. Combining the receiver update with the \ac{SCA} update improves the convergence speed due to the fact that the \ac{MMSE} receivers are optimal for the fixed transmit beamformers, providing monotonic increase in the objective function.
+\end{comment}

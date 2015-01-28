@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.8.13)  24 JAN 2015 20:36
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.8.13)  28 JAN 2015 09:27
 entering extended mode
 **ieee_journal.tex
 (Y:\Latex\glowing-octo-meme\Report\ieee_journal.tex
@@ -602,10 +602,13 @@ msy/m/n/10 j[] \OT1/cmr/m/n/10 + [] \OML/cmm/m/it/10 []$
 
 ) (Y:\Latex\glowing-octo-meme\Report\primal_approach.tex [7])
 (Y:\Latex\glowing-octo-meme\Report\dual_approach.tex
-Underfull \vbox (badness 2012) has occurred while \output is active []
+Underfull \vbox (badness 6708) has occurred while \output is active []
 
 )
-(Y:\Latex\glowing-octo-meme\Report\kkt_mse_approach.tex [8] [9])
+(Y:\Latex\glowing-octo-meme\Report\kkt_mse_approach.tex [8]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9])
 (Y:\Latex\glowing-octo-meme\Report\simulation_intro.tex)
 (Y:\Latex\glowing-octo-meme\Report\simulation_results.tex
 Package acronym Info: Label `acro:SISO' newly defined as it shall be overridden
@@ -627,22 +630,28 @@ Overfull \hbox (4.51932pt too wide) in paragraph at lines 39--54
  [][][] 
  []
 
-[10]) (Y:\Latex\glowing-octo-meme\Report\simulation_distributed.tex [11]
+) [10] (Y:\Latex\glowing-octo-meme\Report\simulation_distributed.tex
 File: ./../Figures/Linux/fig-3-2.eps Graphic file (type eps)
 
 <./../Figures/Linux/fig-3-2.eps>
 File: ./../Figures/Linux/fig-9-3.eps Graphic file (type eps)
- <./../Figures/Linux/fig-9-3.eps>)
+ <./../Figures/Linux/fig-9-3.eps>
+Underfull \vbox (badness 7740) has occurred while \output is active []
+
+ [11])
 (Y:\Latex\glowing-octo-meme\Report\time_correlated.tex
 File: ./../Figures/Review/reviewer.eps Graphic file (type eps)
 
-<./../Figures/Review/reviewer.eps>) [12]
-(Y:\Latex\glowing-octo-meme\Report\conclusions.tex)
+<./../Figures/Review/reviewer.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+)
+(Y:\Latex\glowing-octo-meme\Report\conclusions.tex) [12]
 (Y:\Latex\glowing-octo-meme\Report\appendix_tightness.tex)
-(Y:\Latex\glowing-octo-meme\Report\convergence_centralized.tex [13]
+(Y:\Latex\glowing-octo-meme\Report\convergence_centralized.tex
 Package acronym Info: Label `acro:AO' newly defined as it shall be overridden
 although it is yet undefined on input line 24.
-
+ [13]
 Overfull \hbox (11.64783pt too wide) detected at line 45
  []$[]  \OML/cmm/m/it/10 h\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 z[]\OT1/cmr/m/n/10 
 ) \OMS/cmsy/m/n/10   \OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 x[]\
@@ -658,15 +667,19 @@ Underfull \hbox (badness 2486) in paragraph at lines 49--51
  []
 
 
-Underfull \vbox (badness 1215) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [14]
+
 Underfull \hbox (badness 10000) in paragraph at lines 68--70
 []\OT1/ptm/m/n/10 the so-lu-tion is in-side the fea-si-ble set $\OMS/cmsy/m/n/1
 0 F$ \OT1/ptm/m/n/10 and
  []
 
-) (Y:\Latex\glowing-octo-meme\Report\kkt_appendix.tex)
+
+Underfull \vbox (badness 4531) has occurred while \output is active []
+
+ [14])
+(Y:\Latex\glowing-octo-meme\Report\kkt_appendix.tex)
 (Y:\Latex\glowing-octo-meme\Report\ieee_journal.bbl
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 90.
@@ -677,10 +690,10 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <8> not available
 Here is how much of TeX's memory you used:
  7167 strings out of 493922
  104844 string characters out of 3147296
- 212620 words of memory out of 3000000
+ 209620 words of memory out of 3000000
  10291 multiletter control sequences out of 15000+200000
  34686 words of font info for 88 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  36i,23n,47p,1482b,426s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on ieee_journal.dvi (16 pages, 169356 bytes).
+Output written on ieee_journal.dvi (16 pages, 167084 bytes).

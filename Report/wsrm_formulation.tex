@@ -76,8 +76,8 @@ The proposed algorithm is referred to as \acl{QM} \ac{JSFRA} scheme with a per \
  \SetKwInput{KwInit}{Initialize}
  \KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}, \fall n \in \mathcal{N}}}
  \KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l \in \set{1,2,\dotsc,L}}}
- \KwInit{\me{i=0} and transmit precoders \me{\tilde{\mbf{M}}_{k,n}} randomly satisfying the total power constraint \eqref{eqn-4.3}}
- update \me{\mvec{W}{k,n}} and \me{{\mbf{u}}_{l,k,n}} using \eqref{eqn-10} and \eqref{eqn-8} using \me{\tilde{\mbf{M}}_{k,n}}\;
+ \KwInit{\me{i=0} and transmit precoders \me{\mbf{m}_{l,k,n}} randomly satisfying the total power constraint \eqref{eqn-4.3}}
+ update \me{\mvec{w}{l,k,n}, \mbf{u}_{l,k,n}} using \eqref{eqn-10} and \eqref{eqn-8} with \me{{\mbf{m}}_{l,k,n}}\;
  \Repeat{Queue convergence or \me{i \geq I_{\max}}}{
  initialize \me{j = 0}\;
  \Repeat{\ac{SCA} convergence or \me{j \geq J_{\max}}}{
