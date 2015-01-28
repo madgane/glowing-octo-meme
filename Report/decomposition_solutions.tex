@@ -1,26 +1,26 @@
-This section addresses the distributed precoder designs for the proposed \ac{JSFRA} scheme. The formulation in \eqref{eqn-9} or \eqref{eqn-mse-2} requires a centralized controller to perform the precoder design for all users belonging to the coordinating \acp{BS}. In order to design the precoders independently at each \ac{BS} with the minimal information exchange via backhaul, iterative decentralization methods are considered. In particular, the \acl{PD} and the \ac{ADMM} based \acl{DD} approaches are addressed.
+The distributed precoder designs for the proposed \ac{JSFRA} scheme are discussed in this section. The \review{convex} formulation in \eqref{eqn-9} or \eqref{eqn-mse-2} requires a centralized controller to perform the precoder design for all users belonging to the coordinating \acp{BS}. In order to design the precoders independently at each \ac{BS} with the minimal information exchange via backhaul, iterative decentralization methods are addressed. In particular, the \acl{PD} and the \ac{ADMM} based \acl{DD} approaches are considered.
 
-To begin with, let \me{\bar{\mc{B}}_b} denote the set \me{\mc{B} \backslash \{b\}} and \me{\bar{\mc{U}}_b} represents the set \me{\mc{U} \backslash \mc{U}_b}. In order to study the decomposition based solutions, we consider the solution proposed in \eqref{eqn-9}, which is based on the Taylor series approximation for the nonconvex constraint. The following discussions are equally valid for the \ac{MSE} based solution outlined in \eqref{eqn-mse-2} as well. Since the objective of \eqref{eqn-9} can be decoupled across each \ac{BS}, the centralized problem can be equivalently written as
+To begin with, let \me{\bar{\mc{B}}_b} denote the set \me{\mc{B} \backslash \{b\}} and \me{\bar{\mc{U}}_b} represents the set \me{\mc{U} \backslash \mc{U}_b}. Let us consider the \review{convex subproblem with the fixed receive beamformers \me{\mvec{w}{l,k,n}} presented} in \eqref{eqn-9} based on the Taylor series approximation for the nonconvex constraint. The following discussions are equally valid for the \ac{MSE} based solution outlined in \eqref{eqn-mse-2} as well. Since the objective of \eqref{eqn-9} can be decoupled across each \ac{BS}, the centralized problem can be equivalently written as
 {\allowdisplaybreaks
 \begin{IEEEeqnarray}{CCl} \label{eqn-decent-1}
-\underset{\substack{\gamma_{l,k,n},\mvec{M}{k,n},\mvec{W}{k,n}, \beta_{l,k,n}}}{\text{minimize}} &\quad & \sum_{b \in \mc{B}} \| \tilde{\mbf{v}}_b \|_q \IEEEyessubnumber \label{eqn-decent-1a} \\
+\underset{\substack{\gamma_{l,k,n},\mvec{m}{l,k,n}, \beta_{l,k,n}}}{\text{minimize}} &\quad & \sum_{b \in \mc{B}} \| \tilde{\mbf{v}}_b \|_q \IEEEyessubnumber \label{eqn-decent-1a} \\
 \text{subject to}&\quad& \eqref{eqn-9.1c} - \eqref{eqn-9.1e}, \IEEEyessubnumber
 \end{IEEEeqnarray}}
 where \me{\tilde{\mbf{v}}_b} denotes the vector of of weighted queue deviation corresponding to users \me{k \in \mc{U}_b}.
 
-Following similar approach as in \cite{pennanen2011decentralized,tolli2011decentralized}, the coupling constraint \eqref{eqn-9.1c} or \eqref{eqn-mse-1.3} can be expressed by grouping the interference contribution from each \ac{BS} in \me{\mathcal{B}} as
+Following the approaches presented in \cite{pennanen2011decentralized,tolli2011decentralized}, the coupling constraint \eqref{eqn-9.1c} or \eqref{eqn-mse-1.3} can be expressed by grouping the interference contribution from each \ac{BS} in \me{\mathcal{B}} as
 \iftoggle{single_column}{
 \begin{IEEEeqnarray}{rCl}\label{eqn-decent-3}
 \beta_{l,k,n} & \geq & \sum_{\substack{j = 1\\j \neq l}}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{j,k,n} |^2 \nonumber \\
 &\quad& + \sum_{i \in \mc{U}_{b_k} \backslash \{k\}} \sum_{j = 1}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{j,i,n} |^2 + \sum_{b \in \bar{\mc{B}}_{b_k}} \zeta_{l,k,n,b} \; + \; \enoise,
 \end{IEEEeqnarray}}{\allowdisplaybreaks
 \begin{multline}\label{eqn-decent-3}
-	N_0\|\mvec{w}{l,k,n}\|^2 + \sum_{\substack{j = 1,j \neq l}}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{j,k,n} |^2 + \sum_{b \in \bar{\mc{B}}_{b_k}} \zeta_{l,k,n,b}  \\
+	\enoise + \sum_{\substack{j = 1,j \neq l}}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{j,k,n} |^2 + \sum_{b \in \bar{\mc{B}}_{b_k}} \zeta_{l,k,n,b}  \\
 	+ \sum_{i \in \mc{U}_{b_k} \backslash \{k\}} \sum_{j = 1}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{j,i,n} |^2 \leq \beta_{l,k,n},
 \end{multline}}
-where \me{\zeta_{l,k,n,b}} is the total interference caused by \ac{BS} \me{b} to the \me{\ith{l}} stream of user \me{k \in \mc{U}_{b_k}} on the \me{\ith{n}} sub-channel, is upper bounded by
+where \me{\zeta_{l,k,n,b}} is the total interference caused by the transmission of \ac{BS} \me{b} to user \me{k \in \mc{U}_{b_k}} in the spatial stream \me{l} and sub-channel \me{n}. It is given by the following upper bound as
 \begin{equation}
 \zeta_{l,k,n,b} \geq \sum_{i \in \mc{U}_b} \sum_{j = 1}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2, \forall b \in \bar{\mc{B}}_{b_k}.
 \end{equation}
 
-The coupling variable \me{\beta_{l,k,n}} can be decoupled using the variable \me{\zeta_{l,k,n,b}}, which limits the total interference caused by the transmission from \ac{BS} \me{b} to the \me{\ith{l}} spatial stream of user \me{k} over the sub-channel \me{n}. In order the solve for the global optimal precoders, we need to find the coupling variables \me{\zeta_{l,k,n,b}} by either the primal or \acl{DD} method. In both approaches, the coupling constraint \eqref{eqn-9.1c} for the \ac{SCA} and \eqref{eqn-mse-1.3} for the \ac{MSE} relaxation schemes are decoupled to perform the distributed precoder design problem. 
+The decentralization is achieved by decomposing the original convex problem in \eqref{eqn-decent-1} by an iterative master-slave model using either primal or \acl{DD} method. The coupling variables are controlled by the master problem and the slave problems solve for the optimization variables associated with itself only. Now, to decouple the problem in \eqref{eqn-decent-1}, the coupling variable \me{\zeta_{l,k,n,b}} in \eqref{eqn-decent-3}, which bind all \acp{BS} in \me{\mc{B}}, is replaced by a \ac{BS} specific variable \me{\zeta_{l,k,n,b}^{\{b_k\}}}. Using the \ac{BS} specific variable \me{\zeta_{l,k,n,b}^{\{b_k\}}} in \eqref{eqn-decent-3}, the subproblem in \eqref{eqn-decent-1} decouples completely for each \ac{BS} to find the precoders only for the users associated with the \ac{BS} \me{b_k}. The slave subproblems with the \ac{BS} specific interference variables are controlled by a master subproblem, which determines the interference variable \me{\zeta_{l,k,n,b}^{\{b_k\}}} in accordance with the global objective.

@@ -6,9 +6,6 @@
 \newcommand{\myb}{{{\mbf{y}}}}
 \newcommand{\iterate}[2]{{#1}^{(#2)}}
 \newcommand{\iter}[3]{{#1}_{#2}^{(#3)}}
-
-\subsubsection{Centralized Problem}
-
 Let us express the \ac{JSFRA} problem in \eqref{eqn-6} and \eqref{eqn-mse-1} as
 \begin{IEEEeqnarray}{rCl} \label{con}
 \underset{\mx,\my,\mz}{\text{minimize}} &\quad& f(\mx,\my,\mz) \eqsub \label{con-obj} \\
@@ -59,7 +56,7 @@ Let us consider an \ac{AO} iteration \me{i} in which the optimal value for \eqn{
 \begin{equation*}
 f(\iter{\mx}{\ast}{i},\iter{\my}{0}{i},\iter{\mz}{0}{i}) \leq f(\iter{\mx}{\ast}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{\ast|x}{i}),
 \end{equation*}
-since the feasible set includes the earlier optimal points \eqn{\{\iter{\my}{\ast}{i-1},\iter{\mx}{\ast}{i}\}} as the operating point for \ac{AO} and \ac{SCA} iteration. Note that it is not possible to say \me{\iter{\mc{X}}{\ast}{i} \subseteq \iter{\mc{Y}}{0}{i}}, since the set is nonconvex on \me{\mx,\my}, but \eqn{\{\iter{\my}{\ast}{i-1},\iter{\mx}{\ast}{i},\iter{\mz}{\ast|y}{i}\} \in \{ \iter{\mc{X}}{\ast}{i} \cap \iter{\mc{Y}}{0}{i} \}}. Now by using induction, we can show that the global problem converges to a feasible point of the nonconvex problem \eqref{con} in a nonincreasing manner.
+since the feasible set includes the earlier optimal points \eqn{\{\iter{\my}{\ast}{i-1},\iter{\mx}{\ast}{i}\}} as the operating point for \ac{AO} and \ac{SCA} iteration. Note that it is not possible to say \me{\iter{\mc{X}}{\ast}{i} \subseteq \iter{\mc{Y}}{0}{i}}, since the set is nonconvex on \me{\mx,\my}, but \eqn{\{\iter{\my}{\ast}{i-1},\iter{\mx}{\ast}{i},\iter{\mz}{\ast|y}{i}\} \in \{ \iter{\mc{X}}{\ast}{i} \cap \iter{\mc{Y}}{0}{i} \}}. Now by using induction, we can show that the global problem converges to a feasible point of the nonconvex problem \eqref{con} in a nonincreasing manner\footnote{Note that the objective is monotonically decreasing even if the \ac{SCA} subproblem \eqref{con-m} is terminated after predetermined number iterations or for certain accuracy.}.
 
 To show the converged point of the iterative algorithm is in fact the stationary point of the nonconvex problem \eqref{con}, it must satisfy the \ac{KKT} conditions of the nonconvex problem. Since the converged point is the minimizer for the iterative algorithm such that 
 \begin{multline} \label{con-opt}

@@ -5,14 +5,14 @@ We now present an algorithm to solve problem \eqref{eqn-3} by using alternating 
 \underset{\substack{\gamma_{l,k,n},\mvec{m}{l,k,n},\\ \beta_{l,k,n},\mvec{w}{l,k,n}}}{\text{minimize}} & \quad & \|  \tilde{\mbf{v}}  \|_q \label{eqn-obj} \IEEEyessubnumber \\
 \text{subject to}& \quad &\gamma_{l,k,n} \leq \frac{ | \mvec{w}{l,k,n}^\herm \mvec{H}{l,k,n} \mvec{m}{l,k,n}  |^2}{\beta_{l,k,n}} \IEEEyessubnumber \label{eqn-6.2} \\
   & \quad & \beta_{l,k,n} \geq  \enoise + \hspace{-0.75em} \sum_{(j,i) \neq (l,k)} \hspace{-0.75em} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2 \IEEEyessubnumber \label{eqn-6.3} \\
-  & \quad & \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \text{tr} \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}}, \fall b. \IEEEyessubnumber \label{eqn-6.4}
+  & \quad & \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}}, \fall b. \IEEEyessubnumber \label{eqn-6.4}
 \end{IEEEeqnarray}
 }{\allowdisplaybreaks
 \begin{IEEEeqnarray}{CCl}\label{eqn-6}
 	\underset{\substack{\gamma_{l,k,n},\mvec{m}{l,k,n},\\\beta_{l,k,n},\mvec{w}{l,k,n}}}{\text{minimize}} &\quad& \|  \tilde{\mbf{v}}  \|_q \label{eqn-obj} \IEEEyessubnumber \vspace{-0.25cm}\\
 	\text{subject to} &\quad& \gamma_{l,k,n} \leq \frac{ | \mvec{w}{l,k,n}^\herm \mvec{H}{l,k,n} \mvec{m}{l,k,n}|^2}{\beta_{l,k,n}} \IEEEyessubnumber \eqspace \label{eqn-6.2} \\
 	&\quad& \beta_{l,k,n} \geq \enoise + \sum_{\mathclap{(j,i) \neq (l,k)}} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2 \IEEEyessubnumber \eqspace \label{eqn-6.3} \\
-	&\quad& \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \text{tr} \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}}, \fall b. \IEEEyessubnumber \eqspace \label{eqn-6.4}
+	&\quad& \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}}, \fall b. \IEEEyessubnumber \eqspace \label{eqn-6.4}
 \end{IEEEeqnarray}
 }
 In this formulation, we relaxed the \ac{SINR} expression \eqref{eq:SINR} by the inequalities in \eqref{eqn-6.2} and \eqref{eqn-6.3}. \review{Note that \eqref{eqn-6.2} is an under estimator for \ac{SINR} \me{\gamma_{l,k,n}}, and \eqref{eqn-6.3} provides an upper bound for the total interference seen by user \me{k \in \mathcal{U}_b}, denoted by variable \me{\beta_{l,k,n}}}. \review{The constraints are tight when the per \ac{BS} objective is non zero at the optimal point, as discussed in Appendix \ref{a-3}}. \review{Note that the problem in \eqref{eqn-6} is similar to the \ac{WSRM} formulation, which is known to be NP-hard even for the single antenna case \cite{np_hard}.} 
@@ -43,7 +43,7 @@ In summary, for the fixed linear receivers \review{\me{\mvec{w}{l,k,n}}}, the \a
 \begin{IEEEeqnarray}{CCl}\label{eqn-9}
 \underset{\substack{\mvec{m}{l,k,n},\\ \gamma_{l,k,n},\beta_{l,k,n}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}} \|_q \IEEEyessubnumber\label{eqn-9.1a} \vspace{-0.15cm} \\
 \text{subject to} & \quad & \beta_{l,k,n} \geq  \enoise + \hspace{-0.75em} \sum_{(j,i) \neq (l,k)} \hspace{-0.75em} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2 \IEEEyessubnumber \eqspace \label{eqn-9.1c} \\
-& \quad&\sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \text{tr} \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}}, \fall b, \IEEEyessubnumber \label{eqn-9.1d} \\
+& \quad&\sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}}, \fall b, \IEEEyessubnumber \label{eqn-9.1d} \\
 & \quad & \text{and } \eqref{eqn-8}. \IEEEyessubnumber \label{eqn-9.1e}
 \end{IEEEeqnarray}
 

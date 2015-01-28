@@ -3,12 +3,12 @@ To minimize the total number of backlogged packets, we consider minimizing the w
 v_k =  Q_k - t_k = Q_k - \sum_{n = 1}^N \sum_{l = 1}^{L} \log_2(1+\gamma_{l,k,n}),
 \label{eqn-4.2}
 \end{equation}
-where \me{\gamma_{l,k,n}} is given by \eqref{eq:SINR} and the optimization variables are the transmit precoders \me{\mvec{m}{l,k,n}} and the receive beamformers \me{\mvec{w}{l,k,n}}\footnote{It can be easily extended for user specific streams \me{L_{k,n}} instead of using the common \me{L} streams for all users}.
+where \me{\gamma_{l,k,n}} is given by \eqref{eq:SINR} and the optimization variables are the transmit precoders \me{\mvec{m}{l,k,n}} and the receive beamformers \me{\mvec{w}{l,k,n}}.
 
 Explicitly, the objective of the problem considered is given by \me{\sum_{k \in \mc{U}} \, a_k | v_k |^q}. With this objective function, the weighted queued packet minimization formulation is given by
 \begin{IEEEeqnarray}{rCl}\label{eqn-3}
 \underset{\substack{\mvec{m}{l,k,n},\mvec{w}{l,k,n}}}{\text{minimize}} &\quad& \|  \tilde{\mbf{v}}  \|_q\IEEEyessubnumber \\
-\text{subject to} & \quad&\sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \text{tr} \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}}, \fall b, \IEEEyessubnumber \eqspace \label{eqn-4.3}
+\text{subject to} & \quad&\sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}}, \fall b, \IEEEyessubnumber \eqspace \label{eqn-4.3}
 \end{IEEEeqnarray}
 where \me{\tilde{v}_k \triangleq a_k^{1/{q}}v_k} is the element of vector \me{\tilde{\mbf{v}}}, and \me{a_k} is the weighting factor which is incorporated to control user priority based on their respective \ac{QoS}. In \eqref{eqn-4.3}, \ac{BS} specific sum power constraint for all sub-channels is considered.
 
