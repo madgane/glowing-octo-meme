@@ -159,6 +159,12 @@ S.~P. Boyd and L.~Vandenberghe, \emph{{Convex optimization}}.\hskip 1em plus
 M.~Grant and S.~Boyd, ``{CVX}: Matlab software for disciplined convex
   programming, version 2.0 beta,'' \url{http://cvxr.com/cvx}, Sep. 2013.
 
+\bibitem{admm_robust}
+C.~Shen, T.-H. Chang, K.-Y. Wang, Z.~Qiu, and C.-Y. Chi, ``{Distributed Robust
+  Multicell Coordinated Beamforming With Imperfect CSI: An ADMM Approach},''
+  \emph{IEEE Transactions on Signal Processing}, vol.~60, no.~6, pp.
+  2988--3003, June 2012.
+
 \bibitem{komulainen2013effective}
 P.~Komulainen, A.~T{\"o}lli, and M.~Juntti, ``{Effective CSI Signaling and
   Decentralized Beam Coordination in TDD Multi-Cell MIMO Systems},'' \emph{IEEE

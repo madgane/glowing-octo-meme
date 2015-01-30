@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2015.1.22)  29 JAN 2015 14:15
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.8.13)  30 JAN 2015 21:07
 entering extended mode
 **ieee_journal.tex
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\ieee_journal.tex
+(Y:\Latex\glowing-octo-meme\Report\ieee_journal.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -13,7 +13,7 @@ german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
 ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
 an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
 ishmax, welsh, loaded.
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Styles\IEEEtran.cls
+(Y:\Latex\glowing-octo-meme\Styles\IEEEtran.cls
 
 LaTeX Warning: You have requested document class `./../Styles/IEEEtran',
                but the document class provides `IEEEtran'.
@@ -169,14 +169,14 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\acronym\acronym.sty
-Package: acronym 2014/09/29 v1.40 Support for acronyms (Tobias Oetiker)
+("C:\Program Files\MiKTeX 2.9\tex\latex\acronym\acronym.sty"
+Package: acronym 2012/10/29 v1.38 Support for acronyms (Tobias Oetiker)
 
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\bigfoot\suffix.sty
-Package: suffix 2006/07/15 1.5a Variant command support
+("C:\Program Files\MiKTeX 2.9\tex\latex\bigfoot\suffix.sty"
+Package: suffix 2006/07/15 1.5 Variant command support
 )
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\xstring\xstring.sty
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\generic\xstring\xstring.tex
+("C:\Program Files\MiKTeX 2.9\tex\latex\xstring\xstring.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\xstring\xstring.tex"
 \@xs@message=\write3
 \integerpart=\count103
 \decimalpart=\count104
@@ -185,7 +185,7 @@ Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 )
 \AC@clearlist=\toks20
 )
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\etoolbox\etoolbox.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.sty"
 Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\misc\etex.sty"
@@ -194,11 +194,11 @@ Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
 )
 \etb@tempcnta=\count106
 )
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithm2e\algorithm2e.s
-ty
+("C:\Program Files\MiKTeX 2.9\tex\latex\algorithm2e\algorithm2e.sty"
 Package: algorithm2e 2013/01/06 v5.00 algorithms environments
 \c@AlgoLine=\count107
- ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\xspace.sty"
@@ -271,7 +271,7 @@ File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
 \Gin@req@height=\dimen132
 \Gin@req@width=\dimen133
 )
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\xcolor\xcolor.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
 Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
@@ -291,10 +291,10 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\dvipsnam.def"
 File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
 ))
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\subfig\subfig.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\subfig\subfig.sty"
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
 Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 57.
 \captionmargin=\dimen134
@@ -321,14 +321,14 @@ Package caption Info: Unknown document class (or package),
 \sf@top=\skip66
 \sf@bottom=\skip67
 )
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\subeqnarray\subeqnarray.s
-ty
+("C:\Program Files\MiKTeX 2.9\tex\latex\subeqnarray\subeqnarray.sty"
 Package: subeqnarray 2004/04/15 v2.1c subeqnarray package
 \c@subequation=\count118
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
 \bigstrutjot=\dimen142
 )
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\cite\cite.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\cite\cite.sty"
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 373.
 Package: cite 2010/09/10  v 5.3
@@ -341,7 +341,7 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \extratabsurround=\skip68
 \backup@length=\skip69
 )
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\setspace\setspace.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\setspace\setspace.sty"
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\fixltx2e.sty"
@@ -350,7 +350,7 @@ LaTeX Info: Redefining \em on input line 420.
 LaTeX Info: The control sequence `\[' is already robust on input line 471.
 LaTeX Info: The control sequence `\]' is already robust on input line 472.
 )
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\lineno\lineno.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\lineno\lineno.sty"
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
 \linenopenalty=\count119
 \output=\toks23
@@ -374,8 +374,8 @@ Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks25
 \verbatim@in@stream=\read1
 )
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\mathtools\mathtools.sty
-Package: mathtools 2014/07/16 v1.15 mathematical typesetting tools
+("C:\Program Files\MiKTeX 2.9\tex\latex\mh\mathtools.sty"
+Package: mathtools 2014/05/21 v1.14 mathematical typesetting tools
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
 Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
@@ -390,7 +390,7 @@ LaTeX Info: Redefining \addtolength on input line 77.
 \calc@Ccount=\count128
 \calc@Cskip=\skip72
 )
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\mathtools\mhsetup.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\mh\mhsetup.sty"
 Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
 )
 LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
@@ -407,9 +407,9 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_above_shortintertext_sep=\dimen157
 \l_MT_below_shortintertext_sep=\dimen158
 )
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\shortcuts.tex)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\acronyms.tex)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\ieee_journal.aux)
+(Y:\Latex\glowing-octo-meme\Report\shortcuts.tex)
+(Y:\Latex\glowing-octo-meme\Report\acronyms.tex)
+(Y:\Latex\glowing-octo-meme\Report\ieee_journal.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
@@ -438,7 +438,7 @@ Underfull \hbox (badness 5008) in paragraph at lines 37--37
 venkatraman, antti.tolli, le.nam.tran,
  []
 
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\abstract.tex
+(Y:\Latex\glowing-octo-meme\Report\abstract.tex
 Package acronym Info: Label `acro:MIMO' newly defined as it shall be overridden
 
 although it is yet undefined on input line 1.
@@ -461,11 +461,11 @@ Package acronym Info: Label `acro:MSE' newly defined as it shall be overridden
 although it is yet undefined on input line 1.
 
 Underfull \hbox (badness 2772) in paragraph at lines 41--2
-\OT1/ptm/b/n/9 sce-nario us-ing [][]or-thog-o-nal fre-quency di-vi-sion mul-ti-
-plex-ing
+\OT1/ptm/b/n/9 sce-nario us-ing [][] or-thog-o-nal fre-quency di-vi-sion mul-ti
+-plex-ing
  []
 
-) (C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\introduction.tex
+) (Y:\Latex\glowing-octo-meme\Report\introduction.tex
 Package acronym Info: Label `acro:BS' overridden on input line 3.
 Package acronym Info: Label `acro:MU' newly defined as it shall be overridden
 although it is yet undefined on input line 3.
@@ -483,13 +483,13 @@ although it is yet undefined on input line 11.
 Package acronym Info: Label `acro:ADMM' newly defined as it shall be overridden
 
 although it is yet undefined on input line 13.
-
-[1
+ [1
 
 
 ]
 LaTeX Font Info:    Try loading font information for U+msa on input line 15.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 15.
@@ -501,26 +501,21 @@ Package acronym Info: Label `acro:JSFRA' overridden on input line 20.
 Package acronym Info: Label `acro:KKT' newly defined as it shall be overridden
 although it is yet undefined on input line 20.
 )
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\system_model.tex
+(Y:\Latex\glowing-octo-meme\Report\system_model.tex
 Package acronym Info: Label `acro:TDD' newly defined as it shall be overridden
 although it is yet undefined on input line 18.
-
-[2]
+ [2]
 Package acronym Info: Label `acro:SINR' newly defined as it shall be overridden
 
 although it is yet undefined on input line 29.
 )
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\problem_formulation_
-intro.tex
+(Y:\Latex\glowing-octo-meme\Report\problem_formulation_intro.tex
 Overfull \hbox (0.54088pt too wide) in alignment at lines 9--12
  [] [] [] [][]
  []
 
-)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\queue_minimizing_int
-ro.tex)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\joint_wsrm_formulati
-on.tex
+) (Y:\Latex\glowing-octo-meme\Report\queue_minimizing_intro.tex)
+(Y:\Latex\glowing-octo-meme\Report\joint_wsrm_formulation.tex
 Package acronym Info: Label `acro:Q-WSRM' newly defined as it shall be overridd
 en
 although it is yet undefined on input line 4.
@@ -532,11 +527,8 @@ Overfull \hbox (3.87427pt too wide) in alignment at lines 43--46
 Package acronym Info: Label `acro:Q-WSRME' newly defined as it shall be overrid
 den
 although it is yet undefined on input line 48.
-)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\problem_formulation.
-tex)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\wsrm_formulation.tex
-[4]
+) (Y:\Latex\glowing-octo-meme\Report\problem_formulation.tex)
+(Y:\Latex\glowing-octo-meme\Report\wsrm_formulation.tex [4]
 Overfull \hbox (4.84355pt too wide) in alignment at lines 17--17
  [] [] [] [][]
  []
@@ -564,8 +556,7 @@ Overfull \hbox (12.18701pt too wide) in alignment at lines 57--60
 Overfull \vbox (1.05476pt too high) has occurred while \output is active []
 
 
-[5])
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\mse_formulation.tex
+[5]) (Y:\Latex\glowing-octo-meme\Report\mse_formulation.tex
 Package acronym Info: Label `acro:WMMSE' newly defined as it shall be overridde
 n
 although it is yet undefined on input line 18.
@@ -574,35 +565,31 @@ Overfull \hbox (5.3305pt too wide) in alignment at lines 35--35
  [] [] [][]
  []
 
-)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\sub_channel_wsrm.tex
-[6]
+) (Y:\Latex\glowing-octo-meme\Report\sub_channel_wsrm.tex [6]
 Package acronym Info: Label `acro:SRA' newly defined as it shall be overridden
 although it is yet undefined on input line 4.
 )
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\decomposition_soluti
-ons.tex)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\primal_approach.tex)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\dual_approach.tex
-[7]
+(Y:\Latex\glowing-octo-meme\Report\decomposition_solutions.tex)
+(Y:\Latex\glowing-octo-meme\Report\primal_approach.tex)
+(Y:\Latex\glowing-octo-meme\Report\dual_approach.tex [7])
+(Y:\Latex\glowing-octo-meme\Report\convergence_distributed.tex)
+(Y:\Latex\glowing-octo-meme\Report\kkt_mse_approach.tex [8]
+Underfull \vbox (badness 1092) has occurred while \output is active []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\convergence_distribu
-ted.tex)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\kkt_mse_approach.tex
-[8]) [9]
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\simulation_intro.tex
-)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\simulation_results.t
-ex
+ [9])
+(Y:\Latex\glowing-octo-meme\Report\simulation_intro.tex)
+(Y:\Latex\glowing-octo-meme\Report\simulation_results.tex
 Package acronym Info: Label `acro:SISO' newly defined as it shall be overridden
 
 although it is yet undefined on input line 1.
 Package acronym Info: Label `acro:SNR' newly defined as it shall be overridden
 although it is yet undefined on input line 1.
 File: ./../Figures/Linux/fig-1-4.eps Graphic file (type eps)
- <./../Figures/Linux/fig-1-4.eps>
+
+<./../Figures/Linux/fig-1-4.eps>
 File: ./../Figures/Linux/fig-2-5.eps Graphic file (type eps)
  <./../Figures/Linux/fig-2-5.eps>
 Overfull \hbox (14.00024pt too wide) in paragraph at lines 26--30
@@ -614,29 +601,25 @@ Overfull \hbox (4.51932pt too wide) in paragraph at lines 39--54
  [][][] 
  []
 
-)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\simulation_distribut
-ed.tex [10]
-Underfull \vbox (badness 1292) has occurred while \output is active []
-
+) [10] (Y:\Latex\glowing-octo-meme\Report\simulation_distributed.tex
 File: ./../Figures/Linux/fig-3-2.eps Graphic file (type eps)
 
 <./../Figures/Linux/fig-3-2.eps>
 File: ./../Figures/Linux/fig-9-3.eps Graphic file (type eps)
  <./../Figures/Linux/fig-9-3.eps>
-Underfull \vbox (badness 2980) has occurred while \output is active []
+Underfull \vbox (badness 7740) has occurred while \output is active []
 
  [11])
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\time_correlated.tex
+(Y:\Latex\glowing-octo-meme\Report\time_correlated.tex
 File: ./../Figures/Review/reviewer.eps Graphic file (type eps)
 
-<./../Figures/Review/reviewer.eps>)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\conclusions.tex)
-[12]
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\appendix_tightness.t
-ex)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\convergence_centrali
-zed.tex [13]
+<./../Figures/Review/reviewer.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+)
+(Y:\Latex\glowing-octo-meme\Report\conclusions.tex) [12]
+(Y:\Latex\glowing-octo-meme\Report\appendix_tightness.tex)
+(Y:\Latex\glowing-octo-meme\Report\convergence_centralized.tex [13]
 Overfull \hbox (11.64783pt too wide) detected at line 42
  []$[]  \OML/cmm/m/it/10 h\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 z[]\OT1/cmr/m/n/10 
 ) \OMS/cmsy/m/n/10   \OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 x[]\
@@ -652,32 +635,29 @@ Underfull \hbox (badness 2486) in paragraph at lines 46--48
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 65--67
 []\OT1/ptm/m/n/10 the so-lu-tion is in-side the fea-si-ble set $\OMS/cmsy/m/n/1
 0 F$ \OT1/ptm/m/n/10 and
  []
 
-
-Overfull \vbox (1.11647pt too high) has occurred while \output is active []
-
-
-[14])
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\kkt_appendix.tex)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\ieee_journal.bbl
+[14]) (Y:\Latex\glowing-octo-meme\Report\kkt_appendix.tex)
+(Y:\Latex\glowing-octo-meme\Report\ieee_journal.bbl
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 90.
-
-[15]) [16
+ [15]) [16
 
 ]
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\ieee_journal.aux) ) 
+(Y:\Latex\glowing-octo-meme\Report\ieee_journal.aux) ) 
 Here is how much of TeX's memory you used:
- 7169 strings out of 493922
- 107170 string characters out of 3147302
- 209604 words of memory out of 3000000
- 10290 multiletter control sequences out of 15000+200000
+ 7170 strings out of 493922
+ 104997 string characters out of 3147296
+ 209607 words of memory out of 3000000
+ 10291 multiletter control sequences out of 15000+200000
  34686 words of font info for 88 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  36i,23n,47p,1482b,424s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on ieee_journal.dvi (16 pages, 172408 bytes).
+Output written on ieee_journal.dvi (16 pages, 168864 bytes).

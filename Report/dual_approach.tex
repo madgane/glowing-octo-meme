@@ -1,4 +1,6 @@
 
+We consider the \ac{ADMM} approach to decentralize the convex problem \eqref{eqn-decent-1} over \acl{DD} due to its better convergence properties \cite{boyd2011distributed}. Similar work has been carried to decouple the minimum power precoder design in \cite{admm_robust}
+
 The \ac{ADMM} decomposition method is based on the \acl{DD}, however it shows better convergence properties. In contrast to the \acl{PD} problem, the \ac{ADMM} method relaxes the interference constraints by including it in the objective function of each subproblem with a penalty pricing \cite{palomar2006tutorial,boyd2011distributed}. In order to decouple the problem \eqref{eqn-decent-1}, the coupling variables \me{\zeta_{l,k,n,b}} in \eqref{eqn-decent-3} are replaced by the respective local copies \me{\mbfa{\zeta}^{\set{b}}, \forall b \in \mc{B}}, which are then solved for an optimal solution. Now the sub problems are coupled by the global consensus vector \me{\mbfa{\zeta}} maintaining the complete stacked  interference profile of all users in the system as
 \begin{IEEEeqnarray}{ll}
 \mbfa{\zeta} &= \left [ \zeta_{1,\bar{\mc{U}}_{1}(1),1,1}, \dotsc, \zeta_{L,\bar{\mc{U}}_{1}(1),1,1}, \dotsc, \zeta_{L,\bar{\mc{U}}_{1}(|\bar{\mc{U}}_{1}|),1,1}, \right. \nonumber \\
