@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.8.13)  30 JAN 2015 21:07
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.8.13)  2 FEB 2015 13:31
 entering extended mode
 **ieee_journal.tex
 (Y:\Latex\glowing-octo-meme\Report\ieee_journal.tex
@@ -570,16 +570,29 @@ Package acronym Info: Label `acro:SRA' newly defined as it shall be overridden
 although it is yet undefined on input line 4.
 )
 (Y:\Latex\glowing-octo-meme\Report\decomposition_solutions.tex)
-(Y:\Latex\glowing-octo-meme\Report\primal_approach.tex)
-(Y:\Latex\glowing-octo-meme\Report\dual_approach.tex [7])
-(Y:\Latex\glowing-octo-meme\Report\convergence_distributed.tex)
+(Y:\Latex\glowing-octo-meme\Report\primal_approach.tex [7])
+(Y:\Latex\glowing-octo-meme\Report\dual_approach.tex
+Package acronym Info: Label `acro:DD' newly defined as it shall be overridden
+although it is yet undefined on input line 2.
+
+Underfull \hbox (badness 1360) in paragraph at lines 2--3
+ \OT1/ptm/m/it/10 2) [][] ap-proach: [][] []\OT1/ptm/m/n/10 In this sec-tion, w
+e dis-cuss the
+ []
+
+
+Overfull \hbox (8.29994pt too wide) in alignment at lines 6--12
+ [] [] [][]
+ []
+
+) (Y:\Latex\glowing-octo-meme\Report\convergence_distributed.tex)
 (Y:\Latex\glowing-octo-meme\Report\kkt_mse_approach.tex [8]
-Underfull \vbox (badness 1092) has occurred while \output is active []
+Underfull \vbox (badness 2165) has occurred while \output is active []
 
+)
+Underfull \vbox (badness 1178) has occurred while \output is active []
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [9])
+ [9]
 (Y:\Latex\glowing-octo-meme\Report\simulation_intro.tex)
 (Y:\Latex\glowing-octo-meme\Report\simulation_results.tex
 Package acronym Info: Label `acro:SISO' newly defined as it shall be overridden
@@ -601,7 +614,7 @@ Overfull \hbox (4.51932pt too wide) in paragraph at lines 39--54
  [][][] 
  []
 
-) [10] (Y:\Latex\glowing-octo-meme\Report\simulation_distributed.tex
+) (Y:\Latex\glowing-octo-meme\Report\simulation_distributed.tex [10]
 File: ./../Figures/Linux/fig-3-2.eps Graphic file (type eps)
 
 <./../Figures/Linux/fig-3-2.eps>
@@ -613,12 +626,12 @@ Underfull \vbox (badness 7740) has occurred while \output is active []
 (Y:\Latex\glowing-octo-meme\Report\time_correlated.tex
 File: ./../Figures/Review/reviewer.eps Graphic file (type eps)
 
-<./../Figures/Review/reviewer.eps>
+<./../Figures/Review/reviewer.eps>)
+(Y:\Latex\glowing-octo-meme\Report\conclusions.tex)
+(Y:\Latex\glowing-octo-meme\Report\appendix_tightness.tex [12]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 )
-(Y:\Latex\glowing-octo-meme\Report\conclusions.tex) [12]
-(Y:\Latex\glowing-octo-meme\Report\appendix_tightness.tex)
 (Y:\Latex\glowing-octo-meme\Report\convergence_centralized.tex [13]
 Overfull \hbox (11.64783pt too wide) detected at line 42
  []$[]  \OML/cmm/m/it/10 h\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 z[]\OT1/cmr/m/n/10 
@@ -635,9 +648,6 @@ Underfull \hbox (badness 2486) in paragraph at lines 46--48
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 65--67
 []\OT1/ptm/m/n/10 the so-lu-tion is in-side the fea-si-ble set $\OMS/cmsy/m/n/1
 0 F$ \OT1/ptm/m/n/10 and
@@ -647,17 +657,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 65--67
 (Y:\Latex\glowing-octo-meme\Report\ieee_journal.bbl
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 90.
- [15]) [16
-
-]
+) [15]
 (Y:\Latex\glowing-octo-meme\Report\ieee_journal.aux) ) 
 Here is how much of TeX's memory you used:
- 7170 strings out of 493922
- 104997 string characters out of 3147296
- 209607 words of memory out of 3000000
- 10291 multiletter control sequences out of 15000+200000
+ 7172 strings out of 493922
+ 104994 string characters out of 3147296
+ 208618 words of memory out of 3000000
+ 10293 multiletter control sequences out of 15000+200000
  34686 words of font info for 88 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  36i,23n,47p,1482b,424s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on ieee_journal.dvi (16 pages, 168864 bytes).
+Output written on ieee_journal.dvi (15 pages, 167012 bytes).

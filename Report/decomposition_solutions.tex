@@ -6,9 +6,9 @@ Let us consider the \review{convex subproblem with the fixed receive beamformers
 \underset{\substack{\gamma_{l,k,n},\mvec{m}{l,k,n}, \beta_{l,k,n}}}{\text{minimize}} &\quad & \sum_{b \in \mc{B}} \| \tilde{\mbf{v}}_b \|_q \IEEEyessubnumber \label{eqn-decent-1a} \\
 \text{subject to}&\quad& \eqref{eqn-9.1c} - \eqref{eqn-9.1e}, \IEEEyessubnumber
 \end{IEEEeqnarray}}
-where \me{\tilde{\mbf{v}}_b} denotes the vector of of weighted queue deviation corresponding to users \me{k \in \mc{U}_b}.
+where \me{\tilde{\mbf{v}}_b} denotes the vector of weighted queue deviation corresponding to users \me{k \in \mc{U}_b}.
 
-To begin with, let \me{\bar{\mc{B}}_b} denote the set \me{\mc{B} \backslash \{b\}} and \me{\bar{\mc{U}}_b} represents the set \me{\mc{U} \backslash \mc{U}_b}. Following the approaches presented in \cite{pennanen2011decentralized,tolli2011decentralized}, the coupling constraint \eqref{eqn-9.1c} or \eqref{eqn-mse-1.3} can be expressed by grouping the interference contribution from each \ac{BS} in \me{\mathcal{B}} as
+To begin with, let \me{\bar{\mc{B}}_b} denote the set \me{\mc{B} \backslash \{b\}} and \me{\bar{\mc{U}}_b} represents the set \me{\mc{U} \backslash \mc{U}_b}. Following similar approaches presented in \cite{pennanen2011decentralized,tolli2011decentralized}, the coupling constraint \eqref{eqn-9.1c} or \eqref{eqn-mse-1.3} can be expressed by grouping the interference contribution from each \ac{BS} in \me{\mathcal{B}} as
 \iftoggle{single_column}{
 \begin{IEEEeqnarray}{rCl}\label{eqn-decent-3}
 \beta_{l,k,n} & \geq & \sum_{\substack{j = 1\\j \neq l}}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{j,k,n} |^2 \nonumber \\
@@ -19,12 +19,25 @@ To begin with, let \me{\bar{\mc{B}}_b} denote the set \me{\mc{B} \backslash \{b\
 	+ \sum_{i \in \mc{U}_{b_k} \backslash \{k\}} \sum_{j = 1}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{j,i,n} |^2 \leq \beta_{l,k,n},
 \end{multline}}
 where \me{\zeta_{l,k,n,b}} is the total interference caused by the transmission of \ac{BS} \me{b} to user \me{k \in \mc{U}_{b_k}} in the spatial stream \me{l} and sub-channel \me{n}. It is given by the following upper bound as
-\begin{equation}
+\begin{equation} \label{inter_exp}
 \zeta_{l,k,n,b} \geq \sum_{i \in \mc{U}_b} \sum_{j = 1}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2, \forall b \in \bar{\mc{B}}_{b_k}.
 \end{equation}
 
-The decentralization is achieved by decomposing the original convex problem in \eqref{eqn-decent-1} by a parallel iterative subproblems using either primal or \acl{DD} method. The coupling variables are updated in each iteration by exchanging limited information among the subproblems. Now, to decouple the problem in \eqref{eqn-decent-1}, the coupling variable \me{\zeta_{l,k,n,b}} in \eqref{eqn-decent-3}, which bind all \acp{BS} in \me{\mc{B}}, is replaced by a \ac{BS} specific variable \me{\zeta_{l,k,n,b}^{\{b_k\}}}. Using the \ac{BS} specific variable \me{\zeta_{l,k,n,b}^{\{b_k\}}} in \eqref{eqn-decent-3}, the subproblem in \eqref{eqn-decent-1} decouples completely for each \ac{BS} to find the precoders for the associated users by exchanging limited information to update \me{\zeta_{l,k,n,b}^{\{b_k\}}} in each iteration for the \ac{BS} \me{b_k}.
+The decentralization is achieved by decomposing the original convex problem in \eqref{eqn-decent-1} by a parallel iterative subproblems coordinated by either primal or \acl{DD} update. The coupling variables are updated in each iteration by exchanging limited information among the subproblems. Before proceeding further, let \me{\bar{\mbfa{\zeta}}_b} be the vector formed by stacking interference terms \eqref{inter_exp} from the neighboring \acp{BS} to the users of \ac{BS} \me{b} and \me{\hat{\mbfa{\zeta}}_{b}} be the stacked interference terms caused by \ac{BS} \me{b} to all users in the neighboring \acp{BS} \me{\bar{\mc{B}}_b}, represented as
+\begin{IEEEeqnarray}{rCl}
+	\bar{\mbfa{\zeta}}_{b} &=& \left [ {\zeta}_{l,k,n,\bar{\mc{B}}_b(1)}, \dotsc, {\zeta}_{l,k,n,\bar{\mc{B}}_b(|\bar{\mc{B}}_b|)} \right]^\tran, \forall k \in \mc{U}_{b}, \eqsub \\
+	\hat{\mbfa{\zeta}}_{b} &=& \left [ {\zeta}_{l,\bar{\mc{U}}_b(1),n,b}, {\zeta}_{l,\bar{\mc{U}}_b(2),n,b}, \dotsc, {\zeta}_{l,\bar{\mc{U}}_b(|\bar{\mc{U}}_b|),n,b} \right]^\tran. \eqsub
+\end{IEEEeqnarray}
+Let us define the vector \me{\mbfa{\zeta}_b}, formed by stacking the interference terms corresponding to the \ac{BS} \me{b} as
+\begin{equation}
+	\mbfa{\zeta}_{b} = \left [\hat{\mbfa{\zeta}}_{b}^\tran, \bar{\mbfa{\zeta}}_{b}^\tran \right ]^\tran.
+	\label{if_vector}
+\end{equation}
+Since the decentralization solution is an iterative procedure, we represent the \me{\ith{i}} iteration index as \me{x^{(i)}}. Let \me{\mbfa{\zeta}_{b}(b_k)} denote the interference terms corresponding to the \ac{BS} \me{b_k} in \ac{BS} \me{b} as
+\begin{equation}
+	\mbfa{\zeta}_{b}(b_k) = \left [ {\zeta}_{l,\mc{U}_b(1),n,b_k},\dotsc, {\zeta}_{l,\mc{U}_b(|\mc{U}_b|),n,b_k} \right].
+\end{equation}
 
-
+Now, to decouple the problem in \eqref{eqn-decent-1}, the \ac{BS} specific vector \me{\mbfa{\zeta}_b} in \eqref{if_vector}, which include all interference terms relevant for the transmission of \ac{BS} \me{b}, can either be fixed or treated as a variable in each iteration in accordance to the decomposition method. Since the \ac{BS} specific precoders are solved independently, we assume local channel information and queues are available at each \ac{BS} \me{b_k} together with the cross channel knowledge \me{\mvec{H}{b_k,k,n}, \forall k\in \bar{\mc{U}}_{b_k}} through uplink sounding and the receive beamformers \me{\mvec{w}{l,k,n}}. 
 
 %The subproblems with the \ac{BS} specific interference variables are controlled by a master subproblem, which determines the interference variable \me{\zeta_{l,k,n,b}^{\{b_k\}}} in accordance with the global objective.
