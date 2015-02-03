@@ -170,6 +170,11 @@ P.~Komulainen, A.~T{\"o}lli, and M.~Juntti, ``{Effective CSI Signaling and
   Decentralized Beam Coordination in TDD Multi-Cell MIMO Systems},'' \emph{IEEE
   Transactions on Signal Processing}, vol.~61, no.~9, pp. 2204--2218, 2013.
 
+\bibitem{bertsekas1989parallel}
+D.~P. Bertsekas and J.~N. Tsitsiklis, \emph{{Parallel and distributed
+  computation: numerical methods}}.\hskip 1em plus 0.5em minus 0.4em\relax
+  Prentice hall Englewood Cliffs, NJ, 1989, vol.~23.
+
 \bibitem{lipp2014variations}
 T.~Lipp and S.~Boyd, ``{Variations and extensions of the convex-concave
   procedure},'' 2014.
@@ -185,5 +190,10 @@ G.~Scutari, F.~Facchinei, L.~Lampariello, and P.~Song, ``{Distributed Methods
   for Constrained Nonconvex Multi-Agent Optimization -- Part I: Theory}.''
   [Online]. Available: \url{http://arxiv.org/abs/1410.4754v1}
 \BIBentrySTDinterwordspacing
+
+\bibitem{bezdek2002some}
+J.~C. Bezdek and R.~J. Hathaway, ``{Some notes on alternating optimization},''
+  in \emph{Advances in Soft Computing—AFSS}.\hskip 1em plus 0.5em minus
+  0.4em\relax Springer, 2002, pp. 288--300.
 
 \end{thebibliography}

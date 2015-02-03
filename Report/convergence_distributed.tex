@@ -1,1 +1,9 @@
-The convergence of the \ac{ADMM} method follows the same argument as the centralized algorithm if each distributed algorithm is allowed to converge to a stationary value for the fixed \ac{SCA} point. Since the subproblem solved at each \ac{BS} is convex, the \ac{ADMM} method converges to a stationary point \cite{boyd2011distributed} for the fixed \ac{SCA} value. The receive beamformers are updated along with the \ac{SCA} update of \me{\tilde{\mbf{u}}_{l,k,n}}. Combining the receiver update with the \ac{SCA} update improves the convergence speed due to the fact that the \ac{MMSE} receivers are optimal for the fixed transmit beamformers, providing monotonic increase in the objective function.
+In order to prove the convergence of the distributed algorithm, we need to prove the convergence of the decentralization approaches presented in Section \ref{sec-4}. Since the distributed algorithm outlined in Algorithm \ref{algo-3} is similar to the centralized problem, we only need to show that the distributed algorithms for the subproblem \eqref{eqn-decent-1} achieves the same solution as that of the centralized approach. 
+
+Since the subproblem defined by \eqref{eqn-decent-1} is convex, the primal decomposition approach will converge to the centralized solution if the step size diminishes as a function of the iteration index. The convergence of \ac{ADMM} scheme follows directly from the Proposition 4.2 in \cite{bertsekas1989parallel}. The overall convergence of the \ac{JSFRA} problem in a distributed approach is similar to that of the centralized convergence discussion in Appendix \ref{sec-3.5}.
+
+Note that even if the distributed algorithms in Section \ref{sec-4} are not iterated until convergence, the objective is still monotonically decreasing following the arguments from Appendix \ref{sec-3.5}. In this case, the final solution may not reach the stationary point similar to that of the centralized solution. In the current approach, \ac{SCA} update is performed after the convergence of the distributed algorithm. It is required since the \ac{SCA} subproblems are convex and the \acl{PD} and \ac{ADMM} will converge to the centralized solution.
+
+
+
+

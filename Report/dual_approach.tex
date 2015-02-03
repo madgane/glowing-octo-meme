@@ -1,5 +1,5 @@
 
-In this section, we discuss the \ac{ADMM} approach to decouple the precoder design across multiple \acp{BS} to solve the centralized problem \eqref{eqn-decent-1}. The \ac{ADMM} is preferred over the \ac{DD} method proposed in \cite{tolli2011decentralized} for its robustness and better convergence behavior \cite{boyd2011distributed}. In contrast to the \acl{PD}, the \ac{ADMM} method relaxes the interference constraints by including it in the objective function of each subproblem with a penalty pricing \cite{palomar2006tutorial,boyd2011distributed}. Similar decomposition for the precoder design in the minimum power context is considered in \cite{admm_robust}.
+In this section, we discuss the \ac{ADMM} approach to decouple the precoder design across multiple \acp{BS} to solve the convex problem in \eqref{eqn-decent-1}. The \ac{ADMM} is preferred over the \ac{DD} method proposed in \cite{tolli2011decentralized} for its robustness and better convergence behavior \cite{boyd2011distributed}. In contrast to the \acl{PD}, the \ac{ADMM} method relaxes the interference constraints by including it in the objective function of each subproblem with a penalty pricing \cite{palomar2006tutorial,boyd2011distributed}. Similar decomposition for the precoder design in the minimum power context is considered in \cite{admm_robust}.
 
 Using the definitions presented in the beginning of this section, we can write the \ac{BS} \me{b} specific subproblem at the \me{\ith{i}} iteration as
 {\allowdisplaybreaks
@@ -7,7 +7,7 @@ Using the definitions presented in the beginning of this section, we can write t
 &\underset{\substack{\gamma_{l,k,n}, \mvec{m}{l,k,n} \\ \beta_{l,k,n}, \mbfa{\zeta}_b}}{\text{minimize}} \: \; \| \tilde{\mbf{v}}_{b} \|_q + \mbfa{\nu}^{(i)\,\tran}_b  \left ( \mbfa{\zeta}_b - \mbfa{\zeta}^{(i)}_b \right ) +  \frac{\rho}{2} \left \| \mbfa{\zeta}_b - \mbfa{\zeta}^{(i)}_b \right \|^2 \eqsub \eqspace \\
 &\text{subject to} \quad \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}} \eqsub \label{power_update} \\
 &\sum_{\bar{b} \in \bar{\mc{B}}_b} \zeta_{l,k,n,\bar{b}} + \sum_{\mathclap{\{\bar{l},\bar{k}\}\neq\{l,k\}}} |\mvec{w}{l,k,n}^\herm \mvec{H}{b,k,n} \mvec{m}{\bar{l},\bar{k},n} |^2 + \enoise \leq \beta_{l,k,n}, \eqspace \eqsub \\
-&\sum_{k \in \mc{U}_b} \sum_{l=1}^L |\mvec{w}{\bar{l},\bar{k},n}^\herm \mvec{H}{b,\bar{k},n} \mvec{m}{l,k,n} |^2 \leq \zeta_{\bar{l},\bar{k},n,b}, \forall \bar{k} \in \bar{\mc{U}}_b, \eqsub \\
+&\sum_{k \in \mc{U}_b} \sum_{l=1}^L |\mvec{w}{\bar{l},\bar{k},n}^\herm \mvec{H}{b,\bar{k},n} \mvec{m}{l,k,n} |^2 \leq \zeta_{\bar{l},\bar{k},n,b}, \forall \bar{k} \in \bar{\mc{U}}_b,  \forall n \eqsub \\
 & \text{and } \eqref{eqn-8}, \eqsub
 \end{IEEEeqnarray}}
 where \me{\mbfa{\zeta}^{(i)}_b} denotes the interference vector updated from the earlier iteration and \me{\mbfa{\nu}^{(i)}_b} represents the dual vector corresponding to the equality assumption at the \me{\ith{i}} iteration as
@@ -20,12 +20,12 @@ Upon solving \eqref{eqn-dual-3} for \me{\mbfa{\zeta}_b \forall b} in the \me{\it
 \mbfa{\zeta}_{b_k}(b)^{(i+1)} = \mbfa{\zeta}_{b}(b_k)^{(i+1)} = \frac{\mbfa{\zeta}_{b}(b_k) + \mbfa{\zeta}_{b_k}(b)}{2}.
 \label{if-sg-update}
 \end{equation}
-The dual variable vector for the next iteration is updated using the subgradient update with the step size parameter \me{\rho} as
+The dual vector for the next iteration is updated by using subgradient to maximize the dual objective as
 \begin{equation}
-\mbfa{\nu}_b^{(i+1)} = \mbfa{\nu}_b^{(i)} - \rho \left (\mbfa{\zeta}_b - \mbfa{\zeta}_b^{(i+1)} \right ),
+\mbfa{\nu}_b^{(i+1)} = \mbfa{\nu}_b^{(i)} + \rho \left (\mbfa{\zeta}_b - \mbfa{\zeta}_b^{(i+1)} \right ),
 \label{dual-sg-update}
 \end{equation}
-where the step size can be chosen as discussed in \cite{boyd2011distributed}. The above iteration is performed until convergence or for certain accuracy in the variation of the objective value between two consecutive updates. The distributed precoder design using \ac{ADMM} approach is shown in Algorithm \ref{algo-3}.
+where the step size parameter \me{\rho} is chosen in accordance with \cite{boyd2011distributed}. The above iteration is performed until convergence or for certain accuracy in the variation of the objective value between two consecutive updates. The distributed precoder design using \ac{ADMM} approach is shown in Algorithm \ref{algo-3}.
 {\allowdisplaybreaks 
 \begin{algorithm}
 	\SetAlgoLined
