@@ -1,8 +1,19 @@
-In order to prove the convergence of the distributed algorithm, we need to prove the convergence of the decentralization approaches presented in Section \ref{sec-4}. Since the distributed algorithm outlined in Algorithm \ref{algo-3} is similar to the centralized problem, we only need to show that the distributed algorithms for the subproblem \eqref{eqn-decent-1} achieves the same solution as that of the centralized approach. 
+The convergence of the distributed algorithm outlined in Algorithm \ref{algo-3} follows the same discussion in Appendix \ref{sec-3.5} if the subproblem \eqref{eqn-decent-1} converge to the centralized solution. Since the subproblem \eqref{eqn-decent-1} is convex, each \ac{BS} specific slave subproblem is also convex for a fixed interference vector \me{\mbfa{\zeta}_{b_k}^{(i)}} \cite{palomar2006tutorial}. The master subproblem in the \acl{PD} uses subgradient to update the coupling interference vectors in consensus with the objective function, it is guaranteed to converge to the centralized solution as the iteration \me{i \rightarrow \infty} \cite{bertsekas1999nonlinear} for a diminishing step size. It can be seen that the subproblem \eqref{eqn-decent-1} satisfies Slater's constraint qualification by having non empty interior and bounded due to the total power constraint for the transmit precoders.
 
-Since the subproblem defined by \eqref{eqn-decent-1} is convex, the primal decomposition approach will converge to the centralized solution if the step size diminishes as a function of the iteration index. The convergence of \ac{ADMM} scheme follows directly from the Proposition 4.2 in \cite{bertsekas1989parallel}. The overall convergence of the \ac{JSFRA} problem in a distributed approach is similar to that of the centralized convergence discussion in Appendix \ref{sec-3.5}.
-
-Note that even if the distributed algorithms in Section \ref{sec-4} are not iterated until convergence, the objective is still monotonically decreasing following the arguments from Appendix \ref{sec-3.5}. In this case, the final solution may not reach the stationary point similar to that of the centralized solution. In the current approach, \ac{SCA} update is performed after the convergence of the distributed algorithm. It is required since the \ac{SCA} subproblems are convex and the \acl{PD} and \ac{ADMM} will converge to the centralized solution.
+To prove the convergence of the \ac{ADMM} approach, we use the argument presented in \cite{bertsekas1989parallel} Proposition 4.2. 
+If the problem is written as 
+\begin{IEEEeqnarray}{rCl}
+	\underset{\mbf{x},\mbf{z}}{\text{minimize}} &\quad& G(\mbf{x}) + H(\mbf{y}) \eqsub \\
+	\text{subject to} &\quad& \mbf{A} \mbf{x} = \mbf{z} \eqsub \label{const-admm} \\
+&\quad&	\mbf{x} \in \mc{C}_1, \mbf{z} \in \mc{C}_2, \eqsub
+\end{IEEEeqnarray}
+following conditions are required for the convergence if \ac{ADMM} is used.
+\begin{itemize}
+	\item \me{G,H} should be convex
+	\item \me{\mc{C}_1,\mc{C}_2} should be a convex set and bounded
+	\item \me{\mbf{A}^\herm \mbf{A}} should be invertible.
+\end{itemize}
+Note that the equality constraint \eqref{const-admm} is identical to \eqref{const-admm1} and therefore \me{\mbf{A} = \mbf{I}}, which is an identity matrix and is invertible. The objective function \me{G,H} are \me{\ell_q} norm in \eqref{eqn-decent-1}, which are convex. The set defined by the constraints of the problem \eqref{eqn-decent-1} is convex and has nonempty interior. The feasibility of the interior point is verified by having a non zero precoder for only one user. Therefore, by following \cite{bertsekas1989parallel} Proposition 4.2, it can be seen that the \ac{ADMM} approach converges to the centralized solution.
 
 
 

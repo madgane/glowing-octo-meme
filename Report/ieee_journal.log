@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.8.13)  3 FEB 2015 19:26
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.8.13)  4 FEB 2015 15:55
 entering extended mode
 **ieee_journal.tex
 (Y:\Latex\glowing-octo-meme\Report\ieee_journal.tex
@@ -540,7 +540,7 @@ although it is yet undefined on input line 20.
 Package acronym Info: Label `acro:SOC' newly defined as it shall be overridden
 although it is yet undefined on input line 20.
 
-Underfull \vbox (badness 6675) has occurred while \output is active []
+Underfull \vbox (badness 6477) has occurred while \output is active []
 
 
 Overfull \hbox (0.80943pt too wide) in alignment at lines 51--55
@@ -553,8 +553,6 @@ Overfull \hbox (12.18701pt too wide) in alignment at lines 57--60
  []
 
 [5]) (Y:\Latex\glowing-octo-meme\Report\mse_formulation.tex
-Underfull \vbox (badness 1838) has occurred while \output is active []
-
 Package acronym Info: Label `acro:WMMSE' newly defined as it shall be overridde
 n
 although it is yet undefined on input line 18.
@@ -568,7 +566,7 @@ Package acronym Info: Label `acro:SRA' newly defined as it shall be overridden
 although it is yet undefined on input line 4.
 )
 (Y:\Latex\glowing-octo-meme\Report\decomposition_solutions.tex
-Underfull \vbox (badness 5607) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7])
 (Y:\Latex\glowing-octo-meme\Report\primal_approach.tex)
@@ -603,27 +601,27 @@ Overfull \hbox (14.00024pt too wide) in paragraph at lines 26--30
  [][][][] 
  []
 
-
+[10]
 Overfull \hbox (4.51932pt too wide) in paragraph at lines 39--54
  [][][] 
  []
 
-[10]) (Y:\Latex\glowing-octo-meme\Report\simulation_distributed.tex [11]
+) (Y:\Latex\glowing-octo-meme\Report\simulation_distributed.tex
 File: ./../Figures/Linux/fig-3-2.eps Graphic file (type eps)
 
 <./../Figures/Linux/fig-3-2.eps>
 File: ./../Figures/Linux/fig-9-3.eps Graphic file (type eps)
- <./../Figures/Linux/fig-9-3.eps>)
+ <./../Figures/Linux/fig-9-3.eps> [11])
 (Y:\Latex\glowing-octo-meme\Report\time_correlated.tex
+Underfull \vbox (badness 7740) has occurred while \output is active []
+
+ [12]
 File: ./../Figures/Review/reviewer.eps Graphic file (type eps)
 
-<./../Figures/Review/reviewer.eps>) [12]
+<./../Figures/Review/reviewer.eps>)
 (Y:\Latex\glowing-octo-meme\Report\conclusions.tex)
 (Y:\Latex\glowing-octo-meme\Report\appendix_tightness.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [13]
-(Y:\Latex\glowing-octo-meme\Report\convergence_centralized.tex
+(Y:\Latex\glowing-octo-meme\Report\convergence_centralized.tex [13]
 Overfull \hbox (11.64783pt too wide) detected at line 42
  []$[]  \OML/cmm/m/it/10 h\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 z[]\OT1/cmr/m/n/10 
 ) \OMS/cmsy/m/n/10   \OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 x[]\
@@ -634,35 +632,41 @@ n/10 y[]\OT1/cmr/m/n/10 ; \OT1/cmr/bx/n/10 x[]\OT1/cmr/m/n/10 )$
  []
 
 
-Underfull \hbox (badness 2486) in paragraph at lines 46--48
-\OT1/ptm/m/n/10 con-verges to a crit-i-cal point. Note that fea-si-ble point
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [14]
 Underfull \hbox (badness 10000) in paragraph at lines 65--67
-[]\OT1/ptm/m/n/10 the so-lu-tion is in-side the fea-si-ble set $\OMS/cmsy/m/n/1
-0 F$ \OT1/ptm/m/n/10 and
+[]\OT1/ptm/b/n/10 the so-lu-tion is in-side the fea-si-ble set $\OMS/cmsy/m/n/1
+0 F$ \OT1/ptm/b/n/10 and
+ []
+
+
+Underfull \hbox (badness 1558) in paragraph at lines 65--67
+\OT1/ptm/b/n/10 qual-i-fi-ca-tions and the [][] ex-pres-sions for the set
  []
 
 ) (Y:\Latex\glowing-octo-meme\Report\kkt_appendix.tex)
-(Y:\Latex\glowing-octo-meme\Report\ieee_journal.bbl [15]
+(Y:\Latex\glowing-octo-meme\Report\ieee_journal.bbl
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 90.
+ [15]
 Missing character: There is no â in font ptmri7t!
 Missing character: There is no € in font ptmri7t!
 Missing character: There is no ” in font ptmri7t!
-) [16]
+) [16
+
+]
 (Y:\Latex\glowing-octo-meme\Report\ieee_journal.aux) ) 
 Here is how much of TeX's memory you used:
- 7182 strings out of 493922
- 105121 string characters out of 3147296
- 209689 words of memory out of 3000000
- 10303 multiletter control sequences out of 15000+200000
+ 7180 strings out of 493922
+ 105135 string characters out of 3147296
+ 209675 words of memory out of 3000000
+ 10301 multiletter control sequences out of 15000+200000
  34686 words of font info for 88 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  36i,23n,47p,1482b,424s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on ieee_journal.dvi (16 pages, 172200 bytes).
+Output written on ieee_journal.dvi (16 pages, 170308 bytes).
