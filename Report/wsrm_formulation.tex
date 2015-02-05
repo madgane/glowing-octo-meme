@@ -8,7 +8,7 @@ We now present an iterative algorithm to solve problem \eqref{eqn-3} by using al
   & \quad & \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}}, \fall b. \IEEEyessubnumber \label{eqn-6.4}
 \end{IEEEeqnarray}
 }{\allowdisplaybreaks
-\begin{IEEEeqnarray}{CCl}\label{eqn-6}
+\begin{IEEEeqnarray}{CCl} \label{eqn-6}
 	\underset{\substack{\gamma_{l,k,n},\mvec{m}{l,k,n},\\\beta_{l,k,n},\mvec{w}{l,k,n}}}{\text{minimize}} &\quad& \|  \tilde{\mbf{v}}  \|_q \label{eqn-obj} \IEEEyessubnumber \vspace{-0.25cm}\\
 	\text{subject to} &\quad& \gamma_{l,k,n} \leq \frac{ | \mvec{w}{l,k,n}^\herm \mvec{H}{l,k,n} \mvec{m}{l,k,n}|^2}{\beta_{l,k,n}} \IEEEyessubnumber \eqspace \label{eqn-6.2} \\
 	&\quad& \beta_{l,k,n} \geq \enoise + \sum_{\mathclap{(j,i) \neq (l,k)}} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2 \IEEEyessubnumber \eqspace \label{eqn-6.3} \\
@@ -18,16 +18,16 @@ We now present an iterative algorithm to solve problem \eqref{eqn-3} by using al
 \review{Since the equality of the \ac{SINR} in \eqref{eq:SINR} cannot be included as a constraint directly, we relaxed the \ac{SINR} expression by using inequalities \eqref{eqn-6.2} and \eqref{eqn-6.3}. Note that \eqref{eqn-6.2} is an under estimator for \ac{SINR} \me{\gamma_{l,k,n}}, and \eqref{eqn-6.3} provides an upper bound for the total interference seen by user \me{k \in \mathcal{U}_b}, denoted by variable \me{\beta_{l,k,n}}}. \review{The constraints are tight when each \ac{BS} objective is non zero at the optimal point, as discussed in Appendix \ref{a-3}}. \review{Since the \ac{JSFRA} formulation can be modeled as a \ac{WSRM} problem, which is known to be NP-hard \cite{np_hard}, it also belongs to the class of NP-hard problems.}
 	
 In order to find a tractable solution for \eqref{eqn-6}, we note that the constraints \eqref{eqn-6.4} are convex with involved variables. Thus, we only need to deal with \eqref{eqn-6.2} and \eqref{eqn-6.3}. Towards this end, we resort to the \ac{AO} technique by fixing the linear receivers, and finding the optimal transmit beamformers. For a fixed receivers \me{\mvec{w}{l,k,n}}, the problem now is to find the optimal transmit beamformers \me{\mvec{m}{l,k,n}} which is still a challenging task. We note that for a fixed \me{\mvec{w}{l,k,n}}, \eqref{eqn-6.3} can be written as a \ac{SOC} constraint. Thus, the difficulty is due to the non-convexity of the \ac{DC} constraint in \eqref{eqn-6.2}. Let us define a function, 
-\begin{equation*}
+\begin{equation}
 f({\mbf{u}}_{l,k,n}) \triangleq \frac{ | \mvec{w}{l,k,n}^\herm \mvec{H}{l,k,n} \mvec{m}{l,k,n}|^2}{\beta_{l,k,n}},
-\end{equation*}
-where \me{{\mbf{u}}_{l,k,n} \triangleq \{\mvec{w}{l,k,n}, \mvec{m}{l,k,n},\beta_{l,k,n}\}} is the vector which needs to be identified for the optimal allocation. Note that the function \me{f({\mbf{u}}_{l,k,n})} is convex for a fixed \me{\mvec{w}{l,k,n}}, since it is in fact the ratio between a quadratic form of \me{\mvec{m}{l,k,n}} over an affine function of \me{\beta_{l,k,n}} \cite{boyd2004convex}. The nonconvex set defined by the \ac{DC} constraint \eqref{eqn-6.2} can be decomposed by a series of convex subsets by linearizing the convex function \me{f({\mbf{u}}_{l,k,n})} with its first order Taylor approximation around a fixed operating point \me{\tilde{\mbf{u}}_{l,k,n}} \cite{lipp2014variations,lanckriet2009convergence}. By using the reduced convex subset instead of \eqref{eqn-6.2}, \eqref{eqn-6} can be solved for each operating point iteratively until convergence.
+\end{equation}
+where \me{{\mbf{u}}_{l,k,n} \triangleq \{\mvec{w}{l,k,n}, \mvec{m}{l,k,n},\beta_{l,k,n}\}} is the vector which needs to be identified for the optimal allocation. Note that the function \me{f({\mbf{u}}_{l,k,n})} is convex for a fixed \me{\mvec{w}{l,k,n}}, since it is in fact the ratio between a quadratic form of \me{\mvec{m}{l,k,n}} over an affine function of \me{\beta_{l,k,n}} \cite{boyd2004convex}. \review{The nonconvex set defined by the \ac{DC} constraint \eqref{eqn-6.2} can be decomposed by a series of convex subsets by linearizing the convex function \me{f({\mbf{u}}_{l,k,n})} with its first order Taylor approximation around a fixed operating point \me{\tilde{\mbf{u}}_{l,k,n}} \cite{lipp2014variations,lanckriet2009convergence}, also called as \ac{SCA} method in \cite{marks1978technical}. By using the reduced convex subset for \eqref{eqn-6.2}, the problem defined in \eqref{eqn-6} can be solved at each operating point iteratively.}
 
 For this purpose, let the real and imaginary component of the complex number \me{\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n}} be represented by
-\begin{subeqnarray} \label{eqn-wsrm-expr}
-p_{l,k,n} &\triangleq& \Re \set{{\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n}}} \\
-q_{l,k,n} &\triangleq& \Im \set{{\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n}}}
-\end{subeqnarray}
+\begin{IEEEeqnarray}{rCl} \label{eqn-wsrm-expr}
+p_{l,k,n} &\triangleq& \Re \set{{\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n}}} \eqsub \\
+q_{l,k,n} &\triangleq& \Im \set{{\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n}}} \eqsub
+\end{IEEEeqnarray}
 and hence \me{f({\mbf{u}}_{l,k,n})=(p_{l,k,n}^2 + q_{l,k,n}^2)/\beta_{l,k,n}}\footnote{Note that \me{p_{l,k,n}} and \me{q_{l,k,n}} are just symbolic notation and not the newly introduced optimization variables. In CVX \cite{grant2008cvx}, for example,  we declare \me{p_{l,k,n}} and \me{q_{l,k,n}} with the `\emph{expression}' qualifier}. Suppose that the current value of \me{p_{l,k,n}} and \me{q_{l,k,n}} at a specific iteration are \me{\tilde{p}_{l,k,n}} and \me{\tilde{q}_{l,k,n}}, respectively. Using first order Taylor approximation around the local point \me{ [ \, \tilde{p}_{l,k,n},\tilde{q}_{l,k,n},\tilde{\beta}_{l,k,n} \, ]^T}, we can approximate \eqref{eqn-6.2} by the following linear inequality
 \iftoggle{single_column}{
 \begin{equation}\label{eqn-8}
