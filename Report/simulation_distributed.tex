@@ -7,7 +7,7 @@ Fig. \ref{fig-d} plots the performance of the primal and the \ac{ADMM} solutions
 In Fig. \ref{fig-d-2}, the performance of the distributed algorithms are studied for \me{K = 12} users utilizing \me{N = 6} sub-channels. The system considers \me{N_B = 3} \acp{BS}, each having \me{N_T = 4} transmit antennas serving \me{|\mc{U}_b| = 4} users equipped with \me{N_R = 2} antennas respectively. The users are assumed to have the path loss following the uniform distribution between \me{[0,-6]} dB from all \acp{BS}. The performance of the algorithms are similar to the \me{N_B = 2} \ac{BS} scenario discussed earlier.
 
 Fig. \ref{fig-d-2} plots the performance of the centralized and the distributed algorithms at each \ac{SCA} update. In case of the distributed approaches, in between each \ac{SCA} update, the primal or the \ac{ADMM} exchanges are performed for \me{J_{\max} = 20} iterations. In practice, \me{J_{\max} = 1} can be set to perform the \ac{SCA} update, \ac{ADMM} or primal update, and the receive beamformers \me{\mvec{W}{k,n}} update at the same instant, which affects the convergence rate and the stationary point of the final solution. The data tips are used to highlight the convergent points of various algorithms. The performance of the \ac{JSFRA} schemes using the primal decomposition are notably inferior compared to the \ac{ADMM} approach for the same schemes. It is mainly attributed to the difficulty in selecting the step size for the system employing \me{N_B \geq 3} \acp{BS}.
-\begin{figure*}
+\begin{figure*}[h]
 	\centering
 	\subfloat[][System \me{\lbrace N,N_B,K,N_R \rbrace = \lbrace 3,2,8,1 \rbrace}]{
 		\includegraphics[width=0.48\textwidth]{fig-3-2}
@@ -36,7 +36,7 @@ Fig. \ref{fig-d-2} plots the performance of the centralized and the distributed 
 % \label{fig-d-2}
 % \end{figure*}
 }{
-\begin{figure}
+\begin{figure}[h]
 \centering
 \includegraphics[width=\columnwidth]{fig-3-2}
 \caption{Convergence behaviour of the centralized and the distributed algorithms for a system \me{\lbrace N,N_B,K,N_R \rbrace = \lbrace 3,2,8,1 \rbrace}}
