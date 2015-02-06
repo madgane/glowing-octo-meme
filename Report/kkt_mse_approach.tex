@@ -83,7 +83,7 @@ To avoid the back-haul exchanges between \acp{BS}, as an alternative approach, u
  }
  \caption{\ac{KKT} approach for the \ac{JSFRA} scheme}
  \label{algo-4}
-\end{algorithm}\vspace{-0.1in}
+\end{algorithm}
 
 \review{The Algorithm \ref{algo-4} outlines a practical way of implementing the transmit precoders in a distributed manner using \ac{OTA} signaling of transmit precoders and the receive beamformers for certain iterations before the actual transmission of data is performed. Unlike \ac{PD} or \ac{ADMM} approach, all variables are updated at once, \textit{i.e}, the \ac{SCA} point of \me{\epsilon^{(i-1)}}, \ac{AO} update of \me{\mvec{w}{l,k,n}} and the dual variable \me{\alpha} using subgradient update, it is not guaranteed to obtain the same point as that of centralized solutions. It can be viewed as a primal decomposition approach in which the master-slave iterations is performed only once before updating other variables. Since each primal subproblem yields a feasible solution, the monotonic behavior is obtained by this algorithm. If the step size \me{\rho < 1}, the algorithm will converge by using the arguments made for controlling overallocation problem and the nonincreasing objective function, since the earlier iterates are in fact the operating point for the current iteration.}
 

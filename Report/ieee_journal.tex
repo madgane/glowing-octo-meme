@@ -4,7 +4,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage{acronym,etoolbox}
 \usepackage[ruled]{algorithm2e}
-\usepackage[dvips]{graphicx}
+\usepackage[dvipdfmx]{graphicx}
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage[subrefformat=parens,labelformat=parens,labelseparator=period,caption=false]{subfig}
 \usepackage{subeqnarray,multirow,cite,array,setspace,fixltx2e,lineno,verbatim,mathtools}
@@ -31,8 +31,8 @@
 
 \begin{document}
 
-%\section{Response to reviewer comments}
-%\input{review_comments}
+\section{Response to reviewer comments}
+\input{review_comments}
 
 \maketitle
 
@@ -87,7 +87,7 @@ Convex approximations, \ac{MIMO}-\acs{IBC}, \ac{MIMO}-\ac{OFDM}, Precoder design
 \input{dual_approach}
 %\input{dual_algorithm}
 
-\subsection{Convergence Analysis for Distributed Algorithms}
+\subsection{Convergence Analysis for Distributed Algorithms} \label{sec-dist-conv}
 \review{\input{convergence_distributed}}
 
 \subsection{Decomposition via \ac{KKT} Conditions for \ac{MSE} Formulation} \label{sec-4.3}
@@ -102,7 +102,7 @@ Convex approximations, \ac{MIMO}-\acs{IBC}, \ac{MIMO}-\ac{OFDM}, Precoder design
 \subsection{Distributed Solutions}
 \input{simulation_distributed}
 
-\subsection{Average Backlogged Packets Over Slots}
+\subsection{Average Backlogged Packets Over Slots} \label{time-correlated}
 
 \review{\input{time_correlated}}
 
