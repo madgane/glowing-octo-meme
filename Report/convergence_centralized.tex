@@ -6,6 +6,15 @@
 \newcommand{\myb}{{{\mbf{y}}}}
 \newcommand{\iterate}[2]{{#1}^{(#2)}}
 \newcommand{\iter}[3]{{#1}_{#2}^{(#3)}}
+
+In order to prove the convergence of the centralized algorithm in \eqref{eqn-6} and \eqref{eqn-mse-1}, we have to show the following conditions are to be satisfied.
+\begin{itemize}
+	\item At each \ac{SCA} update, the objective value decreases monotonically, 
+	\item each \ac{SCA} point is unique, which is required for \ac{AO} to converge,
+	\item and the objective function is monotonically decreasing at each \ac{AO} update.
+\end{itemize}
+In addition, we need to show the converged point is the stationary point for the original nonconvex problem in \eqref{eqn-6} and \eqref{eqn-mse-1}.
+
 Let us express the \ac{JSFRA} problem in \eqref{eqn-6} and \eqref{eqn-mse-1} as
 \begin{IEEEeqnarray}{rCl} \label{con}
 \underset{\mx,\my,\mz}{\text{minimize}} &\quad& f(\mx,\my,\mz) \eqsub \label{con-obj} \\

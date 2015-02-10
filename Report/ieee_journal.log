@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=latex 2015.2.5)  6 FEB 2015 11:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=latex 2015.2.5)  10 FEB 2015 15:04
 entering extended mode
 **ieee_journal.tex
 (ieee_journal.tex
@@ -435,7 +435,8 @@ File: ./../Figures/Review/reviewer.eps Graphic file (type eps)
 
 <./../Figures/Review/reviewer.eps> [1
 
-]
+
+] [2]
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
@@ -448,6 +449,7 @@ Missing character: There is no ô in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
+ [3]
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
@@ -457,18 +459,29 @@ Missing character: There is no ú in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
- [2] [3] [4]) [5
 
-]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 37.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
+Package acronym Info: Label `acro:Q-WSRM' newly defined as it shall be overridd
+en
+although it is yet undefined on input line 75.
+Package acronym Info: Label `acro:SCA' newly defined as it shall be overridden
+although it is yet undefined on input line 79.
+
+[5]
+Package acronym Info: Label `acro:BS' newly defined as it shall be overridden
+although it is yet undefined on input line 115.
+ [6] [7] [8] [9]) [10]
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 43.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 37.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 43.
 
-Underfull \hbox (badness 5008) in paragraph at lines 37--37
+Underfull \hbox (badness 5008) in paragraph at lines 43--43
 \OT1/ptm/m/n/8 Oulu, FI-90014, (e-mail: \OMS/cmsy/m/n/8 f\OT1/ptm/m/n/8 ganesh.
 venkatraman, antti.tolli, le.nam.tran,
  []
@@ -482,12 +495,8 @@ although it is yet undefined on input line 1.
 Package acronym Info: Label `acro:OFDM' newly defined as it shall be overridden
 
 although it is yet undefined on input line 1.
-Package acronym Info: Label `acro:BS' newly defined as it shall be overridden
-although it is yet undefined on input line 1.
 Package acronym Info: Label `acro:WSRM' newly defined as it shall be overridden
 
-although it is yet undefined on input line 1.
-Package acronym Info: Label `acro:SCA' newly defined as it shall be overridden
 although it is yet undefined on input line 1.
 Package acronym Info: Label `acro:JSFRA' newly defined as it shall be overridde
 n
@@ -495,7 +504,7 @@ although it is yet undefined on input line 1.
 Package acronym Info: Label `acro:MSE' newly defined as it shall be overridden
 although it is yet undefined on input line 1.
 
-Underfull \hbox (badness 2772) in paragraph at lines 41--2
+Underfull \hbox (badness 2772) in paragraph at lines 47--2
 \OT1/ptm/b/n/9 sce-nario us-ing [][]or-thog-o-nal fre-quency di-vi-sion mul-ti-
 plex-ing
  []
@@ -518,7 +527,8 @@ although it is yet undefined on input line 11.
 Package acronym Info: Label `acro:ADMM' newly defined as it shall be overridden
 
 although it is yet undefined on input line 13.
- [6
+ [11
+
 
 ]
 Package acronym Info: Label `acro:DC' newly defined as it shall be overridden
@@ -529,19 +539,18 @@ although it is yet undefined on input line 20.
 ) (system_model.tex
 Package acronym Info: Label `acro:TDD' newly defined as it shall be overridden
 although it is yet undefined on input line 18.
- [7]
+ [12]
 Package acronym Info: Label `acro:SINR' newly defined as it shall be overridden
 
 although it is yet undefined on input line 29.
-) (problem_formulation_intro.tex
+)
+(problem_formulation_intro.tex
 Overfull \hbox (0.54088pt too wide) in alignment at lines 9--12
  [] [] [] [][]
  []
 
-) (queue_minimizing_intro.tex) (joint_wsrm_formulation.tex [8]
-Package acronym Info: Label `acro:Q-WSRM' newly defined as it shall be overridd
-en
-although it is yet undefined on input line 4.
+) (queue_minimizing_intro.tex) (joint_wsrm_formulation.tex [13]
+Package acronym Info: Label `acro:Q-WSRM' overridden on input line 4.
 
 Overfull \hbox (3.87427pt too wide) in alignment at lines 43--46
  [] [] [] [][]
@@ -550,7 +559,7 @@ Overfull \hbox (3.87427pt too wide) in alignment at lines 43--46
 Package acronym Info: Label `acro:Q-WSRME' newly defined as it shall be overrid
 den
 although it is yet undefined on input line 48.
-) (problem_formulation.tex) (wsrm_formulation.tex [9]
+) (problem_formulation.tex) (wsrm_formulation.tex [14]
 Overfull \hbox (4.84355pt too wide) in alignment at lines 17--17
  [] [] [] [][]
  []
@@ -572,9 +581,7 @@ Overfull \hbox (12.18701pt too wide) in alignment at lines 57--60
  [] [] [] [][]
  []
 
-[10]) (mse_formulation.tex
-Underfull \vbox (badness 1838) has occurred while \output is active []
-
+[15]) (mse_formulation.tex
 Package acronym Info: Label `acro:WMMSE' newly defined as it shall be overridde
 n
 although it is yet undefined on input line 18.
@@ -583,13 +590,17 @@ Overfull \hbox (5.3305pt too wide) in alignment at lines 35--35
  [] [] [][]
  []
 
-[11]) (sub_channel_wsrm.tex
+
+Underfull \vbox (badness 2150) has occurred while \output is active []
+
+ [16])
+(sub_channel_wsrm.tex
 Package acronym Info: Label `acro:SRA' newly defined as it shall be overridden
 although it is yet undefined on input line 4.
-) (decomposition_solutions.tex
+) (decomposition_solutions.tex)
 Underfull \vbox (badness 6094) has occurred while \output is active []
 
- [12])
+ [17]
 (primal_approach.tex) (dual_approach.tex
 Package acronym Info: Label `acro:DD' newly defined as it shall be overridden
 although it is yet undefined on input line 2.
@@ -598,10 +609,10 @@ Overfull \hbox (8.29994pt too wide) in alignment at lines 6--12
  [] [] [][]
  []
 
-) (convergence_distributed.tex [13]) (kkt_mse_approach.tex
+) (convergence_distributed.tex [18]) (kkt_mse_approach.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [14]
+ [19]
 Package acronym Info: Label `acro:OTA' newly defined as it shall be overridden
 although it is yet undefined on input line 88.
 Package acronym Info: Label `acro:PD' newly defined as it shall be overridden
@@ -627,21 +638,30 @@ Overfull \hbox (4.51932pt too wide) in paragraph at lines 39--54
  [][][] 
  []
 
-[15]
-Underfull \vbox (badness 2828) has occurred while \output is active []
+[20]
+Underfull \vbox (badness 2197) has occurred while \output is active []
 
-) [16]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [21])
 (simulation_distributed.tex
 File: ./../Figures/Linux/fig-3-2.eps Graphic file (type eps)
  <./../Figures/Linux/fig-3-2.eps>
 File: ./../Figures/Linux/fig-9-3.eps Graphic file (type eps)
 
 <./../Figures/Linux/fig-9-3.eps>) (time_correlated.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [22]
 File: ./../Figures/Review/reviewer.eps Graphic file (type eps)
 
-<./../Figures/Review/reviewer.eps> [17]) (conclusions.tex)
-(appendix_tightness.tex) (convergence_centralized.tex [18]
-Overfull \hbox (11.64783pt too wide) detected at line 42
+<./../Figures/Review/reviewer.eps>) (conclusions.tex) (appendix_tightness.tex)
+(convergence_centralized.tex [23]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (11.64783pt too wide) detected at line 51
  []$[]  \OML/cmm/m/it/10 h\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 z[]\OT1/cmr/m/n/10 
 ) \OMS/cmsy/m/n/10   \OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 x[]\
 OML/cmm/m/it/10 ; \OT1/cmr/bx/n/10 y[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10  \OML
@@ -651,30 +671,30 @@ n/10 y[]\OT1/cmr/m/n/10 ; \OT1/cmr/bx/n/10 x[]\OT1/cmr/m/n/10 )$
  []
 
 
-Underfull \hbox (badness 2165) in paragraph at lines 46--48
+Underfull \hbox (badness 2165) in paragraph at lines 55--57
 \OT1/ptm/m/it/10 con-verges to a crit-i-cal point. Note that fea-si-ble point
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 6978) has occurred while \output is active []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 65--67
+ [24]
+Underfull \hbox (badness 10000) in paragraph at lines 74--76
 []\OT1/ptm/m/it/10 the so-lu-tion is in-side the fea-si-ble set $\OMS/cmsy/m/n/
 10 F$ \OT1/ptm/m/it/10 and
  []
 
 
-Underfull \hbox (badness 1629) in paragraph at lines 65--67
+Underfull \hbox (badness 1629) in paragraph at lines 74--76
 \OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 x[]\OML/cmm/m/it/10 ; \OT1/cmr/bx/n/10 y[]\OM
 L/cmm/m/it/10 ; \OT1/cmr/bx/n/10 z[]\OT1/cmr/m/n/10 )$ \OT1/ptm/m/it/10 is the 
 min-i-mizer of the ob-jec-tive
  []
 
-[19]) (kkt_appendix.tex) (ieee_journal.bbl
+) (kkt_appendix.tex) (ieee_journal.bbl
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 90.
- [20]) [21
+ [25]) [26
 
 ] (ieee_journal.aux)
 
@@ -684,10 +704,10 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  7225 strings out of 493699
  103939 string characters out of 3144430
- 214992 words of memory out of 3000000
+ 217034 words of memory out of 3000000
  10372 multiletter control sequences out of 15000+200000
  34686 words of font info for 88 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 36i,23n,47p,1522b,424s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,23n,47p,1760b,424s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on ieee_journal.dvi (21 pages, 202840 bytes).
+Output written on ieee_journal.dvi (26 pages, 208084 bytes).
