@@ -1,8 +1,14 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: ieee_journal.aux
 The style file: ./../Styles/IEEEtran.bst
 Database file #1: ./../Library/kirja_survey.bib
+I was expecting a `,' or a `}'---line 484 of file ./../Library/kirja_survey.bib
+ :     
+ :     archivePrefix = {arXiv},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 -- IEEEtran.bst version 1.12 (2007/01/11) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 
 Done.
+(There was 1 error message)
