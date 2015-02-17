@@ -1,24 +1,33 @@
 
-\documentclass[10pt,final,twocolumn,letterpaper]{./../Styles/IEEEtran}
+\documentclass[10pt,journal,twocolumn,letterpaper]{./../Styles/IEEEtran}
 
+\usepackage[section]{placeins}
 \usepackage{amsmath,amssymb}
 \usepackage{acronym,etoolbox}
+\usepackage{graphicx,epstopdf}
 \usepackage[ruled]{algorithm2e}
-\usepackage[dvipdfmx]{graphicx}
 \usepackage[usenames,dvipsnames]{xcolor}
-\usepackage[subrefformat=parens,labelformat=parens,labelseparator=period,caption=false]{subfig}
+\usepackage[subrefformat=parens,labelformat=parens,labelseparator=period,caption=false,font=footnotesize]{subfig}
 \usepackage{subeqnarray,multirow,cite,array,setspace,fixltx2e,lineno,verbatim,mathtools}
 
-\graphicspath{{./../Figures/}{./../Figures/Linux/}}
+\graphicspath{{./../Figures/}{./../Figures/Linux/}{./../Figures/Review/}}
 \DeclareGraphicsExtensions{.eps}
+
+\ifCLASSINFOpdf
+\epstopdfsetup{update,prepend,prefersuffix=false,suffix=}
+\DeclareGraphicsRule{.eps}{pdf}{.pdf}{`epstopdf #1}
+\pdfcompresslevel=9
+\fi 
 
 \input{shortcuts}
 \input{acronyms}
 
+\newtoggle{includereview}
 \newtoggle{enable_dist_fig}
 \newtoggle{single_column}
 \togglefalse{single_column}
 \togglefalse{enable_dist_fig}
+\toggletrue{includereview}
 
 \iftoggle{single_column}{
 	\doublespacing
@@ -31,6 +40,7 @@
 
 \begin{document}
 
+\iftoggle{includereview}{
 \newpage
 \onecolumn
 \doublespacing
@@ -39,6 +49,7 @@
 \twocolumn
 \newpage
 \singlespacing
+}
 
 \maketitle
 
@@ -76,7 +87,7 @@ Convex approximations, \ac{MIMO}-\acs{IBC}, \ac{MIMO}-\ac{OFDM}, Precoder design
 \subsection{\ac{JSFRA} Scheme via \ac{MSE} Reformulation} \label{sec-3.3}
 \input{mse_formulation}
 
-\subsection{Reduced Complexity Resource Allocation} \label{sec-3.4}
+\subsection{Reduced Complexity Spatial Resource Allocation (\acs{SRA})} \label{sec-3.4}
 \review{\input{sub_channel_wsrm}}
 
 \section{Distributed Solutions} \label{sec-4}
@@ -109,7 +120,6 @@ Convex approximations, \ac{MIMO}-\acs{IBC}, \ac{MIMO}-\ac{OFDM}, Precoder design
 \input{simulation_distributed}
 
 \subsection{Average Backlogged Packets Over Slots} \label{time-correlated}
-
 \review{\input{time_correlated}}
 
 %acresetall
@@ -124,7 +134,7 @@ Convex approximations, \ac{MIMO}-\acs{IBC}, \ac{MIMO}-\ac{OFDM}, Precoder design
 \section{Tightness of \ac{SINR} relaxation} \label{a-3}
 \review{\input{appendix_tightness}}
 
-\section{Convergence Analysis of Centralized Algorithm} \label{sec-3.5}
+\section{Convergence Proof for Centralized Algorithm} \label{sec-3.5}
 \review{\input{convergence_centralized}}
 
 \section{\ac{KKT} conditions for \ac{MSE} approach} \label{a-1}

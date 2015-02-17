@@ -168,16 +168,16 @@ G.~R. Lanckriet and B.~K. Sriperumbudur, ``{On the convergence of the
 M.~Grant and S.~Boyd, ``{CVX}: Matlab software for disciplined convex
   programming, version 2.0 beta,'' \url{http://cvxr.com/cvx}, Sep. 2013.
 
+\bibitem{komulainen2013effective}
+P.~Komulainen, A.~T{\"o}lli, and M.~Juntti, ``{Effective CSI Signaling and
+  Decentralized Beam Coordination in TDD Multi-Cell MIMO Systems},'' \emph{IEEE
+  Transactions on Signal Processing}, vol.~61, no.~9, pp. 2204--2218, 2013.
+
 \bibitem{admm_robust}
 C.~Shen, T.-H. Chang, K.-Y. Wang, Z.~Qiu, and C.-Y. Chi, ``{Distributed Robust
   Multicell Coordinated Beamforming With Imperfect CSI: An ADMM Approach},''
   \emph{IEEE Transactions on Signal Processing}, vol.~60, no.~6, pp.
   2988--3003, June 2012.
-
-\bibitem{komulainen2013effective}
-P.~Komulainen, A.~T{\"o}lli, and M.~Juntti, ``{Effective CSI Signaling and
-  Decentralized Beam Coordination in TDD Multi-Cell MIMO Systems},'' \emph{IEEE
-  Transactions on Signal Processing}, vol.~61, no.~9, pp. 2204--2218, 2013.
 
 \bibitem{bertsekas1989parallel}
 D.~P. Bertsekas and J.~N. Tsitsiklis, \emph{{Parallel and distributed
@@ -198,6 +198,14 @@ J.~C. Bezdek and R.~J. Hathaway, ``{Some notes on alternating optimization},''
 G.~Scutari, F.~Facchinei, L.~Lampariello, and P.~Song, ``{Distributed Methods
   for Constrained Nonconvex Multi-Agent Optimization -- Part I: Theory}.''
   [Online]. Available: \url{http://arxiv.org/abs/1410.4754v1}
+\BIBentrySTDinterwordspacing
+
+\bibitem{quoc2011sequential}
+\BIBentryALTinterwordspacing
+T.~D. Quoc and M.~Diehl, ``{Sequential convex programming methods for solving
+  nonlinear optimization problems with DC constraints},'' \emph{arXiv preprint
+  arXiv:1107.5841}, 2011. [Online]. Available:
+  \url{/http://arxiv.org/abs/1107.5841v1}
 \BIBentrySTDinterwordspacing
 
 \end{thebibliography}

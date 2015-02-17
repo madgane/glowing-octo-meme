@@ -1,11 +1,115 @@
 \newcommand{\eqn}[1]{\(#1\)}
-\newcommand{\mx}{\mbf{x}}
-\newcommand{\my}{\mbf{y}}
-\newcommand{\mz}{\mbf{z}}
-\newcommand{\mxb}{{{\mbf{x}}}}
-\newcommand{\myb}{{{\mbf{y}}}}
+\newcommand{\mx}{\mbf{m}}
+\newcommand{\my}{\mbf{w}}
+\newcommand{\mz}{\mbfa{\gamma}}
+\newcommand{\mxb}{{{\mbf{m}}}}
+\newcommand{\myb}{{{\mbf{w}}}}
 \newcommand{\iterate}[2]{{#1}^{(#2)}}
 \newcommand{\iter}[3]{{#1}_{#2}^{(#3)}}
+
+To prove the convergence of the centralized algorithm in \eqref{eqn-6} and \eqref{eqn-mse-1}, we need to show that the following conditions are to be satisfied by the objective function sequence to prove the convergence of the transmit and the receive beamformers.
+\begin{itemize}
+	\item The objective function should be bounded below
+	\item The feasible set should be a compact set
+	\item The sequence should be monotonically decreasing for each iteration
+	\item Uniqueness of the mapping, \textit{i.e}, there should be one-to-one correspondence between the objective value set and the feasible domain.
+\end{itemize}
+Assuming the above conditions are satisfied by the iterative algorithm, using Bolzano-Weierstrass theorem \cite{rudin1964principles}, we can show that any bounded monotonically decreasing sequence has a unique limiting point. Using the property of one-to-one mapping between the feasible domain and the objective value, the transmit and the receive beamformers also approaches to a limiting point since the inverse mapping is unique in each iteration. Let us prove the above conditions are satisfied by the centralized problem. Note that the original nonconvex problem in \eqref{eqn-6} and \eqref{eqn-mse-1} has a solution set with the same objective value due to the invariance of the \ac{SINR} expression to the phase rotations, but the relaxed iterative convex problems lead to a unique solution depending on the initialization point.
+
+\subsection{Boundedness}
+
+The feasible set of the relaxed nonconvex problem in \eqref{eqn-6} and \eqref{eqn-mse-1} is bounded due to the total power constraint on the transmit precoders \eqref{eqn-6.4}. Note that the other variables are also bounded in accordance with this constraint. Since the feasible set also includes the boundary value due to the inequality constraint, it is closed and compact. 
+
+To prove the boundedness of the objective function, it is enough to show that the objective function is bounded below due to the minimization objective. Since the minimum value of the norm operator is zero, \textit{i.e}, the limiting point is \me{< -\infty}, it is bounded below. Note that the objective function is Lipschitz continuous over the feasible set, and therefore, it is bounded from above as well, since the feasible set is bounded. Note that the objective function is continuous everywhere and not differentiable only at the minimum.
+
+\subsection{Monotonicity}
+
+Let us express the centralized problem in \eqref{eqn-6} and \eqref{eqn-mse-1} as
+\begin{IEEEeqnarray}{rCl} \label{con}
+	\underset{\mx,\my,\mz}{\text{minimize}} &\quad& f(\mx,\my,\mz) \eqsub \label{con-obj} \\
+	\text{subject to} &\quad& h(\mz) - g_0(\mx,\my) \leq 0 \eqsub \label{con-dc} \\
+	&\quad& g_1(\mx,\my) \leq 0, \eqsub \label{con-cvx-blk} \\
+	&\quad& g_2(\mx) \leq 0, \eqsub \label{con-cvx}
+\end{IEEEeqnarray}
+where \me{g_2,f} are convex functions and \me{h} is a linear function. Let \me{g_0,g_1} are convex functions only on \me{\mx} or \me{\my} as the variable but not on both. Note that the \eqref{con-dc} correspond to the constraints in \eqref{eqn-6.2} and \eqref{eqn-mse-1.2} and \eqref{con-cvx-blk} correspond to the constraints in \eqref{eqn-6.3} and \eqref{eqn-mse-1.3}. Other convex constraints are addressed by the constraint \eqref{con-cvx}. With this, the feasible set of the problem \eqref{con} is given by 
+\begin{IEEEeqnarray}{rl}
+\mc{F} = \{ \; \mx,\my,\mz \; \big | \; & h(\mz) - g_0(\mx,\my) \leq 0, \nonumber \\
+								& g_1(\mx,\my) \leq 0, g_2(\mx) \leq 0 \; \} \nonumber
+\end{IEEEeqnarray}
+
+To solve \eqref{con}, we adopt \ac{AO} by fixing a block of varibles and optimize for others \cite{bezdek2002some}. In \eqref{con}, even after fixing the variable \me{\my}, the problem is nonconvex due to the \ac{DC} constraint \eqref{con-dc}. We adopt \ac{SCA} approach presented in \cite{lipp2014variations,lanckriet2009convergence,scutari_1} by relaxing the nonconvex set by a sequence of convex subsets. Since the proposed method involves two level of iterations, we denote the \ac{AO} iteration index by a superscript \me{(i)} and the \ac{DC} constraint relaxations by a subscript \me{k}. Let \me{\iter{\mc{X}}{k}{i}} be the feasible set for the \eqn{\ith{i}} \ac{AO} iteration and the \me{\ith{k}} \ac{SCA} point for a fixed \me{\my} and \me{\iter{\mc{Y}}{k}{i}} denotes the feasible set for a fixed \me{\mx}. Since the \ac{SCA} iterations are performed until convergence, let \me{\iter{\mx}{\ast}{i}} denotes the converged point of \me{\mx} in the \me{\ith{i}} \ac{AO} iteration. For the sake of clarity, we define the optimal value of \me{\mz} obtained for the \me{\ith{i}} \ac{AO} iterate for the fixed \me{\my} variable as \me{\iter{\mz}{\ast|y}{i}}.
+
+To begin with, let us consider the variable \me{\my} is fixed for the \ac{AO} \me{i} with the optimal value achieved from the previous iteration \me{i-1} as \me{\iter{\my}{\ast}{i-1}}. In order to solve for \me{\mx} in the \ac{SCA} iteration \me{k}, we linearize the nonconvex function \me{g_0} using previous \ac{SCA} iterate of \me{\mx} as
+\begin{multline} \label{con-relax}
+\hat{g}_o(\mx,\iter{\my}{\ast}{i-1};\iter{\mx}{k}{i}) = {g}_0(\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1}) \\ + \nabla g_0(\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1})^{\mathrm{T}} (\mx - \iter{\mx}{k}{i}).
+\end{multline}
+Using \eqref{con-relax}, the convex subproblem for \me{\ith{i}} \ac{AO} iteration and \me{\ith{k}} \ac{SCA} point for the variable \me{\mx} and \me{\mz} is given by
+\begin{subeqnarray} \label{con-m}
+	\underset{\mx,\mz}{\text{minimize}} &\quad& f(\mx,\iter{\my}{\ast}{i-1},\mz) \eqsub \label{con-obj-m} \\
+	\text{subject to} &\quad& h(\mz) - \hat{g}_0(\mx,\iter{\my}{\ast}{i-1};\iter{\mx}{k}{i}) \leq 0 \eqsub \label{con-dc-m} \\
+	&\quad& g_1(\mx,\iter{\my}{\ast}{i-1}) \leq 0, \eqsub \label{con-cvx-blk-m} \\
+	&\quad& g_2(\mx) \leq 0, \eqsub \label{con-cvx-m}
+\end{subeqnarray}
+Let the feasible set defined by the problem in \eqref{con-m} be represented as \me{\iter{\mc{X}}{k}{i} \subset \mc{F}}. In order to prove the convergence of the convex subproblem \eqref{con-m} for a fixed \me{\my = \iter{\my}{\ast}{i-1}} operating at \me{\iter{\mx}{k}{i}}, let us consider that \eqref{con-m} yields \me{\iter{\mx}{k+1}{i}} and \me{\iter{\mz}{k+1}{i}} as the solution for the \me{\ith{k}} iteration. Note that the point \me{\iter{\mx}{k+1}{i}} and \me{\iter{\mz}{k+1}{i}}, which minimizes the objective function, is also feasible for \eqref{con-m} using the following inequality
+\begin{multline}\label{con-sub-set}
+h(\iter{\mz}{k+1}{i}) - {g}_0(\iter{\mx}{k+1}{i},\iter{\my}{\ast}{i-1}) \leq - \hat{g}_0(\iter{\mx}{k+1}{i},\iter{\my}{\ast}{i-1};\iter{\mx}{k}{i}) \\ + h(\iter{\mz}{k+1}{i}) \leq h(\iter{\mz}{k}{i}) - \hat{g}_0(\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1};\iter{\mx}{k}{i}) \leq 0. 
+\end{multline}
+Using \eqref{con-sub-set}, we can prove that the solution \me{\iter{\mx}{k+1}{i}} and \me{\iter{\mz}{k+1}{i}} are feasible, since the initial point of \me{\mx = \iter{\mx}{\ast}{i-1}} was chosen to be feasible from the earlier \ac{AO} iteration \me{i-1}. At each \ac{SCA} iteration, the feasible set includes the optimal point from the previous iteration as \me{\{\iter{\mx}{k+1}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{k+1}{i}\} \in \iter{\mc{X}}{k+1}{i} \subset \mc{F}}, thereby, leading to the monotonic decrease in the objective function \cite{lanckriet2009convergence,scutari_1,quoc2011sequential} as
+\begin{multline} \label{con-convergence}
+f(\iter{\mx}{0}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{0}{i}) \geq f(\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{k}{i}) \\ \geq f(\iter{\mx}{k+1}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{k+1}{i}) \geq f(\iter{\mx}{\ast}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{\ast|y}{i}). 
+\end{multline}
+Thus the sequence \me{f(\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{k}{i})} is nonincreasing and approaches limiting point as \me{k \rightarrow \infty}. Note that feasible point \me{(\iter{\mx}{\ast}{i}, \iter{\my}{\ast}{i-1},\iter{\mz}{\ast|y}{i})} need not be a stationary point for \eqref{con}, since it is the minimizer only over the feasible set \me{\iter{\mc{X}}{\ast}{i} \subset \mc{F}}, for a fixed \me{\my}.
+
+Once the solution is found for a fixed \me{\my}, we fix \me{\mx} as \me{\iter{\mx}{\ast}{i}} and optimize for \me{\my}. Even after treating \me{\mx} as a constant, the problem is still nonconvex due to the \ac{DC} constraint. Following similar approach, we can find the minimizer \me{\iter{\my}{k}{i}} and \me{\iter{\mz}{k}{i}} for a similar convex subproblem \eqref{con-m} at each iteration \me{{k}}. Note that \me{\iter{\mz}{k}{i}} is reused since the variable \me{\mx} is fixed for the \me{\ith{i}} \ac{AO} iteration. The convergence and the nonincreasing behavior of the problem follows similar arguments as above. Now, the optimal solution of the converged subproblems with \me{\my} as variable are \me{\iter{\my}{\ast}{i}} and \me{\iter{\mz}{\ast}{i}}. Note that the limiting point \me{(\iter{\mx}{\ast}{i}, \iter{\my}{\ast}{i},\iter{\mz}{\ast|x}{i})} is the unique minimizer in the set \me{\iter{\mc{Y}}{\ast}{i}}.
+
+Finally, to prove the global convergence of the objective, we need to show the nonincreasing behavior of the objective function between each \ac{AO} update, \textit{i.e}, 
+\begin{multline}
+f(\iter{\mx}{\ast}{i},\iter{\my}{\ast}{i},\iter{\mz}{\ast|x}{i}) \leq f(\iter{\mx}{\ast}{i},\iter{\my}{0}{i},\iter{\mz}{0}{i}) \\
+\leq f(\iter{\mx}{\ast}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{\ast|y}{i}).
+\end{multline}
+Let us consider an \ac{AO} iteration \me{i} in which the optimal value for \eqn{\mx} and \eqn{\mz} are obtained as \me{\iter{\mx}{\ast}{i}} and \me{\iter{\mz}{\ast|y}{i}} using fixed \eqn{\my = \iter{\my}{\ast}{i-1}}. To find \me{\iter{\my}{0}{i}}, we fix \eqn{\mx} as \me{\iter{\mx}{\ast}{i}} and optimize for \me{\my}. Since we linearize the convex function in \eqref{con-dc}, the fixed operating point is also included in the feasible set \eqn{\{\iter{\my}{\ast}{i-1},\iter{\mx}{\ast}{i},\iter{\mz}{\ast|y}{i}\} \in \iter{\mc{Y}}{0}{i}} using \eqref{con-sub-set}. Using this, we can show the monotonicity of the objective value sequence as
+\begin{equation*}
+f(\iter{\mx}{\ast}{i},\iter{\my}{0}{i},\iter{\mz}{0}{i}) \leq f(\iter{\mx}{\ast}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{\ast|x}{i}).
+\end{equation*}
+Note that the feasible set follows \eqn{\{\iter{\my}{\ast}{i-1},\iter{\mx}{\ast}{i},\iter{\mz}{\ast|y}{i}\} \in \{ \iter{\mc{X}}{\ast}{i} \cap \iter{\mc{Y}}{0}{i} \}} in each \ac{AO} iteration.
+
+\subsection{Uniqueness}
+
+The uniqueness of the function mapping, \textit{i.e}, one-to-one correspondence between the feasible solution and the objective value, can be attributed to the linearization performed on the \ac{DC} constraint in problem \eqref{eqn-9} and the \ac{MSE} expression in \eqref{eqn-mse-2}. The linearized \eqref{eqn-8} can be written as
+\begin{multline}
+\gamma_{l,k,n} + \tilde{\beta}_{l,k,n}^{-2} |\mvec{\tilde{H}}{b_k,k,n} \mvec{\tilde{m}}{l,k,n}|^2 (\beta_{l,k,n} - \tilde{\beta}_{l,k,n}) \\
+- \tilde{\beta}_{l,k,n}^{-1} \mvec{\tilde{m}}{l,k,n}^\herm \mvec{\tilde{H}}{b_k,k,n}^\herm \mvec{\tilde{H}}{b_k,k,n} (\mvec{m}{l,k,n} - \mvec{\tilde{m}}{l,k,n}) \leq 0,
+\end{multline}
+where \eqn{\mvec{\tilde{H}}{b_k,k,n} = \mvec{w}{l,k,n}^\herm \mvec{\tilde{H}}{b_k,k,n}} and the \ac{MSE} expression as
+\begin{multline}
+| 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} |^2 \\ + \sum_{\mathclap{(j,i) \neq (l,k)}} | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2 + \enoise \leq \epsilon_{l,k,n}.
+\end{multline}
+Note that the receive beamformer \me{\mvec{w}{l,k,n}} is unique for the given set of transmit precoders.
+
+When the objective function is zero, the uniqueness of the transmit precoders using the above constraints are not valid since the relaxations used in the formulation need not be tight to provide a unique set of transmit precoders. To obtain a unique set of transmit precoders even when the objective is zero for a single \ac{BS}, we can regularize the objective with the total transmit power expression without affecting the optimal solution as 
+\begin{equation*}
+\| \tilde{\mbf{v}} \|_q + \varphi \sum_{k \in \mc{U}} \sum_{n = 1}^{N} \sum_{l=1}^{L} \mathrm{tr} \left ( \mvec{m}{l,k,n} \mbf{m}^\herm_{l,k,n} \right ),
+\end{equation*}
+for some arbitrarily small value of the scaling factor \me{\varphi \approx 0}. 
+
+\subsection{Stationary Point}
+
+To show the limiting point of the iterative algorithm is the stationary point of the nonconvex problem \eqref{con}, it must satisfy the \ac{KKT} conditions of the nonconvex problem. Since the converged point is the minimizer for the iterative algorithm such that 
+\begin{multline} \label{con-opt}
+f(\iter{\mx}{\ast}{i},\iter{\my}{\ast}{i},\iter{\mz}{\ast|x}{i}) = f(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i},\iter{\mz}{\ast|y}{i+1}) \\ = 
+f(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1}),
+\end{multline}
+the solution is inside the feasible set \me{\mc{F}} and \me{(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1})} is the minimizer of the objective function \me{f_0} in the feasible set \me{\iterate{\mc{X}}{i+1}_{\ast} \subset \mc{F}}. Using the discussions in \cite{marks1978technical}, we can easily show that the feasible point \me{\mc{F}} and \me{(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1})}, which is the minimizer in the local neighborhood, is a stationary point of the non convex problem in \eqref{con} satisfying the constraint qualifications and the \ac{KKT} expressions for the set \me{\iterate{\mc{X}}{i+1}_{\ast} \subset \mc{F}}. The non differentiability of the objective function in \eqref{eqn-6} and \eqref{eqn-mse-1} requires the subdifferential set of the objective function to include \me{0 \in \partial f_0(\mz_{\ast})} to satisfy the \ac{KKT} conditions. The monotonic decrease in the objective is still valid if the variables \me{\mx,\my} and \me{\mz} are updated together, since the update in \me{\my} increases the objective function for a fixed point \me{\mx} and \me{\mz}. Using these arguments, we can claim that the proposed \ac{JSFRA} centralized solution achieves a stationary point of the original nonconvex problem with the nonincreasing objective value at each iteration. 
+
+
+
+
+
+
+
+
+
+\begin{comment}
 
 To prove the convergence of the centralized algorithm in \eqref{eqn-6} and \eqref{eqn-mse-1}, following conditions are necessary to prove the sequence convergence using Bolzano-Weierstrass theorem \cite{rudin1964principles}.
 \begin{itemize}
@@ -87,7 +191,7 @@ f(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1}),
 \end{multline}
 the solution is inside the feasible set \me{\mc{F}} and \me{(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1})} is the minimizer of the objective function \me{f_0} in the feasible set \me{\iterate{\mc{X}}{i+1}_{\ast} \subset \mc{F}}. Using the discussions in \cite{marks1978technical}, we can easily show that the feasible point \me{\mc{F}} and \me{(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1})}, which is the minimizer in the local neighborhood, is a stationary point of the non convex problem in \eqref{con} satisfying the constraint qualifications and the \ac{KKT} expressions for the set \me{\iterate{\mc{X}}{i+1}_{\ast} \subset \mc{F}}. The non differentiability of the objective function in \eqref{eqn-6} and \eqref{eqn-mse-1} requires the subdifferential set of the objective function to include \me{0 \in \partial f_0(\mz_{\ast})} to satisfy the \ac{KKT} conditions. The monotonic decrease in the objective is still valid if the variables \me{\mx,\my} and \me{\mz} are updated together, since the update in \me{\my} increases the objective function for a fixed point \me{\mx} and \me{\mz}. Using these arguments, we can claim that the proposed \ac{JSFRA} centralized solution achieves a stationary point of the original nonconvex problem with the nonincreasing objective value at each iteration. 
 
-
+\end{comment}
 
 
 
