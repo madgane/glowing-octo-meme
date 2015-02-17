@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=latex 2015.2.5)  17 FEB 2015 14:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=latex 2015.2.5)  17 FEB 2015 18:59
 entering extended mode
 **ieee_journal.tex
 (ieee_journal.tex
@@ -707,7 +707,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 101--103
 10 F$ \OT1/ptm/m/it/10 and
  []
 
-) (kkt_appendix.tex) [24] (ieee_journal.bbl
+) (kkt_appendix.tex [24]) (ieee_journal.bbl
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 28.
 ) [25] (ieee_journal.aux) ) 
@@ -720,4 +720,4 @@ Here is how much of TeX's memory you used:
  1025 hyphenation exceptions out of 8191
  42i,23n,47p,1743b,424s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on ieee_journal.dvi (25 pages, 209584 bytes).
+Output written on ieee_journal.dvi (25 pages, 210492 bytes).

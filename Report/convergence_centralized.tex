@@ -9,18 +9,18 @@
 
 To prove the convergence of the centralized algorithm in \eqref{eqn-6} and \eqref{eqn-mse-1}, we need to show that the following conditions are to be satisfied by the objective function sequence to prove the convergence of the transmit and the receive beamformers.
 \begin{itemize}
-	\item The objective function should be bounded below
-	\item The feasible set should be a compact set
-	\item The sequence should be monotonically decreasing for each iteration
-	\item Uniqueness of the mapping, \textit{i.e}, there should be one-to-one correspondence between the objective value set and the feasible domain.
+	\item[(a)] The function should be coercive and bounded below
+	\item[(b)] The feasible set should be a compact set
+	\item[(c)] The sequence should be monotonically decreasing for each iteration
+	\item[(d)] Uniqueness of the mapping, \textit{i.e}, there should be one-to-one correspondence between the objective value set and the feasible domain.
 \end{itemize}
-Assuming the above conditions are satisfied by the iterative algorithm, using Bolzano-Weierstrass theorem \cite{rudin1964principles}, we can show that any bounded monotonically decreasing sequence has a unique limiting point. Using the property of one-to-one mapping between the feasible domain and the objective value, the transmit and the receive beamformers also approaches to a limiting point since the inverse mapping is unique in each iteration. Let us prove the above conditions are satisfied by the centralized problem. Note that the original nonconvex problem in \eqref{eqn-6} and \eqref{eqn-mse-1} has a solution set with the same objective value due to the invariance of the \ac{SINR} expression to the phase rotations, but the relaxed iterative convex problems lead to a unique solution depending on the initialization point.
+Using \cite[Prop. A.8]{bertsekas1999nonlinear}, the existence of a global minimizer in the feasible set can be guaranteed if the conditions (a) and (b) are satisfied. Since the feasible set is not fixed in each iteration, we require additional conditions (c) and (d) to prove the global convergence of the objective function, the transmit and the receive precoders. Assuming the above conditions are satisfied by the iterative algorithm, using Bolzano-Weierstrass theorem \cite{rudin1964principles}, we can show that any bounded monotonically decreasing sequence has a unique limiting point. Using the property of one-to-one mapping between the feasible domain and the objective value, the transmit and the receive beamformers also approaches to a limiting point since the inverse mapping is unique in each iteration. Note that the relaxed iterative problem has the unique solution but not the original nonconvex problem. Since the transmit precoders in problem in \eqref{eqn-6} and \eqref{eqn-mse-1} are invariant to any unitary rotations due to the absolute value operator in the \ac{SINR} expression, the limiting point is a set of precoder vectors with different unitary rotations. The limiting point of the iterative algorithm is susceptible to the initial operating point due to the linearization of the nonconvex \ac{DC} constraint.
 
 \subsection{Boundedness}
 
 The feasible set of the relaxed nonconvex problem in \eqref{eqn-6} and \eqref{eqn-mse-1} is bounded due to the total power constraint on the transmit precoders \eqref{eqn-6.4}. Note that the other variables are also bounded in accordance with this constraint. Since the feasible set also includes the boundary value due to the inequality constraint, it is closed and compact. 
 
-To prove the boundedness of the objective function, it is enough to show that the objective function is bounded below due to the minimization objective. Since the minimum value of the norm operator is zero, \textit{i.e}, the limiting point is \me{< -\infty}, it is bounded below. Note that the objective function is Lipschitz continuous over the feasible set, and therefore, it is bounded from above as well, since the feasible set is bounded. Note that the objective function is continuous everywhere and not differentiable only at the minimum.
+To prove the boundedness, it is enough to show that the objective function is bounded below due to the minimization objective. Since the minimum value of the norm operator is zero, \textit{i.e}, the limiting point is \me{< -\infty}, it is bounded below. Note that the objective function is Lipschitz continuous over the feasible set, and therefore, it is bounded from above as well, since the feasible set is bounded. Note that the norm operator in the objective function is continuous and coercive over the feasible set but not differentiable at its minimum point. Using the conditions (a) and (b) we can guarantee the existence of a minimizer to the original nonconvex problem in \eqref{eqn-6} and \eqref{eqn-mse-1}.
 
 \subsection{Monotonicity}
 
