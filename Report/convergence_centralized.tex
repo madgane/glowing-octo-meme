@@ -78,17 +78,17 @@ Note that the feasible set follows \eqn{\{\iter{\my}{\ast}{i-1},\iter{\mx}{\ast}
 \subsection{Uniqueness}
 
 The uniqueness of the function mapping, \textit{i.e}, one-to-one correspondence between the feasible solution and the objective value, can be attributed to the linearization performed on the \ac{DC} constraint in problem \eqref{eqn-9} and the \ac{MSE} expression in \eqref{eqn-mse-2}. The linearized \eqref{eqn-8} can be written as
-\begin{multline}
+\begin{multline} \label{uniqueness-1}
 \gamma_{l,k,n} + \tilde{\beta}_{l,k,n}^{-2} |\mvec{\tilde{H}}{b_k,k,n} \mvec{\tilde{m}}{l,k,n}|^2 (\beta_{l,k,n} - \tilde{\beta}_{l,k,n}) \\
 - \tilde{\beta}_{l,k,n}^{-1} \mvec{\tilde{m}}{l,k,n}^\herm \mvec{\tilde{H}}{b_k,k,n}^\herm \mvec{\tilde{H}}{b_k,k,n} (\mvec{m}{l,k,n} - \mvec{\tilde{m}}{l,k,n}) \leq 0,
 \end{multline}
 where \eqn{\mvec{\tilde{H}}{b_k,k,n} = \mvec{w}{l,k,n}^\herm \mvec{\tilde{H}}{b_k,k,n}} and the \ac{MSE} expression as
-\begin{multline}
+\begin{multline} \label{uniqueness-2}
 | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} |^2 \\ + \sum_{\mathclap{(j,i) \neq (l,k)}} | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2 + \enoise \leq \epsilon_{l,k,n}.
 \end{multline}
 Note that the receive beamformer \me{\mvec{w}{l,k,n}} is unique for the given set of transmit precoders.
 
-When the objective function is zero, the uniqueness of the transmit precoders using the above constraints are not valid since the relaxations used in the formulation need not be tight to provide a unique set of transmit precoders. To obtain a unique set of transmit precoders even when the objective is zero for a single \ac{BS}, we can regularize the objective with the total transmit power expression without affecting the optimal solution as 
+When the objective function is zero, the uniqueness of the transmit precoders using \eqref{uniqueness-1} and \eqref{uniqueness-2} are not valid due to the inactive constraints \eqref{eqn-6.2} and \eqref{eqn-mse-1.2}. To obtain a unique set of transmit precoders when the objective is zero for a single \ac{BS}, we can regularize the objective with the total transmit power expression without affecting the optimal solution as 
 \begin{equation*}
 \| \tilde{\mbf{v}} \|_q + \varphi \sum_{k \in \mc{U}} \sum_{n = 1}^{N} \sum_{l=1}^{L} \mathrm{tr} \left ( \mvec{m}{l,k,n} \mbf{m}^\herm_{l,k,n} \right ),
 \end{equation*}
@@ -96,20 +96,12 @@ for some arbitrarily small value of the scaling factor \me{\varphi \approx 0}.
 
 \subsection{Stationary Point}
 
-To show the limiting point of the iterative algorithm is the stationary point of the nonconvex problem \eqref{con}, it must satisfy the \ac{KKT} conditions of the nonconvex problem. Since the converged point is the minimizer for the iterative algorithm such that 
+To show the limiting point of the iterative algorithm is the stationary point of \eqref{con}, it must satisfy the \ac{KKT} conditions of the nonconvex problem. Since the converged point is a minimizer satisfying
 \begin{multline} \label{con-opt}
 f(\iter{\mx}{\ast}{i},\iter{\my}{\ast}{i},\iter{\mz}{\ast|x}{i}) = f(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i},\iter{\mz}{\ast|y}{i+1}) \\ = 
 f(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1}),
 \end{multline}
 the solution is inside the feasible set \me{\mc{F}} and \me{(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1})} is the minimizer of the objective function \me{f_0} in the feasible set \me{\iterate{\mc{X}}{i+1}_{\ast} \subset \mc{F}}. Using the discussions in \cite{marks1978technical}, we can easily show that the feasible point \me{\mc{F}} and \me{(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1})}, which is the minimizer in the local neighborhood, is a stationary point of the non convex problem in \eqref{con} satisfying the constraint qualifications and the \ac{KKT} expressions for the set \me{\iterate{\mc{X}}{i+1}_{\ast} \subset \mc{F}}. The non differentiability of the objective function in \eqref{eqn-6} and \eqref{eqn-mse-1} requires the subdifferential set of the objective function to include \me{0 \in \partial f_0(\mz_{\ast})} to satisfy the \ac{KKT} conditions. The monotonic decrease in the objective is still valid if the variables \me{\mx,\my} and \me{\mz} are updated together, since the update in \me{\my} increases the objective function for a fixed point \me{\mx} and \me{\mz}. Using these arguments, we can claim that the proposed \ac{JSFRA} centralized solution achieves a stationary point of the original nonconvex problem with the nonincreasing objective value at each iteration. 
-
-
-
-
-
-
-
-
 
 \begin{comment}
 
