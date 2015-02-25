@@ -18,11 +18,11 @@ Most sections of this paper are well written. The results and algorithms also se
 
 \cmnt{3} In Section III.B, the convergence conditions under Algorithm 1 are not clear. First, you should be more specific about what is the SCA subproblem. Do you mean problem (19)? Second, does the uniqueness of the transmit and receive beamformers mean that the solution of the original problem in (16) is unique, or the solutions of the subproblems in (19) and (20) are unique, respectively?
 
-\resp We understand the reviewer concerns. We have modified the convergence section to include additional information to provide more clarity. Appendix \ref{sec-3.5} discuss the convergence proof of the proposed algorithm in detail.
+\resp We understand the reviewer concerns. We have updated the convergence section to include additional information to provide more clarity. Appendix \ref{sec-3.5} discusses the convergence proof of the proposed algorithm in detail.
 
 \cmnt{4} It is better to clearly summarize the convergence conditions and results (i.e., does it converge to a stationary point or the optimal solution) for all algorithms in a theorem/proposition.
 
-\resp We agree with the reviewers view. We have updated the convergence proof to include the discussions on the stationary point and the optimal point.
+\resp We agree with the reviewers view. We have updated the convergence proof for both centralized and distributed algorithm to include the discussions on the stationary point and the locally optimal point in Appendix \ref{sec-3.5} and Section \ref{sec-dist-conv}.
 
 \cmnt{5} At the end of Section III, you mentioned that the proposed reduced complexity resource allocation scheme is sensitive to the order in which the subchannels are selected for the optimization problem. Please provide a discussion how to choose this order.
 
@@ -30,7 +30,7 @@ Most sections of this paper are well written. The results and algorithms also se
 
 \cmnt{6} In the distributed algorithms, it is not clear what exact information is exchanged between the BSs or between the BSs and users. Moreover, the signaling overhead should be analyzed and compared with the centralized solution. The proposed distributed algorithms require exchanging over-the-air signaling or backhaul signaling for many times within each channel coherent time (e.g., from Fig. 2, the distributed algorithm requires 20-30 iterations to converge even when there are only 3 subchannels). I don’t think this is acceptable in practice. Is the signaling overhead of the distributed algorithm really smaller than the centralized algorithm which only requires exchange the CSI between the BSs for once within each channel coherent time?
 
-\resp We thank the reviewer for the insightful comment on the practicality of the distributed algorithm. We fully agree with the reviewer comment on the information exchange between the BSs in the distributed approach. Please note that the proposed distributed algorithm based on the primal or dual decomposition is provided for the completeness purpose. Note that the distributed approach is performed for the convex subproblem, which leads to the same stationary point asymptotically as that of the centralized solution. In reality, we have to limit the number of iterations required for each distributed algorithm, thereby leading to a point which is not the stationary point when the algorithm is allowed to converge. In Section \ref{sec-4.3}, we have discussed a practical approach based on the KKT conditions, which attains a sub-optimal point with few number of iterations.
+\resp We thank the reviewer for the insightful comment on the practicality of the distributed algorithm. We fully agree with the reviewer comment on the information exchange between the BSs in the distributed approach. Please note that the proposed distributed algorithm based on the primal or dual decomposition is provided for the completeness purpose. Note that the distributed approach is performed for the convex subproblem, which leads to the same stationary point asymptotically as that of the centralized solution. In reality, we have to limit the number of iterations required for each distributed algorithm, thereby leading to a point which is not the stationary point when the algorithm is allowed to converge. In Section \ref{sec-4.3}, we have discussed a practical approach based on the KKT conditions, which attains a local optimal point with few number of iterations.
 
 \cmnt{7} The convergence analysis of the distributed algorithms is not clear. For example, what is the exact condition to ensure the convergence of the distributed algorithms. Does the distributed algorithms also converge to a stationary point?
 
@@ -38,11 +38,11 @@ Most sections of this paper are well written. The results and algorithms also se
 
 \cmnt{8} I’m totally confused with the ADMM approach in Section IV.A. Many notations, such as the local interference vector and consensus interference vector are used without formal definition. What is the difference between the local interference vector and consensus interference vector? What are their relationships with the actual interference vector. It seems that you are using the same notation for all of these interference vectors and I can’t tell when a notation refers to a local interference vector, a consensus interference vector, or the actual interference vector. These questions should be clarified and perhaps you should choose the notation system more carefully. For example, in (36), there are 3 similar notations and I don’t know which one is local interference vector and which one is the actual interference vector.
 
-\resp We understand the concern of the reviewer. We have updated the distributed section to include all the details pointed by the reviewer.
+\resp We understand the concern of the reviewer. We have updated the distributed section to include all the details pointed by the reviewer. Section \ref{sec-4.2} includes the updated discussions on ADMM scheme.
 
 \cmnt{9} In the distributed algorithms, it is not clear what information is available at each node. For example, what are your assumption on CSIT (CSI knowledge at each BS) and CSIR (CSI knowledge at each user)? How to 2 obtain the information used to perform the required calculation at each node (such as calculating the actual interference, MMSE receiver and the dual variables)?
 
-\resp We understand the concern of the reviewer. We have updated the distributed section to include all the details pointed by the reviewer.
+\resp We understand the concern of the reviewer. We have updated the distributed section to include the details pointed by the reviewer. Section \ref{sec-4.2} includes the updated discussions on ADMM scheme. In addition, \lr{who-knows-what} includes information about who knows what in the network.
 
 \cmnt{10} Do you have any convergence result for the proposed distributed solution based on the KKT conditions in Section IV.B? It seems that the iterative method to solve the KKT conditions is totally heuristic.
 
