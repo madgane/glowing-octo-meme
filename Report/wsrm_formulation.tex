@@ -1,5 +1,5 @@
 
-We now present an iterative algorithm to solve problem \eqref{eqn-3} by using alternating optimization technique in conjunction with \acf{SCA} \cite{marks1978technical}. The problem is to determine the transmit precoders \me{\mvec{m}{l,k,n}} and the receive beamformers \me{\mvec{w}{l,k,n}} to minimize the total number of backlogged packets in the system. Since the \ac{SINR} expression in \eqref{eq:SINR} cannot be handled directly to formulate the problem, we relax the equality constraint in \eqref{eq:SINR} by the inequality constraints to solve for the transmit and the receive precoders as
+We now present an iterative algorithm to solve problem \eqref{eqn-3} by using alternating optimization technique in conjunction with \acf{SCA} \cite{marks1978technical}. The problem is to determine the transmit precoders \me{\mvec{m}{l,k,n}} and the receive beamformers \me{\mvec{w}{l,k,n}} to minimize the total number of backlogged packets in the system. Since the \ac{SINR} expression in \eqref{eq:SINR} cannot be handled directly to formulate the problem, we relax the equality constraint of \eqref{eq:SINR} using two inequality constraints by introducing additional variables to solve \eqref{eqn-3} as
 \iftoggle{single_column}{
 \begin{IEEEeqnarray}{CCl}\label{eqn-6}
 \underset{\substack{\gamma_{l,k,n},\mvec{m}{l,k,n},\\ \beta_{l,k,n},\mvec{w}{l,k,n}}}{\text{minimize}} & \quad & \|  \tilde{\mbf{v}}  \|_q \label{eqn-obj} \IEEEyessubnumber \\
@@ -47,7 +47,7 @@ In summary, for the fixed linear receivers \review{\me{\mvec{w}{l,k,n}}} and the
 & \quad & \text{and } \eqref{eqn-8}. \IEEEyessubnumber \label{eqn-9.1e}
 \end{IEEEeqnarray}
 
-Now, the optimal linear receivers for the fixed transmit precoders \me{\mbf{m}_{j,i,n} \, \forall i \in \mc{U}, \, \forall n \in \mc{C}} are obtained by minimizing \eqref{eqn-3} with respect to \me{\mbf{w}_{l,k,n}} as
+Now, the optimal linear receivers for the fixed transmit precoders \me{\mbf{m}_{j,i,n} \, \forall i \in \mc{U}, \, \forall n \in \mc{C}} are obtained by minimizing \eqref{eqn-6} with respect to \me{\mbf{w}_{l,k,n}} as
 \begin{IEEEeqnarray}{CCl}\label{eqn-9--1}
 \underset{\substack{\gamma_{l,k,n},\\ \mvec{w}{l,k,n},\beta_{l,k,n}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}} \|_q \IEEEyessubnumber\label{eqn-9--1.1a} \\
 \text{subject to} & \quad & \beta_{l,k,n} \geq  \enoise + \hspace{-0.75em} \sum_{(j,i) \neq (l,k)} \hspace{-0.75em} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2 \IEEEyessubnumber \eqspace \label{eqn-9--1.1c} \\

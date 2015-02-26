@@ -1,19 +1,10 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2015.1.22)  25 FEB 2015 07:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.2.5)  26 FEB 2015 13:39
 entering extended mode
 **ieee_journal.tex
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\ieee_journal.tex
-LaTeX2e <2011/06/27>
-Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
-abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
-croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
-lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
-ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
- lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
-german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
-ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
-an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
-ishmax, welsh, loaded.
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Styles\IEEEtran.cls
+(ieee_journal.tex
+LaTeX2e <2014/05/01>
+Babel <3.9l> and hyphenation patterns for 68 languages loaded.
+(../Styles/IEEEtran.cls
 
 LaTeX Warning: You have requested document class `./../Styles/IEEEtran',
                but the document class provides `IEEEtran'.
@@ -32,7 +23,7 @@ LaTeX Font Info:    Try loading font information for OT1+ptm on input line 366.
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 -- Using 8.5in x 11in (letter) paper.
--- Using DVI output.
+-- Using PDF output.
 \@IEEEnormalsizeunitybaselineskip=\dimen104
 -- This is a 10 point document.
 \CLASSINFOnormalsizebaselineskip=\dimen105
@@ -101,25 +92,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 \@IEEEtmpitemindent=\dimen116
 \c@IEEEbiography=\count90
 \@IEEEtranrubishbin=\box26
-) (C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\lineno\lineno.sty
-Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count91
-\output=\toks15
-\linenoprevgraf=\count92
-\linenumbersep=\dimen117
-\linenumberwidth=\dimen118
-\c@linenumber=\count93
-\c@pagewiselinenumber=\count94
-\c@LN@truepage=\count95
-\c@internallinenumber=\count96
-\c@internallinenumbers=\count97
-\quotelinenumbersep=\dimen119
-\bframerule=\dimen120
-\bframesep=\dimen121
-\bframebox=\box27
-LaTeX Info: Redefining \\ on input line 3056.
-)
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\placeins\placeins.sty
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\placeins\placeins.sty"
 Package: placeins 2005/04/18  v 2.2
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
@@ -132,51 +105,51 @@ Package: amstext 2000/06/29 v2.01
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks16
-\ex@=\dimen122
+\@emptytoks=\toks15
+\ex@=\dimen117
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen123
+\pmbraise@=\dimen118
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count98
+\inf@bad=\count91
 LaTeX Info: Redefining \frac on input line 210.
-\uproot@=\count99
-\leftroot@=\count100
+\uproot@=\count92
+\leftroot@=\count93
 LaTeX Info: Redefining \overline on input line 306.
-\classnum@=\count101
-\DOTSCASE@=\count102
+\classnum@=\count94
+\DOTSCASE@=\count95
 LaTeX Info: Redefining \ldots on input line 378.
 LaTeX Info: Redefining \dots on input line 381.
 LaTeX Info: Redefining \cdots on input line 466.
-\Mathstrutbox@=\box28
-\strutbox@=\box29
-\big@size=\dimen124
+\Mathstrutbox@=\box27
+\strutbox@=\box28
+\big@size=\dimen119
 LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
-\macc@depth=\count103
-\c@MaxMatrixCols=\count104
+\macc@depth=\count96
+\c@MaxMatrixCols=\count97
 \dotsspace@=\muskip10
-\c@parentequation=\count105
-\dspbrk@lvl=\count106
-\tag@help=\toks17
-\row@=\count107
-\column@=\count108
-\maxfields@=\count109
-\andhelp@=\toks18
-\eqnshift@=\dimen125
-\alignsep@=\dimen126
-\tagshift@=\dimen127
-\tagwidth@=\dimen128
-\totwidth@=\dimen129
-\lineht@=\dimen130
-\@envbody=\toks19
+\c@parentequation=\count98
+\dspbrk@lvl=\count99
+\tag@help=\toks16
+\row@=\count100
+\column@=\count101
+\maxfields@=\count102
+\andhelp@=\toks17
+\eqnshift@=\dimen120
+\alignsep@=\dimen121
+\tagshift@=\dimen122
+\tagwidth@=\dimen123
+\totwidth@=\dimen124
+\lineht@=\dimen125
+\@envbody=\toks18
 \multlinegap=\skip45
 \multlinetaggap=\skip46
-\mathdisplay@stack=\toks20
+\mathdisplay@stack=\toks19
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
@@ -190,40 +163,40 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\acronym\acronym.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\acronym\acronym.sty"
 Package: acronym 2014/09/29 v1.40 Support for acronyms (Tobias Oetiker)
 
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\bigfoot\suffix.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\bigfoot\suffix.sty"
 Package: suffix 2006/07/15 1.5a Variant command support
 )
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\xstring\xstring.sty
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\generic\xstring\xstring.tex
+("C:\Program Files\MiKTeX 2.9\tex\latex\xstring\xstring.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\xstring\xstring.tex"
 \@xs@message=\write3
-\integerpart=\count110
-\decimalpart=\count111
+\integerpart=\count103
+\decimalpart=\count104
 )
 Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 )
-\AC@clearlist=\toks21
+\AC@clearlist=\toks20
 )
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\etoolbox\etoolbox.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.sty"
 Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\misc\etex.sty"
 Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
-\et@xins=\count112
+\et@xins=\count105
 )
-\etb@tempcnta=\count113
+\etb@tempcnta=\count106
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
-Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
-Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
-\KV@toks@=\toks22
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks21
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
-Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
@@ -231,13 +204,21 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
-Package graphics Info: Driver file: dvips.def on input line 91.
+Package graphics Info: Driver file: pdftex.def on input line 91.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\dvips.def"
-File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count107
 ))
-\Gin@req@height=\dimen131
-\Gin@req@width=\dimen132
+\Gin@req@height=\dimen126
+\Gin@req@width=\dimen127
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf.sty"
 Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
@@ -245,18 +226,12 @@ Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
-)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
 Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
 Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
-Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
-)))
+))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 
@@ -281,26 +256,27 @@ Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is not detected.
+Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode is ignored in DVI mode.
+Package pdftexcmds Info: \pdfdraftmode found.
 )
-
-Package epstopdf Warning: Drivers other than `pdftex.def' are not supported.
-
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
 ))
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithm2e\algorithm2e.s
-ty
+("C:\Program Files\MiKTeX 2.9\tex\latex\algorithm2e\algorithm2e.sty"
 Package: algorithm2e 2013/01/06 v5.00 algorithms environments
-\c@AlgoLine=\count114
- ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
-Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+\c@AlgoLine=\count108
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\xspace.sty"
-Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\relsize.sty"
 Package: relsize 2003/07/04 ver 3.1
@@ -320,40 +296,41 @@ subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 \skiplength=\skip52
 \algomargin=\skip53
 \skipalgocfslide=\skip54
-\algowidth=\dimen133
-\inoutsize=\dimen134
-\inoutindent=\dimen135
-\interspacetitleruled=\dimen136
-\interspacealgoruled=\dimen137
-\interspacetitleboxruled=\dimen138
-\algocf@inoutbox=\box30
-\algocf@inputbox=\box31
+\algowidth=\dimen128
+\inoutsize=\dimen129
+\inoutindent=\dimen130
+\interspacetitleruled=\dimen131
+\interspacealgoruled=\dimen132
+\interspacetitleboxruled=\dimen133
+\algocf@inoutbox=\box29
+\algocf@inputbox=\box30
 \AlCapSkip=\skip55
 \AlCapHSkip=\skip56
 \algoskipindent=\skip57
-\algocf@nlbox=\box32
-\algocf@hangingbox=\box33
-\algocf@untilbox=\box34
+\algocf@nlbox=\box31
+\algocf@hangingbox=\box32
+\algocf@untilbox=\box33
 \algocf@skipuntil=\skip58
-\algocf@capbox=\box35
+\algocf@capbox=\box34
 \algoheightruledefault=\skip59
 \algoheightrule=\skip60
 \algotitleheightruledefault=\skip61
 \algotitleheightrule=\skip62
-\c@algocfline=\count115
-\c@algocfproc=\count116
-\c@algocf=\count117
-\algocf@algoframe=\box36
-\algocf@algobox=\box37
-) (C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\xcolor\xcolor.sty
+\c@algocfline=\count109
+\c@algocfproc=\count110
+\c@algocf=\count111
+\algocf@algoframe=\box35
+\algocf@algobox=\box36
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
 Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package xcolor Info: Package option `usenames' ignored on input line 216.
-Package xcolor Info: Driver file: dvips.def on input line 225.
+Package xcolor Info: Driver file: pdftex.def on input line 225.
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
 Package xcolor Info: Model `RGB' extended on input line 1353.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
@@ -363,97 +340,115 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\dvipsnam.def"
-File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+File: dvipsnam.def 2014/10/14 v3.0j Driver-dependent file (DPC,SPQR)
 ))
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\subfig\subfig.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\subfig\subfig.sty"
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
 Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 57.
-\captionmargin=\dimen139
-\captionmargin@=\dimen140
-\captionwidth=\dimen141
-\caption@tempdima=\dimen142
-\caption@indent=\dimen143
-\caption@parindent=\dimen144
-\caption@hangindent=\dimen145
+\captionmargin=\dimen134
+\captionmargin@=\dimen135
+\captionwidth=\dimen136
+\caption@tempdima=\dimen137
+\caption@indent=\dimen138
+\caption@parindent=\dimen139
+\caption@hangindent=\dimen140
 Package caption Info: Unknown document class (or package),
 (caption)             standard defaults will be used.
 )
-\c@KVtest=\count118
+\c@KVtest=\count112
 \sf@farskip=\skip63
-\sf@captopadj=\dimen146
+\sf@captopadj=\dimen141
 \sf@capskip=\skip64
 \sf@nearskip=\skip65
-\c@subfigure=\count119
-\c@subfigure@save=\count120
-\c@lofdepth=\count121
-\c@subtable=\count122
-\c@subtable@save=\count123
-\c@lotdepth=\count124
+\c@subfigure=\count113
+\c@subfigure@save=\count114
+\c@lofdepth=\count115
+\c@subtable=\count116
+\c@subtable@save=\count117
+\c@lotdepth=\count118
 \sf@top=\skip66
 \sf@bottom=\skip67
 )
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\subeqnarray\subeqnarray.s
-ty
+("C:\Program Files\MiKTeX 2.9\tex\latex\subeqnarray\subeqnarray.sty"
 Package: subeqnarray 2004/04/15 v2.1c subeqnarray package
-\c@subequation=\count125
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
-\bigstrutjot=\dimen147
+\c@subequation=\count119
 )
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\cite\cite.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
+\bigstrutjot=\dimen142
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\cite\cite.sty"
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 373.
 Package: cite 2010/09/10  v 5.3
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
-Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen148
-\extrarowheight=\dimen149
-\NC@list=\toks23
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen143
+\extrarowheight=\dimen144
+\NC@list=\toks22
 \extratabsurround=\skip68
 \backup@length=\skip69
 )
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\setspace\setspace.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\setspace\setspace.sty"
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\fixltx2e.sty"
-Package: fixltx2e 2006/09/13 v1.1m fixes to LaTeX
-LaTeX Info: Redefining \em on input line 420.
-LaTeX Info: The control sequence `\[' is already robust on input line 471.
-LaTeX Info: The control sequence `\]' is already robust on input line 472.
+Package: fixltx2e 2014/09/29 v1.1s fixes to LaTeX
+LaTeX Info: Redefining \em on input line 430.
+LaTeX Info: The control sequence `\[' is already robust on input line 481.
+LaTeX Info: The control sequence `\]' is already robust on input line 482.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\lineno\lineno.sty"
+Package: lineno 2005/11/02 line numbers on paragraphs v4.41
+\linenopenalty=\count120
+\output=\toks23
+\linenoprevgraf=\count121
+\linenumbersep=\dimen145
+\linenumberwidth=\dimen146
+\c@linenumber=\count122
+\c@pagewiselinenumber=\count123
+\c@LN@truepage=\count124
+\c@internallinenumber=\count125
+\c@internallinenumbers=\count126
+\quotelinenumbersep=\dimen147
+\bframerule=\dimen148
+\bframesep=\dimen149
+\bframebox=\box37
+LaTeX Info: Redefining \\ on input line 3056.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
-Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks24
 \verbatim@line=\toks25
 \verbatim@in@stream=\read1
 )
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\mathtools\mathtools.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\mathtools\mathtools.sty"
 Package: mathtools 2014/07/16 v1.15 mathematical typesetting tools
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
-Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count126
-\calc@Bcount=\count127
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count127
+\calc@Bcount=\count128
 \calc@Adimen=\dimen150
 \calc@Bdimen=\dimen151
 \calc@Askip=\skip70
 \calc@Bskip=\skip71
-LaTeX Info: Redefining \setlength on input line 76.
-LaTeX Info: Redefining \addtolength on input line 77.
-\calc@Ccount=\count128
+LaTeX Info: Redefining \setlength on input line 75.
+LaTeX Info: Redefining \addtolength on input line 76.
+\calc@Ccount=\count129
 \calc@Cskip=\skip72
 )
-(C:\Users\Ganesh\AppData\Roaming\MiKTeX\2.9\tex\latex\mathtools\mhsetup.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\mathtools\mhsetup.sty"
 Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
 )
 LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
-\g_MT_multlinerow_int=\count129
+\g_MT_multlinerow_int=\count130
 \l_MT_multwidth_dim=\dimen152
 \origjot=\skip73
 \l_MT_shortvdotswithinadjustabove_dim=\dimen153
@@ -463,80 +458,40 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_above_shortintertext_sep=\dimen157
 \l_MT_below_shortintertext_sep=\dimen158
 )
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\shortcuts.tex)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\acronyms.tex)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\ieee_journal.aux
+Package grfext Info: Graphics extension search list:
+(grfext)             [.eps]
+(grfext)             \PrependGraphicsExtensions on input line 17.
+ (shortcuts.tex) (acronyms.tex) (ieee_journal.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
 
-LaTeX Warning: Label `who-knows-what' multiply defined.
-
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count131
+\scratchdimen=\dimen159
+\scratchbox=\box38
+\nofMPsegments=\count132
+\nofMParguments=\count133
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count134
+\MPscratchDim=\dimen160
+\MPnumerator=\count135
+\makeMPintoPDFobject=\count136
+\everyMPtoPDFconversion=\toks27
 )
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\review_comments.tex
-LaTeX Font Info:    Try loading font information for U+msa on input line 2.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 2.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Package acronym Info: Label `acro:Q-WSRME' newly defined as it shall be overrid
-den
-although it is yet undefined on input line 13.
-Package acronym Info: Label `acro:Q-WSRM' newly defined as it shall be overridd
-en
-although it is yet undefined on input line 13.
- [1
-
-
-]
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
- [2]
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
- [3]
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ú in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ù in font ptmr7t!
-Package acronym Info: Label `acro:SCA' newly defined as it shall be overridden
-although it is yet undefined on input line 72.
- [4]
-Package acronym Info: Label `acro:BS' newly defined as it shall be overridden
-although it is yet undefined on input line 108.
-
-[5] [6] [7] [8]) [9]
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 55.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
@@ -549,7 +504,7 @@ Underfull \hbox (badness 5008) in paragraph at lines 55--55
 venkatraman, antti.tolli, le.nam.tran,
  []
 
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\abstract.tex
+(abstract.tex
 Package acronym Info: Label `acro:MIMO' newly defined as it shall be overridden
 
 although it is yet undefined on input line 1.
@@ -558,8 +513,12 @@ although it is yet undefined on input line 1.
 Package acronym Info: Label `acro:OFDM' newly defined as it shall be overridden
 
 although it is yet undefined on input line 1.
+Package acronym Info: Label `acro:BS' newly defined as it shall be overridden
+although it is yet undefined on input line 1.
 Package acronym Info: Label `acro:WSRM' newly defined as it shall be overridden
 
+although it is yet undefined on input line 1.
+Package acronym Info: Label `acro:SCA' newly defined as it shall be overridden
 although it is yet undefined on input line 1.
 Package acronym Info: Label `acro:JSFRA' newly defined as it shall be overridde
 n
@@ -567,17 +526,12 @@ although it is yet undefined on input line 1.
 Package acronym Info: Label `acro:MSE' newly defined as it shall be overridden
 although it is yet undefined on input line 1.
 
-Underfull \hbox (badness 2772) in paragraph at lines 59--2
+Underfull \hbox (badness 2772) in paragraph at lines 57--2
 \OT1/ptm/b/n/9 sce-nario us-ing [][]or-thog-o-nal fre-quency di-vi-sion mul-ti-
 plex-ing
  []
 
-)
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 71.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1phv.fd"
-File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
-)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\introduction.tex
+) (introduction.tex
 Package acronym Info: Label `acro:BS' overridden on input line 3.
 Package acronym Info: Label `acro:MU' newly defined as it shall be overridden
 although it is yet undefined on input line 3.
@@ -595,49 +549,51 @@ although it is yet undefined on input line 11.
 Package acronym Info: Label `acro:ADMM' newly defined as it shall be overridden
 
 although it is yet undefined on input line 13.
-
-[10
+ [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
+LaTeX Font Info:    Try loading font information for U+msa on input line 15.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 15.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 Package acronym Info: Label `acro:DC' newly defined as it shall be overridden
 although it is yet undefined on input line 20.
 Package acronym Info: Label `acro:JSFRA' overridden on input line 20.
 Package acronym Info: Label `acro:KKT' newly defined as it shall be overridden
 although it is yet undefined on input line 20.
-)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\system_model.tex
+) (system_model.tex
 Package acronym Info: Label `acro:TDD' newly defined as it shall be overridden
 although it is yet undefined on input line 18.
 
-[11]
+[2]
 Package acronym Info: Label `acro:SINR' newly defined as it shall be overridden
 
 although it is yet undefined on input line 29.
-)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\problem_formulation_
-intro.tex
+) (problem_formulation_intro.tex
 Overfull \hbox (0.54088pt too wide) in alignment at lines 9--12
  [] [] [] [][]
  []
 
-)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\queue_minimizing_int
-ro.tex)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\joint_wsrm_formulati
-on.tex [12]
-Package acronym Info: Label `acro:Q-WSRM' overridden on input line 4.
-
+) (queue_minimizing_intro.tex) (joint_wsrm_formulation.tex
+Package acronym Info: Label `acro:Q-WSRM' newly defined as it shall be overridd
+en
+although it is yet undefined on input line 4.
+ [3]
 Overfull \hbox (3.87427pt too wide) in alignment at lines 43--46
  [] [] [] [][]
  []
 
-Package acronym Info: Label `acro:Q-WSRME' overridden on input line 48.
-)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\problem_formulation.
-tex)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\wsrm_formulation.tex
-[13]
+Package acronym Info: Label `acro:Q-WSRME' newly defined as it shall be overrid
+den
+although it is yet undefined on input line 48.
+) (problem_formulation.tex) (wsrm_formulation.tex [4]
 Overfull \hbox (4.84355pt too wide) in alignment at lines 17--17
  [] [] [] [][]
  []
@@ -659,8 +615,7 @@ Overfull \hbox (12.18701pt too wide) in alignment at lines 57--60
  [] [] [] [][]
  []
 
-[14])
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\mse_formulation.tex
+[5]) (mse_formulation.tex
 Package acronym Info: Label `acro:WMMSE' newly defined as it shall be overridde
 n
 although it is yet undefined on input line 18.
@@ -669,18 +624,18 @@ Overfull \hbox (5.3305pt too wide) in alignment at lines 35--35
  [] [] [][]
  []
 
-[15])
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\sub_channel_wsrm.tex
+) (sub_channel_wsrm.tex
+Underfull \vbox (badness 1789) has occurred while \output is active []
+
+ [6]
 Package acronym Info: Label `acro:SRA' newly defined as it shall be overridden
 although it is yet undefined on input line 4.
 )
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\decomposition_soluti
-ons.tex
+(decomposition_solutions.tex
 Underfull \vbox (badness 6094) has occurred while \output is active []
 
- [16])
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\primal_approach.tex)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\dual_approach.tex
+ [7])
+(primal_approach.tex) (dual_approach.tex
 Package acronym Info: Label `acro:DD' newly defined as it shall be overridden
 although it is yet undefined on input line 2.
 
@@ -688,31 +643,54 @@ Overfull \hbox (8.29994pt too wide) in alignment at lines 6--12
  [] [] [][]
  []
 
-)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\convergence_distribu
-ted.tex [17])
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\kkt_mse_approach.tex
-
+) (convergence_distributed.tex [8]) (kkt_mse_approach.tex
 Underfull \vbox (badness 2245) has occurred while \output is active []
 
- [18]
+ [9]
 Package acronym Info: Label `acro:OTA' newly defined as it shall be overridden
 although it is yet undefined on input line 88.
 Package acronym Info: Label `acro:PD' newly defined as it shall be overridden
 although it is yet undefined on input line 88.
 )
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\simulation_intro.tex
-File: ./../Figures/Linux/fig-1-4.eps Graphic file (type eps)
-<./../Figures/Linux/fig-1-4.eps>
-File: ./../Figures/Linux/fig-2-5.eps Graphic file (type eps)
- <./../Figures/Linux/fig-2-5.eps>
+(simulation_intro.tex
+Package epstopdf Info: Source file: <./../Figures/Linux/fig-1-4.eps>
+(epstopdf)                    date: 2015-01-19 13:23:53
+(epstopdf)                    size: 26427 bytes
+(epstopdf)             Output file: <./../Figures/Linux/fig-1-4.pdf>
+(epstopdf)                    date: 2015-02-17 14:03:18
+(epstopdf)                    size: 10393 bytes
+(epstopdf)             Command: <epstopdf ./../Figures/Linux/fig-1-4.eps>
+(epstopdf)             \includegraphics on input line 27.
+Package epstopdf Info: Output file is already uptodate.
+
+<./../Figures/Linux/fig-1-4.pdf, id=54, 420.57124pt x 316.18124pt>
+File: ./../Figures/Linux/fig-1-4.pdf Graphic file (type pdf)
+
+<use ./../Figures/Linux/fig-1-4.pdf>
+Package pdftex.def Info: ./../Figures/Linux/fig-1-4.pdf used on input line 27.
+(pdftex.def)             Requested size: 258.0pt x 193.96062pt.
+Package epstopdf Info: Source file: <./../Figures/Linux/fig-2-5.eps>
+(epstopdf)                    date: 2015-01-19 13:23:53
+(epstopdf)                    size: 27713 bytes
+(epstopdf)             Output file: <./../Figures/Linux/fig-2-5.pdf>
+(epstopdf)                    date: 2015-02-17 14:03:18
+(epstopdf)                    size: 12283 bytes
+(epstopdf)             Command: <epstopdf ./../Figures/Linux/fig-2-5.eps>
+(epstopdf)             \includegraphics on input line 30.
+Package epstopdf Info: Output file is already uptodate.
+
+<./../Figures/Linux/fig-2-5.pdf, id=55, 420.57124pt x 316.18124pt>
+File: ./../Figures/Linux/fig-2-5.pdf Graphic file (type pdf)
+
+<use ./../Figures/Linux/fig-2-5.pdf>
+Package pdftex.def Info: ./../Figures/Linux/fig-2-5.pdf used on input line 30.
+(pdftex.def)             Requested size: 258.0pt x 193.96062pt.
+
 Overfull \hbox (14.00024pt too wide) in paragraph at lines 27--31
- [][][][] 
+ [][][] 
  []
 
-)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\simulation_results.t
-ex
+) (simulation_results.tex
 Package acronym Info: Label `acro:SISO' newly defined as it shall be overridden
 
 although it is yet undefined on input line 1.
@@ -720,58 +698,139 @@ Package acronym Info: Label `acro:SNR' newly defined as it shall be overridden
 although it is yet undefined on input line 1.
 
 Overfull \hbox (4.51932pt too wide) in paragraph at lines 6--21
- [][][] 
+ [][] 
  []
 
-[19]
+[10]
 Underfull \vbox (badness 2197) has occurred while \output is active []
 
 
 Underfull \vbox (badness 6032) has occurred while \output is active []
 
- [20])
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\simulation_distribut
-ed.tex
-File: ./../Figures/Linux/fig-3-2.eps Graphic file (type eps)
- <./../Figures/Linux/fig-3-2.eps>
-File: ./../Figures/Linux/fig-9-3.eps Graphic file (type eps)
- <./../Figures/Linux/fig-9-3.eps>
-File: ./../Figures/Review/average_queue_over_time.eps Graphic file (type eps)
+ [11 <./../Figures/Linux/fig-1-4.pdf> <./../Figures/Linux/fig-2-5.pdf>])
+(simulation_distributed.tex
+Package epstopdf Info: Source file: <./../Figures/Linux/fig-3-2.eps>
+(epstopdf)                    date: 2015-01-19 13:23:53
+(epstopdf)                    size: 21783 bytes
+(epstopdf)             Output file: <./../Figures/Linux/fig-3-2.pdf>
+(epstopdf)                    date: 2015-02-17 14:03:19
+(epstopdf)                    size: 9139 bytes
+(epstopdf)             Command: <epstopdf ./../Figures/Linux/fig-3-2.eps>
+(epstopdf)             \includegraphics on input line 4.
+Package epstopdf Info: Output file is already uptodate.
 
-<./../Figures/Review/average_queue_over_time.eps>
-File: ./../Figures/Review/instant_queue_over_time.eps Graphic file (type eps)
+<./../Figures/Linux/fig-3-2.pdf, id=76, 420.57124pt x 316.18124pt>
+File: ./../Figures/Linux/fig-3-2.pdf Graphic file (type pdf)
 
-<./../Figures/Review/instant_queue_over_time.eps> [21])
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\time_correlated.tex)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\conclusions.tex)
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\appendix_tightness.t
-ex) [22]
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\convergence_centrali
-zed.tex [23]
+<use ./../Figures/Linux/fig-3-2.pdf>
+Package pdftex.def Info: ./../Figures/Linux/fig-3-2.pdf used on input line 4.
+(pdftex.def)             Requested size: 252.0pt x 189.4545pt.
+Package epstopdf Info: Source file: <./../Figures/Linux/fig-9-3.eps>
+(epstopdf)                    date: 2015-01-19 13:23:54
+(epstopdf)                    size: 29069 bytes
+(epstopdf)             Output file: <./../Figures/Linux/fig-9-3.pdf>
+(epstopdf)                    date: 2015-02-17 14:03:19
+(epstopdf)                    size: 12445 bytes
+(epstopdf)             Command: <epstopdf ./../Figures/Linux/fig-9-3.eps>
+(epstopdf)             \includegraphics on input line 12.
+Package epstopdf Info: Output file is already uptodate.
+
+<./../Figures/Linux/fig-9-3.pdf, id=77, 420.57124pt x 316.18124pt>
+File: ./../Figures/Linux/fig-9-3.pdf Graphic file (type pdf)
+
+<use ./../Figures/Linux/fig-9-3.pdf>
+Package pdftex.def Info: ./../Figures/Linux/fig-9-3.pdf used on input line 12.
+(pdftex.def)             Requested size: 252.0pt x 189.4545pt.
+Package epstopdf Info: Source file: <./../Figures/Review/average_queue_over_tim
+e.eps>
+(epstopdf)                    date: 2015-02-19 10:43:32
+(epstopdf)                    size: 14775 bytes
+(epstopdf)             Output file: <./../Figures/Review/average_queue_over_tim
+e.pdf>
+(epstopdf)                    date: 2015-02-19 10:51:32
+(epstopdf)                    size: 5770 bytes
+(epstopdf)             Command: <epstopdf ./../Figures/Review/average_queue_ove
+r_time.eps>
+(epstopdf)             \includegraphics on input line 23.
+Package epstopdf Info: Output file is already uptodate.
+
+<./../Figures/Review/average_queue_over_time.pdf, id=78, 420.57124pt x 316.1812
+4pt>
+File: ./../Figures/Review/average_queue_over_time.pdf Graphic file (type pdf)
+ <use ./../Figures/Review/average_queue_over_time.pdf>
+Package pdftex.def Info: ./../Figures/Review/average_queue_over_time.pdf used o
+n input line 23.
+(pdftex.def)             Requested size: 247.6778pt x 186.20277pt.
+Package epstopdf Info: Source file: <./../Figures/Review/instant_queue_over_tim
+e.eps>
+(epstopdf)                    date: 2015-02-19 10:40:25
+(epstopdf)                    size: 51976 bytes
+(epstopdf)             Output file: <./../Figures/Review/instant_queue_over_tim
+e.pdf>
+(epstopdf)                    date: 2015-02-19 10:51:33
+(epstopdf)                    size: 27104 bytes
+(epstopdf)             Command: <epstopdf ./../Figures/Review/instant_queue_ove
+r_time.eps>
+(epstopdf)             \includegraphics on input line 28.
+Package epstopdf Info: Output file is already uptodate.
+
+<./../Figures/Review/instant_queue_over_time.pdf, id=79, 420.57124pt x 316.1812
+4pt>
+File: ./../Figures/Review/instant_queue_over_time.pdf Graphic file (type pdf)
+ <use ./../Figures/Review/instant_queue_over_time.pdf>
+Package pdftex.def Info: ./../Figures/Review/instant_queue_over_time.pdf used o
+n input line 28.
+(pdftex.def)             Requested size: 247.6778pt x 186.20277pt.
+ [12 <./../Figures/Linux/fig-3-2.pdf> <./../Figures/Linux/fig-9-3.pdf>]) (time_
+correlated.tex)
+(conclusions.tex) (appendix_tightness.tex) (convergence_centralized.tex
+[13 <./../Figures/Review/average_queue_over_time.pdf> <./../Figures/Review/inst
+ant_queue_over_time.pdf>] [14]
 Underfull \hbox (badness 10000) in paragraph at lines 103--105
-[]\OT1/ptm/m/it/10 the so-lu-tion is in-side the fea-si-ble set $\OMS/cmsy/m/n/
-10 F$ \OT1/ptm/m/it/10 and
+ \OT1/ptm/m/it/10 the so-lu-tion is in-side the fea-si-ble set $\OMS/cmsy/m/n/1
+0 F$ \OT1/ptm/m/it/10 and
  []
 
-) (C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\kkt_appendix.tex
-[24])
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\ieee_journal.bbl
+) (kkt_appendix.tex [15]) (ieee_journal.bbl
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 28.
-)
-[25]
-(C:\Users\Ganesh\Documents\MATLAB\glowing-octo-meme\Report\ieee_journal.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 90.
+) [16] (ieee_journal.aux) ) 
 Here is how much of TeX's memory you used:
- 7773 strings out of 493922
- 117289 string characters out of 3147302
- 225345 words of memory out of 3000000
- 10845 multiletter control sequences out of 15000+200000
- 35292 words of font info for 89 fonts, out of 3000000 for 9000
- 841 hyphenation exceptions out of 8191
- 42i,23n,47p,1743b,430s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 8194 strings out of 493698
+ 119412 string characters out of 3144404
+ 235217 words of memory out of 3000000
+ 11285 multiletter control sequences out of 15000+200000
+ 48950 words of font info for 101 fonts, out of 3000000 for 9000
+ 1025 hyphenation exceptions out of 8191
+ 42i,23n,47p,1745b,424s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontnam
+e/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
+b10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib7
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+msy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri
+8a.pfb>
+Output written on ieee_journal.pdf (16 pages, 466293 bytes).
+PDF statistics:
+ 201 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-Output written on ieee_journal.dvi (25 pages, 268424 bytes).

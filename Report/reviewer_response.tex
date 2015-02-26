@@ -1,0 +1,25 @@
+\documentclass[10pt,letterpaper]{report}
+
+\usepackage[left=1in,right=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{acronym,etoolbox}
+\usepackage{subeqnarray,multirow,cite,array,setspace,fixltx2e,lineno,verbatim,mathtools}
+
+\newcommand{\cmnt}[1]{\textbf{Comment} - {#1} :}
+\newcommand{\resp}{\textbf{Response} :}
+
+\renewcommand \thesection{\Roman{section}}
+\renewcommand \thesubsection{\arabic{section}.\arabic{subsection}}
+
+\input{shortcuts}
+\input{acronyms}
+
+\begin{document}
+
+\doublespacing
+
+\title{Response to Reviewer Comments}
+
+\input{review_comments}
+
+\end{document}

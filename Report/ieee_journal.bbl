@@ -21,18 +21,6 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{boyd2011distributed}
-S.~Boyd, N.~Parikh, E.~Chu, B.~Peleato, and J.~Eckstein, ``{Distributed
-  optimization and statistical learning via the alternating direction method of
-  multipliers},'' \emph{Foundations and Trends{\textregistered} in Machine
-  Learning}, vol.~3, no.~1, pp. 1--122, 2011.
-
-\bibitem{neely2010stochastic}
-M.~Neely, \emph{{Stochastic network optimization with application to
-  communication and queueing systems}}, ser. Synthesis Lectures on
-  Communication Networks.\hskip 1em plus 0.5em minus 0.4em\relax Morgan \&
-  Claypool Publishers, 2010, vol.~3, no.~1.
-
 \bibitem{admission_control}
 E.~Matskani, N.~Sidiropoulos, Z.-Q. Luo, and L.~Tassiulas, ``{Convex
   approximation techniques for joint multiuser downlink beamforming and
@@ -95,6 +83,12 @@ D.~P. Palomar and M.~Chiang, ``{A tutorial on decomposition methods for network
   utility maximization},'' \emph{IEEE Journal on Selected Areas in
   Communications}, vol.~24, no.~8, pp. 1439--1451, 2006.
 
+\bibitem{boyd2011distributed}
+S.~Boyd, N.~Parikh, E.~Chu, B.~Peleato, and J.~Eckstein, ``{Distributed
+  optimization and statistical learning via the alternating direction method of
+  multipliers},'' \emph{Foundations and Trends{\textregistered} in Machine
+  Learning}, vol.~3, no.~1, pp. 1--122, 2011.
+
 \bibitem{pennanen2011decentralized}
 H.~Pennanen, A.~T{\"o}lli, and M.~Latva-Aho, ``{Decentralized coordinated
   downlink beamforming via primal decomposition},'' \emph{IEEE Signal
@@ -110,6 +104,12 @@ L.~Tassiulas and A.~Ephremides, ``{Stability properties of constrained queueing
   systems and scheduling policies for maximum throughput in multihop radio
   networks},'' \emph{IEEE Transactions on Automatic Control}, vol.~37, no.~12,
   pp. 1936--1948, Dec 1992.
+
+\bibitem{neely2010stochastic}
+M.~Neely, \emph{{Stochastic network optimization with application to
+  communication and queueing systems}}, ser. Synthesis Lectures on
+  Communication Networks.\hskip 1em plus 0.5em minus 0.4em\relax Morgan \&
+  Claypool Publishers, 2010, vol.~3, no.~1.
 
 \bibitem{georgiadis2006resource}
 L.~Georgiadis, M.~J. Neely, and L.~Tassiulas, \emph{{Resource allocation and

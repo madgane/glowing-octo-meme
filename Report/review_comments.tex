@@ -1,5 +1,5 @@
 
-\subsection{Reveiwer Comments - \me{1}}
+\section*{Reveiwer Comments - \me{1}}
 
 In this paper, the authors proposed a traffic aware resource allocation scheme for multi-cell MIMO-OFDM systems, where the precoders at all BSs are chosen to minimize the total user queue deviations. The problem is nonconvex and the authors proposed two centralized algorithms based on the successive approximation (SCA) technique to find a stationary point. Moreover, several distributed algorithms are also proposed using primal decomposition, alternating directions method of multipliers (ADMM), and decomposition via KKT conditions, respectively.
 
@@ -61,7 +61,7 @@ Most sections of this paper are well written. The results and algorithms also se
 \resp We thank the reviewer for the comment. We have updated the text to include pareto-suboptimal point.
 
 
-\subsection*{Reveiewer comments - \me{2}}
+\section*{Reveiewer comments - \me{2}}
 
 \cmnt{1} The logic from (6) to (16) is not clear. The only difference is the two newly introduced NON-CONVEX constraints (16b) and (16c), while the objective function (16a) and the constraint (16d) is the same as (6). The equivalence between (6) and (16) is not straightforward and it is confusing why the reformulation in (16) is beneficial.
 
@@ -107,7 +107,7 @@ Most sections of this paper are well written. The results and algorithms also se
 
 \resp Please note that the number of sub-channels and the number of \acp{BS} are different in addition to the number of backlogged packets. If they are same, then both schemes should provide same performance, since the distributed algorithm is performed over the convex subproblem after linearization.
 
-\subsection*{Reveiewer comments - \me{3}}
+\section*{Reveiewer comments - \me{3}}
 
 \cmnt{1} This manuscript focuses on the beamforming and scheduling optimization for IBC MIMO-OFDM system, including the centralized and decentralized optimization methods. This is an interesting and important topic.
 
@@ -133,7 +133,7 @@ Most sections of this paper are well written. The results and algorithms also se
 
 \cmnt{7} For ADMM aproach, the determination of the value of \me{\rho} in equation (35a) should be discussed. 1. The numbers of transmitted packets for users  \me{t_k}'s are optimization variables. So they should be explicitly stated in the problem formulation (6), (16), (20) and (26) to avoid confusing.
 
-\subsection*{Reveiewer comments - \me{4}}
+\section*{Reveiewer comments - \me{4}}
 
 \cmnt{1} First, this reviewer is not convinced by the arguments for showing the convergence of the JSFRA method. "The SCA method" is often referred to, but never really defined or referenced. The three required conditions (as stated on p. 6, col. 1, rows 38-40) do not, as far as I can tell, appear in [27]. Indeed, [27] is concerned with optimization problems where the objective function is non-convex, but the constraint set is convex and separable over the blocks of variables. Perhaps you meant to cite [A], wherein non-convex constraints are handled in a similar way? Numerically, the algorithms do converge, and the argument put forward makes sense, but the treatment must be improved to be more rigorous.
 
