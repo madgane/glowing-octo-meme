@@ -27,6 +27,10 @@ E.~Matskani, N.~Sidiropoulos, Z.-Q. Luo, and L.~Tassiulas, ``{Convex
   admission control},'' \emph{IEEE Transactions on Wireless Communications},
   vol.~7, no.~7, pp. 2682--2693, July 2008.
 
+\bibitem{bertsekas1999nonlinear}
+D.~P. Bertsekas, \emph{{Nonlinear Programming}}, 2nd~ed.\hskip 1em plus 0.5em
+  minus 0.4em\relax Athena Scientific, sep 1999.
+
 \bibitem{sin_algorithm}
 C.~Ng and H.~Huang, ``{Linear Precoding in Cooperative MIMO Cellular Networks
   with Limited Coordination Clusters},'' \emph{IEEE Journal on Selected Areas
@@ -174,10 +178,6 @@ C.~Shen, T.-H. Chang, K.-Y. Wang, Z.~Qiu, and C.-Y. Chi, ``{Distributed Robust
   Multicell Coordinated Beamforming With Imperfect CSI: An ADMM Approach},''
   \emph{IEEE Transactions on Signal Processing}, vol.~60, no.~6, pp.
   2988--3003, June 2012.
-
-\bibitem{bertsekas1999nonlinear}
-D.~P. Bertsekas, \emph{{Nonlinear Programming}}, 2nd~ed.\hskip 1em plus 0.5em
-  minus 0.4em\relax Athena Scientific, sep 1999.
 
 \bibitem{bertsekas1989parallel}
 D.~P. Bertsekas and J.~N. Tsitsiklis, \emph{{Parallel and distributed

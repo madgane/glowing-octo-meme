@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.2.5)  2 MAR 2015 17:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.2.5)  26 FEB 2015 13:39
 entering extended mode
 **ieee_journal.tex
 (ieee_journal.tex
@@ -492,33 +492,16 @@ LaTeX Font Info:    ... okay on input line 41.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 55.
-LaTeX Font Info:    Try loading font information for U+msa on input line 55.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 55.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 55.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 55.
 
-Underfull \hbox (badness 4792) in paragraph at lines 55--55
-[][][]$[]$\OT1/ptm/m/n/8 The au-thors are with the Cen-tre for Wire-less Com-mu
--ni-ca-tions
- []
-
-
-Underfull \hbox (badness 3568) in paragraph at lines 55--55
-\OT1/ptm/m/n/8 (CWC), De-part-ment of Com-mu-ni-ca-tions En-gi-neer-ing (DCE), 
-Uni-ver-
+Underfull \hbox (badness 5008) in paragraph at lines 55--55
+\OT1/ptm/m/n/8 Oulu, FI-90014, (e-mail: \OMS/cmsy/m/n/8 f\OT1/ptm/m/n/8 ganesh.
+venkatraman, antti.tolli, le.nam.tran,
  []
 
 (abstract.tex
@@ -570,16 +553,26 @@ although it is yet undefined on input line 13.
 
 
 ]
+LaTeX Font Info:    Try loading font information for U+msa on input line 15.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 15.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 Package acronym Info: Label `acro:DC' newly defined as it shall be overridden
 although it is yet undefined on input line 20.
 Package acronym Info: Label `acro:JSFRA' overridden on input line 20.
 Package acronym Info: Label `acro:KKT' newly defined as it shall be overridden
 although it is yet undefined on input line 20.
-)
-(system_model.tex
+) (system_model.tex
 Package acronym Info: Label `acro:TDD' newly defined as it shall be overridden
 although it is yet undefined on input line 18.
- [2]
+
+[2]
 Package acronym Info: Label `acro:SINR' newly defined as it shall be overridden
 
 although it is yet undefined on input line 29.
@@ -670,7 +663,7 @@ Package epstopdf Info: Source file: <./../Figures/Linux/fig-1-4.eps>
 (epstopdf)             \includegraphics on input line 27.
 Package epstopdf Info: Output file is already uptodate.
 
-<./../Figures/Linux/fig-1-4.pdf, id=55, 420.57124pt x 316.18124pt>
+<./../Figures/Linux/fig-1-4.pdf, id=54, 420.57124pt x 316.18124pt>
 File: ./../Figures/Linux/fig-1-4.pdf Graphic file (type pdf)
 
 <use ./../Figures/Linux/fig-1-4.pdf>
@@ -686,7 +679,7 @@ Package epstopdf Info: Source file: <./../Figures/Linux/fig-2-5.eps>
 (epstopdf)             \includegraphics on input line 30.
 Package epstopdf Info: Output file is already uptodate.
 
-<./../Figures/Linux/fig-2-5.pdf, id=56, 420.57124pt x 316.18124pt>
+<./../Figures/Linux/fig-2-5.pdf, id=55, 420.57124pt x 316.18124pt>
 File: ./../Figures/Linux/fig-2-5.pdf Graphic file (type pdf)
 
 <use ./../Figures/Linux/fig-2-5.pdf>
@@ -726,7 +719,7 @@ Package epstopdf Info: Source file: <./../Figures/Linux/fig-3-2.eps>
 (epstopdf)             \includegraphics on input line 4.
 Package epstopdf Info: Output file is already uptodate.
 
-<./../Figures/Linux/fig-3-2.pdf, id=77, 420.57124pt x 316.18124pt>
+<./../Figures/Linux/fig-3-2.pdf, id=76, 420.57124pt x 316.18124pt>
 File: ./../Figures/Linux/fig-3-2.pdf Graphic file (type pdf)
 
 <use ./../Figures/Linux/fig-3-2.pdf>
@@ -742,7 +735,7 @@ Package epstopdf Info: Source file: <./../Figures/Linux/fig-9-3.eps>
 (epstopdf)             \includegraphics on input line 12.
 Package epstopdf Info: Output file is already uptodate.
 
-<./../Figures/Linux/fig-9-3.pdf, id=78, 420.57124pt x 316.18124pt>
+<./../Figures/Linux/fig-9-3.pdf, id=77, 420.57124pt x 316.18124pt>
 File: ./../Figures/Linux/fig-9-3.pdf Graphic file (type pdf)
 
 <use ./../Figures/Linux/fig-9-3.pdf>
@@ -761,7 +754,7 @@ r_time.eps>
 (epstopdf)             \includegraphics on input line 23.
 Package epstopdf Info: Output file is already uptodate.
 
-<./../Figures/Review/average_queue_over_time.pdf, id=79, 420.57124pt x 316.1812
+<./../Figures/Review/average_queue_over_time.pdf, id=78, 420.57124pt x 316.1812
 4pt>
 File: ./../Figures/Review/average_queue_over_time.pdf Graphic file (type pdf)
  <use ./../Figures/Review/average_queue_over_time.pdf>
@@ -781,7 +774,7 @@ r_time.eps>
 (epstopdf)             \includegraphics on input line 28.
 Package epstopdf Info: Output file is already uptodate.
 
-<./../Figures/Review/instant_queue_over_time.pdf, id=80, 420.57124pt x 316.1812
+<./../Figures/Review/instant_queue_over_time.pdf, id=79, 420.57124pt x 316.1812
 4pt>
 File: ./../Figures/Review/instant_queue_over_time.pdf Graphic file (type pdf)
  <use ./../Figures/Review/instant_queue_over_time.pdf>
@@ -793,21 +786,21 @@ correlated.tex)
 (conclusions.tex) (appendix_tightness.tex) (convergence_centralized.tex
 [13 <./../Figures/Review/average_queue_over_time.pdf> <./../Figures/Review/inst
 ant_queue_over_time.pdf>] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 104--106
+Underfull \hbox (badness 10000) in paragraph at lines 103--105
  \OT1/ptm/m/it/10 the so-lu-tion is in-side the fea-si-ble set $\OMS/cmsy/m/n/1
 0 F$ \OT1/ptm/m/it/10 and
  []
 
 ) (kkt_appendix.tex [15]) (ieee_journal.bbl
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 86.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 90.
 ) [16] (ieee_journal.aux) ) 
 Here is how much of TeX's memory you used:
- 8214 strings out of 493698
- 119746 string characters out of 3144404
- 235341 words of memory out of 3000000
- 11305 multiletter control sequences out of 15000+200000
- 51785 words of font info for 113 fonts, out of 3000000 for 9000
+ 8194 strings out of 493698
+ 119412 string characters out of 3144404
+ 235217 words of memory out of 3000000
+ 11285 multiletter control sequences out of 15000+200000
+ 48950 words of font info for 101 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  42i,23n,47p,1745b,424s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontnam
@@ -828,16 +821,16 @@ les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX
 /type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
 onts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-msy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/tim
-es/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on ieee_journal.pdf (16 pages, 474797 bytes).
+msy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri
+8a.pfb>
+Output written on ieee_journal.pdf (16 pages, 466293 bytes).
 PDF statistics:
- 205 PDF objects out of 1000 (max. 8388607)
+ 201 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
