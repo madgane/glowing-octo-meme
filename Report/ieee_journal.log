@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.2.5)  2 MAR 2015 18:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=latex 2015.2.5)  2 MAR 2015 18:33
 entering extended mode
 **ieee_journal.tex
 (ieee_journal.tex
@@ -23,7 +23,7 @@ LaTeX Font Info:    Try loading font information for OT1+ptm on input line 366.
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 -- Using 8.5in x 11in (letter) paper.
--- Using PDF output.
+-- Using DVI output.
 \@IEEEnormalsizeunitybaselineskip=\dimen104
 -- This is a 10 point document.
 \CLASSINFOnormalsizebaselineskip=\dimen105
@@ -204,18 +204,10 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
-Package graphics Info: Driver file: pdftex.def on input line 91.
+Package graphics Info: Driver file: dvips.def on input line 91.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
-File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
-)
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
-Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count107
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\dvips.def"
+File: dvips.def 2014/10/14 v3.0j Driver-dependent file (DPC,SPQR)
 ))
 \Gin@req@height=\dimen126
 \Gin@req@width=\dimen127
@@ -226,12 +218,18 @@ Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
 Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
 Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
-))
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 
@@ -256,21 +254,19 @@ Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
+Package ifpdf Info: pdfTeX in PDF mode is not detected.
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
+Package pdftexcmds Info: \pdfdraftmode is ignored in DVI mode.
 )
-Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 452.
-))
-("C:\Program Files\MiKTeX 2.9\tex\latex\algorithm2e\algorithm2e.sty"
+
+Package epstopdf Warning: Drivers other than `pdftex.def' are not supported.
+
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\algorithm2e\algorithm2e.sty"
 Package: algorithm2e 2013/01/06 v5.00 algorithms environments
-\c@AlgoLine=\count108
+\c@AlgoLine=\count107
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
@@ -316,9 +312,9 @@ subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 \algoheightrule=\skip60
 \algotitleheightruledefault=\skip61
 \algotitleheightrule=\skip62
-\c@algocfline=\count109
-\c@algocfproc=\count110
-\c@algocf=\count111
+\c@algocfline=\count108
+\c@algocfproc=\count109
+\c@algocf=\count110
 \algocf@algoframe=\box35
 \algocf@algobox=\box36
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
@@ -328,9 +324,8 @@ Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package xcolor Info: Package option `usenames' ignored on input line 216.
-Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Driver file: dvips.def on input line 225.
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
 Package xcolor Info: Model `RGB' extended on input line 1353.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
@@ -358,23 +353,23 @@ Package caption3 Info: TeX engine: e-TeX on input line 57.
 Package caption Info: Unknown document class (or package),
 (caption)             standard defaults will be used.
 )
-\c@KVtest=\count112
+\c@KVtest=\count111
 \sf@farskip=\skip63
 \sf@captopadj=\dimen141
 \sf@capskip=\skip64
 \sf@nearskip=\skip65
-\c@subfigure=\count113
-\c@subfigure@save=\count114
-\c@lofdepth=\count115
-\c@subtable=\count116
-\c@subtable@save=\count117
-\c@lotdepth=\count118
+\c@subfigure=\count112
+\c@subfigure@save=\count113
+\c@lofdepth=\count114
+\c@subtable=\count115
+\c@subtable@save=\count116
+\c@lotdepth=\count117
 \sf@top=\skip66
 \sf@bottom=\skip67
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\subeqnarray\subeqnarray.sty"
 Package: subeqnarray 2004/04/15 v2.1c subeqnarray package
-\c@subequation=\count119
+\c@subequation=\count118
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
 \bigstrutjot=\dimen142
@@ -403,16 +398,16 @@ LaTeX Info: The control sequence `\]' is already robust on input line 482.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lineno\lineno.sty"
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count120
+\linenopenalty=\count119
 \output=\toks23
-\linenoprevgraf=\count121
+\linenoprevgraf=\count120
 \linenumbersep=\dimen145
 \linenumberwidth=\dimen146
-\c@linenumber=\count122
-\c@pagewiselinenumber=\count123
-\c@LN@truepage=\count124
-\c@internallinenumber=\count125
-\c@internallinenumbers=\count126
+\c@linenumber=\count121
+\c@pagewiselinenumber=\count122
+\c@LN@truepage=\count123
+\c@internallinenumber=\count124
+\c@internallinenumbers=\count125
 \quotelinenumbersep=\dimen147
 \bframerule=\dimen148
 \bframesep=\dimen149
@@ -430,15 +425,15 @@ Package: mathtools 2014/07/16 v1.15 mathematical typesetting tools
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count127
-\calc@Bcount=\count128
+\calc@Acount=\count126
+\calc@Bcount=\count127
 \calc@Adimen=\dimen150
 \calc@Bdimen=\dimen151
 \calc@Askip=\skip70
 \calc@Bskip=\skip71
 LaTeX Info: Redefining \setlength on input line 75.
 LaTeX Info: Redefining \addtolength on input line 76.
-\calc@Ccount=\count129
+\calc@Ccount=\count128
 \calc@Cskip=\skip72
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\mathtools\mhsetup.sty"
@@ -448,7 +443,7 @@ LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
-\g_MT_multlinerow_int=\count130
+\g_MT_multlinerow_int=\count129
 \l_MT_multwidth_dim=\dimen152
 \origjot=\skip73
 \l_MT_shortvdotswithinadjustabove_dim=\dimen153
@@ -457,11 +452,7 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_below_intertext_sep=\dimen156
 \l_MT_above_shortintertext_sep=\dimen157
 \l_MT_below_shortintertext_sep=\dimen158
-)
-Package grfext Info: Graphics extension search list:
-(grfext)             [.eps]
-(grfext)             \PrependGraphicsExtensions on input line 17.
- (shortcuts.tex) (acronyms.tex) (ieee_journal.aux)
+) (shortcuts.tex) (acronyms.tex) (ieee_journal.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
 LaTeX Font Info:    ... okay on input line 41.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
@@ -474,27 +465,13 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
 LaTeX Font Info:    ... okay on input line 41.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
 LaTeX Font Info:    ... okay on input line 41.
-
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count131
-\scratchdimen=\dimen159
-\scratchbox=\box38
-\nofMPsegments=\count132
-\nofMParguments=\count133
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count134
-\MPscratchDim=\dimen160
-\MPnumerator=\count135
-\makeMPintoPDFobject=\count136
-\everyMPtoPDFconversion=\toks27
-)
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Calculating math sizes for size <11> on input line 55.
 LaTeX Font Info:    Try loading font information for U+msa on input line 55.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 55.
@@ -566,7 +543,7 @@ although it is yet undefined on input line 11.
 Package acronym Info: Label `acro:ADMM' newly defined as it shall be overridden
 
 although it is yet undefined on input line 13.
- [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
+ [1
 
 
 ]
@@ -575,8 +552,7 @@ although it is yet undefined on input line 20.
 Package acronym Info: Label `acro:JSFRA' overridden on input line 20.
 Package acronym Info: Label `acro:KKT' newly defined as it shall be overridden
 although it is yet undefined on input line 20.
-)
-(system_model.tex
+) (system_model.tex
 Package acronym Info: Label `acro:TDD' newly defined as it shall be overridden
 although it is yet undefined on input line 18.
  [2]
@@ -660,41 +636,13 @@ Package acronym Info: Label `acro:PD' newly defined as it shall be overridden
 although it is yet undefined on input line 88.
 )
 (simulation_intro.tex
-Package epstopdf Info: Source file: <./../Figures/Linux/fig-1-4.eps>
-(epstopdf)                    date: 2015-01-19 13:23:53
-(epstopdf)                    size: 26427 bytes
-(epstopdf)             Output file: <./../Figures/Linux/fig-1-4.pdf>
-(epstopdf)                    date: 2015-02-17 14:03:18
-(epstopdf)                    size: 10393 bytes
-(epstopdf)             Command: <epstopdf ./../Figures/Linux/fig-1-4.eps>
-(epstopdf)             \includegraphics on input line 27.
-Package epstopdf Info: Output file is already uptodate.
+File: ./../Figures/Linux/fig-1-4.eps Graphic file (type eps)
+ <./../Figures/Linux/fig-1-4.eps>
+File: ./../Figures/Linux/fig-2-5.eps Graphic file (type eps)
 
-<./../Figures/Linux/fig-1-4.pdf, id=55, 420.57124pt x 316.18124pt>
-File: ./../Figures/Linux/fig-1-4.pdf Graphic file (type pdf)
-
-<use ./../Figures/Linux/fig-1-4.pdf>
-Package pdftex.def Info: ./../Figures/Linux/fig-1-4.pdf used on input line 27.
-(pdftex.def)             Requested size: 258.0pt x 193.96062pt.
-Package epstopdf Info: Source file: <./../Figures/Linux/fig-2-5.eps>
-(epstopdf)                    date: 2015-01-19 13:23:53
-(epstopdf)                    size: 27713 bytes
-(epstopdf)             Output file: <./../Figures/Linux/fig-2-5.pdf>
-(epstopdf)                    date: 2015-02-17 14:03:18
-(epstopdf)                    size: 12283 bytes
-(epstopdf)             Command: <epstopdf ./../Figures/Linux/fig-2-5.eps>
-(epstopdf)             \includegraphics on input line 30.
-Package epstopdf Info: Output file is already uptodate.
-
-<./../Figures/Linux/fig-2-5.pdf, id=56, 420.57124pt x 316.18124pt>
-File: ./../Figures/Linux/fig-2-5.pdf Graphic file (type pdf)
-
-<use ./../Figures/Linux/fig-2-5.pdf>
-Package pdftex.def Info: ./../Figures/Linux/fig-2-5.pdf used on input line 30.
-(pdftex.def)             Requested size: 258.0pt x 193.96062pt.
-
+<./../Figures/Linux/fig-2-5.eps>
 Overfull \hbox (14.00024pt too wide) in paragraph at lines 27--31
- [][][] 
+ [][][][] 
  []
 
 ) (simulation_results.tex
@@ -705,7 +653,7 @@ Package acronym Info: Label `acro:SNR' newly defined as it shall be overridden
 although it is yet undefined on input line 1.
 
 Overfull \hbox (4.51932pt too wide) in paragraph at lines 6--21
- [][] 
+ [][][] 
  []
 
 [10]
@@ -714,85 +662,21 @@ Underfull \vbox (badness 2197) has occurred while \output is active []
 
 Underfull \vbox (badness 6032) has occurred while \output is active []
 
- [11 <./../Figures/Linux/fig-1-4.pdf> <./../Figures/Linux/fig-2-5.pdf>])
+ [11])
 (simulation_distributed.tex
-Package epstopdf Info: Source file: <./../Figures/Linux/fig-3-2.eps>
-(epstopdf)                    date: 2015-01-19 13:23:53
-(epstopdf)                    size: 21783 bytes
-(epstopdf)             Output file: <./../Figures/Linux/fig-3-2.pdf>
-(epstopdf)                    date: 2015-02-17 14:03:19
-(epstopdf)                    size: 9139 bytes
-(epstopdf)             Command: <epstopdf ./../Figures/Linux/fig-3-2.eps>
-(epstopdf)             \includegraphics on input line 4.
-Package epstopdf Info: Output file is already uptodate.
+File: ./../Figures/Linux/fig-3-2.eps Graphic file (type eps)
+ <./../Figures/Linux/fig-3-2.eps>
+File: ./../Figures/Linux/fig-9-3.eps Graphic file (type eps)
 
-<./../Figures/Linux/fig-3-2.pdf, id=77, 420.57124pt x 316.18124pt>
-File: ./../Figures/Linux/fig-3-2.pdf Graphic file (type pdf)
+<./../Figures/Linux/fig-9-3.eps>
+File: ./../Figures/Review/average_queue_over_time.eps Graphic file (type eps)
 
-<use ./../Figures/Linux/fig-3-2.pdf>
-Package pdftex.def Info: ./../Figures/Linux/fig-3-2.pdf used on input line 4.
-(pdftex.def)             Requested size: 252.0pt x 189.4545pt.
-Package epstopdf Info: Source file: <./../Figures/Linux/fig-9-3.eps>
-(epstopdf)                    date: 2015-01-19 13:23:54
-(epstopdf)                    size: 29069 bytes
-(epstopdf)             Output file: <./../Figures/Linux/fig-9-3.pdf>
-(epstopdf)                    date: 2015-02-17 14:03:19
-(epstopdf)                    size: 12445 bytes
-(epstopdf)             Command: <epstopdf ./../Figures/Linux/fig-9-3.eps>
-(epstopdf)             \includegraphics on input line 12.
-Package epstopdf Info: Output file is already uptodate.
+<./../Figures/Review/average_queue_over_time.eps>
+File: ./../Figures/Review/instant_queue_over_time.eps Graphic file (type eps)
 
-<./../Figures/Linux/fig-9-3.pdf, id=78, 420.57124pt x 316.18124pt>
-File: ./../Figures/Linux/fig-9-3.pdf Graphic file (type pdf)
-
-<use ./../Figures/Linux/fig-9-3.pdf>
-Package pdftex.def Info: ./../Figures/Linux/fig-9-3.pdf used on input line 12.
-(pdftex.def)             Requested size: 252.0pt x 189.4545pt.
-Package epstopdf Info: Source file: <./../Figures/Review/average_queue_over_tim
-e.eps>
-(epstopdf)                    date: 2015-02-19 10:43:32
-(epstopdf)                    size: 14775 bytes
-(epstopdf)             Output file: <./../Figures/Review/average_queue_over_tim
-e.pdf>
-(epstopdf)                    date: 2015-02-19 10:51:32
-(epstopdf)                    size: 5770 bytes
-(epstopdf)             Command: <epstopdf ./../Figures/Review/average_queue_ove
-r_time.eps>
-(epstopdf)             \includegraphics on input line 23.
-Package epstopdf Info: Output file is already uptodate.
-
-<./../Figures/Review/average_queue_over_time.pdf, id=79, 420.57124pt x 316.1812
-4pt>
-File: ./../Figures/Review/average_queue_over_time.pdf Graphic file (type pdf)
- <use ./../Figures/Review/average_queue_over_time.pdf>
-Package pdftex.def Info: ./../Figures/Review/average_queue_over_time.pdf used o
-n input line 23.
-(pdftex.def)             Requested size: 247.6778pt x 186.20277pt.
-Package epstopdf Info: Source file: <./../Figures/Review/instant_queue_over_tim
-e.eps>
-(epstopdf)                    date: 2015-02-19 10:40:25
-(epstopdf)                    size: 51976 bytes
-(epstopdf)             Output file: <./../Figures/Review/instant_queue_over_tim
-e.pdf>
-(epstopdf)                    date: 2015-02-19 10:51:33
-(epstopdf)                    size: 27104 bytes
-(epstopdf)             Command: <epstopdf ./../Figures/Review/instant_queue_ove
-r_time.eps>
-(epstopdf)             \includegraphics on input line 28.
-Package epstopdf Info: Output file is already uptodate.
-
-<./../Figures/Review/instant_queue_over_time.pdf, id=80, 420.57124pt x 316.1812
-4pt>
-File: ./../Figures/Review/instant_queue_over_time.pdf Graphic file (type pdf)
- <use ./../Figures/Review/instant_queue_over_time.pdf>
-Package pdftex.def Info: ./../Figures/Review/instant_queue_over_time.pdf used o
-n input line 28.
-(pdftex.def)             Requested size: 247.6778pt x 186.20277pt.
- [12 <./../Figures/Linux/fig-3-2.pdf> <./../Figures/Linux/fig-9-3.pdf>]) (time_
-correlated.tex)
+<./../Figures/Review/instant_queue_over_time.eps> [12]) (time_correlated.tex)
 (conclusions.tex) (appendix_tightness.tex) (convergence_centralized.tex
-[13 <./../Figures/Review/average_queue_over_time.pdf> <./../Figures/Review/inst
-ant_queue_over_time.pdf>] [14]
+[13] [14]
 Underfull \hbox (badness 10000) in paragraph at lines 104--106
  \OT1/ptm/m/it/10 the so-lu-tion is in-side the fea-si-ble set $\OMS/cmsy/m/n/1
 0 F$ \OT1/ptm/m/it/10 and
@@ -803,41 +687,12 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 86.
 ) [16] (ieee_journal.aux) ) 
 Here is how much of TeX's memory you used:
- 8214 strings out of 493698
- 119746 string characters out of 3144404
- 235341 words of memory out of 3000000
- 11305 multiletter control sequences out of 15000+200000
- 51785 words of font info for 113 fonts, out of 3000000 for 9000
+ 7686 strings out of 493699
+ 112125 string characters out of 3144430
+ 223509 words of memory out of 3000000
+ 10798 multiletter control sequences out of 15000+200000
+ 37521 words of font info for 100 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  42i,23n,47p,1745b,424s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontnam
-e/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
-b10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib7
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-msy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/tim
-es/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on ieee_journal.pdf (16 pages, 474782 bytes).
-PDF statistics:
- 205 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
+Output written on ieee_journal.dvi (16 pages, 170484 bytes).
