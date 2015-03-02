@@ -1,33 +1,126 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=latex 2015.2.5)  26 FEB 2015 13:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=latex 2015.2.5)  2 MAR 2015 17:23
 entering extended mode
 **reviewer_response.tex
 (reviewer_response.tex
 LaTeX2e <2014/05/01>
 Babel <3.9l> and hyphenation patterns for 68 languages loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\report.cls"
-Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
-File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ieeetran\ieeetran.cls"
+
+LaTeX Warning: You have requested document class `ieeetran',
+               but the document class provides `IEEEtran'.
+
+Document Class: IEEEtran 2014/09/17 V1.8a by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+\@IEEEtrantmpdimenA=\dimen102
+\@IEEEtrantmpdimenB=\dimen103
+\@IEEEtrantmpdimenC=\dimen104
+\@IEEEtrantmpcountA=\count79
+\@IEEEtrantmpcountB=\count80
+\@IEEEtrantmpcountC=\count81
+\@IEEEtrantmptoksA=\toks14
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 458.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-\c@part=\count79
-\c@chapter=\count80
-\c@section=\count81
-\c@subsection=\count82
-\c@subsubsection=\count83
-\c@paragraph=\count84
-\c@subparagraph=\count85
-\c@figure=\count86
-\c@table=\count87
-\abovecaptionskip=\skip41
-\belowcaptionskip=\skip42
-\bibindent=\dimen102
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+** ATTENTION: Single column mode is not typically used with IEEE publications.
+-- Using 8.5in x 11in (letter) paper.
+-- Using DVI output.
+\@IEEEnormalsizeunitybaselineskip=\dimen105
+-- This is a 10 point document.
+\CLASSINFOnormalsizebaselineskip=\dimen106
+\CLASSINFOnormalsizeunitybaselineskip=\dimen107
+\IEEEnormaljot=\dimen108
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1039.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1039.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1039.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1039.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1039.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1039.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1039.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1039.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1039.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1039.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1039.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1039.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1039.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1039.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1039.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <17> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1039.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1039.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1039.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1039.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1039.
+
+\IEEEquantizedlength=\dimen109
+\IEEEquantizedlengthdiff=\dimen110
+\IEEEquantizedtextheightdiff=\dimen111
+\IEEEilabelindentA=\dimen112
+\IEEEilabelindentB=\dimen113
+\IEEEilabelindent=\dimen114
+\IEEEelabelindent=\dimen115
+\IEEEdlabelindent=\dimen116
+\IEEElabelindent=\dimen117
+\IEEEiednormlabelsep=\dimen118
+\IEEEiedmathlabelsep=\dimen119
+\IEEEiedtopsep=\skip41
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@IEEEsubequation=\count86
+\abovecaptionskip=\skip42
+\belowcaptionskip=\skip43
+\c@figure=\count87
+\c@table=\count88
+\@IEEEeqnnumcols=\count89
+\@IEEEeqncolcnt=\count90
+\@IEEEsubeqnnumrollback=\count91
+\@IEEEquantizeheightA=\dimen120
+\@IEEEquantizeheightB=\dimen121
+\@IEEEquantizeheightC=\dimen122
+\@IEEEquantizeprevdepth=\dimen123
+\@IEEEquantizemultiple=\count92
+\@IEEEquantizeboxA=\box26
+\@IEEEtmpitemindent=\dimen124
+\c@IEEEbiography=\count93
+\@IEEEtranrubishbin=\box27
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks14
+\KV@toks@=\toks15
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
@@ -40,23 +133,23 @@ Package ifvtex Info: VTeX not detected.
 ("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count88
-\Gm@cntv=\count89
-\c@Gm@tempcnt=\count90
-\Gm@bindingoffset=\dimen103
-\Gm@wd@mp=\dimen104
-\Gm@odd@mp=\dimen105
-\Gm@even@mp=\dimen106
-\Gm@layoutwidth=\dimen107
-\Gm@layoutheight=\dimen108
-\Gm@layouthoffset=\dimen109
-\Gm@layoutvoffset=\dimen110
-\Gm@dimlist=\toks15
+\Gm@cnth=\count94
+\Gm@cntv=\count95
+\c@Gm@tempcnt=\count96
+\Gm@bindingoffset=\dimen125
+\Gm@wd@mp=\dimen126
+\Gm@odd@mp=\dimen127
+\Gm@even@mp=\dimen128
+\Gm@layoutwidth=\dimen129
+\Gm@layoutheight=\dimen130
+\Gm@layouthoffset=\dimen131
+\Gm@layoutvoffset=\dimen132
+\Gm@dimlist=\toks16
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2013/01/14 v2.14 AMS math features
-\@mathmargin=\skip43
+\@mathmargin=\skip44
 
 For additional information on amsmath, use the `?' option.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
@@ -64,51 +157,51 @@ Package: amstext 2000/06/29 v2.01
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks16
-\ex@=\dimen111
+\@emptytoks=\toks17
+\ex@=\dimen133
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen112
+\pmbraise@=\dimen134
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count91
+\inf@bad=\count97
 LaTeX Info: Redefining \frac on input line 210.
-\uproot@=\count92
-\leftroot@=\count93
+\uproot@=\count98
+\leftroot@=\count99
 LaTeX Info: Redefining \overline on input line 306.
-\classnum@=\count94
-\DOTSCASE@=\count95
+\classnum@=\count100
+\DOTSCASE@=\count101
 LaTeX Info: Redefining \ldots on input line 378.
 LaTeX Info: Redefining \dots on input line 381.
 LaTeX Info: Redefining \cdots on input line 466.
-\Mathstrutbox@=\box26
-\strutbox@=\box27
-\big@size=\dimen113
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen135
 LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
-\macc@depth=\count96
-\c@MaxMatrixCols=\count97
+\macc@depth=\count102
+\c@MaxMatrixCols=\count103
 \dotsspace@=\muskip10
-\c@parentequation=\count98
-\dspbrk@lvl=\count99
-\tag@help=\toks17
-\row@=\count100
-\column@=\count101
-\maxfields@=\count102
-\andhelp@=\toks18
-\eqnshift@=\dimen114
-\alignsep@=\dimen115
-\tagshift@=\dimen116
-\tagwidth@=\dimen117
-\totwidth@=\dimen118
-\lineht@=\dimen119
-\@envbody=\toks19
-\multlinegap=\skip44
-\multlinetaggap=\skip45
-\mathdisplay@stack=\toks20
+\c@parentequation=\count104
+\dspbrk@lvl=\count105
+\tag@help=\toks18
+\row@=\count106
+\column@=\count107
+\maxfields@=\count108
+\andhelp@=\toks19
+\eqnshift@=\dimen136
+\alignsep@=\dimen137
+\tagshift@=\dimen138
+\tagwidth@=\dimen139
+\totwidth@=\dimen140
+\lineht@=\dimen141
+\@envbody=\toks20
+\multlinegap=\skip45
+\multlinetaggap=\skip46
+\mathdisplay@stack=\toks21
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
@@ -131,28 +224,28 @@ Package: suffix 2006/07/15 1.5a Variant command support
 ("C:\Program Files\MiKTeX 2.9\tex\latex\xstring\xstring.sty"
 ("C:\Program Files\MiKTeX 2.9\tex\generic\xstring\xstring.tex"
 \@xs@message=\write3
-\integerpart=\count103
-\decimalpart=\count104
+\integerpart=\count109
+\decimalpart=\count110
 )
 Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 )
-\AC@clearlist=\toks21
+\AC@clearlist=\toks22
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.sty"
 Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\misc\etex.sty"
 Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
-\et@xins=\count105
+\et@xins=\count111
 )
-\etb@tempcnta=\count106
+\etb@tempcnta=\count112
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\subeqnarray\subeqnarray.sty"
 Package: subeqnarray 2004/04/15 v2.1c subeqnarray package
-\c@subequation=\count107
+\c@subequation=\count113
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
-\bigstrutjot=\dimen120
+\bigstrutjot=\dimen142
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\cite\cite.sty"
 LaTeX Info: Redefining \cite on input line 302.
@@ -161,11 +254,11 @@ Package: cite 2010/09/10  v 5.3
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
 Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen121
-\extrarowheight=\dimen122
-\NC@list=\toks22
-\extratabsurround=\skip46
-\backup@length=\skip47
+\col@sep=\dimen143
+\extrarowheight=\dimen144
+\NC@list=\toks23
+\extratabsurround=\skip47
+\backup@length=\skip48
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\setspace\setspace.sty"
 Package: setspace 2011/12/19 v6.7a set line spacing
@@ -178,26 +271,26 @@ LaTeX Info: The control sequence `\]' is already robust on input line 482.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lineno\lineno.sty"
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count108
-\output=\toks23
-\linenoprevgraf=\count109
-\linenumbersep=\dimen123
-\linenumberwidth=\dimen124
-\c@linenumber=\count110
-\c@pagewiselinenumber=\count111
-\c@LN@truepage=\count112
-\c@internallinenumber=\count113
-\c@internallinenumbers=\count114
-\quotelinenumbersep=\dimen125
-\bframerule=\dimen126
-\bframesep=\dimen127
-\bframebox=\box28
+\linenopenalty=\count114
+\output=\toks24
+\linenoprevgraf=\count115
+\linenumbersep=\dimen145
+\linenumberwidth=\dimen146
+\c@linenumber=\count116
+\c@pagewiselinenumber=\count117
+\c@LN@truepage=\count118
+\c@internallinenumber=\count119
+\c@internallinenumbers=\count120
+\quotelinenumbersep=\dimen147
+\bframerule=\dimen148
+\bframesep=\dimen149
+\bframebox=\box30
 LaTeX Info: Redefining \\ on input line 3056.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
 Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks24
-\verbatim@line=\toks25
+\every@verbatim=\toks25
+\verbatim@line=\toks26
 \verbatim@in@stream=\read1
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\mathtools\mathtools.sty"
@@ -205,16 +298,16 @@ Package: mathtools 2014/07/16 v1.15 mathematical typesetting tools
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count115
-\calc@Bcount=\count116
-\calc@Adimen=\dimen128
-\calc@Bdimen=\dimen129
-\calc@Askip=\skip48
-\calc@Bskip=\skip49
+\calc@Acount=\count121
+\calc@Bcount=\count122
+\calc@Adimen=\dimen150
+\calc@Bdimen=\dimen151
+\calc@Askip=\skip49
+\calc@Bskip=\skip50
 LaTeX Info: Redefining \setlength on input line 75.
 LaTeX Info: Redefining \addtolength on input line 76.
-\calc@Ccount=\count117
-\calc@Cskip=\skip50
+\calc@Ccount=\count123
+\calc@Cskip=\skip51
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\mathtools\mhsetup.sty"
 Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
@@ -223,29 +316,30 @@ LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
-\g_MT_multlinerow_int=\count118
-\l_MT_multwidth_dim=\dimen130
-\origjot=\skip51
-\l_MT_shortvdotswithinadjustabove_dim=\dimen131
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen132
-\l_MT_above_intertext_sep=\dimen133
-\l_MT_below_intertext_sep=\dimen134
-\l_MT_above_shortintertext_sep=\dimen135
-\l_MT_below_shortintertext_sep=\dimen136
+\g_MT_multlinerow_int=\count124
+\l_MT_multwidth_dim=\dimen152
+\origjot=\skip52
+\l_MT_shortvdotswithinadjustabove_dim=\dimen153
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen154
+\l_MT_above_intertext_sep=\dimen155
+\l_MT_below_intertext_sep=\dimen156
+\l_MT_above_shortintertext_sep=\dimen157
+\l_MT_below_shortintertext_sep=\dimen158
 ) (shortcuts.tex) (acronyms.tex) (reviewer_response.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
 
+-- Lines per column: 46 (approximate, difference = 4.47656pt).
 *geometry* driver: auto-detecting
 *geometry* detected driver: dvips
 *geometry* verbose mode - [ preamble ] result:
@@ -262,15 +356,15 @@ LaTeX Font Info:    ... okay on input line 14.
 * \textheight=556.47656pt
 * \oddsidemargin=0.0pt
 * \evensidemargin=0.0pt
-* \topmargin=-13.87262pt
+* \topmargin=-10.21461pt
 * \headheight=12.0pt
-* \headsep=25.0pt
-* \topskip=10.0pt
-* \footskip=30.0pt
-* \marginparwidth=65.0pt
-* \marginparsep=11.0pt
-* \columnsep=10.0pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \headsep=21.342pt
+* \topskip=12.0pt
+* \footskip=25.80774pt
+* \marginparwidth=20.0pt
+* \marginparsep=10.0pt
+* \columnsep=12.0pt
+* \skip\footins=10.79993pt plus 4.79993pt minus 2.39996pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -297,8 +391,8 @@ Package graphics Info: Driver file: dvips.def on input line 91.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\dvips.def"
 File: dvips.def 2014/10/14 v3.0j Driver-dependent file (DPC,SPQR)
 ))
-\Gin@req@height=\dimen137
-\Gin@req@width=\dimen138
+\Gin@req@height=\dimen159
+\Gin@req@width=\dimen160
 )
 (review_comments.tex
 LaTeX Font Info:    Try loading font information for U+msa on input line 2.
@@ -310,143 +404,32 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 2.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-LaTeX Warning: Reference `time-correlated' on page 1 undefined on input line 13
+LaTeX Warning: Reference `time-correlated' on page 1 undefined on input line 12
 .
 
 Package acronym Info: Label `acro:Q-WSRME' newly defined as it shall be overrid
 den
-although it is yet undefined on input line 13.
+although it is yet undefined on input line 12.
 Package acronym Info: Label `acro:Q-WSRM' newly defined as it shall be overridd
 en
-although it is yet undefined on input line 13.
+although it is yet undefined on input line 12.
 [1
+! I can't write on file `reviewer_response.dvi'.
+Please type another file name for output
+! Emergency stop.
+<to be read again> 
+                   \endgroup \set@typeset@protect 
+l.15 
+     
+*** (job aborted, file error in nonstop mode)
 
-]
-
-LaTeX Warning: Reference `sec-3.2' on page 2 undefined on input line 17.
-
-
-LaTeX Warning: Reference `sec-3.5' on page 2 undefined on input line 21.
-
-
-LaTeX Warning: Reference `sec-3.5' on page 2 undefined on input line 25.
-
-
-LaTeX Warning: Reference `sec-dist-conv' on page 2 undefined on input line 25.
-
-
-LaTeX Warning: Reference `sec-3.4' on page 2 undefined on input line 29.
-
-[2]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-
-
-LaTeX Warning: Reference `sec-4.3' on page 3 undefined on input line 33.
-
-
-LaTeX Warning: Citation `boyd2011distributed' on page 3 undefined on input line
- 37.
-
-
-LaTeX Warning: Reference `sec-dist-conv' on page 3 undefined on input line 37.
-
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-[3]
-
-LaTeX Warning: Reference `sec-4.2' on page 4 undefined on input line 41.
-
-
-LaTeX Warning: Reference `sec-4.2' on page 4 undefined on input line 45.
-
-
-LaTeX Warning: Reference `who-knows-what' on page 4 undefined on input line 45.
-
-
-
-LaTeX Warning: Reference `who-knows-what' on page 4 undefined on input line 45.
-
-
-
-LaTeX Warning: Reference `sec-4.1' on page 4 undefined on input line 49.
-
-
-LaTeX Warning: Reference `sec-4.2' on page 4 undefined on input line 49.
-
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-[4]
-
-LaTeX Warning: Reference `fig-review' on page 5 undefined on input line 53.
-
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ú in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ù in font cmr10!
-
-LaTeX Warning: Reference `sec-3.1' on page 5 undefined on input line 68.
-
-
-LaTeX Warning: Citation `neely2010stochastic' on page 5 undefined on input line
- 68.
-
-[5]
-Package acronym Info: Label `acro:SCA' newly defined as it shall be overridden
-although it is yet undefined on input line 72.
-
-
-LaTeX Warning: Reference `eqn-6.2' on page 6 undefined on input line 72.
-
-
-LaTeX Warning: Reference `sec-3.5' on page 6 undefined on input line 80.
-
-
-LaTeX Warning: Reference `sec-3.5' on page 6 undefined on input line 84.
-
-[6]
-
-LaTeX Warning: Reference `sec-3.4' on page 7 undefined on input line 96.
-
-[7]
-Package acronym Info: Label `acro:BS' newly defined as it shall be overridden
-although it is yet undefined on input line 108.
- [8]
-
-LaTeX Warning: Reference `sec-3.5' on page 9 undefined on input line 140.
-
-[9]
-
-LaTeX Warning: Reference `time-correlated' on page 10 undefined on input line 1
-45.
-
-[10] [11]
-
-LaTeX Warning: Reference `sec-3.5' on page 12 undefined on input line 209.
-
-[12]) [13] (reviewer_response.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+ 
 Here is how much of TeX's memory you used:
- 3838 strings out of 493699
- 51512 string characters out of 3144430
- 123698 words of memory out of 3000000
- 7105 multiletter control sequences out of 15000+200000
- 8723 words of font info for 34 fonts, out of 3000000 for 9000
+ 4575 strings out of 493699
+ 67111 string characters out of 3144430
+ 141327 words of memory out of 3000000
+ 7845 multiletter control sequences out of 15000+200000
+ 27055 words of font info for 63 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 27i,5n,26p,1022b,116s stack positions out of 5000i,500n,10000p,200000b,50000s
-
-Output written on reviewer_response.dvi (13 pages, 42456 bytes).
+ 27i,5n,26p,1022b,228s stack positions out of 5000i,500n,10000p,200000b,50000s
+No pages of output.
