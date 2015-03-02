@@ -5,9 +5,8 @@ In this paper, the authors proposed a traffic aware resource allocation scheme f
 
 Most sections of this paper are well written. The results and algorithms also seem valid. However, the motivation of minimizing the total user queue deviations is not well justified. The convergence results of some algorithms are not clearly presented. The presentation of the distributed solutions needs significant improvement. Analysis and comparison of the signaling overhead and computational complexity between the centralized and distributed algorithms are also necessary to justify the advantages of distributed algorithms.
 
-\resp We thank the reviewer for reading the paper and providing the comments. The response for the reviewer questions are made in line.
+\begin{itemize}
 
-\subsection*{Detailed Comments}  
 \cmnt{1} In Section II.B, please provides more justifications for the problem formulation in (6). For example, the Queue weighted sum rate maximization (Q-WSRM) is throughput optimal, i.e., if there exists a scheme which can make all queues stable, then the Q-WSRM can also do this. How about the proposed formulation in (6)? Is it also throughput optimal? 
 
 \resp We fully agree with the reviewer comment. The Q-WSRM scheme is throughput optimal when the queues associated with the users are significantly large in comparison with the transmission rate (service rate). In order to restrict the over allocation of the available resources to a specific user beyond the total number of queued packets, we have included the additional rate constraint in the Q-WSRME algorithm. It would be ideal to compare with the Q-WSRME algorithm which performs similar to the Q-WSRM when the queued packets are large enough to be emptied by the current transmissions. In Section \ref{time-correlated}, we have discussed the performance of the proposed schemes with the existing \ac{Q-WSRME} using the average number of backlogged packets at each instant for different arrival rates. We have also compared using the instantaneous backlogged packets in the system for a arrival rate of \me{A_k = 5} bits for each user.
@@ -60,8 +59,11 @@ Most sections of this paper are well written. The results and algorithms also se
 
 \resp We thank the reviewer for the comment. We have updated the text to include pareto-suboptimal point.
 
+\end{itemize}
 
 \section*{Reveiewer comments - \me{2}}
+
+\begin{itemize}
 
 \cmnt{1} The logic from (6) to (16) is not clear. The only difference is the two newly introduced NON-CONVEX constraints (16b) and (16c), while the objective function (16a) and the constraint (16d) is the same as (6). The equivalence between (6) and (16) is not straightforward and it is confusing why the reformulation in (16) is beneficial.
 
@@ -107,7 +109,11 @@ Most sections of this paper are well written. The results and algorithms also se
 
 \resp Please note that the number of sub-channels and the number of \acp{BS} are different in addition to the number of backlogged packets. If they are same, then both schemes should provide same performance, since the distributed algorithm is performed over the convex subproblem after linearization.
 
+\end{itemize}
+
 \section*{Reveiewer comments - \me{3}}
+
+\begin{itemize}
 
 \cmnt{1} This manuscript focuses on the beamforming and scheduling optimization for IBC MIMO-OFDM system, including the centralized and decentralized optimization methods. This is an interesting and important topic.
 
@@ -133,91 +139,102 @@ Most sections of this paper are well written. The results and algorithms also se
 
 \cmnt{7} For ADMM aproach, the determination of the value of \me{\rho} in equation (35a) should be discussed. 1. The numbers of transmitted packets for users  \me{t_k}'s are optimization variables. So they should be explicitly stated in the problem formulation (6), (16), (20) and (26) to avoid confusing.
 
+\end{itemize}
+
 \section*{Reveiewer comments - \me{4}}
+
+\begin{itemize}
 
 \cmnt{1} First, this reviewer is not convinced by the arguments for showing the convergence of the JSFRA method. "The SCA method" is often referred to, but never really defined or referenced. The three required conditions (as stated on p. 6, col. 1, rows 38-40) do not, as far as I can tell, appear in [27]. Indeed, [27] is concerned with optimization problems where the objective function is non-convex, but the constraint set is convex and separable over the blocks of variables. Perhaps you meant to cite [A], wherein non-convex constraints are handled in a similar way? Numerically, the algorithms do converge, and the argument put forward makes sense, but the treatment must be improved to be more rigorous.
 
-\resp We thank the reviewer for We have updated the proof for convergence in a separate section on Appendix \ref{sec-3.5}.
+\resp We understand the reviewer concern on the lack of rigorous convergence proof for the proposed JSFRA approach. We have presented a rigorous convergence proof for the proposed algorithm in Appendix B on page 14. We have included the reference suggested by the reviewer in [34]. 
 
 \cmnt{2} Second, the optimization problems formulated only depend on $Q_k$, the current levels of backlogged packets, and not on the arrival rates. This is due to how the conditional Lyapunov drift is minimized. This approach completely removes the queue dynamics from the optimization problem, essentially leading to greedy one-shot optimization in 7
 every time instant. The framework would be more interesting if some sort of optimization (or tracking) is performed over several time instants, rather than the one-shot approach that is currently used for the JSFRA algorithms. Possibly, some expectation over the queues would be optimized then. Even if no analytical treatment of the tracking over several time-steps is added, I would at least highly recommend adding some simulation results where the proposed one-shot algorithms are performed sequentially over several time instants.
 
-\resp We thank the reviewer for pointing out the missing information. We have included a figure on the number of backlogged packets over a period of time in Section \ref{time-correlated}. 
+\resp We understand the concern raised by the reviewer. In the current paper, we are discussing on the precoder design to minimize the number of backlogged packets in the system at a given time. Since the greedy approach performed at each instant minimizes the number of backlogged packets on an average, we emphasized on the precoder design based on the current knowledge of the channel state information. We have included Section V-C in page 13 to discuss on the performance of the JSFRA scheme for different \me{\ell_q} norm over multiple time slots. Plots comparing the average number of backlogged packets for different schemes at each instant and the number of queued packets remained in the system after each transmission instant are provided in Fig. 4.
 
 \cmnt{3} Third, the distributed methods (at least the primal decomposition and ADMM) seem to be fairly straight-forward applications of existing results. This reviewer recommends spending more space on the convergence, than on the description of the distributed techniques. Still, it would be nice with a direct description of what local CSI is required, and how it is acquired, to perform the local computations for the primal decomposition and ADMM methods. For the description of the signaling of the CSI in Sec. IV-B, are you envisioning a TDD system?
 
-\resp We agree with the reviewer. We have updated the manuscript with more details. 
+\resp We agree with the reviewer comment. We have shortened the discussions on the distributed approaches and discussed the convergence proof of the decentralized algorithm in Section IV-C page 8. We have included the information on what each network entity knows in page 7, col. 2 last paragraph. We have included the type of duplexing scheme adopted in the model, \textit{i.e}, TDD system, in the system description in Section II, last paragraph.
 
 \cmnt{4} Finally, some readers might be confused by the "joint space-frequency" terminology, believing that the beamforming is performed over a joint space-frequency channel space, where the space-frequency channels are formed by block-diagonal matrices, each block belonging to one subcarrier. This could easily be clarified. 
 
-\resp We thank the reviewer for pointing out the misinterpretation of the text. We have included the statement accordingly in the introduction.
+\resp We agree with the reviewer point. We have included the note on the space-frequency terminology in the introduction section on page 2, col. 2, line 2-4.
 
-\cmnt{5a} - p. 1, col. 1, row 42: "userss"
+\cmnt{5} Please see the itemized questions
 
-\resp Modified.
+\begin{itemize}
 
-\cmnt{5b} - p. 1, col. 2, row 18: the precoders are used \_implicitly\_ as decision variables. This is the whole point, to avoid explicitly modeling the hard decisions in the optimization, and instead do soft decisions during the iterations, and then finally hard decisions after convergence.
+\cmnts{a} - p. 1, col. 1, row 42: "userss"
 
-\resp We thank the reviewer for the insightful comment on the proposed approach. We have modified the text accordingly.
+\resp Corrected in the revised manuscript in Section I on page 1, col. 1, line 2.
 
-\cmnt{5c} - p. 1, col. 2, row 33: Which chapter in [2] is referred to? With a quick look-through of the table of contents, I can't find and chapter or section treating the SCA method?
+\cmnts{b} - p. 1, col. 2, row 18: the precoders are used \_implicitly\_ as decision variables. This is the whole point, to avoid explicitly modeling the hard decisions in the optimization, and instead do soft decisions during the iterations, and then finally hard decisions after convergence.
 
-\resp We understand the reviewer's concern. We have provided the valid reference for the SCA scheme.
+\resp We thank the reviewer for highlighting the important point. We have included the statement in the revised manuscript on Section I, page 1, col. 2, line 5-14.
 
-\cmnt{5d} - p. 2, col. 2, row 36: Write $\text{rank}(.)$ and $\min$ instead
+\cmnts{c} - p. 1, col. 2, row 33: Which chapter in [2] is referred to? With a quick look-through of the table of contents, I can't find and chapter or section treating the SCA method?
 
-\resp Changed.
+\resp We apologize for the wrong reference. We have updated the manuscript to include the proper reference on SCA with [2,3,7,35].
 
-\cmnt{5e} - p. 3, col. 1, row 26: It would be more clear to explicitly write out the dependence of $\mathbf{M}$ and $\mathbf{W}$ in $\tilde{v}$ here
+\cmnts{d} - p. 2, col. 2, row 36: Write $\text{rank}(.)$ and $\min$ instead
 
-\resp We thank the reviewer for the concern on the grouped variable. We have modified the expressions accordingly.
+\resp We have updated the revised manuscript with the reviewer suggestions on page 2, col. 2, second paragraph in Section II.
 
-\cmnt{5f} - p. 3, col. 2, row 26: Which general MIMO-OFDM problem are you talking about here, and what is combinatorial about it? Is it the problem of selecting users to be served on orthogonal subcarriers? There is nothing inherently combinatorial over the problem in (6) as far as I can tell, as the beamformers are used as soft decision variables.
+\cmnts{e} - p. 3, col. 1, row 26: It would be more clear to explicitly write out the dependence of $\mathbf{M}$ and $\mathbf{W}$ in $\tilde{v}$ here
 
-\resp We thank the reviewer for the comment. We have removed the word "combinatorial" from the text. 
+\resp We removed the matrix representation of the transmit precoders and the receive beamformers from the manuscript to avoid confusion as suggested by the reviewer.
 
-\cmnt{5g} - p. 4, col. 2, row 40: "In fact, (5) provides similar expression of ..." This sentence is very hard to understand.
+\cmnts{f} - p. 3, col. 2, row 26: Which general MIMO-OFDM problem are you talking about here, and what is combinatorial about it? Is it the problem of selecting users to be served on orthogonal subcarriers? There is nothing inherently combinatorial over the problem in (6) as far as I can tell, as the beamformers are used as soft decision variables.
 
-\resp It is restructured to include additional details.
+\resp We thank the reviewer for pointing out the confusion. We have removed the word "combinatorial" from the text to avoid confusion in page 3, col. 2, initial sentence in Section III.
 
-\cmnt{5h} - (16d): suggest your write out the power constraints here, in order to be faster be able to interpret the optimization problem. There is hardly any spaced saved by referring back to (6b).
+\cmnts{g} - p. 4, col. 2, row 40: "In fact, (5) provides similar expression of ..." This sentence is very hard to understand.
 
-\resp Agreed.
+\resp We have rephrased the sentence to avoid difficulty in the understanding. The manuscript is updated with the revised text on page 4, col. 2, first paragraph in Section III.B.
 
-\cmnt{5i} - p. 5, col. 1, rows 27-30: Here you might want to quickly mentioned how one could show the NP-hardness of (16).
+\cmnts{h} - (16d): suggest your write out the power constraints here, in order to be faster be able to interpret the optimization problem. There is hardly any spaced saved by referring back to (6b).
 
-\resp We have updated the NP hardness discussion in the revised version.
+\resp We have updated the manuscript with the explicit power constraint (16d).
 
-\cmnt{5j} - p. 5, col. 1, row 50: "According to the SCA method...". I am not sure exactly how you define "\_the\_ SCA method"? Clarify or cite the definition.
+\cmnts{i} - p. 5, col. 1, rows 27-30: Here you might want to quickly mentioned how one could show the NP-hardness of (16).
+
+\resp We have included the sentence on the NP-hardness 
+
+\cmnts{j} - p. 5, col. 1, row 50: "According to the SCA method...". I am not sure exactly how you define "\_the\_ SCA method"? Clarify or cite the definition.
 
 \resp We thank the reviewer for pointing out the mistake. We have modified the text accordingly.
 
-\cmnt{5k} - p. 5, col. 2, row 31: Here is a case where it makes sense to reference earlier optimization constraints. However, are (19d) and (18) not the same??
+\cmnts{k} - p. 5, col. 2, row 31: Here is a case where it makes sense to reference earlier optimization constraints. However, are (19d) and (18) not the same??
 
 \resp We thank the reviewer for pointing out the mistake. We have modified accordingly to the comment.
 
-\cmnt{5l} - p. 5, col. 2, row 51: Slightly confusing with the notation between the iterates in (21b) and the MMSE filter in (22b).
+\cmnts{l} - p. 5, col. 2, row 51: Slightly confusing with the notation between the iterates in (21b) and the MMSE filter in (22b).
 
 \resp We have revised the manuscript to make it clear.
 
-\cmnt{5m} - p. 6, col. 1, row 9: You might want to add somewhere that (22b) can be used instead of the fixed-point of (21b), since the scaling of the receive filters do not matter in the SINRs. However, does it affect the convergence of the algorithm?
+\cmnts{m} - p. 6, col. 1, row 9: You might want to add somewhere that (22b) can be used instead of the fixed-point of (21b), since the scaling of the receive filters do not matter in the SINRs. However, does it affect the convergence of the algorithm?
 
 \resp We thank the reviewer for the comment. We have revised the manuscript accordingly.
 
-\cmnt{5n} - p. 6, col. 2, rows 8-10: I don't fully understand the reasoning on the relation between the constraint sets in the different iterations. Why is this the case?
+\cmnts{n} - p. 6, col. 2, rows 8-10: I don't fully understand the reasoning on the relation between the constraint sets in the different iterations. Why is this the case?
 
 \resp We thank the reviewer for raising the concern on the convergence, we have updated the convergence proof in Appendix \ref{sec-3.5} to include much detail for clear understanding.
 
 
-\cmnt{5o} - p. 7, col. 1, row 35: Just because a problem is convex does not mean that it has a unique solution. (Although it seems to me that (26) should have a unique solution.) Is the problem in (26) strictly convex?
+\cmnts{o} - p. 7, col. 1, row 35: Just because a problem is convex does not mean that it has a unique solution. (Although it seems to me that (26) should have a unique solution.) Is the problem in (26) strictly convex?
 
 \resp We thank the reviewer for informing the important argument. The relaxed sub problem is strongly convex, due to the presence of norm function in the objective. Since the relaxation forced \me{q_{l,k,n} = 0}, the precoders are unique.
 
-\cmnt{5p} - Table 1: "backpreassure"
+\cmnts{p} - Table 1: "backpreassure"
 
 \resp Changed in the revised manuscript
 
-\cmnt{5q} - p. 11, col. 1, row 56: "performances". I'm not sure this is a countable noun.
+\cmnts{q} - p. 11, col. 1, row 56: "performances". I'm not sure this is a countable noun.
 
 \resp Changed in the revised manuscript
 
+\end{itemize}
+
+\end{itemize}

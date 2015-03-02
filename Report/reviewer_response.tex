@@ -1,12 +1,13 @@
-\documentclass[10pt,letterpaper]{report}
+\documentclass[10pt,letterpaper,onecolumn]{ieeetran}
 
 \usepackage[left=1in,right=1in]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage{acronym,etoolbox}
 \usepackage{subeqnarray,multirow,cite,array,setspace,fixltx2e,lineno,verbatim,mathtools}
 
-\newcommand{\cmnt}[1]{\textbf{Comment} - {#1} :}
-\newcommand{\resp}{\textbf{Response} :}
+\newcommand{\cmnt}[1]{\item[\textbf{Q}-(#1)]}
+\newcommand{\cmnts}[1]{\item[(#1)]}
+\newcommand{\resp}{\item[\textbf{Resp} :]}
 
 \renewcommand \thesection{\Roman{section}}
 \renewcommand \thesubsection{\arabic{section}.\arabic{subsection}}
