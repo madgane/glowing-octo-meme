@@ -53,12 +53,12 @@ Now, the optimal linear receivers for the fixed transmit precoders \me{\mbf{m}_{
 \text{subject to} & \quad & \beta_{l,k,n} \geq  \enoise + \hspace{-0.75em} \sum_{(j,i) \neq (l,k)} \hspace{-0.75em} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2 \IEEEyessubnumber \eqspace \label{eqn-9--1.1c} \\
 & \quad & \text{and } \eqref{eqn-8}. \IEEEyessubnumber \label{eqn-9--1.1e}
 \end{IEEEeqnarray}
-Solving \eqref{eqn-9--1} using the \ac{KKT} conditions, we obtain the following iterative expression for the receiver \me{\mbf{w}^{\ast}_{l,k,n}} as
+Solving \eqref{eqn-9--1} using the \ac{KKT} conditions, we obtain the following iterative expression for the receiver \me{\mbf{w}^{o}_{l,k,n}} as
 \begin{IEEEeqnarray}{rCl}
 \mvec{{A}}{l,k,n} &=& \displaystyle \sum_{\mathclap{(j,i)\neq (l,k)}} \mvec{H}{b_i,k,n} {\mbf{m}}_{j,i,n} {\mbf{m}}_{j,i,n}^\herm \mvec{H}{b_i,k,n}^\herm + N_0 \, \mathbf{I}_{N_R} \IEEEyessubnumber \\
 \mvec{w}{l,k,n}^{(i)} &=& \left ( \tfrac{\tilde{\beta}_{l,k,n} {\mbf{m}}_{l,k,n}^\herm \mvec{H}{b_k,k,n}^\herm \mbf{w}_{l,k,n}^{(i-1)} }{\|\mvec{w}{l,k,n}^{(i-1)} \mvec{H}{b_k,k,n} {\mbf{m}}_{l,k,n} \|^2} \right )\mvec{{A}}{l,k,n}^{-1}\mvec{H}{b_k,k,n} {\mbf{m}}_{l,k,n}, \IEEEyessubnumber \eqspace \label{opt-rx}
 \end{IEEEeqnarray}
-where \me{\mvec{w}{l,k,n}^{(i-1)}} is the receive beamformer from the previous iteration, upon which the linear relaxation is performed for the nonconvex constraint in \eqref{eqn-9--1}. \review{The optimal receiver \me{\mbf{w}^{\ast}_{l,k,n}} is obtained by either iterating \eqref{opt-rx} until convergence or for fixed number of iterations.} \review{Note that the receiver has no explicit relation with the choice of \me{\ell_q} norm used in the objective function. The dependency is implicitly implied by the transmit precoders \me{\mvec{m}{l,k,n}}, which in deed depend on the \me{q} value.}
+where \me{\mvec{w}{l,k,n}^{(i-1)}} is the receive beamformer from the previous iteration, upon which the linear relaxation is performed for the nonconvex constraint in \eqref{eqn-9--1}. \review{The optimal receiver \me{\mbf{w}^{o}_{l,k,n}} is obtained by either iterating \eqref{opt-rx} until convergence or for fixed number of iterations.} \review{Note that the receiver has no explicit relation with the choice of \me{\ell_q} norm used in the objective function. The dependency is implicitly implied by the transmit precoders \me{\mvec{m}{l,k,n}}, which in deed depend on the \me{q} value.}
 
 It can be seen that the optimal receiver in \eqref{opt-rx} is in fact a scaled version of the \ac{MMSE} receiver, which is given by
 \allowdisplaybreaks{
