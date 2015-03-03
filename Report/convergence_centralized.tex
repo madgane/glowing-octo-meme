@@ -88,7 +88,7 @@ where \eqn{\mvec{\tilde{H}}{b_k,k,n} = \mvec{w}{l,k,n}^\herm \mvec{\tilde{H}}{b_
 \end{multline}
 Note that the receive beamformer \me{\mvec{w}{l,k,n}} in \eqref{eqn-10} is unique for the given set of transmit precoders. It is due to the constraints \eqref{uniqueness-1} and \eqref{uniqueness-2}, the convex subproblems in \eqref{eqn-9} and \eqref{eqn-mse-2} are susceptible to the transmit precoders phase rotations and thereby having a unique minimizer. 
 
-When the objective function is zero, the uniqueness of the transmit precoders using \eqref{uniqueness-1} and \eqref{uniqueness-2} are not valid due to the inactive constraints \eqref{eqn-6.2} and \eqref{eqn-mse-1.2}. To obtain a unique set of transmit precoders when the objective is zero even for a single \ac{BS}, we can follow the regularization approach discussed in Appendix \ref{a-3} without affecting the optimal solution.
+When the objective function is zero, the uniqueness of the transmit precoders using \eqref{uniqueness-1} and \eqref{uniqueness-2} are not valid due to the inactive constraints \eqref{eqn-6.2} and \eqref{eqn-mse-1.2}. To get the unique set of transmit precoders when the objective is zero even for a single \ac{BS}, we can regularize the objective with the transmit power as discussed in Appendix \ref{a-3} without affecting the optimal solution.
 %we can regularize the objective with the total transmit power expression without affecting the optimal solution as 
 %\begin{equation*}
 %\| \tilde{\mbf{v}} \|_q + \varphi \sum_{k \in \mc{U}} \sum_{n = 1}^{N} \sum_{l=1}^{L} \mathrm{tr} \left ( \mvec{m}{l,k,n} \mbf{m}^\herm_{l,k,n} \right ),

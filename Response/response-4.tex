@@ -1,0 +1,96 @@
+\begin{itemize}
+
+\cmnt{1} First, this reviewer is not convinced by the arguments for showing the convergence of the JSFRA method. "The SCA method" is often referred to, but never really defined or referenced. The three required conditions (as stated on p. 6, col. 1, rows 38-40) do not, as far as I can tell, appear in [27]. Indeed, [27] is concerned with optimization problems where the objective function is non-convex, but the constraint set is convex and separable over the blocks of variables. Perhaps you meant to cite [A], wherein non-convex constraints are handled in a similar way? Numerically, the algorithms do converge, and the argument put forward makes sense, but the treatment must be improved to be more rigorous.
+
+\resp We understand the reviewer's concern on the lack of rigorous convergence proof for the proposed JSFRA approach. We have presented a rigorous convergence proof for the proposed algorithm in Appendix B on page 14. We have included the reference suggested by the reviewer in [34]. 
+
+\cmnt{2} Second, the optimization problems formulated only depend on $Q_k$, the current levels of backlogged packets, and not on the arrival rates. This is due to how the conditional Lyapunov drift is minimized. This approach completely removes the queue dynamics from the optimization problem, essentially leading to greedy one-shot optimization in 7
+every time instant. The framework would be more interesting if some sort of optimization (or tracking) is performed over several time instants, rather than the one-shot approach that is currently used for the JSFRA algorithms. Possibly, some expectation over the queues would be optimized then. Even if no analytical treatment of the tracking over several time-steps is added, I would at least highly recommend adding some simulation results where the proposed one-shot algorithms are performed sequentially over several time instants.
+
+\resp We understand the concern raised by the reviewer. In the current paper, we are discussing on the precoder design to minimize the number of backlogged packets in the system at a given time. Since the greedy approach performed at each instant minimizes the number of backlogged packets on an average, we emphasized on the precoder design based on the current knowledge of the channel state information. We have included Section V-C in page 13 to discuss on the performance of the JSFRA scheme for different \me{\ell_q} norm over multiple time slots. Plots comparing the average number of backlogged packets for different schemes at each instant and the number of queued packets remained in the system after each transmission instant are provided in Fig. 4.
+
+\cmnt{3} Third, the distributed methods (at least the primal decomposition and ADMM) seem to be fairly straight-forward applications of existing results. This reviewer recommends spending more space on the convergence, than on the description of the distributed techniques. Still, it would be nice with a direct description of what local CSI is required, and how it is acquired, to perform the local computations for the primal decomposition and ADMM methods. For the description of the signaling of the CSI in Sec. IV-B, are you envisioning a TDD system?
+
+\resp We agree with the reviewer's comment. We have shortened the discussions on the distributed approaches and discussed the convergence proof of the decentralized algorithm in Section IV-C page 8. For the distributed precoder design, we assume that the \ac{BS} \me{b} knows the channel \me{\mbf{H}_{b,k,n}} of all users in the system by the uplink sounding technique. Note that it includes the cross channel of the neighbor BS users as well. We have included the information on what each network entity knows in page 7, col. 2 last paragraph. We have included the type of duplexing scheme adopted in the model, \textit{i.e}, TDD system, in the system description in Section II, last paragraph.
+
+\cmnt{4} Finally, some readers might be confused by the "joint space-frequency" terminology, believing that the beamforming is performed over a joint space-frequency channel space, where the space-frequency channels are formed by block-diagonal matrices, each block belonging to one subcarrier. This could easily be clarified. 
+
+\resp We agree with the reviewer's point. We have included the note on the space-frequency terminology in the introduction section on page 2, col. 2, line 2-4.
+
+\cmnt{5} Please see the itemized questions
+
+\begin{itemize}
+
+\cmnts{a} - p. 1, col. 1, row 42: "userss"
+
+\resp Corrected in the revised manuscript in Section I on page 1, col. 1, line 2.
+
+\cmnts{b} - p. 1, col. 2, row 18: the precoders are used \_implicitly\_ as decision variables. This is the whole point, to avoid explicitly modeling the hard decisions in the optimization, and instead do soft decisions during the iterations, and then finally hard decisions after convergence.
+
+\resp We thank the reviewer for highlighting the important point. We have included the statement in the revised manuscript on Section I, page 1, col. 2, line 5-14.
+
+\cmnts{c} - p. 1, col. 2, row 33: Which chapter in [2] is referred to? With a quick look-through of the table of contents, I can't find and chapter or section treating the SCA method?
+
+\resp We apologize for the wrong reference. We have updated the manuscript to include the proper reference on SCA with [2,3,7,25,26,35].
+
+\cmnts{d} - p. 2, col. 2, row 36: Write $\text{rank}(.)$ and $\min$ instead
+
+\resp We have updated the revised manuscript with the reviewer suggestions on page 2, col. 2, second paragraph in Section II.
+
+\cmnts{e} - p. 3, col. 1, row 26: It would be more clear to explicitly write out the dependence of $\mathbf{M}$ and $\mathbf{W}$ in $\tilde{v}$ here
+
+\resp We removed the matrix representation of the transmit precoders and the receive beamformers from the manuscript to avoid confusion as suggested by the reviewer.
+
+\cmnts{f} - p. 3, col. 2, row 26: Which general MIMO-OFDM problem are you talking about here, and what is combinatorial about it? Is it the problem of selecting users to be served on orthogonal subcarriers? There is nothing inherently combinatorial over the problem in (6) as far as I can tell, as the beamformers are used as soft decision variables.
+
+\resp We thank the reviewer for pointing out the confusion. We have removed the word "combinatorial" from the text to avoid confusion in page 3, col. 2, initial sentence in Section III.
+
+\cmnts{g} - p. 4, col. 2, row 40: "In fact, (5) provides similar expression of ..." This sentence is very hard to understand.
+
+\resp We have rephrased the sentence to avoid difficulty in the understanding. The manuscript is updated with the revised text on page 4, col. 2, first paragraph in Section III.B.
+
+\cmnts{h} - (16d): suggest your write out the power constraints here, in order to be faster be able to interpret the optimization problem. There is hardly any spaced saved by referring back to (6b).
+
+\resp We have updated the manuscript with the explicit power constraint in (16d) as
+\[\sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}}, \fall b\]
+in page 5, col. 1.
+
+\cmnts{i} - p. 5, col. 1, rows 27-30: Here you might want to quickly mentioned how one could show the NP-hardness of (16).
+
+\resp We have included the NP-hardness of the proposed solution by modeling the current problem to solve the \ac{WSRM} formulation, which is known to be NP-hard in page 5, col. 1, last sentence in Section III-B third paragraph. 
+
+\cmnts{j} - p. 5, col. 1, row 50: "According to the SCA method...". I am not sure exactly how you define "\_the\_ SCA method"? Clarify or cite the definition.
+
+\resp We have removed the sentence mentioning SCA method. We have updated the manuscript to discuss this as SCA approach in pagt 5, col. 1 last paragraph.
+
+\cmnts{k} - p. 5, col. 2, row 31: Here is a case where it makes sense to reference earlier optimization constraints. However, are (19d) and (18) not the same??
+
+\resp We thank the reviewer for pointing out the mistake. We have included all the constraints except the linearization constraint in (20) which is (19) in the original manuscript. Expression (19d) and (18) are same. We have removed this double reference in page 5, col. 2, equation (20).
+
+\cmnts{l} - p. 5, col. 2, row 51: Slightly confusing with the notation between the iterates in (21b) and the MMSE filter in (22b).
+
+\resp We have updated the manuscript to avoid the ambiguity in the representation of the optimal and the MMSE receiver. The optimal receiver is denoted by \me{\mvec{w}{l,k,n}^{\ast}} in (22) and the MMSE receiver by \me{\mvec{w}{l,k,n}} in (23).
+
+\cmnts{m} - p. 6, col. 1, row 9: You might want to add somewhere that (22b) can be used instead of the fixed-point of (21b), since the scaling of the receive filters do not matter in the SINRs. However, does it affect the convergence of the algorithm?
+
+\resp We thank the reviewer for providing the valid comment. We have updated the manuscript to include this discussion in page 6, col 1, lines 3-6. The performance remains the same and the convergence rate is not affected by this scaling, which can be seen from Fig. 1 comparing the precoder convergence using the optimal and the MMSE receiver for the JSFRA scheme with \me{\ell_1} norm.
+
+\cmnts{n} - p. 6, col. 2, rows 8-10: I don't fully understand the reasoning on the relation between the constraint sets in the different iterations. Why is this the case?
+
+\resp To solve the nonconvex problem (16), we linearize the DC constraint (16b) around a fixed operating point. Since the operating point happens to be the optimal solution from the earlier iteration, the optimal point of the previous iterations is also present in the current feasible set. Therefore, at each iteration, the algorithm finds a better solution or the same compared to the previous solution, which leads to the monotonically decreasing objective. It is explained in detail in Appendix B on the convergence analysis of the centralized algorithm.
+
+\cmnts{o} - p. 7, col. 1, row 35: Just because a problem is convex does not mean that it has a unique solution. (Although it seems to me that (26) should have a unique solution.) Is the problem in (26) strictly convex?
+
+\resp We thank the reviewer for the critical comment. It is generally not true that the convex problem has a unique solution. The problem is strictly convex when there is at least one user in each BS that cannot be served by the current transmission. It has multiple solutions, when the objective is zero even for a single BS. In this case, we can use a regularization term with the total power in the objective to obtain an unique solution. We have discussed the uniqueness of the proposed algorithm in detail in Appendix B-C.
+
+\cmnts{p} - Table 1: "backpreassure"
+
+\resp It is updated in the manuscript on page 11, Table 1.
+
+\cmnts{q} - p. 11, col. 1, row 56: "performances". I'm not sure this is a countable noun.
+
+\resp We agree with the reviewer. We have modified the manuscript accordingly by replacing it with the singular form.
+
+\end{itemize}
+
+\end{itemize}

@@ -27,7 +27,6 @@
 \newtoggle{single_column}
 \togglefalse{single_column}
 \togglefalse{enable_dist_fig}
-\togglefalse{includereview}
 
 \iftoggle{single_column}{
 	\doublespacing
@@ -39,18 +38,6 @@
 	$^\dagger$The authors are with the Centre for Wireless Communications (CWC), Department of Communications Engineering (DCE), University of Oulu, Oulu, FI-90014, (e-mail: \{ganesh.venkatraman, antti.tolli, markku.juntti\}@ee.oulu.fi)}\thanks{$^\ddagger$The author is with the Department of Electronic Engineering, Maynooth University, Maynooth, Co. Kildare, Ireland, (e-mail:ltran@eeng.nuim.ie)}}
 
 \begin{document}
-
-\iftoggle{includereview}{
-\newpage
-\onecolumn
-\doublespacing
-\section{Response to reviewer comments}
-\input{review_comments}
-\twocolumn
-\newpage
-\singlespacing
-\setcounter{page}{1}
-}
 
 \maketitle
 
@@ -118,7 +105,7 @@ Convex approximations, \ac{MIMO}-\acs{IBC}, \ac{MIMO}-\ac{OFDM}, Precoder design
 \subsection{Distributed Solutions}
 \input{simulation_distributed}
 
-\subsection{Queue Deviations over Multiple Transmission Slots} \label{time-correlated}
+\subsection{Queuing Analysis over Multiple Transmission Slots} \label{time-correlated}
 \review{\input{time_correlated}}
 
 %acresetall
