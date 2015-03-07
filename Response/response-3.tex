@@ -10,7 +10,7 @@ We thank the reviewer for reading the manuscript and providing valuable comments
 
 \cmnt{2} \textit{The manuscript states that the inequalities (16b) and (16c) achieve equality at optimality(line 23, page 5). This is not obvious. An easy case to check this statement is that assuming the system has two BS and each BS serves one user. When \me{Q_1=0} and 2nd BS has sufficiently large power, (16b) and (16c) do not hold equality. Rigorous proof is needed if authors stick to this statement.}
 
-\resp We thank the reviewer for the insightful comment. We have updated the manuscript to include the statement that the proposed approximation in (16b) and (16c) are the under estimator for the SINR expression in (2). The under estimator is tight when there is at least one user in each BS that cannot be served by the current transmission. It has multiple solutions, when the objective is zero even for a single BS. In this case, we can use a regularization term with the total power in the objective to obtain an unique solution. We have discussed the uniqueness of the proposed algorithm in detail in Appendix B-C.
+\resp We thank the reviewer for the insightful comment. We have updated the manuscript to include the statement that the proposed approximation in (16b) and (16c) are the under estimator for the SINR expression in (2). The under estimator is tight when there is at least one user in each BS that cannot be served by the current transmission. It has multiple solutions, when the objective is zero even for a single BS. In this case, we can use a regularization term with the total power in the objective to obtain an unique solution. We have discussed the uniqueness of the proposed algorithm in detail in Appendix B-D.
 
 \cmnt{3} \textit{The solution in (21) is obtianed for MMSE, i.e. for 2-norm(q=2). If \me{q=1} or \me{q=\infty}, it is actually an equivalent linear programming problem. Details for this solution should be provided.}
 
@@ -18,7 +18,7 @@ We thank the reviewer for reading the manuscript and providing valuable comments
 
 \cmnt{4} \textit{The convergence proof need to be rigorous. The inequality of (23a) is opposite to the reference [28]. Also the statement on uniqueness of the transmit and the receive beamformers are not correct. Although we can choose one antenna to be real value, this does not mean the problem has unique solution!}
 
-\resp We agree with the reviewer. We have updated the manuscript to discuss the convergence proof in a rigorous manner in Appendix B. The uniqueness is also justified implicitly by the linear approximation performed on the DC constraint (16b), which makes the transmit precoders to be susceptible to the phase rotation. The uniqueness discussions are presented in Appendix B-C.
+\resp We agree with the reviewer. We have updated the manuscript to discuss the convergence proof in a rigorous manner in Appendix B. The uniqueness is also justified implicitly by the linear approximation performed on the DC constraint (16b), which makes the transmit precoders to be susceptible to the phase rotation. The uniqueness discussions are presented in Appendix B-D.
 
 \cmnt{5} \textit{(25) is generally wrong. (25) only holds when the MSE is minimized(by MMSE receiver) and the snr is the optimized(which is obtained by general eignvalue decompostion). This is clearly stated in the reference [5] and [6]. This can also be easily checked by comparing (25) and (2). Consequently the alternative formulation (26) based on this conclusion is questionable.}
 
