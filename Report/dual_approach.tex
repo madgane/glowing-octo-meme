@@ -25,7 +25,7 @@ The dual vector for the next iteration is updated by using subgradient to maximi
 \mbfa{\nu}_b^{(i+1)} = \mbfa{\nu}_b^{(i)} + \rho \left (\mbfa{\zeta}_b - \mbfa{\zeta}_b^{(i+1)} \right )
 \label{dual-sg-update}
 \end{equation}
-where the step size parameter \me{\rho} is chosen in accordance with \cite{boyd2011distributed}, which depend on the system model under consideration. The convergence rate of the distributed algorithm is susceptible to the choice of the step size parameter \me{\rho}. For our simulation models, we consider the step size parameter \me{\rho=2}. The above iteration is performed until convergence or for certain accuracy in the variation of the objective value between two consecutive updates. The distributed precoder design using \ac{ADMM} approach is shown in Algorithm \ref{algo-3}.
+where the step size parameter \me{\rho} is chosen in accordance with \cite{boyd2011distributed}, which depend on the system model under consideration. The convergence rate of the distributed algorithm is susceptible to the choice of the step size parameter \me{\rho}. For our simulation models, we consider the step size parameter \me{\rho=2}. The above iteration is performed until convergence or for certain accuracy in the variation of the objective value between two consecutive updates. The distributed precoder design using \ac{ADMM} approach is shown in Algorithm \ref{algo-3}. The convergence analysis of the distributed algorithms are discussed in Appendix \ref{sec-dist-conv}.
 {\allowdisplaybreaks 
 \begin{algorithm}
 	\SetAlgoLined

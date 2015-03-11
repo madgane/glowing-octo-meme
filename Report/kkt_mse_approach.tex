@@ -4,7 +4,7 @@ In this section, we discuss an alternative way to decentralize the precoder desi
 In the proposed \ac{JSFRA} formulation, the maximum rate constraints are implicitly handled by the objective function without the need of explicit constraints. However, the \ac{KKT} conditions cannot be formulated due to the non-differential objective function. The non-differentiability is due to the absolute value operator present in the norm function. In order to make the objective function differentiable, we consider the following two cases for which the absolute operator can be ignored without affecting the optimal solution, namely,
 \begin{itemize}
 \item when the exponent \me{q} is even, or
-\item when the number of backlogged packets of each user is large enough, \textit{i.e}, \me{Q_k \gg \sum_{n=1}^N \sum_{l=1}^L {t}_{l,k,n}} to ignore the absolute operator, which means also ignoring the queues in the first place as well.
+\item when the number of backlogged packets of each user is large enough, \textit{i.e}, \me{Q_k \gg \sum_{n=1}^N \sum_{l=1}^L {t}_{l,k,n}} to ignore the absolute operator and queues in the first place as well.
 \end{itemize}
 
 With the assumption of either one of the above conditions to be true, the problem in \eqref{eqn-mse-2} can be written as
@@ -28,7 +28,7 @@ With the assumption of either one of the above conditions to be true, the proble
 }
 where \me{\alpha_{l,k,n},\sigma_{l,k,n}} and \me{\delta_b} are the dual variables corresponding to the constraints defined in \eqref{kkt-mse-1.2}, \eqref{kkt-mse-1.3} and \eqref{kkt-mse-1.4}. 
 
-The problem in \eqref{kkt-mse-1} is solved using the \ac{KKT} expressions, which are obtained by the derivative of the Lagrangian function w.r.t the primal and the dual variables, complementary slackness conditions, and the primal, dual feasibility requirements as shown in Appendix \ref{a-1}. Upon solving, we obtain the iterative solution as
+The problem in \eqref{kkt-mse-1} is solved using the \ac{KKT} expressions, obtained by the derivative of the Lagrangian function w.r.t the primal and the dual variables, complementary slackness, and the primal, dual feasibility requirements as shown in Appendix \ref{a-1}. Upon solving, we obtain the iterative solution as
 \iftoggle{single_column}{
 \begin{IEEEeqnarray}{rCl} \label{kkt-mse-4}
 \mvec{m}{l,k,n}^{(i)} &=& \Big ( \sum_{x \in \mc{U}} \sum_{y=1}^L \alpha_{y,x,n}^{(i-1)} \mvec{H}{b_k,x,n}^\herm \mvec{w}{y,x,n}^{(i-1)} \mvec{w}{y,x,n}^{\herm \, {(i-1)}} \mvec{H}{b_k,x,n} + \delta_b \mbf{I}_{N_T} \Big )^{-1} \alpha^{(i-1)}_{l,k,n} \mvec{H}{b_k,k,n}^\herm \mvec{w}{l,k,n}^{(i-1)} \IEEEyessubnumber \label{kkt-mse-4.3} \\
@@ -50,7 +50,7 @@ t_{l,k,n}^{(i)} &=&  -\log_2(\epsilon_{l,k,n}^{(i-1)}) - \frac{\left ( \epsilon_
 	\sigma_{l,k,n}^{(i)} =& \Big [\tfrac{a_k \, q}{\log(2)}  \, \Big (Q_k - \sum_{n = 1}^N \sum_{l=1}^L t_{l,k,n}^{(i)} \Big )^{(q-1)}\Big ]^+  \IEEEyessubnumber \label{kkt-mse-4.2} \\
 	\alpha^{(i)}_{l,k,n} =& \alpha^{(i-1)}_{l,k,n} + \rho \left ( \tfrac{\sigma_{l,k,n}^{(i)}}{\epsilon_{l,k,n}^{(i)}} - \alpha^{(i-1)}_{l,k,n} \right ) \IEEEyessubnumber \label{kkt-mse-4.1}
 \end{IEEEeqnarray}}}
-Since the dual variables \me{\alpha^{(i)}} and \me{\sigma^{(i)}} are interdependent in \eqref{kkt-mse-4}, one has to be fixed to optimize for the other. So, \me{\alpha^{(i)}} is fixed to evaluate \me{\sigma^{(i)}} using \eqref{kkt-mse-4}. \review{At each iteration, the dual variables \me{\alpha^{(i)}} are linearly interpolated with any point between the fixed iterate \me{\alpha^{(i-1)}} and \me{\tfrac{\sigma^{(i)}}{\epsilon^{(i)}}} using a step size \me{\rho \in (0,1)}. The choice of \me{\rho} depends on the system model and it affects the convergence behavior of the algorithm. It is used to reduce the oscillations in the objective function when \me{\sigma^{(i)}} is negative due to over allocation.}
+Since the dual variables \me{\alpha^{(i)}} and \me{\sigma^{(i)}} are interdependent in \eqref{kkt-mse-4}, one has to be fixed to optimize for the other. So, \me{\alpha^{(i)}} is fixed to evaluate \me{\sigma^{(i)}} using \eqref{kkt-mse-4}. \review{At each iteration, the dual variables \me{\alpha^{(i)}} are linearly interpolated with any point between the fixed iterate \me{\alpha^{(i-1)}} and \me{\tfrac{\sigma^{(i)}}{\epsilon^{(i)}}} using a step size \me{\rho \in (0,1)}. The choice of \me{\rho} depends on the system model and it affects the convergence behavior. It reduces the oscillations in the objective function when \me{\sigma^{(i)}} is negative due to over allocation.}
 	
 When the allocated rate \me{t_k^{(i-1)}} is greater than the number of queued packets \me{Q_k} for a user \me{k}, the corresponding dual variable \me{\sigma^{(i)}} will be negative and due to the projection operator \me{[x]^+} in \eqref{kkt-mse-4.2}, it will be zero, thereby forcing \me{\alpha_k^{(i)} < \alpha_k^{(i-1)}} as in \eqref{kkt-mse-4.1}. Once the \me{\alpha_k^{(i)}} is reduced, the precoder weight in \eqref{kkt-mse-4.3} is lowered to make the rate \me{t_k^{(i)} < t_k^{(i-1)}} eventually. \review{The choice of \me{\rho} is susceptible to the system model under consideration, which affects the convergence speed of the iterative algorithm. In all simulations, the step size \me{\rho} is fixed to \me{0.1} irrespectively.}
 

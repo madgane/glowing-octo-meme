@@ -2,11 +2,11 @@ The convergence of the distributed algorithm outlined in Algorithm \ref{algo-3} 
 
 To prove the convergence of the \ac{ADMM} approach, we use the argument presented in \cite{bertsekas1989parallel} Proposition 4.2. 
 If the problem is written as 
-\begin{IEEEeqnarray}{rCl}
+\begin{subeqnarray}
 	\underset{\mbf{x},\mbf{z}}{\text{minimize}} &\quad& G(\mbf{x}) + H(\mbf{y}) \eqsub \\
-	\text{subject to} &\quad& \mbf{A} \mbf{x} = \mbf{z} \eqsub \label{const-admm} \\
+	\text{subject to} &\quad& \mbf{A} \mbf{x} = \mbf{z} \eqsub \slabel{const-admm} \\
 &\quad&	\mbf{x} \in \mc{C}_1, \mbf{z} \in \mc{C}_2 \eqsub
-\end{IEEEeqnarray}
+\end{subeqnarray}
 following conditions are required for the convergence if \ac{ADMM} is used.
 \begin{itemize}
 	\item \me{G,H} should be convex

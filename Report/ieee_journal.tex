@@ -1,7 +1,6 @@
 
 \documentclass[10pt,journal,twocolumn,letterpaper]{./../Styles/IEEEtran}
 
-\usepackage[section]{placeins}
 \usepackage{amsmath,amssymb}
 \usepackage{acronym,etoolbox}
 \usepackage{graphicx,epstopdf}
@@ -34,7 +33,7 @@
 
 \title{Traffic Aware Resource Allocation Schemes for Multi-Cell \acs{MIMO}-\acs{OFDM} Systems}
 \author{
-	\IEEEauthorblockN{Ganesh Venkatraman$^\dagger$ \IEEEmembership{Student Member,~IEEE}\thanks{This work has been supported by the Finnish Funding Agency for Technology and Innovation (Tekes), Nokia Solutions Networks, Xilinx Ireland, Academy of Finland. Part of this work is presented in ICASSP 2014.}, Antti T\"{o}lli$^\dagger$ \IEEEmembership{Senior Member,~IEEE}, Le-Nam Tran$^\ddagger$ \IEEEmembership{Member,~IEEE}, and Markku Juntti$^\dagger$ \IEEEmembership{Senior Member,~IEEE}}\thanks{
+	\IEEEauthorblockN{Ganesh Venkatraman$^\dagger$ \IEEEmembership{Student Member,~IEEE}\thanks{This work has been supported by the Finnish Funding Agency for Technology and Innovation (Tekes), Nokia Solutions Networks, Xilinx Ireland, Academy of Finland. Part of this work is presented in ICASSP 2014.}, Antti T\"{o}lli$^\dagger$ \IEEEmembership{Senior Member,~IEEE}, Markku Juntti$^\dagger$ \IEEEmembership{Senior Member,~IEEE}, and Le-Nam Tran$^\ddagger$ \IEEEmembership{Member,~IEEE}}\thanks{
 	$^\dagger$The authors are with the Centre for Wireless Communications (CWC), Department of Communications Engineering (DCE), University of Oulu, Oulu, FI-90014, (e-mail: \{ganesh.venkatraman, antti.tolli, markku.juntti\}@ee.oulu.fi)}\thanks{$^\ddagger$The author is with the Department of Electronic Engineering, Maynooth University, Maynooth, Co. Kildare, Ireland, (e-mail:ltran@eeng.nuim.ie)}}
 
 \begin{document}
@@ -90,9 +89,6 @@ Convex approximations, \ac{MIMO}-\acs{IBC}, \ac{MIMO}-\ac{OFDM}, Precoder design
 \input{dual_approach}
 %\input{dual_algorithm}
 
-\subsection{Convergence Analysis for Distributed Algorithms} \label{sec-dist-conv}
-\review{\input{convergence_distributed}}
-
 \subsection{Decomposition via \ac{KKT} Conditions for \ac{MSE} Formulation} \label{sec-4.3}
 \input{kkt_mse_approach}
 
@@ -122,6 +118,9 @@ Convex approximations, \ac{MIMO}-\acs{IBC}, \ac{MIMO}-\ac{OFDM}, Precoder design
 
 \section{Convergence Proof for Centralized Algorithm} \label{sec-3.5}
 \review{\input{convergence_centralized}}
+
+\section{Convergence Proof for Distributed Algorithms} \label{sec-dist-conv}
+\review{\input{convergence_distributed}}
 
 \section{\ac{KKT} conditions for \ac{MSE} approach} \label{a-1}
 \input{kkt_appendix}
