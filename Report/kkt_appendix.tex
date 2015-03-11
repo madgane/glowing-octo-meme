@@ -12,7 +12,7 @@ In order to solve for an iterative precoder design algorithm, the \ac{KKT} expre
 	\nabla_{\epsilon_{l,k,n}} : &-\alpha_{l,k,n} + \dfrac{\sigma_{l,k,n}}{\tilde{\epsilon}_{l,k,n}} = 0 \IEEEyessubnumber \label{kkt-mse-2.2} \\
 	\nabla_{t_{l,k,n}} : &-q \, a_k \Big (Q_k - \sum_{n = 1}^N \sum_{l=1}^L t_{l,k,n} \Big )^{(q-1)} \hspace{-0.1in} + \frac{\sigma_{l,k,n}}{\log_2(e)} = 0 \IEEEyessubnumber \eqspace \label{kkt-mse-2.1} \\
 	\nabla_{\mvec{m}{l,k,n}} : &\sum_{y \in \mc{U}} \sum_{x=1}^L \alpha_{x,y,n} \mvec{H}{b_k,y,n}^\herm \mvec{w}{x,y,n} \mvec{w}{x,y,n}^\herm \mvec{H}{b_k,y,n} \mvec{m}{l,k,n} \nonumber\\
-	& \qquad {} + \delta_b \mvec{m}{l,k,n} = \alpha_{l,k,n} \mvec{H}{b_k,k,n}^\herm \mvec{w}{l,k,n}, \IEEEyessubnumber \label{kkt-mse-2.3} \\
+	& \qquad {} + \delta_b \mvec{m}{l,k,n} = \alpha_{l,k,n} \mvec{H}{b_k,k,n}^\herm \mvec{w}{l,k,n} \IEEEyessubnumber \label{kkt-mse-2.3} \\
 	\nabla_{\mvec{w}{l,k,n}} : & \sum_{\mathclap{(x,y) \neq (l,k)}} \mvec{H}{b_y,k,n} \mvec{m}{x,y,n} \mvec{m}{x,y,n}^\herm \mvec{H}{b_y,k,n}^\herm \mvec{w}{l,k,n} \nonumber \\
 	& \qquad {}  + \mathbf{I}_{N_R} \mvec{w}{l,k,n} = \mvec{H}{b_k,k,n} \; \mvec{m}{l,k,n}. \IEEEyessubnumber \label{kkt-mse-2.4}
 \end{IEEEeqnarray}}

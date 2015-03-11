@@ -26,17 +26,17 @@ The minimum value of the norm operator in the objective is zero, \textit{i.e}, \
 \subsection{Monotonicity} \label{mcity}
 
 Let us express the centralized problem in \eqref{eqn-6} and \eqref{eqn-mse-1} as
-\begin{IEEEeqnarray}{rCl} \label{con}
-	\underset{\mx,\my,\mz}{\text{minimize}} &\quad& f(\mx,\my,\mz) \eqsub \label{con-obj} \\
-	\text{subject to} &\quad& h(\mz) - g_0(\mx,\my) \leq 0 \eqsub \label{con-dc} \\
-	&\quad& g_1(\mx,\my) \leq 0, \eqsub \label{con-cvx-blk} \\
-	&\quad& g_2(\mx) \leq 0, \eqsub \label{con-cvx}
-\end{IEEEeqnarray}
+\begin{subeqnarray} \label{con}
+	\underset{\mx,\my,\mz}{\text{minimize}} &\quad& f(\mx,\my,\mz) \eqsub \slabel{con-obj} \\
+	\text{subject to} &\quad& h(\mz) - g_0(\mx,\my) \leq 0 \eqsub \slabel{con-dc} \\
+	&\quad& g_1(\mx,\my) \leq 0 \eqsub \slabel{con-cvx-blk} \\
+	&\quad& g_2(\mx) \leq 0 \eqsub \slabel{con-cvx}
+\end{subeqnarray}
 where \me{g_2,f} are convex and \me{h} is a linear function. Let \me{g_0,g_1} be convex in either \me{\mx} or \me{\my} but not on both. The constraint in \eqref{con-dc} corresponds to \eqref{eqn-6.2} or \eqref{eqn-mse-1.2} and the constraint \eqref{con-cvx-blk} correspond to \eqref{eqn-6.3} or \eqref{eqn-mse-1.3}. Other convex constraints are addressed by \eqref{con-cvx} and the feasible set of \eqref{con} is given by 
-\begin{IEEEeqnarray}{rl}
-\mc{F} = \{ \; \mx,\my,\mz \; \big | \; & h(\mz) - g_0(\mx,\my) \leq 0, \nonumber \\
-								& g_1(\mx,\my) \leq 0, g_2(\mx) \leq 0 \; \} \nonumber
-\end{IEEEeqnarray}
+\begin{align}
+\mc{F} = \{ \; \mx,\my,\mz \; \big | & \quad h(\mz) - g_0(\mx,\my) \leq 0, \nonumber \\
+								 & \quad g_1(\mx,\my) \leq 0, g_2(\mx) \leq 0 \}.
+\end{align}
 
 To solve \eqref{con}, we adopt \ac{AO} by fixing a block of varibles and optimize for others \cite{bezdek2002some}. In \eqref{con}, even after fixing the variable \me{\my}, the problem is nonconvex due to the \ac{DC} constraint \eqref{con-dc}. We adopt \ac{SCA} presented in \cite{lipp2014variations,lanckriet2009convergence,scutari_1} by relaxing the nonconvex set by a sequence of convex subsets. Since it involves two nested iterations, we denote the \ac{AO} iteration index by a superscript \me{(i)} and the \ac{DC} constraint relaxations by a subscript \me{k}. Let \me{\iter{\mc{X}}{k}{i}} be the feasible set for the \eqn{\ith{i}} \ac{AO} iteration and the \me{\ith{k}} \ac{SCA} point for a fixed \me{\my} and \me{\iter{\mc{Y}}{k}{i}} denotes the feasible set for a fixed \me{\mx}. Since the \ac{SCA} iterations are performed until convergence, let \me{\iter{\mx}{\ast}{i}} denote the converged point of \me{\mx} in the \me{\ith{i}} \ac{AO} iteration. Let \me{\iter{\mz}{\ast|\my}{i}} be the optimal value of \me{\mz} obtained in the \me{\ith{i}} \ac{AO} iterate for a fixed \me{\my}.
 
@@ -46,10 +46,10 @@ To begin with, let us consider the variable \me{\my} is fixed for the \ac{AO} \m
 \end{multline}
 Using \eqref{con-relax}, the convex subproblem for \me{\ith{i}} \ac{AO} iteration and \me{\ith{k}} \ac{SCA} point for the variable \me{\mx} and \me{\mz} is given by
 \begin{subeqnarray} \label{con-m}
-	\underset{\mx,\mz}{\text{minimize}} &\quad& f(\mx,\iter{\my}{\ast}{i-1},\mz) \eqsub \label{con-obj-m} \\
-	\text{subject to} &\quad& h(\mz) - \hat{g}_0(\mx,\iter{\my}{\ast}{i-1};\iter{\mx}{k}{i}) \leq 0 \eqsub \label{con-dc-m} \\
-	&\quad& g_1(\mx,\iter{\my}{\ast}{i-1}) \leq 0, \eqsub \label{con-cvx-blk-m} \\
-	&\quad& g_2(\mx) \leq 0, \eqsub \label{con-cvx-m}
+	\underset{\mx,\mz}{\text{minimize}} &\quad& f(\mx,\iter{\my}{\ast}{i-1},\mz) \eqsub \slabel{con-obj-m} \\
+	\text{subject to} &\quad& h(\mz) - \hat{g}_0(\mx,\iter{\my}{\ast}{i-1};\iter{\mx}{k}{i}) \leq 0 \eqsub \slabel{con-dc-m} \\
+	&\quad& g_1(\mx,\iter{\my}{\ast}{i-1}) \leq 0 \eqsub \slabel{con-cvx-blk-m} \\
+	&\quad& g_2(\mx) \leq 0. \eqsub \slabel{con-cvx-m}
 \end{subeqnarray}
 Let the feasible set defined by the problem in \eqref{con-m} be represented as \me{\iter{\mc{X}}{k}{i} \subset \mc{F}}. In order to prove the convergence of the convex subproblem \eqref{con-m} for a fixed \me{\my = \iter{\my}{\ast}{i-1}} operating at \me{\iter{\mx}{k}{i}}, let us consider that \eqref{con-m} yields \me{\iter{\mx}{k+1}{i}} and \me{\iter{\mz}{k+1}{i}} as the solution for the \me{\ith{k}} iteration. Note that the point \me{\iter{\mx}{k+1}{i}} and \me{\iter{\mz}{k+1}{i}}, which minimizes the objective function, is also feasible for \eqref{con-m} using the following inequality
 \allowdisplaybreaks{\begin{multline}\label{con-sub-set}
@@ -85,7 +85,7 @@ Let \me{\mbf{\ma} \triangleq [\mx,\my,\mz]} be the stacked vector of the optimiz
 
 The mapping \eqn{\mc{A}} for the iterative algorithm is given by
 \begin{equation}
-\mc{A}(\iterate{\ma}{i}) : \underset{\ma}{\mathrm{argmin}} \; f(\ma;\iterate{\ma}{i}), \; \text{subject to} \; \ma \in \mc{F},
+\mc{A}(\iterate{\ma}{i}) : \underset{\ma}{\mathrm{argmin}} \; f(\ma;\iterate{\ma}{i}), \; \text{subject to} \; \ma \in \mc{F}
 \end{equation}
 where \me{\iterate{\ma}{i}} belongs to the set of equally valid iterates \me{\mc{A}(\iterate{\ma}{i})} in the \me{\ith{i}} iteration\footnote{Index \me{i} denotes the \ac{AO} iteration to update the vector \me{\ma}, which involves two \ac{SCA} iterations to be performed until convergence, \textit{i.e}, one for the variable \me{\mx} by keeping \me{\my} fixed and another for the variable \me{\my} by fixing \me{\mx} as constant}. The mapping is strictly monotonic on \me{\mc{F}} with respect to the objective function as \me{\ma^\prime \in \mc{A}(\ma)} implies \me{f(\ma^\prime) < f(\ma)} whenever \me{\ma} is not a fixed point, \textit{i.e}, \me{\ma \notin \mc{F}^\ast}, as discussed in Appendix \ref{mcity}. The sequence of iterates \me{\{\iterate{\ma}{i}\}} will have at least one accumulation point, which follows from the compactness of the set \cite{zangwill1969nonlinear}. The sequence \me{\{\iterate{\ma}{i}\}} converges to the set of fixed point \me{\mc{F}^\ast} for any feasible starting point \me{\iterate{\ma}{0} \in \mc{F}}, therefore the mapping is uniformly compact.
 
@@ -109,6 +109,6 @@ When the objective function is zero, the uniqueness of the transmit precoders ar
 To show the stationarity of the fixed points in \me{\mc{F}^\ast}, it must satisfy the \ac{KKT} conditions of \eqref{con}. As \me{i \rightarrow \infty}, it satisfies
 \allowdisplaybreaks{\begin{multline} \label{con-opt}
 f(\iter{\mx}{\ast}{i},\iter{\my}{\ast}{i},\iter{\mz}{\ast|x}{i}) = f(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i},\iter{\mz}{\ast|y}{i+1}) \\ = 
-f(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1}),
+f(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1})
 \end{multline}}
 where \me{\{\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1}\} \in \mc{F}^\ast} is the fixed point and the minimizer of the objective function \me{f} in the feasible set \me{\iterate{\mc{X}}{i+1}_{\ast} \subset \mc{F}}. Using \cite{marks1978technical}, we can show that the feasible point  \me{(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1})}, which is the minimizer in its local neighborhood, is a stationary point of \eqref{con} satisfying the constraint qualifications and the \ac{KKT} expressions over \me{\iterate{\mc{X}}{i+1}_{\ast} \subset \mc{F}}. The non differentiability of the objective function in \eqref{eqn-6} and \eqref{eqn-mse-1} requires \me{\mbf{0}^\tran \in \partial f_0(\mz_{\ast})} to satisfy the \ac{KKT} conditions, where \me{\partial f_0(\mz_{\ast})} denotes the subdifferential set. Using these arguments, we can show that the \ac{JSFRA} schemes reaches a stationary point of the original nonconvex problem. 

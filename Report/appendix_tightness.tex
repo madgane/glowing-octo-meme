@@ -21,7 +21,7 @@ for a small \me{\varphi} without affecting the optimal solution. Note that the a
 
 For the constraints \eqref{eqn-6.2} and \eqref{eqn-6.3} to be active, there should be at least one user in each \ac{BS} with enough backlogged packets that cannot be served with the given power budget. On the other hand, to make the constraints active in all cases, the objective of the \ac{JSFRA} formulation should be regularized with the transmit power without affecting the solution as
 \begin{equation*}
-\| \tilde{\mbf{v}} \|_q + \varphi \sum_{k \in \mc{U}} \sum_{n = 1}^{N} \sum_{l=1}^{L} \mathrm{tr} \left ( \mvec{m}{l,k,n} \mbf{m}^\herm_{l,k,n} \right ),
+\| \tilde{\mbf{v}} \|_q + \varphi \sum_{k \in \mc{U}} \sum_{n = 1}^{N} \sum_{l=1}^{L} \mathrm{tr} \left ( \mvec{m}{l,k,n} \mbf{m}^\herm_{l,k,n} \right )
 \end{equation*}
 where \me{\varphi \approx 0}. Note that the modified objective will relax the power constraint by making the constraints \eqref{eqn-6.2} and \eqref{eqn-6.3} active at the final solution.
 
