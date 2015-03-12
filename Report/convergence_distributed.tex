@@ -1,19 +1,18 @@
 The convergence of the distributed algorithm outlined in Algorithm \ref{algo-3} follows the same discussion in Appendix \ref{sec-3.5} if the subproblem \eqref{eqn-decent-1} converge to the centralized solution. Since the subproblem \eqref{eqn-decent-1} is convex, each \ac{BS} specific slave subproblem is also convex for a fixed interference vector \me{\mbfa{\zeta}_{b_k}^{(i)}} \cite{palomar2006tutorial}. The master subproblem in the \acl{PD} uses subgradient to update the coupling interference vectors in consensus with the objective function, it is guaranteed to converge to the centralized solution as the iteration \me{i \rightarrow \infty} \cite{bertsekas1999nonlinear} for a diminishing step size. It can be seen that the subproblem \eqref{eqn-decent-1} satisfies Slater's constraint qualification by having non empty interior and bounded due to the total power constraint for the transmit precoders.
 
-To prove the convergence of the \ac{ADMM} approach, we use the argument presented in \cite{bertsekas1989parallel} Proposition 4.2. 
-If the problem is written as 
+To prove the convergence of the \ac{ADMM} approach, we use the discussions in \cite[Prop. 4.2]{bertsekas1989parallel} by writing the problem as
 \begin{subeqnarray}
 	\underset{\mbf{x},\mbf{z}}{\text{minimize}} &\quad& G(\mbf{x}) + H(\mbf{y}) \eqsub \\
 	\text{subject to} &\quad& \mbf{A} \mbf{x} = \mbf{z} \eqsub \slabel{const-admm} \\
 &\quad&	\mbf{x} \in \mc{C}_1, \mbf{z} \in \mc{C}_2 \eqsub
 \end{subeqnarray}
-following conditions are required for the convergence if \ac{ADMM} is used.
+following conditions are required for the \ac{ADMM} convergence.
 \begin{itemize}
 	\item \me{G,H} should be convex
 	\item \me{\mc{C}_1,\mc{C}_2} should be a convex set and bounded
 	\item \me{\mbf{A}^\herm \mbf{A}} should be invertible.
 \end{itemize}
-Note that the equality constraint \eqref{const-admm} is identical to \eqref{const-admm1} used in the \ac{ADMM} subproblem \eqref{eqn-dual-3}. It is evident from the equality constraint \eqref{const-admm1} that \me{\mbf{A} = \mbf{I}}, which is an identity matrix and is invertible. The objective function \me{G,H} are \me{\ell_q} norm in \eqref{eqn-decent-1} are convex and the set defined by the constraints of the problem \eqref{eqn-decent-1} are all convex sets and has a nonempty interior. The feasibility of the interior point is verified by having a non zero precoder for only one user. Therefore, by following \cite[Prop. 4.2]{bertsekas1989parallel}, it can be seen that the \ac{ADMM} approach converges to the centralized solution as \me{i \rightarrow \infty}.
+Note that the equality constraint \eqref{const-admm} is identical to \eqref{const-admm1} used in the \ac{ADMM} subproblem \eqref{eqn-dual-3}. It is evident from the equality constraint \eqref{const-admm1} that \me{\mbf{A} = \mbf{I}}, which is an identity matrix and is invertible. The objective function \me{G,H} are \me{\ell_q} norm in \eqref{eqn-decent-1} are convex and the set defined by the constraints of the problem \eqref{eqn-decent-1} are all convex sets and has a nonempty interior. The feasibility of the interior point is verified by having a non zero precoder for only one user. Therefore, by following \cite[Prop. 4.2]{bertsekas1989parallel}, it can be seen that the \ac{ADMM} approach converges to the centralized solution as \me{i \rightarrow \infty}. The distributed algorithms also converges to a stationary point of the original nonconvex problem as that of the centralized algorithms by following the discussions on Appendix \ref{sec-3.5}, if the primal or the \ac{ADMM} updates are iterated until convergence.
 
 
 

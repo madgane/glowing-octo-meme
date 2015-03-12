@@ -8,20 +8,20 @@
 \newcommand{\iter}[3]{{#1}_{#2}^{(#3)}}
 \newcommand{\ma}{\mbf{x}}
 
-To prove the convergence of the transmit precoders, receive beamformers, and the objective values of the centralized algorithms in \eqref{eqn-6} and \eqref{eqn-mse-1}, we need to show that the following conditions are satisfied by the centralized formulations.
+To prove the convergence of the transmit, receive beamformers, and the objective values of the centralized algorithms in \eqref{eqn-6} and \eqref{eqn-mse-1}, we need to show that the following conditions are satisfied by the centralized formulations.
 \begin{itemize}
 	\item[(a)] The function should be coercive and bounded below
 	\item[(b)] The feasible set should be a compact set
 	\item[(c)] The sequence of the objective values should be strictly decreasing in each iteration
 	\item[(d)] Uniqueness of the minimizer, \textit{i.e}, the transmit and the receive beamformers should be unique in each iteration.
 \end{itemize}
-Using \cite[Prop. A.8]{bertsekas1999nonlinear}, the existence of a global minimizer in the feasible set can be guaranteed if the conditions (a) and (b) are satisfied. Since the feasible set is not fixed in each iteration, we require additional conditions (c) and (d) to prove the global convergence of the objective function and the corresponding arguments namely, the transmit and the receive precoders. Assuming the conditions (a), (b) and (c) are satisfied, using \cite[Th. 3.14]{rudin1964principles}, we can show that the bounded monotonically decreasing objective value sequence has a unique minimum. 
+Using \cite[Prop. A.8]{bertsekas1999nonlinear}, the existence of a global minimizer in the feasible set can be guaranteed if the conditions (a) and (b) are satisfied. Since the feasible set is not fixed in each iteration, we require additional conditions (c) and (d) to prove the global convergence of the objective function and the corresponding arguments namely, the transmit and the receive precoders. Assuming the conditions (a), (b) and (c) are satisfied, using \cite[Th. 3.14]{rudin1964principles}, we can show that the bounded monotonically decreasing objective value sequence has a unique minimum. Finally, we show the limiting point of the iterative algorithm is indeed a stationary point for the problem in \eqref{eqn-6} and \eqref{eqn-mse-1}.
 
 \subsection{Bounded Objective Function and Compact Feasible Set}
 
 The feasible set of the problem \eqref{eqn-6} and \eqref{eqn-mse-1} are bounded and closed, which can be verified by the total power constraint on the transmit precoders \eqref{eqn-6.4}, and therefore, a compact set. 
 
-The minimum value of the norm operator in the objective is zero, \textit{i.e}, \me{\|x\|_q > -\infty}, therefore it is bounded below. The objective function is Lipschitz continuous over the feasible set, and therefore, it is bounded from above as well, since the feasible set is bounded. The objective function in \eqref{eqn-6} and \eqref{eqn-mse-1} is continuous and approaches \me{\infty} as \me{\mbf{t}_k \rightarrow \infty}, therefore it is coercive. Note that the norm operator is not differentiable at the minimum point for \me{\ell_1} and \me{\ell_\infty}. Using conditions (a) and (b), we can guarantee the existence of a minimizer to the nonconvex problem in \eqref{eqn-6} and \eqref{eqn-mse-1}.
+The minimum value of the norm operator in the objective is zero, \textit{i.e}, \me{\|x\|_q > -\infty}, therefore it is bounded below. The objective function is Lipschitz continuous over the feasible set, and therefore, it is bounded from above as well, since the feasible set is bounded. The objective function in \eqref{eqn-6} and \eqref{eqn-mse-1} is continuous and approaches \me{\infty} as \me{\mbf{t}_k \rightarrow \infty}, therefore it is coercive. Using conditions (a) and (b), we can guarantee the existence of a minimizer to the problem in \eqref{eqn-6} and \eqref{eqn-mse-1}.
 
 \subsection{Monotonicity} \label{mcity}
 
@@ -106,7 +106,7 @@ When the objective function is zero, the uniqueness of the transmit precoders ar
 
 \subsection{Stationary Point}
 
-To show the stationarity of the fixed points in \me{\mc{F}^\ast}, it must satisfy the \ac{KKT} conditions of \eqref{con}. As \me{i \rightarrow \infty}, it satisfies
+Finally, to show the stationarity of the fixed points in \me{\mc{F}^\ast}, it must satisfy the \ac{KKT} conditions of \eqref{con}. As \me{i \rightarrow \infty}, it satisfies
 \allowdisplaybreaks{\begin{multline} \label{con-opt}
 f(\iter{\mx}{\ast}{i},\iter{\my}{\ast}{i},\iter{\mz}{\ast|x}{i}) = f(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i},\iter{\mz}{\ast|y}{i+1}) \\ = 
 f(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1})
