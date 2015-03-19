@@ -3,14 +3,11 @@ In this, we solve the \ac{JSFRA} problem by exploiting the equivalence between t
 \iftoggle{single_column}{
 \begin{multline} \label{mse-error}
 	\mathbb{E} \big [ ( d_{l,k,n} - \hat{d}_{l,k,n} )^2 \big ] = \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + \enoise = \epsilon_{l,k,n}
-\end{multline}
-}{
-\allowdisplaybreaks{
+\end{multline}}{\allowdisplaybreaks
 \begin{multline} \label{mse-error}
  \mathbb{E} \big [ ( d_{l,k,n} - \hat{d}_{l,k,n} )^2 \big ] = \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 \\
  + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + \enoise = \epsilon_{l,k,n}
 \end{multline}}
-}
 where \me{\hat{d}_{l,k,n}} is the estimate of the transmitted symbol. \review{Using the \ac{MMSE} receive beamformer \eqref{eqn-10} in the \ac{MSE} expression \eqref{mse-error} and in the \ac{SINR} expression \eqref{eq:SINR}, we can arrive at the following relation between the \ac{MSE} and the \ac{SINR} as}
 \begin{equation} \label{eqn-mse-eq}
 \epsilon_{l,k,n} = (1 + \gamma_{l,k,n})^{-1}.
@@ -25,14 +22,14 @@ Let \me{{v}^{\prime}_k = Q_k - \sum_{n=1}^N \sum_{l=1}^L t_{l,k,n}} denote the q
  & \quad & \epsilon_{l,k,n} \geq  \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + \enoise \eqspace \IEEEyessubnumber \label{eqn-mse-1.3} \\
 & \quad \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}} \; \fall b. \IEEEyessubnumber  \eqspace \label{eqn-mse-1.4}
 \end{IEEEeqnarray}
-}{{\allowdisplaybreaks
+}{\allowdisplaybreaks
 \begin{IEEEeqnarray}{CL}\label{eqn-mse-1}
 	\underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\\ \epsilon_{l,k,n},\mvec{w}{l,k,n}}} {\text{minimize}} & \quad \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-1.1} \\
 	\text{subject to} & t_{l,k,n} \leq -\log_2(\epsilon_{l,k,n}) \IEEEyessubnumber \label{eqn-mse-1.2} \\
 	& \sum_{{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + \enoise \nonumber \\	
 	& \qquad + \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 \leq \epsilon_{l,k,n}\IEEEyessubnumber \label{eqn-mse-1.3} \\
 	& \quad \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}} \; \fall b. \IEEEyessubnumber  \eqspace \label{eqn-mse-1.4}
-\end{IEEEeqnarray}}}
+\end{IEEEeqnarray}}
 
 The alternative \ac{MSE} formulation given by \eqref{eqn-mse-1} is non-convex even for the fixed \me{\mvec{w}{l,k,n}} due to the constraint \eqref{eqn-mse-1.2}, which is in fact a \ac{DC} constraint. We resort to the \ac{SCA} approach \cite{marks1978technical} by relaxing the constraint by a sequence of convex subsets using first order Taylor series approximation around a fixed \ac{MSE} point \me{\tilde{\epsilon}_{l,k,n}} as
 \begin{IEEEeqnarray}{rCl}

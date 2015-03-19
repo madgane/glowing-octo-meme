@@ -1,5 +1,5 @@
 
-\review{We present an iterative algorithm to solve \eqref{eqn-3} by using alternating optimization technique in conjunction with \acf{SCA} \cite{marks1978technical}. The problem is to determine the transmit precoders \me{\mvec{m}{l,k,n}} and the receive beamformers \me{\mvec{w}{l,k,n}} to minimize the total number of backlogged packets in the system. The \ac{SINR} expression in \eqref{eq:SINR} cannot be used to formulate the problem directly due to the equality constraint of \eqref{eq:SINR}. Using additional variables, we relax the expression \eqref{eq:SINR} by inequality constraints to solve \eqref{eqn-3} as}
+\review{We present an iterative algorithm to solve \eqref{eqn-3} by using alternating optimization technique in conjunction with \ac{SCA} \cite{marks1978technical}. The problem is to determine the transmit precoders \me{\mvec{m}{l,k,n}} and the receive beamformers \me{\mvec{w}{l,k,n}} to minimize the total number of backlogged packets in the system. The \ac{SINR} expression in \eqref{eq:SINR} cannot be used to formulate the problem directly due to the equality constraint. Using additional variables, we relax the expression in \eqref{eq:SINR} by inequality constraints to solve \eqref{eqn-3} as}
 \iftoggle{single_column}{
 \begin{IEEEeqnarray}{CCl}\label{eqn-6}
 \underset{\substack{\gamma_{l,k,n},\mvec{m}{l,k,n},\\ \beta_{l,k,n},\mvec{w}{l,k,n}}}{\text{minimize}} & \quad & \|  \tilde{\mbf{v}}  \|_q \label{eqn-obj} \IEEEyessubnumber \\
@@ -15,13 +15,13 @@
 	&\quad& \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}} \; \fall b. \IEEEyessubnumber \eqspace \label{eqn-6.4}
 \end{IEEEeqnarray}
 }
-\review{The \ac{SINR} expression in \eqref{eq:SINR} is relaxed by the inequalities \eqref{eqn-6.2} and \eqref{eqn-6.3} in the above formulation. Note that \eqref{eqn-6.2} is an under estimator for \ac{SINR} \me{\gamma_{l,k,n}}, and \eqref{eqn-6.3} provides an upper bound for the total interference seen by user \me{k \in \mathcal{U}_b}, denoted by the variable \me{\beta_{l,k,n}}}. \review{The constraints are tight when each \ac{BS} objective is non zero at the optimal point, as discussed in Appendix \ref{a-3}}. \review{Since the \ac{JSFRA} formulation can be modeled as a \ac{WSRM} problem, which is known to be NP-hard \cite{np_hard}, it also belongs to the class of NP-hard problems.}
+\review{The \ac{SINR} expression in \eqref{eq:SINR} is relaxed by the inequalities \eqref{eqn-6.2} and \eqref{eqn-6.3}. Note that \eqref{eqn-6.2} is an under-estimator for \ac{SINR} \me{\gamma_{l,k,n}}, and \eqref{eqn-6.3} provides an upper bound for the total interference seen by user \me{k \in \mathcal{U}_b}, denoted by variable \me{\beta_{l,k,n}}}. \review{The constraints are tight when each \ac{BS} objective is non-zero upon convergence at the limiting point, as discussed in Appendix \ref{a-3}}. \review{Since the \ac{JSFRA} formulation can be modeled as a \ac{WSRM} problem, which is known to be NP-hard \cite{np_hard}, it also belongs to the class of NP-hard problems.}
 	
 In order to find a tractable solution for \eqref{eqn-6}, we note that \eqref{eqn-6.4} is the only convex constraint with the involved variables. Thus, we only need to deal with \eqref{eqn-6.2} and \eqref{eqn-6.3}. We resort to the \ac{AO} technique by fixing the linear receivers, to solve for the transmit beamformers. For a fixed receivers \me{\mvec{w}{l,k,n}}, the problem now is to find the optimal transmit beamformers \me{\mvec{m}{l,k,n}} which is still a challenging task. We note that for a fixed \me{\mvec{w}{l,k,n}}, \eqref{eqn-6.3} can be written as a \ac{SOC} constraint. Thus, the difficulty is due to the non-convexity of the \ac{DC} constraint in \eqref{eqn-6.2}. Let us define a function, 
 \begin{equation}
 f({\mbf{u}}_{l,k,n}) \triangleq \frac{ | \mvec{w}{l,k,n}^\herm \mvec{H}{l,k,n} \mvec{m}{l,k,n}|^2}{\beta_{l,k,n}}
 \end{equation}
-where \me{{\mbf{u}}_{l,k,n} \triangleq \{\mvec{w}{l,k,n}, \mvec{m}{l,k,n},\beta_{l,k,n}\}} is the vector which needs to be identified for the optimal allocation. Note that the function \me{f({\mbf{u}}_{l,k,n})} is convex for a fixed \me{\mvec{w}{l,k,n}}, since it is in fact the ratio between a quadratic form of \me{\mvec{m}{l,k,n}} over an affine function of \me{\beta_{l,k,n}} \cite{boyd2004convex}. \review{The nonconvex set defined by the \ac{DC} constraint \eqref{eqn-6.2} can be decomposed by a series of convex subsets by linearizing the convex function \me{f({\mbf{u}}_{l,k,n})} with its first order Taylor approximation around a fixed operating point \me{\tilde{\mbf{u}}_{l,k,n}} \cite{lipp2014variations,lanckriet2009convergence}, also called as \ac{SCA} approach in \cite{marks1978technical}. By using the reduced convex subset for \eqref{eqn-6.2}, the problem defined in \eqref{eqn-6} can be solved at each operating point iteratively.}
+where \me{{\mbf{u}}_{l,k,n} \triangleq \{\mvec{w}{l,k,n}, \mvec{m}{l,k,n},\beta_{l,k,n}\}} is the vector which needs to be identified for the optimal allocation. Note that the function \me{f({\mbf{u}}_{l,k,n})} is convex for a fixed \me{\mvec{w}{l,k,n}}, since it is in fact the ratio between a quadratic form of \me{\mvec{m}{l,k,n}} over an affine function of \me{\beta_{l,k,n}} \cite{boyd2004convex}. \review{The nonconvex set defined by the \ac{DC} constraint \eqref{eqn-6.2} can be decomposed as a series of convex subsets by linearizing the convex function \me{f({\mbf{u}}_{l,k,n})} with its first order Taylor approximation around a fixed operating point \me{\tilde{\mbf{u}}_{l,k,n}} \cite{lipp2014variations,lanckriet2009convergence}, also called as the \ac{SCA} approach in \cite{marks1978technical}. By using the reduced convex subset for \eqref{eqn-6.2}, the problem defined in \eqref{eqn-6} can be solved at each operating point iteratively.}
 
 For this purpose, let the real and imaginary component of the complex number \me{\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n}} be represented by
 \begin{IEEEeqnarray}{rCl} \label{eqn-wsrm-expr}
@@ -39,7 +39,7 @@ and hence \me{f({\mbf{u}}_{l,k,n})=(p_{l,k,n}^2 + q_{l,k,n}^2)/\beta_{l,k,n}}\fo
 + \frac{\tilde{p}_{l,k,n}^2 + \tilde{q}^2_{l,k,n}}{\tilde{\beta}_{l,k,n}} \left (1 - \frac{\beta_{l,k,n} - \tilde{\beta}_{l,k,n}}{\tilde{\beta}_{l,k,n}} \right ) \geq \gamma_{l,k,n}.
 \end{multline}
 }
-In summary, for the fixed linear receivers \review{\me{\mvec{w}{l,k,n}}} and the operating point \me{ [ \, \tilde{p}_{l,k,n},\tilde{q}_{l,k,n},\tilde{\beta}_{l,k,n} \, ]^T}, the relaxed convex subproblem to find transmit beamformers is given by
+In summary, for fixed linear receiver \review{\me{\mvec{w}{l,k,n}}} and operating point \me{ [ \, \tilde{p}_{l,k,n},\tilde{q}_{l,k,n},\tilde{\beta}_{l,k,n} \, ]^T}, the relaxed convex subproblem to find transmit beamformers is given by
 \begin{IEEEeqnarray}{CCl}\label{eqn-9}
 \underset{\substack{\mvec{m}{l,k,n},\\ \gamma_{l,k,n},\beta_{l,k,n}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}} \|_q \IEEEyessubnumber\label{eqn-9.1a} \vspace{-0.15cm} \\
 \text{subject to} & \quad & \beta_{l,k,n} \geq  \enoise + \hspace{-0.75em} \sum_{(j,i) \neq (l,k)} \hspace{-0.75em} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2 \IEEEyessubnumber \eqspace \label{eqn-9.1c} \\
@@ -47,7 +47,7 @@ In summary, for the fixed linear receivers \review{\me{\mvec{w}{l,k,n}}} and the
 & \quad & \text{and } \eqref{eqn-8}. \IEEEyessubnumber \label{eqn-9.1e}
 \end{IEEEeqnarray}
 
-Now, the optimal linear receivers for the fixed transmit precoders \me{\mbf{m}_{j,i,n} \, \forall i \in \mc{U}, \, \forall n \in \mc{C}} are obtained by minimizing \eqref{eqn-6} with respect to \me{\mbf{w}_{l,k,n}} as
+Now, the optimal linear receivers for fixed transmit precoders \me{\mbf{m}_{j,i,n} \, \forall i \in \mc{U}, \, \forall n \in \mc{C}} are obtained by minimizing \eqref{eqn-6} with respect to \me{\mbf{w}_{l,k,n}} as
 \begin{IEEEeqnarray}{CCl}\label{eqn-9--1}
 \underset{\substack{\gamma_{l,k,n},\\ \mvec{w}{l,k,n},\beta_{l,k,n}}}{\text{minimize}} &\quad & \| \tilde{\mbf{v}} \|_q \IEEEyessubnumber\label{eqn-9--1.1a} \\
 \text{subject to} & \quad & \beta_{l,k,n} \geq  \enoise + \hspace{-0.75em} \sum_{(j,i) \neq (l,k)} \hspace{-0.75em} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2 \IEEEyessubnumber \eqspace \label{eqn-9--1.1c} \\
@@ -58,7 +58,7 @@ Solving \eqref{eqn-9--1} using the \ac{KKT} conditions, we obtain the following 
 \mvec{{A}}{l,k,n} &=& \displaystyle \sum_{\mathclap{(j,i)\neq (l,k)}} \mvec{H}{b_i,k,n} {\mbf{m}}_{j,i,n} {\mbf{m}}_{j,i,n}^\herm \mvec{H}{b_i,k,n}^\herm + N_0 \, \mathbf{I}_{N_R} \IEEEyessubnumber \\
 \mvec{w}{l,k,n}^{(i)} &=& \left ( \tfrac{\tilde{\beta}_{l,k,n} {\mbf{m}}_{l,k,n}^\herm \mvec{H}{b_k,k,n}^\herm \mbf{w}_{l,k,n}^{(i-1)} }{\|\mvec{w}{l,k,n}^{(i-1)} \mvec{H}{b_k,k,n} {\mbf{m}}_{l,k,n} \|^2} \right )\mvec{{A}}{l,k,n}^{-1}\mvec{H}{b_k,k,n} {\mbf{m}}_{l,k,n} \IEEEyessubnumber \eqspace \label{opt-rx}
 \end{IEEEeqnarray}
-where \me{\mvec{w}{l,k,n}^{(i-1)}} is the receive beamformer from the previous iteration, upon which the linear relaxation is performed for the nonconvex \ac{DC} constraint  in \eqref{eqn-6.2}, as used in the formulation \eqref{eqn-9--1}. \review{The optimal receiver \me{\mbf{w}^{o}_{l,k,n}} is obtained by either iterating \eqref{opt-rx} until convergence or for fixed number of iterations.} \review{Note that the receiver has no explicit relation with the choice of \me{\ell_q} norm used in the objective function. The dependency is implicitly implied by the transmit precoders \me{\mvec{m}{l,k,n}}, which in deed depend on the \me{q} value.}
+where \me{\mvec{w}{l,k,n}^{(i-1)}} is the receive beamformer from the previous iteration, upon which the linear relaxation is performed for the nonconvex \ac{DC} constraint  in \eqref{eqn-6.2}, as used in the formulation \eqref{eqn-9--1}. \review{The optimal receiver \me{\mbf{w}^{o}_{l,k,n}} is obtained by either iterating \eqref{opt-rx} until convergence or for a fixed number of iterations.} \review{Note that the receiver has no explicit relation with the choice of \me{\ell_q} norm used in the objective function. The dependency is implied by the transmit precoders \me{\mvec{m}{l,k,n}}, which depend on the value of the exponent \me{q}.}
 
 It can be seen that the optimal receiver in \eqref{opt-rx} is in fact a scaled version of the \ac{MMSE} receiver, which is given by
 \allowdisplaybreaks{
@@ -68,8 +68,8 @@ It can be seen that the optimal receiver in \eqref{opt-rx} is in fact a scaled v
 \end{IEEEeqnarray}}
 \review{Since the scaling present in the optimal receiver \eqref{opt-rx} has no impact on the received \acp{SINR}, the \ac{MMSE} receiver in \eqref{eqn-10} can also be used without compromising the performance or the convergence behavior}.
 
-The proposed subproblems in \eqref{eqn-9} and \eqref{eqn-9--1} are solved in an iterative manner by updating the operating point from the previous iteration. The iterative algorithm is referred to as \acl{QM} \ac{JSFRA} scheme with a per \ac{BS} power constraint, and it is outlined in Algorithm \ref{algo-1}. The iterative procedure repeats until the improvement on the objective is less than a predetermined tolerance parameter or the maximum number of iterations is reached. Instead of initializing \me{{\mbf{u}}_{l,k,n}} arbitrarily to a feasible point, transmit precoders can also be initialized with some feasible point \me{\tilde{\mbf{m}}_{l,k,n}}, which is then used to find \me{{\mbf{u}}_{l,k,n}} as briefed in Algorithm \ref{algo-1}. For a fixed receive beamformer \me{\mvec{w}{l,k,n}}, the \ac{SCA} iteration is carried out until convergence or for the predefined iterations, say, \me{J_{\max}} for the optimal transmit precoders \me{\mvec{m}{l,k,n}}. Next, the receive beamformers are updated based on either \eqref{opt-rx} or \eqref{eqn-10} using the fixed transmit precoders \me{\mvec{m}{l,k,n}}. This procedure is carried out until convergence of the queue deviation or for fixed number of iterations by \me{I_{\max}} as outlined in Algorithm \ref{algo-1}. The convergence proof is discussed in Appendix \ref{sec-3.5}.
-{\allowdisplaybreaks
+The proposed subproblems in \eqref{eqn-9} and \eqref{eqn-9--1} are solved in an iterative manner by updating the operating point from the previous iteration. The iterative algorithm is referred to as \acl{QM} \ac{JSFRA} scheme with a per \ac{BS} power constraint, and it is outlined in Algorithm \ref{algo-1}. The iterative procedure repeats until the improvement on the objective is less than a predetermined tolerance parameter or the maximum number of iterations is reached. Instead of initializing \me{{\mbf{u}}_{l,k,n}} arbitrarily to a feasible point, transmit precoders can also be initialized with some feasible point \me{\tilde{\mbf{m}}_{l,k,n}}, which is then used to find \me{{\mbf{u}}_{l,k,n}} as seen in Algorithm \ref{algo-1}. For a fixed receive beamformer \me{\mvec{w}{l,k,n}}, the \ac{SCA} iteration is carried out until convergence or for predefined number of iterations, say, \me{J_{\max}} for the optimal transmit precoders \me{\mvec{m}{l,k,n}}. Next, the receive beamformers are updated based on either \eqref{opt-rx} or \eqref{eqn-10} using the fixed transmit precoders \me{\mvec{m}{l,k,n}}. This procedure is carried out until convergence of the queue deviation or a fixed number of iterations \me{I_{\max}} as outlined in Algorithm \ref{algo-1}. The convergence proof is discussed in Appendix \ref{sec-3.5}.
+\allowdisplaybreaks
 \begin{algorithm}
  \SetAlgoLined
  \DontPrintSemicolon
@@ -92,7 +92,6 @@ The proposed subproblems in \eqref{eqn-9} and \eqref{eqn-9--1} are solved in an 
  \caption{Algorithm of \acs{JSFRA} scheme}
  \label{algo-1}
 \end{algorithm}
-}
 
 \begin{comment}
 \subsubsection*{Convergence}
