@@ -25,14 +25,14 @@ The dual vector for the next iteration is updated by using the subgradient searc
 \label{dual-sg-update}
 \end{equation}
 where step size parameter \me{\rho} is chosen in accordance with \cite{boyd2011distributed} to depend on the system model under consideration. The convergence rate of the distributed algorithm is susceptible to the choice of step size parameter \me{\rho}. For our simulation models, we consider step size parameter \me{\rho=2}. The above iteration is performed until convergence or for certain accuracy in the variation of the objective value between two consecutive updates. The distributed precoder design using the \ac{ADMM} approach is shown in Algorithm \ref{algo-3}. The convergence analysis of the distributed algorithms are discussed in Appendix \ref{sec-dist-conv}.
-\begin{algorithm}
+\begin{algorithm}\allowdisplaybreaks 
 	\SetAlgoLined
 	\DontPrintSemicolon
 	\BlankLine
 	\SetKwInput{KwInit}{Initialize}
 	\KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}, \fall n \in \mathcal{N}}}
 	\KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l}}
-	\KwInit{\me{i=0} and \me{{\mbf{m}}_{l,k,n}} randomly satisfying \eqref{power_update}}
+	\KwInit{\me{i=0} and \me{{\mbf{m}}_{l,k,n}} randomly satisfying total power constraint \eqref{power_update}}
 	update \me{\mvec{w}{l,k,n}} with \eqref{eqn-10} and \me{\tilde{\mbf{u}}_{l,k,n}} using \eqref{eqn-6.3} and \eqref{eqn-wsrm-expr} \;
 	initialize the interference vectors \me{\mbfa{\zeta}^{(0)}_b = \mbfa{0}^{\mathrm{T}}, \forall b \in\mc{B}} \;
 	initialize the dual vectors \me{\mbfa{\nu}^{(0)}_b = \mbfa{0}^{\mathrm{T}}, \forall b \in \mc{B}} \;
@@ -42,11 +42,12 @@ where step size parameter \me{\rho} is chosen in accordance with \cite{boyd2011d
 			\Repeat{convergence or \me{j \geq J_{\max}}}{
 				solve for \me{\mvec{m}{l,k,n}} and \me{\mbfa{\zeta}_{b}} with \eqref{eqn-dual-3} using \me{\mbfa{\zeta}^{(j)}_{b}} \;
 				exchange \me{\mbfa{\zeta}_{b}} among \acp{BS} in \me{\mc{B}} \;
-				update \me{\mbfa{\zeta}^{(j+1)}_b} and \me{\mbfa{\nu}^{(j+1)}_b} using \eqref{if-sg-update} and \eqref{dual-sg-update}\;
+				update interference vector \me{\mbfa{\zeta}^{(j+1)}_b} using \eqref{if-sg-update}\;
+				update dual variables in \me{\mbfa{\nu}^{(j+1)}_b} using \eqref{dual-sg-update}\;
 				\me{j = j + 1}\;
 			}
-			precoded downlink pilot transmission with \me{\mvec{m}{l,k,n}}\;
-			update \me{\mvec{w}{l,k,n}} to all \acp{BS} in \me{\mc{B}} using precoded uplink pilots \cite{komulainen2013effective}\;
+			downlink precoded pilot transmission with \me{\mvec{m}{l,k,n}}\;
+			update \me{\mvec{w}{l,k,n}} and notify all \acp{BS} in \me{\mc{B}} using uplink precoded pilots \cite{komulainen2013effective}\;
 			update \me{\tilde{\mbf{u}}_{l,k,n}} using \eqref{eqn-6.3} and \eqref{eqn-wsrm-expr} for \ac{SCA} point or \me{\tilde{\epsilon}_{l,k,n}} using \eqref{eqn-mse-1.3} for \ac{MSE} operating point \;
 			$i = i + 1$ \;
 		}
@@ -54,7 +55,6 @@ where step size parameter \me{\rho} is chosen in accordance with \cite{boyd2011d
 	\caption{Distributed \ac{JSFRA} scheme using \ac{ADMM}}
 	\label{algo-3}
 \end{algorithm}
-\vspace{-0.15in}
 
 \begin{comment}
 The \ac{ADMM} decomposition method is based on the \acl{DD}, however it shows better convergence properties. In contrast to the \acl{PD} problem, the \ac{ADMM} method relaxes the interference constraints by including it in the objective function of each subproblem with a penalty pricing \cite{palomar2006tutorial,boyd2011distributed}. In order to decouple the problem \eqref{eqn-decent-1}, the coupling variables \me{\zeta_{l,k,n,b}} in \eqref{eqn-decent-3} are replaced by the respective local copies \me{\mbfa{\zeta}^{\set{b}}, \forall b \in \mc{B}}, which are then solved for an optimal solution. Now the sub problems are coupled by the global consensus vector \me{\mbfa{\zeta}} maintaining the complete stacked  interference profile of all users in the system as
