@@ -58,29 +58,29 @@ The \ac{KKT} expressions in \eqref{kkt-mse-4} are solved in an iterative manner 
 \epsilon_{l,k,n}^{(i)} = 1 - \mvec{w}{l,k,n}^{(i)\herm} \mvec{H}{b_k,k,n} \mvec{m}{l,k,n}^{(i)}.
 \end{equation}
 Using the current \ac{MSE} value, \me{t_{l,k,n}^{(i)},\sigma_{l,k,n}^{(i)}}, and \me{\alpha_{l,k,n}^{(i)}} are evaluated using \eqref{kkt-mse-4.5}, \eqref{kkt-mse-4.2} and \eqref{kkt-mse-4.1}, and the updated dual variables \me{\alpha_{l,k,n}} are exchanged between the \acp{BS} to evaluate the transmit precoders \me{\mvec{m}{l,k,n}^{(i+1)}} for the next iteration. The \ac{SCA} operating point is also updated with the current \ac{MSE} value.
+\begin{algorithm}
+	\SetAlgoLined
+	\DontPrintSemicolon
+	\BlankLine
+	\SetKwInput{KwInit}{Initialize}
+	\KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}, \fall n \in \mathcal{N}}}
+	\KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l \in \set{1,2,\dotsc,L}}}
+	\KwInit{\me{i=1}, \me{\mbf{w}^{(0)}_{l,k,n}, \tilde{\epsilon}_{l,k,n}} randomly, dual variables \me{{\alpha}_{l,k,n}^{(0)} = 1}, and \me{I_{\max}} for certain value}
+	\ForEach{\ac{BS} \me{b \in \mc{B}}}{
+		initialize \me{i = 0} \;
+		\Repeat{until convergence or \me{i \geq I_{\max}}}{
+			update \me{\mvec{m}{l,k,n}^{(i)}} using \eqref{kkt-mse-4.3}, and perform precoded downlink pilot transmission \;
+			find \me{\mvec{w}{l,k,n}^{(i)}} using \eqref{kkt-mse-4.6} at each user \;
+			evaluate \me{\epsilon_{l,k,n}^{(i)}}, \me{t_{l,k,n}^{(i)}}, \me{\sigma_{l,k,n}^{(i)}} and \me{\alpha_{l,k,n}^{(i)}} using \eqref{kkt-mse-4.4} and \eqref{kkt-mse-4.5}, \eqref{kkt-mse-4.2} and \eqref{kkt-mse-4.1} at each user with the updated \me{\mvec{w}{l,k,n}^{(i)}} \;
+			using precoded uplink pilots, \me{\mvec{m}{l,k,n}^{(i)}} and \me{\alpha_{l,k,n}^{(i)}} are notified to all \acp{BS} in \me{\mathcal{B}} \;
+			\me{i = i + 1} \;
+		}
+	}
+	\caption{\ac{KKT} approach for the \ac{JSFRA} scheme}
+	\label{algo-4}
+\end{algorithm}
 
 To avoid the back-haul exchanges between the \acp{BS}, as an alternative approach, users perform all processing required and \acp{BS} will update the precoders based on the feedback information from the users. Upon receiving the transmit precoders from \acp{BS}, each user will update the receive beamformer \me{\mvec{w}{l,k,n}}, the \ac{MSE} \me{\epsilon_{l,k,n}}, and the dual variables \me{\lambda_{l,k,n}} and \me{\alpha_{l,k,n}}. The updated \me{\alpha_{l,k,n}} and \me{\mvec{w}{l,k,n}} are notified to the \acp{BS} using two separate precoded uplink pilot symbols with \me{\tilde{\mbf{w}}_{l,k,n}^{(i)} = \sqrt{\alpha_{l,k,n}^{(i)}}\mvec{w}{l,k,n}^{\ast(i)}} and \me{\bar{\mbf{w}}_{l,k,n}^{(i)} = \alpha_{l,k,n}^{(i)}\mvec{w}{l,k,n}^{\ast(i)}} as the precoders. On receiving the precoded uplink pilots, each \ac{BS} use the effective channel \me{\mvec{H}{b,k,n}^{\mathrm{T}} \tilde{\mbf{w}}_{l,k,n}^{(i)}} and \me{\mvec{H}{b,k,n}^{\mathrm{T}} \bar{\mbf{w}}_{l,k,n}^{(i)}} in \eqref{kkt-mse-4.3} to update the transmit precoders, where \me{\mbf{x}^{\ast}} is the complex conjugate of \me{\mbf{x}}. Algorithm \ref{algo-4} outlines a practical way of updating the transmit and the receive beamformers by using \ac{OTA} signaling with the precoded pilots for the \ac{KKT} based \ac{MSE} reformulated \ac{JSFRA} problem. The convergence of the algorithm is discussed in Appendix \ref{sec-dist-conv}.
-\begin{algorithm}
- \SetAlgoLined
- \DontPrintSemicolon
- \BlankLine
- \SetKwInput{KwInit}{Initialize}
- \KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}, \fall n \in \mathcal{N}}}
- \KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l \in \set{1,2,\dotsc,L}}}
- \KwInit{\me{i=1}, \me{\mbf{w}^{(0)}_{l,k,n}, \tilde{\epsilon}_{l,k,n}} randomly, dual variables \me{{\alpha}_{l,k,n}^{(0)} = 1}, and \me{I_{\max}} for certain value}
- \ForEach{\ac{BS} \me{b \in \mc{B}}}{
- initialize \me{i = 0} \;
- \Repeat{until convergence or \me{i \geq I_{\max}}}{
-	update \me{\mvec{m}{l,k,n}^{(i)}} using \eqref{kkt-mse-4.3}, and perform precoded downlink pilot transmission \;
-	find \me{\mvec{w}{l,k,n}^{(i)}} using \eqref{kkt-mse-4.6} at each user \;
-	evaluate \me{\epsilon_{l,k,n}^{(i)}}, \me{t_{l,k,n}^{(i)}}, \me{\sigma_{l,k,n}^{(i)}} and \me{\alpha_{l,k,n}^{(i)}} using \eqref{kkt-mse-4.4} and \eqref{kkt-mse-4.5}, \eqref{kkt-mse-4.2} and \eqref{kkt-mse-4.1} at each user with the updated \me{\mvec{w}{l,k,n}^{(i)}} \;
-	using precoded uplink pilots, \me{\mvec{m}{l,k,n}^{(i)}} and \me{\alpha_{l,k,n}^{(i)}} are notified to all \acp{BS} in \me{\mathcal{B}} \;
-	\me{i = i + 1} \;
- }
- }
- \caption{\ac{KKT} approach for the \ac{JSFRA} scheme}
- \label{algo-4}
-\end{algorithm}
 
 %\subsubsection*{Convergence}
 %The iterative method presented in Algorithm \ref{algo-4} converges to a stationary point at each iteration. Since the \ac{SCA} point \me{\tilde{\epsilon}_{l,k,n}} and the receive beamformers are updated together at each iteration, the convergence proof can be argued based on the monotonic increase in the objective function at each iteration. In order to illustrate the convergence, we adopt the following argument. The transmit precoders in \eqref{kkt-mse-4.3} improves the objective function after each update following the \ac{SCA} operating point \me{\tilde{\epsilon}_{l,k,n}} update \cite{marks1978technical}. Furthermore, the \ac{MMSE} receivers are globally optimal for the fixed transmit precoders \cite{christensen2008weighted,wmmse_shi}, the alternating beamformer updates improve the objective function monotonically in spite of having a subgradient like update in \eqref{kkt-mse-4.1}.
