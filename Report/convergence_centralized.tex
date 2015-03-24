@@ -1,13 +1,3 @@
-\newcommand{\eqn}[1]{\(#1\)}
-\newcommand{\mx}{\mbf{m}}
-\newcommand{\my}{\mbf{w}}
-\newcommand{\mz}{\mbfa{\gamma}}
-\newcommand{\mxb}{{{\mbf{m}}}}
-\newcommand{\myb}{{{\mbf{w}}}}
-\newcommand{\iterate}[2]{{#1}^{(#2)}}
-\newcommand{\iter}[3]{{#1}_{#2}^{(#3)}}
-\newcommand{\ma}{\mbf{x}}
-
 To prove the convergence of the transmit, receive beamformers, and the objective values of the centralized algorithms in \eqref{eqn-6} and \eqref{eqn-mse-1}, we need to show that the following conditions are satisfied by the centralized formulations.
 \begin{itemize}
 	\item[(a)] The function should be coercive and bounded below
@@ -15,16 +5,14 @@ To prove the convergence of the transmit, receive beamformers, and the objective
 	\item[(c)] The sequence of the objective values should be strictly decreasing in each iteration
 	\item[(d)] Uniqueness of the minimizer, \textit{i.e}, the transmit and the receive beamformers should be unique in each iteration.
 \end{itemize}
-Using \cite[Prop. A.8]{bertsekas1999nonlinear}, the existence of a global minimizer in the feasible set can be guaranteed if the conditions (a) and (b) are satisfied. Since the feasible set is not fixed in each iteration, we require the conditions (c) and (d) to prove the global convergence of the objective function and the corresponding arguments namely, the transmit and the receive precoders. Assuming the conditions (a), (b) and (c) are satisfied, using \cite[Th. 3.14]{rudin1964principles}, we can show that the bounded monotonically decreasing objective value sequence has a unique minimum. Finally, we use the discussions in \cite{marks1978technical,lanckriet2009convergence} to show that the limiting point of the iterative algorithm is indeed a stationary point of the nonconvex problem in \eqref{eqn-6} and \eqref{eqn-mse-1}.
+Using \cite[Prop. A.8]{bertsekas1999nonlinear}, the existence of a global minimizer in the feasible set can be guaranteed if the conditions (a) and (b) are satisfied. Since the feasible set is not fixed in each iteration, we require the conditions (c) and (d) to prove the global convergence of the objective function and the corresponding arguments namely, the transmit and the receive precoders. Assuming the conditions (a), (b) and (c) are satisfied, using \cite[Theorem 3.14]{rudin1964principles}, we can show that the bounded monotonically decreasing objective value sequence has a unique minimum. Finally, we use the discussions in \cite{marks1978technical,lanckriet2009convergence,scutari_1} to show that the limiting point of the iterative algorithm is indeed a stationary point of the nonconvex problem in \eqref{eqn-6} and \eqref{eqn-mse-1}.
 
 \subsection{Bounded Objective Function and Compact Feasible Set}
-
 The feasible set of the problem \eqref{eqn-6} and \eqref{eqn-mse-1} are bounded and closed, which can be verified by the total power constraint on the transmit precoders \eqref{eqn-6.4}, and therefore, a compact set. 
 
 The minimum value of the norm operator in the objective is zero, \textit{i.e}, \me{\|x\|_q > -\infty}, therefore it is bounded below. The objective function is Lipschitz continuous over the feasible set, and therefore, it is bounded from above as well, since the feasible set is bounded. The objective function in \eqref{eqn-6} and \eqref{eqn-mse-1} is continuous and approaches \me{\infty} as \me{\mbf{t}_k \rightarrow \infty}, therefore it is coercive. Using conditions (a) and (b), we can guarantee the existence of a minimizer to the problem in \eqref{eqn-6} and \eqref{eqn-mse-1}.
 
 \subsection{Monotonicity} \label{mcity}
-
 Let us express the centralized problem in \eqref{eqn-6} and \eqref{eqn-mse-1} as
 \begin{subeqnarray} \label{con}
 	\underset{\mx,\my,\mz}{\text{minimize}} &\quad& f(\mx,\my,\mz) \eqsub \slabel{con-obj} \\
@@ -68,7 +56,7 @@ h(\iter{\mz}{k+1}{i}) - {g}_0(\iter{\mx}{k+1}{i},\iter{\my}{\ast}{i-1}) \leq - \
 \begin{multline}\label{con-sub-set}\allowdisplaybreaks
 h(\iter{\mz}{k+1}{i}) - {g}_0(\iter{\mx}{k+1}{i},\iter{\my}{\ast}{i-1}) \leq - \hat{g}_0(\iter{\mx}{k+1}{i},\iter{\my}{\ast}{i-1};\iter{\mx}{k}{i}) \\ + h(\iter{\mz}{k+1}{i}) \leq h(\iter{\mz}{k}{i}) - \hat{g}_0(\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1};\iter{\mx}{k}{i}) \leq 0. 
 \end{multline}}
-Using \eqref{con-sub-set}, we can show that the solution \me{\iter{\mx}{k+1}{i}} and \me{\iter{\mz}{k+1}{i}} are feasible, since the initial point of \me{\mx = \iter{\mx}{\ast}{i-1}} was chosen to be feasible from the earlier \ac{AO} iteration \me{i-1}. At each \ac{SCA} update, the feasible set includes the limiting point from the previous iteration as \me{\{\iter{\mx}{k+1}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{k+1}{i}\} \in \iter{\mc{X}}{k+1}{i} \subset \mc{F}}, therefore, it leads to a monotonic decrease in the objective values \cite{lanckriet2009convergence,scutari_1,quoc2011sequential} as
+Using \eqref{con-sub-set}, we can show that the solution \me{\iter{\mx}{k+1}{i}} and \me{\iter{\mz}{k+1}{i}} are feasible, since the initial point of \me{\mx = \iter{\mx}{\ast}{i-1}} was chosen to be feasible from the earlier \ac{AO} iteration \me{i-1}. At each \ac{SCA} update, the feasible set includes the limiting point from the previous iteration as \me{\{\iter{\mx}{k+1}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{k+1}{i}\} \in \iter{\mc{X}}{k+1}{i} \subset \mc{F}}, therefore, it ensures monotonic decrease in the objective values \cite{lanckriet2009convergence,scutari_1,quoc2011sequential} as
 \iftoggle{single_column}{
 \begin{equation} \label{con-convergence}
 f(\iter{\mx}{0}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{0}{i}) \geq f(\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{k}{i}) \geq f(\iter{\mx}{k+1}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{k+1}{i}) \geq f(\iter{\mx}{\ast}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{\ast|\my}{i}). 
@@ -96,7 +84,6 @@ f(\iter{\mx}{\ast}{i},\iter{\my}{0}{i},\iter{\mz}{0}{i}) \leq f(\iter{\mx}{\ast}
 The \ac{AO} update follows \eqn{\{\iter{\mx}{\ast}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{\ast|\my}{i}\} \in \{ \iter{\mc{X}}{\ast}{i} \cap \iter{\mc{Y}}{0}{i} \}}. %Using the conditions (a),(b) and (c), we can show that the objective values of the iterative algorithm converges to a limiting point or a local optimal point of the original nonconvex problem \eqref{con}.
 
 \subsection{Convergence of the Beamformer iterates}
-
 Let \me{\mbf{\ma} \triangleq [\mx,\my,\mz]} be the stacked vector of the optimization variables and \me{\mc{A}} be a point-to-set mapping algorithm from \me{\mc{F}} into the nonempty subsets of \me{\mc{F}}, \textit{i.e}, \eqn{\iterate{\ma}{i+1} \in \mc{A}(\iterate{\ma}{i})}. The set of accumulation points or the limiting points in the compact set \me{\mc{F}} be denoted by \me{\mc{F}^\ast} and the objective function be \me{f} is closed and continuous. Let \me{\{\iterate{\ma}{i}\}} be the sequence of iterates generated by the algorithm \me{\mc{A}} and the objective function \me{f}. If the mapping is strictly monotonic and uniformly compact, then the following conditions hold \cite{zangwill1969nonlinear} and \cite[Theorem 3.1]{meyer1976sufficient}.
 \begin{itemize}
 \item[(i)] all accumulation points will be a fixed point,
@@ -113,7 +100,6 @@ where \me{\iterate{\ma}{i}} belongs to the set of equally valid iterates \me{\mc
 To show the set of fixed points \me{\mc{F}^\ast} are the minimizers for the objective function \me{f}, we rely on the strict monotonicity of the objective function for each iteration. Since \me{f(\mc{A}(\iterate{\ma}{i})) < f(\iterate{\ma}{i})}, the objective decreases monotonically for each iteration and the equality is achieved when \me{\ma^\ast \in \mc{A}(\ma^\ast)}, which is a generalized fixed point. Therefore, the fixed points in \me{\mc{F}^\ast} are the minimizers for the objective function \me{f} over the set \me{\mc{F}}.
 
 \subsection{Uniqueness}
-
 If the uniqueness of the iterates are guaranteed, then the algorithm will find a unique solution at each iteration as \me{\iterate{\ma}{i+1} = \mc{A}(\iterate{\ma}{i})} and the accumulation point is unique. The convergence of the iterates to a single fixed point is guaranteed by the discussions in \cite{zangwill1969nonlinear,meyer1976sufficient}. Even though the algorithm finds a single fixed point, all fixed points in \me{\mc{F}^\ast} are equally valid as a minimizer for the function \me{f} in \eqref{con}, since the \ac{SINR} in \eqref{eq:SINR} is invariant to the unitary rotations on the beamformers.
 
 The uniqueness of the transmit precoders and the receive beamformers for each convex subproblem is achieved by the constraint \eqref{eqn-8} for the problem \eqref{eqn-9} and \eqref{eqn-mse-1.3} for the \ac{MSE} reformulation in \eqref{eqn-mse-2}. The receive beamformers \me{\mvec{w}{l,k,n}} in \eqref{eqn-10} are also unique for the given set of transmit precoders, since the convex subproblems in \eqref{eqn-9} and \eqref{eqn-mse-2} are susceptible to the transmit precoder phase rotations, \textit{i.e}, unitary transformations. 
@@ -122,15 +108,17 @@ When the objective function is zero, the uniqueness of the transmit precoders ar
 \begin{equation}
 \| \tilde{\mbf{v}} \|_q + c \, \| \mbf{x} - \mbf{x}^{(i)} \|^2
 \end{equation}
-where \me{\mbf{x}} is the vector containing all the optimization variables and \me{c} is a positive constant to make the objective strongly convex. The vector \me{ \mbf{x}^{(i)}} is the value of \me{\mbf{x}} in the \me{\ith{i}} iteration.
-
-%Note that the uniqueness of the transmit precoders and the receive beamformers for each convex subproblem can be shown by using the constraint \eqref{eqn-8} for the problem \eqref{eqn-9} and \eqref{eqn-mse-1.3} for the \ac{MSE} reformulation in \eqref{eqn-mse-2}. The receive beamformers \me{\mvec{w}{l,k,n}} in \eqref{eqn-10} are also unique for the given set of transmit precoders, since the convex subproblems in \eqref{eqn-9} and \eqref{eqn-mse-2} are susceptible to the transmit precoder phase rotations, \textit{i.e}, unitary transformations. When the objective function is zero, the uniqueness of the transmit precoders are not guaranteed by using \eqref{eqn-8} and \eqref{eqn-mse-1.3} constraints, since they are not active at the optimal solution of the subproblems. To obtain unique set of transmit precoders when the objective is zero even for a single \ac{BS}, we can regularize the objective with the transmit power as discussed in Appendix \ref{a-3} without affecting the optimal value.
+where \me{\mbf{x}} is the vector containing all the optimization variables and \me{c} is a positive constant to make the objective strongly convex. The vector \me{ \mbf{x}^{(i)}} is the value of \me{\mbf{x}} in the \me{\ith{i}} iteration. %Note that the uniqueness of the transmit precoders and the receive beamformers for each convex subproblem can be shown by using the constraint \eqref{eqn-8} for the problem \eqref{eqn-9} and \eqref{eqn-mse-1.3} for the \ac{MSE} reformulation in \eqref{eqn-mse-2}. The receive beamformers \me{\mvec{w}{l,k,n}} in \eqref{eqn-10} are also unique for the given set of transmit precoders, since the convex subproblems in \eqref{eqn-9} and \eqref{eqn-mse-2} are susceptible to the transmit precoder phase rotations, \textit{i.e}, unitary transformations. When the objective function is zero, the uniqueness of the transmit precoders are not guaranteed by using \eqref{eqn-8} and \eqref{eqn-mse-1.3} constraints, since they are not active at the optimal solution of the subproblems. To obtain unique set of transmit precoders when the objective is zero even for a single \ac{BS}, we can regularize the objective with the transmit power as discussed in Appendix \ref{a-3} without affecting the optimal value.
 
 \subsection{Stationary Points of the Nonconvex Problem}
-
-Finally, to show the stationarity of the fixed points in \me{\mc{F}^\ast}, it must satisfy the \ac{KKT} conditions of \eqref{con}. As \me{i \rightarrow \infty}, it satisfies
+To show the stationarity of the fixed points in \me{\mc{F}^\ast}, it must satisfy the \ac{KKT} conditions of \eqref{con}. As \me{i \rightarrow \infty}, it satisfies
+\iftoggle{single_column}{
+\begin{equation} \label{con-opt}\allowdisplaybreaks
+f(\iter{\mx}{\ast}{i},\iter{\my}{\ast}{i},\iter{\mz}{\ast|x}{i}) = f(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i},\iter{\mz}{\ast|y}{i+1}) = 
+f(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1})
+\end{equation}}{
 \begin{multline} \label{con-opt}\allowdisplaybreaks
 f(\iter{\mx}{\ast}{i},\iter{\my}{\ast}{i},\iter{\mz}{\ast|x}{i}) = f(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i},\iter{\mz}{\ast|y}{i+1}) \\ = 
 f(\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1})
-\end{multline}
-where \me{\{\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1}\} \in \mc{F}^\ast} is a generalized fixed point and the minimizer of the objective function \me{f} in the feasible set \me{\iterate{\mc{X}}{i+1}_{\ast} \subset \mc{F}}. Using \cite[Theorem 2]{scutari_1} and \cite[Theorem 10]{lanckriet2009convergence}, we can show that the generalized fixed point is a stationary point of the nonconvex problem \eqref{con}. Since the feasible point \me{\{\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1}\} \in \mc{F}^\ast \subset \mc{F}} is a limiting point of the sequence of iterates \me{\{\iterate{\ma}{i}\}} for \me{\mc{A}} under the mapping \me{f}, it is a stationary point of the nonconvex problem in \eqref{con} by satisfying all the constraints over \me{\iterate{\mc{X}}{i+1}_{\ast} \subset \mc{F}}. Therefore, there exists a Lagrange multipliers that can satisfy the \ac{KKT} conditions of the nonconvex problem in \eqref{con}. The local optimality of the feasible point \me{\{\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1}\}} is not guaranteed by the algorithm \me{\mc{A}}.
+\end{multline}}
+where \me{\{\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1}\} \in \mc{F}^\ast} is a generalized fixed point and the minimizer of the objective function \me{f} in the feasible set \me{\iterate{\mc{X}}{i+1}_{\ast} \subset \mc{F}}. Using \cite[Theorem 10]{lanckriet2009convergence} and \cite[Theorems 2,11]{scutari_1}, we can show that the generalized fixed point is a stationary point of the nonconvex problem \eqref{con}. Since the feasible point \me{\{\iter{\mx}{\ast}{i+1},\iter{\my}{\ast}{i+1},\iter{\mz}{\ast|x}{i+1}\} \in \mc{F}^\ast \subset \mc{F}} is a limiting point of the sequence of iterates \me{\{\iterate{\ma}{i}\}} for \me{\mc{A}} under the mapping \me{f}, it is a stationary point of \eqref{con} over \me{\iterate{\mc{X}}{i+1}_{\ast} \subset \mc{F}}. The feasible point need not be a local optimum for the nonconvex problem unless all the constraints are inactive, \textit{i.e}, if it is inside the feasible set \me{\mc{F}} where the Lagrange multipliers are all zero to satisfy the complementary slackness criterion.

@@ -18,7 +18,6 @@ It can be seen that the constraints are tight as long as there is one user with 
 \end{equation*}
 for a small \me{\varphi} without affecting the optimal solution. Note that the above objective is guaranteed to make the constraints \eqref{eqn-6.2} and \eqref{eqn-6.3} active by relaxing the power constraint \eqref{eqn-6.4}.
 \end{comment}
-
 For the constraints \eqref{eqn-6.2} and \eqref{eqn-6.3} to be active, there should be at least one user in each \ac{BS} with enough backlogged packets that cannot be served with the given power budget. On the other hand, to make the constraints active in all cases, the objective of the \ac{JSFRA} formulation should be regularized with the transmit power without affecting the solution as
 \begin{equation}
 \| \tilde{\mbf{v}} \|_q + \varphi \sum_{k \in \mc{U}} \sum_{n = 1}^{N} \sum_{l=1}^{L} \mathrm{tr} \left ( \mvec{m}{l,k,n} \mbf{m}^\herm_{l,k,n} \right )

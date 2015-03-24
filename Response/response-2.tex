@@ -10,30 +10,30 @@
 
 \resp \review{
 	\begin{enumerate}
-		\item Please note that the objective function in the problem formulation is convex, which can be verified by writing the difference function inside the norm operator in epigraph form. Since the problem in (16) is not jointly convex on the variables \me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n}}, we use alternating optimization (AO) approach by fixing \me{\mvec{w}{l,k,n}} and optimize for \me{\mvec{m}{l,k,n}} as a variable.
-		\item Even after fixing \me{\mvec{w}{l,k,n}} as constant, the problem in (16) is nonconvex due to the DC constraint (16b), which is handled by the first order relaxation around some fixed operating point. Once the linear relaxation is performed, the problem in (20) is a convex optimization problem with the variables being \me{\mvec{m}{l,k,n},\gamma_{l,k,n},\beta_{l,k,n}}. The manuscript is updated to illustrate this clearly on the lines following after (19).
+		\item Please note that the objective function in the problem formulation (16) is convex, since the \me{\gamma_{l,k,n}} is now treated as an optimization variable and not as an expression. Since the problem in (16) is not jointly convex on the variables \me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n}}, we use alternating optimization (AO) approach by fixing \me{\mvec{w}{l,k,n}} and optimize for \me{\mvec{m}{l,k,n}} as a variable.
+		\item Even after fixing \me{\mvec{w}{l,k,n}} as constant, the problem in (16) is nonconvex due to the DC constraint (16b), which is handled by the first order relaxation around some fixed operating point. Once the linear relaxation is performed, the problem in (20) is a convex optimization problem with the variables being \me{\mvec{m}{l,k,n},\gamma_{l,k,n},\beta_{l,k,n}}. The manuscript is updated to illustrate this clearly in the lines following after (19).
 	\end{enumerate}
 }
 
 \cmnt{3} The authors proposed to use block coordinate descent method to solve (16). But as the authors have already pointed out, to apply block coordinate descent method, the constraint sets for different variables should be disjoint (uncoupled), which is however not the case in (16), because receive and transmit precoders (i.e w and m) are coupled in the constraints. It is confusing on its own why the authors made a statement that contradicts the proposed methodology, and the convergence followed is in question.
 
-\resp \review{We thank the reviewer for the pointing out the flaw in the text. We have removed the incorrect statement on the block coordinate descent method with the AO approach on the fourth paragraph in Section III-B after (16). Indeed, due to the coupling of the transmit and the receive precoder variables, we cannot use the standard block coordinate descent method proof for the convergence of the proposed algorithm as pointed out by the reviewer. We have provided a completely rewritten convergence proof in Appendix B. }
+\resp \review{We thank the reviewer for the pointing out the inappropriate text. We have removed the incorrect statement on the block coordinate descent method with the AO approach in the paragraph following after (16) in Section III-B. Indeed, due to the coupling of the transmit and the receive precoder variables, we cannot use the standard block coordinate descent method proof for the convergence of the proposed algorithm as pointed out by the reviewer. We have provided a completely rewritten convergence proof in Appendix B. }
 
 \cmnt{4} Regarding the convergence of the SCA, the authors cited [27] for the convergence conditions, but the reference is wrong, because the conditions after the three bullets on page 6 are not mentioned in [27]. In case the authors disagree, please make the citation more specific, for example, specify the theorem/statement/proposition in [27] where those conditions are specified.
 
-\resp \review{We apologize for the inappropriate reference cited in the original manuscript. We have provided a completely rewritten proof on the convergence of the centralized algorithm in Appendix B.}
+\resp \review{We apologize for the inappropriate reference cited in the original manuscript. We have provided a completely rewritten proof on the convergence of the centralized algorithm in Appendix B on the supplementary document.}
 
 \cmnt{5} The authors also cited [28] to establish the convergence of SCA. But the techniques of [27] and [28] are different, and the convergence conditions are different too. It is not clear why the authors need two set of convergence conditions for a single problem, and the resulting convergence analysis itself is not solid enough.
 
-\resp \review{We agree with the reviewer's comment. We have provided the updated proof for the convergence of the centralized algorithm on Appendix B in the revised manuscript.}
+\resp \review{We agree with the reviewer's comment. We have provided the updated proof for the convergence of the centralized algorithm on Appendix B on the supplementary document.}
 
 \cmnt{6} Another comment on reference: to the reviewer's knowledge, the term SCA is never explicitly used in [2]. So please either correct the reference or be more specific (section, theorem, etc.).
 
-\resp \review{We have removed the inappropriate citation of the references.}
+\resp \review{We have removed the inappropriate citation of the references. We have provided appropriate references for SCA in [22,32,34].}
 
 \cmnt{7} The authors propose primal decomposition method, ADMM approach to the non-convex problem (19), while their convergence analysis is based on literature that proved convergence for convex problems only, e.g., [13]. So the convergence analysis is not trustworthy.
 
-\resp \review{Please note that the distributed algorithm is performed for the convex subproblem presented in (20) and (28). Since the problem is convex, the distributed approach convergence can be guaranteed under certain conditions. Those are discussed in Appendix C on the convergence analysis for the distributed algorithms.}
+\resp \review{Please note that the distributed algorithm is performed for the convex subproblem presented in (20) and (28). Since the problem is convex, the distributed approach convergence can be guaranteed under certain conditions. Those are discussed in Appendix C on the convergence analysis for the distributed algorithms on the supplementary document.}
 
 \cmnt{8} The length of the paper is too extensive. Some of the reformulations as mentioned in the previous comment can be skipped. Also, Section III.D. is not deeply explained and does not bring additional value to the paper. The implications of ordering the sub-channels for the iterative approach should be carefully studied and extensively explained in a different publication.
 
@@ -51,7 +51,7 @@
 
 \resp \review{
 	\begin{enumerate}
-		\item We thank the reviewer for pointing out the issue in the system description for the figures. Please note that the simulation scenario is different for Fig. 2 and Fig. 3 in terms of path loss distribution and the sub-channel numbers.
+		\item We thank the reviewer for pointing out the issue in the system model description for the figures. Please note that the simulation scenario is different for Fig. 2 and Fig. 3 in terms of path loss distribution and the sub-channel numbers.
 		\item We have provided different scenario with the centralized algorithm as reference for studying the performance under different system model. The user path loss is distributed uniformly between $[0,-6]$ dB for Fig. 2 and between $[0,-3]$ dB for Fig. 3.
 		\item We have updated the manuscript to include these details. In addition, the number of backlogged packets in the system for Fig. 3 is \me{[9,16,14,16,9,13,11,12]} bits. These facts are updated in the revised manuscript on Section V-B third paragraph.
 	\end{enumerate}
