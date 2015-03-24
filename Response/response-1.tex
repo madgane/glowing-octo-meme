@@ -2,11 +2,10 @@ In this paper, the authors proposed a traffic aware resource allocation scheme f
 
 Most sections of this paper are well written. The results and algorithms also seem valid. However, the motivation of minimizing the total user queue deviations is not well justified. The convergence results of some algorithms are not clearly presented. The presentation of the distributed solutions needs significant improvement. Analysis and comparison of the signaling overhead and computational complexity between the centralized and distributed algorithms are also necessary to justify the advantages of distributed algorithms.
 
-\vspace{0.25in}
+\vspace{0.1in}
 \review{We thank the reviewer for providing valuable and insightful comments.}
 
 \begin{enumerate}
-	
 \cmnt{1} In Section II.B, please provides more justifications for the problem formulation in (6). For example, the Queue weighted sum rate maximization (Q-WSRM) is throughput optimal, i.e., if there exists a scheme which can make all queues stable, then the Q-WSRM can also do this. How about the proposed formulation in (6)? Is it also throughput optimal?
 
 \resp \review{We thank the reviewer for the comment. 
@@ -29,14 +28,14 @@ Most sections of this paper are well written. The results and algorithms also se
 \cmnt{3} In Section III.B, the convergence conditions under Algorithm 1 are not clear. First, you should be more specific about what is the SCA subproblem. Do you mean problem (19)? Second, does the uniqueness of the transmit and receive beamformers mean that the solution of the original problem in (16) is unique, or the solutions of the subproblems in (19) and (20) are unique, respectively?
 
 \resp \review {	\begin{enumerate}
-	\item We thank the reviewer for the comment. The convergence analysis has been clearly written in the revised manuscript in Appendix B. The discussions are provided for the convergence of the iterative Algorithm 1, \textit{i.e}, the problem defined in (16). 
-	\item The uniqueness of the convex subproblem (20) can be guaranteed by the linear constraint on the transmit precoders in (19), which is susceptible to the transmit precoder phase rotations. On the other hand, the constraint in (16b) is not, since the precoder variable is inside the absolute value operator. Once the algorithm finds a unique set of transmit precoders, all unitary rotations are also valid for the original problem in (16). The uniqueness of the transmit and the receive beamformers are discussed in detail in Appendix B-D.
+	\item We thank the reviewer for the comment. The convergence analysis has been clearly rewritten in Appendix B on the supplementary document. The discussions are provided for the convergence of the iterative Algorithm 1, \textit{i.e}, the problem defined in (16). 
+	\item The uniqueness of the convex subproblem (20) can be guaranteed by the linear constraint on the transmit precoders in (19), which is susceptible to the transmit precoder phase rotations. On the other hand, the constraint in (16b) is not, since the precoder variable is inside the absolute value operator. Once the algorithm finds a unique set of transmit precoders, all unitary rotations are also valid for the original problem in (16). The uniqueness of the transmit and the receive beamformers are discussed in detail in Appendix B-D on the supplementary document.
 	\end{enumerate}
 }
 
 \cmnt{4} It is better to clearly summarize the convergence conditions and results (i.e., does it converge to a stationary point or the optimal solution) for all algorithms in a theorem/proposition.
 
-\resp \review{The discussions on the convergence of the centralized algorithms is provided in Appendix B and for the distributed algorithms in Appendix C. The discussion on the convergence to a stationary point is presented in Appendix B-E.}
+\resp \review{The discussions on the convergence of the centralized algorithms is provided in Appendix B and for the distributed algorithms in Appendix C. The discussion on the convergence to a stationary point is presented in Appendix B-E on the supplementary document.}
 
 \cmnt{5} At the end of Section III, you mentioned that the proposed reduced complexity resource allocation scheme is sensitive to the order in which the subchannels are selected for the optimization problem. Please provide a discussion how to choose this order.
 
@@ -76,7 +75,9 @@ Since it depends on the rates of the already evaluated sub-channels \me{\{1,2,\d
 \resp \review{
 	\begin{enumerate}
 		\item The heuristic part is that instead of updating the involved variables sequentially, we allow all the variables to be updated at the same time. Due to this idea, the convergence is not always guaranteed as in standard methods, but we have observed significantly improved convergence results in all numerical examples.
-		\item It follows the same points as that of the centralized approach if the algorithm is iterated in the same order, \textit{i.e} the dual variables are allowed to converge before the update of the fixed operating point and the receiver. Here instead we perform the update of the transmit precoders, receive beamformers and the dual variables all at once in each iteration. Thus, we sacrifice the formal convergence for the improved speed of convergence. We have provided additional details on the convergence of the KKT based approach in page 10, col 1, last paragraph.
+		\item It follows the same points as that of the centralized approach if the algorithm is iterated in the same order, \textit{i.e} the dual variables are allowed to converge before the update of the fixed operating point and the receiver. Here instead we perform the update of the transmit precoders, receive beamformers and the dual variables all at once in each iteration. Thus, we sacrifice the formal convergence for the improved speed of convergence. 
+		\item Note that for \me{\ell_2} norm in the objective, the objective decreases monotonically, which can be seen by setting \me{J_{\max} = I_{\max} = 1} in the distributed algorithm presented in Algorithm 2. Following the monotonicity discussion in Appendix B-B, we can show the convergence of the KKT based algorithm to a stationary point [35],[36]. 
+		\item We have provided additional details on the convergence of the KKT based approach in the Appendix C on the supplementary document.
 	\end{enumerate}}
 
 \cmnt{11} Since queue is a dynamic system evolving according to (3), it doesn’t make sense to compare the queue deviations at a given time. You should compare average queue deviations in the simulations. Moreover, you should also compare the average delay performance instead of just comparing the performance metric (queue deviations) defined in this paper. Using the queue deviations as the performance metric also needs more justification.
@@ -94,6 +95,6 @@ Since it depends on the rates of the already evaluated sub-channels \me{\{1,2,\d
 
 \cmnt{13} In the discussion for Fig. 1, you mentioned that JSFRA converge to the optimal point, and all algorithms are Pareto-optimal. Since the problem is non-convex, why these algorithm can find optimal solution or Paretooptimal point?
 
-\resp \review{Since the problem is nonconvex, the JSFRA formulation can find a stationary point upon convergence. The converged point of the JSFRA problem is in fact the stationary point of the original nonconvex problem, which is discussed in Appendix B-E on page 15, col. 2. We have removed the statement mentioning the Pareto-optimal solutions in the discussions on Fig. 1 in the revised manuscript.}
+\resp \review{Since the problem is nonconvex, the JSFRA formulation can find a stationary point upon convergence. The converged point of the JSFRA problem is in fact a stationary point of the original nonconvex problem, which is discussed in Appendix B-E provided on the supplementary document. We have removed the statement mentioning the Pareto-optimal solutions in the discussions on Fig. 1 in the revised manuscript.}
 
 \end{enumerate}

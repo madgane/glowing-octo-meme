@@ -1,6 +1,6 @@
 This paper proposes a practical method for minimizing the number of currently backlogged packets in a wireless multi-cell MIMO-OFDM network. Resource allocation is performed over space (beamformers) and frequency (sub-carriers), and a norm of the queue deviations is minimized. The problem studied is very relevant, but still most work in the literature has so far focused on the infinite queue model which clearly does not reflect reality particularly well. The proposed methods seem practical, due to their possibility to be implemented as distributed methods coupled with distributed CSI acquisition. The paper has a multitude of approaches to the problem, but there are several areas which must be improved before a possible publication.
 
-\vspace{0.25in}
+\vspace{0.1in}
 \review{ First, we thank the reviewer for providing valuable and insightful comments. The comments are really helpful in improving the manuscript.}
 \begin{enumerate}
 \cmnt{1} {First, this reviewer is not convinced by the arguments for showing the convergence of the JSFRA method. "The SCA method" is often referred to, but never really defined or referenced. The three required conditions (as stated on p. 6, col. 1, rows 38-40) do not, as far as I can tell, appear in [27]. Indeed, [27] is concerned with optimization problems where the objective function is non-convex, but the constraint set is convex and separable over the blocks of variables. Perhaps you meant to cite [A], wherein non-convex constraints are handled in a similar way? Numerically, the algorithms do converge, and the argument put forward makes sense, but the treatment must be improved to be more rigorous.}
@@ -67,7 +67,9 @@ This paper proposes a practical method for minimizing the number of currently ba
 \cmnts{h} - {(16d): suggest your write out the power constraints here, in order to be faster be able to interpret the optimization problem. There is hardly any spaced saved by referring back to (6b).}
 
 \resp \review{We have updated the manuscript with the explicit power constraint in (16d) as
-\[\sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}}, \fall b\].}
+\begin{equation}
+\sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}}, \fall b
+\end{equation}}
 
 \cmnts{i} - {p. 5, col. 1, rows 27-30: Here you might want to quickly mentioned how one could show the NP-hardness of (16).}
 

@@ -1,7 +1,6 @@
-\vspace{0.25in}
+\vspace{0.1in}
 \review{We would like to thank the reviewer for providing valuable comments.}
 \begin{enumerate}
-
 \cmnt{1} The logic from (6) to (16) is not clear. The only difference is the two newly introduced NON-CONVEX constraints (16b) and (16c), while the objective function (16a) and the constraint (16d) is the same as (6). The equivalence between (6) and (16) is not straightforward and it is confusing why the reformulation in (16) is beneficial.
 
 \resp \review{The reformulation is required, since the SINR expression in (2) cannot be handled directly in the problem defined in (6). Note that the equality constraint imposed by the SINR expression in (2) is handled by the two explicit inequality constraints (16b) and (16c), which are the under estimator to the original problem in (6). Since the inequalities are used to replace the equality constraint, the objective could be improved by the iterative algorithm and the equality will be achieved after the convergence, thereby having one-to-one mapping at the final solution. We have updated the manuscript to include the details for better clarity on third paragraph in Section III-B.}

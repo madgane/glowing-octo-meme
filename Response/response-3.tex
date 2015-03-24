@@ -1,10 +1,9 @@
 This manuscript focuses on the beamforming and scheduling optimization for IBC MIMO-OFDM system, including the centralized and decentralized optimization methods. This is an interesting and important topic.
 
-\vspace{0.25in}
+\vspace{0.1in}
 \review{We thank the reviewer for reading the manuscript and providing valuable comments. The comments are really helpful in improving the manuscript.}
 
 \begin{enumerate}
-
 \cmnt{1} The number of transmitted packets \me{t_k}'s are optimization variables, which should be explicitly stated in the problem formulation of (6), (16), (19), (20) and (26) to avoid confusing.
 
 \resp \review{Please note that the objective function uses \me{v_k =  Q_k - t_k = Q_k - \sum_{n = 1}^N \sum_{l = 1}^{L} \log_2(1+\gamma_{l,k,n})} expression instead of including an additional constraint for the transmitted packets using the rate expression and thus \me{t_k} is not required as a variable. However, in the MSE formulation, we have explicitly stated the optimization variable \me{t_k}, since it is present in the DC constraint (27).}
@@ -14,11 +13,12 @@ This manuscript focuses on the beamforming and scheduling optimization for IBC M
 \resp \review{
 	\begin{enumerate}
 		\item We thank the reviewer for the insightful comment. We have updated the manuscript to include the statement that the proposed approximation in (16b) and (16c) are the under-estimator for the SINR expression in (2) on the third paragraph in Section III-B.
-		\item The under-estimator is tight when there is at least one user in each BS that cannot be served by the current transmission as discussed in Appendix A. It is not tight when the objective is zero even for a single BS. In this case, we can regularize the objective with the total transmitted power as
+		\item The under-estimator is tight when there is at least one user in each BS that cannot be served by the current transmission as discussed in Appendix A. It is not tight when the objective is zero even for a single BS. For this, we can regularize the objective with the total transmitted power as
 		\begin{equation}
 		\|\tilde{\mbf{v}}\|_q + \varphi \, \|\mbf{m}\|^2
 		\end{equation} 
-		where \me{\mbf{m}} is the stacked vector of all transmit precoders. Note that the regularized objective makes the inequalities (16b) and (16c) tight at the optimal solution by making the power constraint in (16d) loose. It is discussed in the Appendix A provided on the supplementary document.
+		where \me{\mbf{m}} is the stacked vector of all transmit precoders and \me{\varphi} is a constant chosen closer to zero without affecting the optimal solution. When the original objective is zero, \textit{i.e}, \me{\|\tilde{\mbf{v}}\| = 0}, the the problem becomes the min power design. Therefore, when the backlogged packets can be transmitted with the given power constraint, the regularized objective will find a minimum power precoders to empty the backlogged packets. It makes the objective tight at the optimal point.
+		\item Note that the regularized objective makes the inequalities (16b) and (16c) tight at the optimal solution by making the power constraint in (16d) loose. It is discussed in the Appendix A provided on the supplementary document.
 	\end{enumerate}
 	 }
 
