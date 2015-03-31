@@ -99,9 +99,10 @@ This paper proposes a practical method for minimizing the number of currently ba
 
 \resp \review{
 	\begin{enumerate}
-		\item We thank the reviewer for the critical comment. It is true that the convex problem need not required to have a unique solution in general. Using Minkowski inequality \me{\|x + y\|_q \leq \|x\|_q + \|y\|_q }, we can see that the JSFRA problem is not strictly convex for all exponents \me{\ell_q} used in the objective function. 
-		\item The uniqueness of the solution is obtained due to the linear constraint (19) in the problem formulation (20). Note that the linear constraint (19) is susceptible to the phase rotations on the transmit precoders, whereas any unitary rotations on the transmit precoders still satisfies the original nonconvex constraint (16b). 
-		\item When all the constraints (20) are active for all BSs, \textit{i.e}, when the objective is nonzero for all BSs, we obtain a unique set of transmit precoders. On the contrary, it has multiple solutions when the objective is zero even for a single BS. In this case, we can regularize the objective with a strictly convex term as
+		\item We thank the reviewer for the critical comment and the suggestion. It is true that the convex problem need not have a unique solution in general. Using Minkowski inequality \me{\|x + y\|_q \leq \|x\|_q + \|y\|_q }, we can see that the JSFRA problem is not strictly convex for all exponents \me{\ell_q} used in the objective function. 
+		\item The uniqueness of the beamformers for the MSE reformulation in (28) is guaranteed due to the MSE constraint (26c), which is susceptible to the transmit beamformer phase rotations.
+		\item On the other hand, the uniqueness of the beamformers for the SCA approach in (20) cannot be guaranteed unless the imaginary part of \me{q_{l,k,n} = \Im \{ \mvec{w}{l,k,n} \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} = 0\}. It can be achieved by using the MMSE receiver for a randomly chosen initial transmit beamformer. 
+		\item The solution is not unique when the objective is zero even for a single BS. In this case, we can regularize the objective with a strictly convex term as
 		\begin{equation}
 		\|\tilde{\mbf{v}} \|_q + c \, \|\mbf{x} - \mbf{x}^{(i)}\|^2
 		\end{equation}
