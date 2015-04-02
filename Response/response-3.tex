@@ -1,12 +1,17 @@
 This manuscript focuses on the beamforming and scheduling optimization for IBC MIMO-OFDM system, including the centralized and decentralized optimization methods. This is an interesting and important topic.
 
 \vspace{0.1in}
-\review{We thank the reviewer for reading the manuscript and providing valuable comments. The comments are really helpful in improving the manuscript.}
+\review{We thank the reviewer for reading the manuscript and providing valuable comments. The comments are really helps to improve the manuscript.}
 
 \begin{enumerate}
 \cmnt{1} The number of transmitted packets \me{t_k}'s are optimization variables, which should be explicitly stated in the problem formulation of (6), (16), (19), (20) and (26) to avoid confusing.
 
-\resp \review{Please note that the objective function uses \me{v_k =  Q_k - t_k = Q_k - \sum_{n = 1}^N \sum_{l = 1}^{L} \log_2(1+\gamma_{l,k,n})} expression instead of including an additional constraint for the transmitted packets using the rate expression and thus \me{t_k} is not required as a variable. However, in the MSE formulation, we have explicitly stated the optimization variable \me{t_k}, since it is present in the DC constraint (27).}
+\resp \review{Please note that the objective function uses \me{v_k =  Q_k - t_k = Q_k - \sum_{n = 1}^N \sum_{l = 1}^{L} \log_2(1+\gamma_{l,k,n})} expression instead of including an additional constraint for the transmitted packets using the rate expression and thus \me{t_k} is not required as a variable. However, in the MSE formulation, we have explicitly stated the optimization variable \me{t_k}, since it is present in the DC constraint (27).
+	\begin{enumerate}
+		\item (6), (16), (20) and (21) does not depend upon the variable \me{t_k}
+		\item (26) and (28) depend on the variable \me{t_k} and it is defined as an optimization variable.
+	\end{enumerate}	
+	}
 
 \cmnt{2} The manuscript states that the inequalities (16b) and (16c) achieve equality at optimality(line 23, page 5). This is not obvious. An easy case to check this statement is that assuming the system has two BS and each BS serves one user. When \me{Q_1=0} and 2nd BS has sufficiently large power, (16b) and (16c) do not hold equality. Rigorous proof is needed if authors stick to this statement.
 
@@ -17,8 +22,8 @@ This manuscript focuses on the beamforming and scheduling optimization for IBC M
 		\begin{equation}
 		\|\tilde{\mbf{v}}\|_q + \varphi \, \|\mbf{m}\|^2
 		\end{equation} 
-		where \me{\mbf{m}} is the stacked vector of all transmit precoders and \me{\varphi} is a constant chosen closer to zero without affecting the optimal solution. When the original objective is zero, \textit{i.e}, \me{\|\tilde{\mbf{v}}\| = 0}, the the problem becomes the min power design. Therefore, when the backlogged packets can be transmitted with the given power constraint, the regularized objective will find a minimum power precoders to empty the backlogged packets. It makes the objective tight at the optimal point.
-		\item Note that the regularized objective makes the inequalities (16b) and (16c) tight at the optimal solution by making the power constraint in (16d) loose. It is discussed in the Appendix A provided on the supplementary document.
+		where \me{\mbf{m}} is the stacked vector of all transmit precoders and \me{\varphi} is a constant chosen closer to zero such that it has no effect on the optimal solution. When the original objective is zero, \textit{i.e}, \me{\|\tilde{\mbf{v}}\| = 0}, the the problem becomes the min power design. Therefore, when the backlogged packets can be transmitted with the given power constraint, the regularized objective will find a minimum power precoders to empty the backlogged packets. It makes the objective tight at the optimal point.
+		\item Note that the regularized objective makes the inequalities (16b) and (16c) tight at the optimal solution by making the power constraint in (16d) loose. It is discussed in Appendix A provided on the supplementary document.
 	\end{enumerate}
 	 }
 
@@ -28,9 +33,9 @@ This manuscript focuses on the beamforming and scheduling optimization for IBC M
 
 \cmnt{4} The convergence proof need to be rigorous. The inequality of (23a) is opposite to the reference [28]. Also the statement on uniqueness of the transmit and the receive beamformers are not correct. Although we can choose one antenna to be real value, this does not mean the problem has unique solution!
 
-\resp \review{We thank the reviewer for the comment. Rigorous convergence proof for the proposed algorithm is provided in Appendix B on the supplementary document. The uniqueness is also justified implicitly by the linear approximation performed on the DC constraint (16b), which makes the transmit precoders to be susceptible to the phase rotation. The discussion on the uniqueness is provided in Appendix B-D.}
+\resp \review{We thank the reviewer for the comment. Rigorous convergence proof for the proposed algorithm is provided in Appendix B on the supplementary document. The uniqueness is also justified implicitly by the linear approximation performed on the DC constraint (16b), which makes the transmit precoders to be susceptible to the phase rotation. The discussion on the uniqueness is provided in Appendix B-C.}
 
-\cmnt{5} (25) is generally wrong. (25) only holds when the MSE is minimized(by MMSE receiver) and the snr is the optimized(which is obtained by general eignvalue decompostion). This is clearly stated in the reference [5] and [6]. This can also be easily checked by comparing (25) and (2). Consequently the alternative formulation (26) based on this conclusion is questionable.
+\cmnt{5} (25) is generally wrong. (25) only holds when the MSE is minimized(by MMSE receiver) and the SNR is the optimized(which is obtained by general Eignvalue decomposition). This is clearly stated in the reference [5] and [6]. This can also be easily checked by comparing (25) and (2). Consequently the alternative formulation (26) based on this conclusion is questionable.
 
 \resp \review{
 	\begin{enumerate}
@@ -39,12 +44,12 @@ This manuscript focuses on the beamforming and scheduling optimization for IBC M
 	\end{enumerate}
 	}
 
-\cmnt{6} For ADMM aproach, the determination of the value of \me{\rho} in equation (35a) should be discussed. 1. The numbers of transmitted packets for users  \me{t_k}'s are optimization variables. So they should be explicitly stated in the problem formulation (6), (16), (20) and (26) to avoid confusing.
+\cmnt{6} For ADMM aproach, the determination of the value of \me{\rho} in equation (35a) should be discussed. 1. The numbers of transmitted packets for users \me{t_k}'s are optimization variables. So they should be explicitly stated in the problem formulation (6), (16), (20) and (26) to avoid confusing.
 
 \resp \review{
 	\begin{enumerate}
-		\item We agree with the reviewer's concern. We have included reference [11] that discusses on the valid choices of the step size parameter for ADMM. We have included the statement that it depends on the system model under consideration. This information is updated on the manuscript in the lines following after (40).
-		\item We considered the JSFRA scheme without the MSE reformulation as a representative example to discuss the distributed schemes. Since the rate variables are not included in the optimization problem, we didn't include it as an optimization variables in (37). On the contrary, for the MSE reformulation approach, as suggested by the reviewer, we need to have the rate \me{t_k}'s as the optimization variables.
+		\item We agree with the reviewer's comment. We have included reference [11] that discusses on the valid choices of the step size parameter for ADMM. We have included the statement that the parameter \me{\rho} depends on the system model under consideration. This information has been updated on the manuscript in the lines following after (40).
+		\item We considered the JSFRA scheme without the MSE reformulation as a representative example to discuss the distributed schemes. Since the rate variables are not included in the optimization problem, we do not include the rate variables \me{t_k} as an optimization variables in (37). On the contrary, for the MSE reformulation approach, as suggested by the reviewer, we need to have the rate \me{t_k}'s as the optimization variables.
 	\end{enumerate}
 	}
 

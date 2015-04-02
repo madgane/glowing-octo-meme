@@ -5,16 +5,18 @@ This paper proposes a practical method for minimizing the number of currently ba
 \begin{enumerate}
 \cmnt{1} {First, this reviewer is not convinced by the arguments for showing the convergence of the JSFRA method. "The SCA method" is often referred to, but never really defined or referenced. The three required conditions (as stated on p. 6, col. 1, rows 38-40) do not, as far as I can tell, appear in [27]. Indeed, [27] is concerned with optimization problems where the objective function is non-convex, but the constraint set is convex and separable over the blocks of variables. Perhaps you meant to cite [A], wherein non-convex constraints are handled in a similar way? Numerically, the algorithms do converge, and the argument put forward makes sense, but the treatment must be improved to be more rigorous.}
 
-\resp \review{We agree that the original manuscript lacks the convergence proof for the JSFRA approach. We have presented a rigorous convergence proof for the proposed algorithm in Appendix B on the supplementary document. We have modified to include the reference suggested by the reviewer in [32] instead of [27], which is for the nonconvex objective function with the convex constraints.}
+\resp \review{We agree that the original manuscript lacks the convergence proof for the JSFRA approach. We have presented a rigorous convergence proof for the proposed algorithm in Appendix B on the supplementary document. We are grateful to the reviewer for bringing our attention to reference [A] which has been cited as [32] in the revised manuscript. Some of the arguments in [32] are indeed useful to prove the convergence of the proposed algorithms in our paper.}
 
 \cmnt{2} {Second, the optimization problems formulated only depend on $Q_k$, the current levels of backlogged packets, and not on the arrival rates. This is due to how the conditional Lyapunov drift is minimized. This approach completely removes the queue dynamics from the optimization problem, essentially leading to greedy one-shot optimization in every time instant. The framework would be more interesting if some sort of optimization (or tracking) is performed over several time instants, rather than the one-shot approach that is currently used for the JSFRA algorithms. Possibly, some expectation over the queues would be optimized then. Even if no analytical treatment of the tracking over several time-steps is added, I would at least highly recommend adding some simulation results where the proposed one-shot algorithms are performed sequentially over several time instants.}
 
 \resp \review{
 	\begin{enumerate}
 	\item We thank the reviewer for the suggestion. In this paper, we proposed the precoder design to minimize the number of backlogged packets in the system at a given time. Since 
-	the objective is minimized in each time instant, it minimizes the objective on an average as well.
+	the objective is minimized in each time instant, it somehow minimizes the objective on an average as well.
 	\item We focused on the design of the precoders based on the current knowledge of the channel state information in the system model. 
-	\item As suggested by the reviewer, in order to justify the gains over multiple time instants, we have now included Section V-C with Fig. 4 to compare the performance of the JSFRA scheme for different \me{\ell_q} norm over multiple time slots. Plots comparing the average number of backlogged packets for different schemes at each instant and the number of queued packets remained in the system after each transmission instant are provided in Fig. 4.
+	\item As suggested by the reviewer, in order to justify the gains over multiple time instants, we have now included Section V-C with Fig. 4 to compare the performance of the JSFRA scheme for different \me{\ell_q} norm over multiple time slots. 
+	\item Fig. 4(a) demonstrates the performance of the proposed schemes and the existing algorithms using the average number of backlogged packets after each transmission instant for different arrival rates. The y-axis denotes the expected number of queued packets in the system after each transmission slot.
+	\item Fig. 4(b) shows the instantaneous number of backlogged packets of various schemes at each transmission instant. In Fig. 4(b), y-axis shows the total number of backlogged packets in the system after each transmission instant for an average arrival rate of \me{6} bits for all users. The x-axis represents the transmission slot at which the backlogged packets are evaluated.
 	\end{enumerate}
 }
 
@@ -30,7 +32,7 @@ This paper proposes a practical method for minimizing the number of currently ba
 
 \cmnt{4} {Finally, some readers might be confused by the "joint space-frequency" terminology, believing that the beamforming is performed over a joint space-frequency channel space, where the space-frequency channels are formed by block-diagonal matrices, each block belonging to one sub-carrier. This could easily be clarified.} 
 
-\resp \review{As per the reviewer's suggestion, we have clarified the space-frequency terminology in the lines before the last paragraph in Section I.}
+\resp \review{We thank the reviewer for the comment. We have clarified the space-frequency terminology in the lines before the last paragraph in Section I.}
 
 \cmnt{5} {Please see the itemized questions}
 
@@ -54,7 +56,7 @@ This paper proposes a practical method for minimizing the number of currently ba
 
 \cmnts{e} - {p. 3, col. 1, row 26: It would be more clear to explicitly write out the dependence of $\mathbf{M}$ and $\mathbf{W}$ in $\tilde{v}$ here}
 
-\resp \review{We removed the matrix representation of the transmit precoders and the receive beamformers from the manuscript to avoid the confusion as suggested by the reviewer.}
+\resp \review{We have removed the matrix representation of the transmit precoders and the receive beamformers from the manuscript to avoid the confusion as pointed out by the reviewer.}
 
 \cmnts{f} - {p. 3, col. 2, row 26: Which general MIMO-OFDM problem are you talking about here, and what is combinatorial about it? Is it the problem of selecting users to be served on orthogonal subcarriers? There is nothing inherently combinatorial over the problem in (6) as far as I can tell, as the beamformers are used as soft decision variables.}
 
@@ -62,7 +64,7 @@ This paper proposes a practical method for minimizing the number of currently ba
 
 \cmnts{g} - {p. 4, col. 2, row 40: "In fact, (5) provides similar expression of ..." This sentence is very hard to understand.}
 
-\resp \review{We have rephrased the sentence to avoid difficulty in the understanding. The manuscript is updated with the revised text on the first paragraph in Section III.B.}
+\resp \review{We have rephrased the sentence to clarify the meaning. The manuscript has been updated with the revised text on the first paragraph in Section III.B.}
 
 \cmnts{h} - {(16d): suggest your write out the power constraints here, in order to be faster be able to interpret the optimization problem. There is hardly any spaced saved by referring back to (6b).}
 
@@ -81,7 +83,7 @@ This paper proposes a practical method for minimizing the number of currently ba
 
 \cmnts{k} - {p. 5, col. 2, row 31: Here is a case where it makes sense to reference earlier optimization constraints. However, are (19d) and (18) not the same??}
 
-\resp \review{We thank the reviewer for pointing out the mistake. We have included all the constraints except the linearization constraint in (20), which is (19) in the original manuscript. Expression (19d) and (18) are the same. We have removed this double reference from (20).}
+\resp \review{We thank the reviewer for pointing out the mistake. We have included all the constraints except the linearization constraint in (20), which was (19) in the original manuscript. Expression (19d) and (18) are the same. We have removed this double reference from (20).}
 
 \cmnts{l} - {p. 5, col. 2, row 51: Slightly confusing with the notation between the iterates in (21b) and the MMSE filter in (22b).}
 
@@ -93,20 +95,20 @@ This paper proposes a practical method for minimizing the number of currently ba
 
 \cmnts{n} - {p. 6, col. 2, rows 8-10: I don't fully understand the reasoning on the relation between the constraint sets in the different iterations. Why is this the case?}
 
-\resp \review{To solve the nonconvex problem (16), we linearize the DC constraint (16b) around a fixed operating point. Since the operating point happens to be the optimal solution from the earlier iteration, the optimal point of the previous iterations is also present in the current feasible set. Therefore, at each iteration, the algorithm finds a better solution or the same compared to the previous solution, which leads to the monotonically decreasing objective. Please refer to Appendix B in the supplementary document for more details on the convergence analysis of the centralized algorithm.}
+\resp \review{To solve the nonconvex problem (16), we linearize the DC constraint (16b) around a fixed operating point. Since the operating point is the optimal solution from the earlier iteration, the optimal point of the previous iterations is also present in the current feasible set. Therefore, at each iteration, the algorithm finds a better solution or the same compared to the previous solution, which leads to the monotonically decreasing objective. Please refer to Appendix B in the supplementary document for more details on the convergence analysis of the centralized algorithm.}
 
 \cmnts{o} - {p. 7, col. 1, row 35: Just because a problem is convex does not mean that it has a unique solution. (Although it seems to me that (26) should have a unique solution.) Is the problem in (26) strictly convex?}
 
 \resp \review{
 	\begin{enumerate}
-		\item We thank the reviewer for the critical comment and the suggestion. It is true that the convex problem need not have a unique solution in general. Using Minkowski inequality \me{\|x + y\|_q \leq \|x\|_q + \|y\|_q }, we can see that the JSFRA problem is not strictly convex for all exponents \me{\ell_q} used in the objective function. 
+		\item We thank the reviewer for the important comment and the suggestion. It is true that the convex problem need not require a unique solution in general. 
 		\item The uniqueness of the beamformers for the MSE reformulation in (28) is guaranteed due to the MSE constraint (26c), which is susceptible to the transmit beamformer phase rotations.
 		\item On the other hand, the uniqueness of the beamformers for the SCA approach in (20) cannot be guaranteed unless the imaginary part of \me{q_{l,k,n} = \Im \{ \mvec{w}{l,k,n} \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} = 0\}}. It can be achieved by using the MMSE receiver for a randomly chosen initial transmit beamformer. 
 		\item The solution is not unique when the objective is zero even for a single BS. In this case, we can regularize the objective with a strictly convex term as
 		\begin{equation}
 		\|\tilde{\mbf{v}} \|_q + c \, \|\mbf{x} - \mbf{x}^{(i)}\|^2
 		\end{equation}
-		where \me{\mbf{x}} denotes the stacked vector of optimization variables and \me{\mbf{x}^{(i)}} denotes the value of \me{\mbf{x}} in the \me{\ith{i}} iteration. It is discussed briefly in the Appendix B-D. It makes the objective strictly convex, therefore, it has a unique minimum.
+		where \me{\mbf{x}} denotes the stacked vector of optimization variables and \me{\mbf{x}^{(i)}} denotes the value of \me{\mbf{x}} in the \me{\ith{i}} iteration. It has been discussed in the Appendix B-C. It makes the objective strictly convex, therefore, the resulting subproblem has a unique minimizer.
 	\end{enumerate}
 		}
 
@@ -116,7 +118,7 @@ This paper proposes a practical method for minimizing the number of currently ba
 
 \cmnts{q} - {p. 11, col. 1, row 56: "performances". I'm not sure this is a countable noun.}
 
-\resp \review{We thank the reviewer for pointing out the gramatical errors. We checked the gramatical validity and kept the plural in some cases.}
+\resp \review{We thank the reviewer for pointing out the gramatical errors. We have checked the gramatical validity and kept the plural form in some cases.}
 
 \end{enumerate}
 
