@@ -5,7 +5,7 @@ This paper proposes a practical method for minimizing the number of currently ba
 \begin{enumerate}
 \cmnt{1} {First, this reviewer is not convinced by the arguments for showing the convergence of the JSFRA method. "The SCA method" is often referred to, but never really defined or referenced. The three required conditions (as stated on p. 6, col. 1, rows 38-40) do not, as far as I can tell, appear in [27]. Indeed, [27] is concerned with optimization problems where the objective function is non-convex, but the constraint set is convex and separable over the blocks of variables. Perhaps you meant to cite [A], wherein non-convex constraints are handled in a similar way? Numerically, the algorithms do converge, and the argument put forward makes sense, but the treatment must be improved to be more rigorous.}
 
-\resp \review{We agree that the original manuscript lacks the convergence proof for the JSFRA approach. We have presented a rigorous convergence proof for the proposed algorithm in Appendix B on the supplementary document. We are grateful to the reviewer for bringing our attention to reference [A] which has been cited as [32] in the revised manuscript. Some of the arguments in [32] are indeed useful to prove the convergence of the proposed algorithms in our paper.}
+\resp \review{We agree that the original manuscript lacks the convergence proof for the JSFRA approach. We have presented a rigorous convergence proof for the proposed algorithm in Appendix A on the supplementary document. We are grateful to the reviewer for bringing our attention to reference [A] which has been cited as [32] in the revised manuscript. Some of the arguments in [32] are indeed useful to prove the convergence of the proposed algorithms in our paper.}
 
 \cmnt{2} {Second, the optimization problems formulated only depend on $Q_k$, the current levels of backlogged packets, and not on the arrival rates. This is due to how the conditional Lyapunov drift is minimized. This approach completely removes the queue dynamics from the optimization problem, essentially leading to greedy one-shot optimization in every time instant. The framework would be more interesting if some sort of optimization (or tracking) is performed over several time instants, rather than the one-shot approach that is currently used for the JSFRA algorithms. Possibly, some expectation over the queues would be optimized then. Even if no analytical treatment of the tracking over several time-steps is added, I would at least highly recommend adding some simulation results where the proposed one-shot algorithms are performed sequentially over several time instants.}
 
@@ -24,8 +24,8 @@ This paper proposes a practical method for minimizing the number of currently ba
 
 \resp \review{
 	\begin{enumerate}
-		\item In accordance with the reviewer, we have shortened the discussions on the distributed approaches and discussed the convergence proof of the decentralized algorithm in Appendix C. 
-		\item For the distributed precoder design, we assume that each \ac{BS} \me{b} knows the equivalent downlink channel \me{\mvec{w}{l,k,n}^\herm \mbf{H}_{b,k,n}} of all users in the system by using precoded uplink pilots, where the precoders are the MMSE receiver of all the users. Note that it includes the cross equivalent downlink channels of the neighbor BS users as well. To update the MMSE receiver, the equivalent channel for the \me{\ith{k}} user \me{\mbf{H}_{b,k,n} \mvec{m}{l,k^\prime,n}, \forall k^\prime \in \mc{U}_b, \forall b \in \mc{B}} is obtained from the BSs through user specific downlink precoded pilots. We have included the information on what each network entity knows in the paragraph after (36).
+		\item In accordance with the reviewer, we have shortened the discussions on the distributed approaches and discussed the convergence proof of the decentralized algorithm in Appendix B. 
+		\item For the distributed precoder design, we assume that each \ac{BS} \me{b} knows the equivalent downlink channel \me{\mvec{w}{l,k,n}^\herm \mbf{H}_{b,k,n}} of all users in the system by using precoded uplink pilots, where the precoders are the MMSE receiver evaluated at each user terminal. Note that it includes the equivalent downlink cross channels of the neighbor BS users as well. To update the MMSE receiver, the equivalent channel for the \me{\ith{k}} user \me{\mbf{H}_{b,k,n} \mvec{m}{l,k^\prime,n}, \forall k^\prime \in \mc{U}_b, \forall b \in \mc{B}} is obtained from the BSs through user specific downlink precoded pilots. We have included this discussion in the paragraph after (36).
 		\item We have included the type of duplexing scheme adopted in the model, \textit{i.e}, TDD system, in the system description in Section II, last paragraph.
 		\end{enumerate}
 	}
@@ -87,15 +87,15 @@ This paper proposes a practical method for minimizing the number of currently ba
 
 \cmnts{l} - {p. 5, col. 2, row 51: Slightly confusing with the notation between the iterates in (21b) and the MMSE filter in (22b).}
 
-\resp \review{We have updated the manuscript to avoid the ambiguity in the representation of the optimal and the MMSE receiver. The optimal receiver is denoted by \me{\mvec{w}{l,k,n}^{o}} in (22) and the MMSE receiver by \me{\mvec{w}{l,k,n}} in (23).}
+\resp \review{We have updated the manuscript to avoid the ambiguity in representing the optimal and the MMSE receiver. The optimal receiver is denoted by \me{\mvec{w}{l,k,n}^{o}} in (22) and the MMSE receiver by \me{\mvec{w}{l,k,n}} in (23).}
 
 \cmnts{m} - {p. 6, col. 1, row 9: You might want to add somewhere that (22b) can be used instead of the fixed-point of (21b), since the scaling of the receive filters do not matter in the SINRs. However, does it affect the convergence of the algorithm?}
 
-\resp \review{We thank the reviewer for the comment. We have updated the manuscript to include this discussion in the sentences after (23). The performance remains the same and the convergence rate is not affected by this scaling, which can be seen from Fig. 1 comparing the precoder convergence using the optimal and the MMSE receiver for the JSFRA scheme with \me{\ell_1} norm.}
+\resp \review{We thank the reviewer for the comment. We have updated the manuscript to include this discussion in the sentences following (23). The performance remains the same and the convergence behavior is not affected by this scaling, which can be seen from Fig. 1, which compares the queue deviation objective convergence using the optimal and the MMSE receiver for the JSFRA scheme with \me{\ell_1} norm.}
 
 \cmnts{n} - {p. 6, col. 2, rows 8-10: I don't fully understand the reasoning on the relation between the constraint sets in the different iterations. Why is this the case?}
 
-\resp \review{To solve the nonconvex problem (16), we linearize the DC constraint (16b) around a fixed operating point. Since the operating point is the optimal solution from the earlier iteration, the optimal point of the previous iterations is also present in the current feasible set. Therefore, at each iteration, the algorithm finds a better solution or the same compared to the previous solution, which leads to the monotonically decreasing objective. Please refer to Appendix B in the supplementary document for more details on the convergence analysis of the centralized algorithm.}
+\resp \review{To solve the nonconvex problem (16), we linearize the DC constraint (16b) around a fixed operating point. Since the operating point is the optimal solution from the earlier iteration, the optimal point of the previous iteration is also present in the current feasible set. Therefore, at each iteration, the algorithm finds a better solution or the same compared to the previous solution, which leads to the monotonically decreasing objective. Please refer to Appendix A in the supplementary document for more details on the convergence analysis of the centralized algorithm.}
 
 \cmnts{o} - {p. 7, col. 1, row 35: Just because a problem is convex does not mean that it has a unique solution. (Although it seems to me that (26) should have a unique solution.) Is the problem in (26) strictly convex?}
 
@@ -108,7 +108,7 @@ This paper proposes a practical method for minimizing the number of currently ba
 		\begin{equation}
 		\|\tilde{\mbf{v}} \|_q + c \, \|\mbf{x} - \mbf{x}^{(i)}\|^2
 		\end{equation}
-		where \me{\mbf{x}} denotes the stacked vector of optimization variables and \me{\mbf{x}^{(i)}} denotes the value of \me{\mbf{x}} in the \me{\ith{i}} iteration. It has been discussed in the Appendix B-C. It makes the objective strictly convex, therefore, the resulting subproblem has a unique minimizer.
+		where \me{\mbf{x}} denotes the stacked vector of optimization variables and \me{\mbf{x}^{(i)}} denotes the value of \me{\mbf{x}} in the \me{\ith{i}} iteration. It has been discussed in the Appendix A-C. It makes the objective strictly convex, therefore, the resulting subproblem has a unique minimizer.
 	\end{enumerate}
 		}
 
