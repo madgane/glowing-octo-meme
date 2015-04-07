@@ -15,7 +15,14 @@ This manuscript focuses on the beamforming and scheduling optimization for IBC M
 
 \cmnt{2} The manuscript states that the inequalities (16b) and (16c) achieve equality at optimality(line 23, page 5). This is not obvious. An easy case to check this statement is that assuming the system has two BS and each BS serves one user. When \me{Q_1=0} and 2nd BS has sufficiently large power, (16b) and (16c) do not hold equality. Rigorous proof is needed if authors stick to this statement.
 
-\resp \review{We thank the reviewer for the insightful comment. We have updated the manuscript to include the statement that the proposed approximation in (16b) and (16c) are the under-estimator for the SINR expression in (2) on the third paragraph in Section III-B.}
+\resp \review{We thank the reviewer for the insightful comment. We have updated the manuscript to include the statement that the proposed approximation in (16b) and (16c) together provides an under-estimator for the SINR expression in (2). This information is highlighted in the third paragraph in Section III-B.}
+
+\review{For the constraints (16b) and (16c) to be tight, there should be at least one user in each \ac{BS} with enough backlogged packets that cannot be served with the given power budget. On the other hand, to make the constraints active in all cases, the objective of the \ac{JSFRA} formulation should be regularized with the transmit power without affecting the solution as
+\begin{equation}
+\| \tilde{\mbf{v}} \|_q + \varphi \sum_{k \in \mc{U}} \sum_{n = 1}^{N} \sum_{l=1}^{L} \mathrm{tr} \left ( \mvec{m}{l,k,n} \mbf{m}^\herm_{l,k,n} \right )
+\end{equation}
+where \me{\varphi \approx 0}. Note that the modified objective will relax the power constraint by making the constraints (16b) and (16c) tight in the final solution. Note that the tightness discussion is valid only for the active spatial streams, \textit{i.e}, \me{\mvec{m}{l,k,n} \neq \mbf{0}^\tran}.
+}
 \begin{comment}
 	\begin{enumerate}
 		\item We thank the reviewer for the insightful comment. We have updated the manuscript to include the statement that the proposed approximation in (16b) and (16c) are the under-estimator for the SINR expression in (2) on the third paragraph in Section III-B.
