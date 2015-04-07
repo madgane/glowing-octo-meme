@@ -15,7 +15,7 @@ This paper proposes a practical method for minimizing the number of currently ba
 	the objective is minimized in each time instant, it somehow minimizes the objective on an average as well.
 	\item We focused on the design of the precoders based on the current knowledge of the channel state information in the system model. 
 	\item As suggested by the reviewer, in order to justify the gains over multiple time instants, we have now included Section V-C with Fig. 4 to compare the performance of the JSFRA scheme for different \me{\ell_q} norm over multiple time slots. 
-	\item Fig. 4(a) demonstrates the performance of the proposed schemes and the existing algorithms using the average number of backlogged packets after each transmission instant for different arrival rates. The y-axis denotes the expected number of queued packets in the system after each transmission slot.
+	\item Fig. 4(a) demonstrate the performance of the proposed schemes and the existing algorithms using the average of the number of backlogged packets after each transmission instant for different arrival rates. The y-axis denotes the expectation taken over the number of queued packets in the system after each transmission slot.
 	\item Fig. 4(b) shows the instantaneous number of backlogged packets of various schemes at each transmission instant. In Fig. 4(b), y-axis shows the total number of backlogged packets in the system after each transmission instant for an average arrival rate of \me{6} bits for all users. The x-axis represents the transmission slot at which the backlogged packets are evaluated.
 	\end{enumerate}
 }
@@ -75,7 +75,7 @@ This paper proposes a practical method for minimizing the number of currently ba
 
 \cmnts{i} - {p. 5, col. 1, rows 27-30: Here you might want to quickly mentioned how one could show the NP-hardness of (16).}
 
-\resp \review{We have included the NP-hardness of the proposed solution by modeling the current problem to solve the \ac{WSRM} formulation, which is known to be NP-hard on the last sentence in Section III-B third paragraph.} 
+\resp \review{We thank the reviewer for the comment. We have included the text on proving the NP-hardness of the problem (16). Since the formulation in (16) can be reformulated as a \ac{WSRM} problem, which is known to be NP-hard [23], therefore, it also belongs to the class of NP-hard problems. This information is included in the third paragraph in Section III-B.}
 
 \cmnts{j} - {p. 5, col. 1, row 50: "According to the SCA method...". I am not sure exactly how you define "\_the\_ SCA method"? Clarify or cite the definition.}
 
@@ -95,7 +95,7 @@ This paper proposes a practical method for minimizing the number of currently ba
 
 \cmnts{n} - {p. 6, col. 2, rows 8-10: I don't fully understand the reasoning on the relation between the constraint sets in the different iterations. Why is this the case?}
 
-\resp \review{To solve the nonconvex problem (16), we linearize the DC constraint (16b) around a fixed operating point. Since the operating point is the optimal solution from the earlier iteration, the optimal point of the previous iteration is also present in the current feasible set. Therefore, at each iteration, the algorithm finds a better solution or the same compared to the previous solution, which leads to the monotonically decreasing objective. Please refer to Appendix A in the supplementary document for more details on the convergence analysis of the centralized algorithm.}
+\resp \review{To solve the nonconvex problem (16), we linearize the DC constraint (16b) around a fixed operating point. Since the operating point is a solution from the earlier iteration, it is also included in the current feasible set. Therefore, at each iteration, the algorithm finds a better solution or the same as compared to the previous solution, which leads to a monotonically decreasing objective. Please refer to Appendix A on the supplementary document for more details on the convergence analysis of the centralized algorithm.}
 
 \cmnts{o} - {p. 7, col. 1, row 35: Just because a problem is convex does not mean that it has a unique solution. (Although it seems to me that (26) should have a unique solution.) Is the problem in (26) strictly convex?}
 
@@ -103,7 +103,7 @@ This paper proposes a practical method for minimizing the number of currently ba
 	\begin{enumerate}
 		\item We thank the reviewer for the important comment and the suggestion. It is true that the convex problem need not require a unique solution in general. 
 		\item The uniqueness of the beamformers for the MSE reformulation in (28) is guaranteed due to the MSE constraint (26c), which is susceptible to the transmit beamformer phase rotations.
-		\item On the other hand, the uniqueness of the beamformers for the SCA approach in (20) cannot be guaranteed unless the imaginary part of \me{q_{l,k,n} = \Im \{ \mvec{w}{l,k,n} \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} = 0\}}. It can be achieved by using the MMSE receiver for a randomly chosen initial transmit beamformer. 
+		\item On the other hand, the uniqueness of the beamformers for the SCA approach in (20) cannot be guaranteed unless the imaginary part of \me{q_{l,k,n} = \Im \{ \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n}\} = 0}. It can be achieved by using the MMSE receiver for a randomly chosen initial transmit beamformer. 
 		\item The solution is not unique when the objective is zero even for a single BS. In this case, we can regularize the objective with a strictly convex term as
 		\begin{equation}
 		\|\tilde{\mbf{v}} \|_q + c \, \|\mbf{x} - \mbf{x}^{(i)}\|^2

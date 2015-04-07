@@ -42,7 +42,10 @@ where \me{\varphi \approx 0}. Note that the modified objective will relax the po
 
 \cmnt{4} The convergence proof need to be rigorous. The inequality of (23a) is opposite to the reference [28]. Also the statement on uniqueness of the transmit and the receive beamformers are not correct. Although we can choose one antenna to be real value, this does not mean the problem has unique solution!
 
-\resp \review{We thank the reviewer for the comment. Rigorous convergence proof for the proposed algorithm is provided in Appendix A on the supplementary document. The uniqueness is justified implicitly by the MSE relation in (26c) for the MSE reformulation in (28), which makes the transmit precoders to be susceptible to the phase rotation. The uniqueness of the beamformer can be guaranteed by adding a strongly convex term in the objective as discussed in Appendix A-C.}
+\resp \review{\begin{enumerate}
+	\item We thank the reviewer for the comment. Rigorous convergence proof for the proposed algorithm is provided in Appendix A on the supplementary document. 	
+	\item The uniqueness is justified implicitly by the MSE relation in (26c) for the MSE reformulation in (28), which makes the transmit precoders to be susceptible to the phase rotation. In general, the uniqueness of the beamformer can be guaranteed by adding a strongly convex term in the objective as discussed in Appendix A-C.
+\end{enumerate}}
 
 \cmnt{5} (25) is generally wrong. (25) only holds when the MSE is minimized(by MMSE receiver) and the SNR is the optimized(which is obtained by general Eignvalue decomposition). This is clearly stated in the reference [5] and [6]. This can also be easily checked by comparing (25) and (2). Consequently the alternative formulation (26) based on this conclusion is questionable.
 
