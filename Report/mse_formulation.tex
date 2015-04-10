@@ -1,4 +1,4 @@
-In this, we solve the \ac{JSFRA} problem by exploiting the equivalence between the \ac{MSE} and the achievable \ac{SINR} by using the receivers designed with the \ac{MMSE} criterion \cite{mse_duality,christensen2008weighted}. The \ac{MSE} \me{\epsilon_{l,k,n}}, for a data symbol \me{d_{l,k,n}} is given by
+In this, we solve the \ac{JSFRA} problem by exploiting the relation between the \ac{MSE} and the achievable \ac{SINR} when the \ac{MMSE} receivers are used at the user terminals as shown in \cite{mse_duality,christensen2008weighted}. The \ac{MSE} \me{\epsilon_{l,k,n}}, for a data symbol \me{d_{l,k,n}} is given by
 \iftoggle{single_column}{
 \begin{multline} \label{mse-error}
 	\mathbb{E} \big [ ( d_{l,k,n} - \hat{d}_{l,k,n} )^2 \big ] = \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + \enoise = \epsilon_{l,k,n}
