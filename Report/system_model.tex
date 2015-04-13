@@ -15,7 +15,7 @@ where \me{\mvec{H}{b,k,n} \in \mathbb{C}^{N_R \times N_T}} is the channel betwee
 \begin{equation}\label{eq:SINR}
 \gamma_{l,k,n} = \dfrac{\left |\mvec{w}{l,k,n}^\herm \, \mvec{H}{b_k,k,n} \, \mvec{m}{l,k,n} \right |^2}{\enoise + \sum_{(j,i) \neq (l,k)} |\mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} |^2}
 \end{equation}
-where \me{\enoise = N_0 \, \trace (\mvec{w}{l,k,n} \mbf{w}_{l,k,n}^\herm)} denotes the equivalent noise variance. \review{To reduce the overhead involved in feeding back the user channels, we consider a \ac{TDD} system in which \acp{BS} can estimate the downlink channels from the uplink ones using the so-called channel reciprocity.}
+where \me{\enoise = N_0 \, \trace (\mvec{w}{l,k,n} \mbf{w}_{l,k,n}^\herm)} denotes the equivalent noise variance. \review{To reduce the overhead involved in feeding back the user channels, we consider a \ac{TDD} system in which \acp{BS} can estimate the downlink channels from the uplink pilots using channel reciprocity.}
 
 Let \me{Q_k} be the number of backlogged packets destined for user \me{k} at a given scheduling instant. The queue dynamics of user \me{k} are modeled using the Poisson arrival process with the average number of packet arrivals of \me{A_k = \mathbf{E}_i\{\lambda_k\}} packets/bits, where \me{\lambda_k(i) \sim \mathrm{Pois}(A_k)} represents the instantaneous number of packets arriving for user \me{k} at the \me{{i}^\mathrm{th}} time instant.\footnote{The unit can either be packets or bits as long as the arrival and the transmission units are similar.} The total number of queued packets at the \me{{(i+1)}^\mathrm{th}} instant for user \me{k}, denoted as \me{Q_k(i+1)}, is given by
 \begin{equation}
