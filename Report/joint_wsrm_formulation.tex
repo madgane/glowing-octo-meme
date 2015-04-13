@@ -6,7 +6,7 @@ The \ac{Q-WSRM} formulation extends the \emph{backpressure algorithm} to the dow
 \end{equation}
 where \me{\mbf{Q}(i) = \sset{Q_1(i),Q_2(i),\dotsc,Q_K(i)}^\mathrm{T}} and \me{\tfrac{1}{2}} is used for the convenience. It provides a scalar measure of congestion present in the system \cite[Ch. 3]{neely2010stochastic}. 
 
-To minimize the total number of backlogged packets for time instant \me{i}, the optimal transmission rate of all users are obtained by minimizing the Lyapunov drift expressed as  
+To minimize the total number of backlogged packets for time instant \me{i}, the optimal transmission rate of all users is obtained by minimizing the Lyapunov drift expressed as  
 \iftoggle{single_column}{
 \begin{equation}\label{eqn-3.1}
 \mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} = \frac{1}{2} \Big [ \sum_{k \in \mc{U}} \, \Big ( \left [ Q_k(i) - t_k(i) \right ]^+ + \lambda_k(i) \Big )^2 - Q^2_k(i) \Big ].
