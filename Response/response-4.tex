@@ -106,7 +106,7 @@ This paper proposes a practical method for minimizing the number of currently ba
 		\item On the other hand, the uniqueness of the beamformers for the SCA approach in (20) cannot be guaranteed unless the imaginary part of \me{q_{l,k,n} = \Im \{ \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n}\} = 0}. It can be achieved by using the MMSE receiver for a randomly chosen initial transmit beamformer. 
 		\item The solution is not unique when the objective is zero even for a single BS. In this case, we can regularize the objective with a strictly convex term as
 		\begin{equation}
-		\|\tilde{\mbf{v}} \|_q + c \, \|\mbf{x} - \mbf{x}^{(i)}\|^2
+		\|\tilde{\mbf{v}} \|_q + c \, \|\mbf{x} - \mbf{x}^{(i)}\|^2_2
 		\end{equation}
 		where \me{\mbf{x}} denotes the stacked vector of optimization variables and \me{\mbf{x}^{(i)}} denotes the value of \me{\mbf{x}} in the \me{\ith{i}} iteration. It has been discussed in the Appendix A-C. It makes the objective strictly convex, therefore, the resulting subproblem has a unique minimizer.
 	\end{enumerate}

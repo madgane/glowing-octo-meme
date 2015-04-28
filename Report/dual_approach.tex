@@ -30,13 +30,21 @@ The \ac{ADMM} approach is used to decouple the precoder design across multiple \
 \end{algorithm}
 
 Using the formulation presented in \cite{boyd2011distributed,admm_robust}, we can write the \ac{BS} \me{b} specific \ac{ADMM} subproblem for the \me{\ith{i}} iteration as
-\begin{IEEEeqnarray}{rl} \label{eqn-dual-3}\allowdisplaybreaks
+\iftoggle{single_column}{\allowdisplaybreaks
+\begin{IEEEeqnarray}{rCl} \label{eqn-dual-3}\allowdisplaybreaks
+\underset{\substack{\gamma_{l,k,n}, \mvec{m}{l,k,n} \\ \beta_{l,k,n}, \mbfa{\zeta}_b}}{\text{minimize}} &\quad& \| \tilde{\mbf{v}}_{b} \|_q + \mbfa{\nu}^{(i)\,\tran}_b  \left ( \mbfa{\zeta}_b - \mbfa{\zeta}^{(i)}_b \right ) +  \frac{\rho}{2} \left \| \mbfa{\zeta}_b - \mbfa{\zeta}^{(i)}_b \right \|^2 \eqsub \eqspace \\
+\text{subject to} &\quad& \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}} \eqsub \label{power_update} \\
+&\quad&\sum_{\bar{b} \in \bar{\mc{B}}_b} \zeta_{l,k,n,\bar{b}} + \sum_{\mathclap{\{\bar{l},\bar{k}\}\neq\{l,k\}}} |\mvec{w}{l,k,n}^\herm \mvec{H}{b,k,n} \mvec{m}{\bar{l},\bar{k},n} |^2 + \enoise \leq \beta_{l,k,n} \eqspace \eqsub \\
+&\quad& \sum_{k \in \mc{U}_b} \sum_{l=1}^L |\mvec{w}{\bar{l},\bar{k},n}^\herm \mvec{H}{b,\bar{k},n} \mvec{m}{l,k,n} |^2 \leq \zeta_{\bar{l},\bar{k},n,b} \; \forall \bar{k} \in \bar{\mc{U}}_b \; \forall n \eqsub \\
+&\quad& \text{and } \eqsub \eqref{eqn-8}
+\end{IEEEeqnarray}
+}{\begin{IEEEeqnarray}{rl} \label{eqn-dual-3}\allowdisplaybreaks
 &\underset{\substack{\gamma_{l,k,n}, \mvec{m}{l,k,n} \\ \beta_{l,k,n}, \mbfa{\zeta}_b}}{\text{minimize}} \: \; \| \tilde{\mbf{v}}_{b} \|_q + \mbfa{\nu}^{(i)\,\tran}_b  \left ( \mbfa{\zeta}_b - \mbfa{\zeta}^{(i)}_b \right ) +  \frac{\rho}{2} \left \| \mbfa{\zeta}_b - \mbfa{\zeta}^{(i)}_b \right \|^2 \eqsub \eqspace \\
 &\text{subject to} \quad \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}} \eqsub \label{power_update} \\
 &\sum_{\bar{b} \in \bar{\mc{B}}_b} \zeta_{l,k,n,\bar{b}} + \sum_{\mathclap{\{\bar{l},\bar{k}\}\neq\{l,k\}}} |\mvec{w}{l,k,n}^\herm \mvec{H}{b,k,n} \mvec{m}{\bar{l},\bar{k},n} |^2 + \enoise \leq \beta_{l,k,n} \eqspace \eqsub \\
 &\sum_{k \in \mc{U}_b} \sum_{l=1}^L |\mvec{w}{\bar{l},\bar{k},n}^\herm \mvec{H}{b,\bar{k},n} \mvec{m}{l,k,n} |^2 \leq \zeta_{\bar{l},\bar{k},n,b} \; \forall \bar{k} \in \bar{\mc{U}}_b \; \forall n \eqsub \\
 & \text{and } \eqsub \eqref{eqn-8}
-\end{IEEEeqnarray}
+\end{IEEEeqnarray}}
 where \me{\mbfa{\zeta}^{(i)}_b} denotes the interference vector updated from the earlier iteration and \me{\mbfa{\nu}^{(i)}_b} represents the dual vector corresponding to the equality constraint at the \me{\ith{i}} iteration as
 \begin{equation} \label{const-admm1}
 \mbfa{\zeta}_b = \mbfa{\zeta}^{(i)}_b.

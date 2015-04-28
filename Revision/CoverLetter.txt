@@ -1,0 +1,9 @@
+Respected Editor,
+
+Please find the attached manuscript titled "Traffic Aware Resource Allocation Schemes for Multi-Cell MIMO-OFDM Systems", submitted for the IEEE Transactions on Signal Processing. In this, we have proposed two centralized algorithms to address the issue of precoder design to reduce the number of backlogged packets in the coordinating base stations. 
+
+Since this is a resubmission, we have addressed all the questions raised by the reviewers in a separate reviewer_response.pdf file. We have revised the manuscript also to address all those concerns. Due to the strict page limitations on the revised manuscript, we have included a supplementary document that discuss the convergence analysis in detail.
+
+With regards and thanks,
+Ganesh
+CWC, University of Oulu, Finland

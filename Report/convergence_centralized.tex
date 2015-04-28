@@ -32,7 +32,7 @@ where \me{g_2,f} are convex and \me{h} is a linear function. Let \me{g_0,g_1} be
 
 To solve \eqref{con}, we adopt \ac{AO} by fixing a block of variables and optimize for others \cite{bezdek2002some}. In \eqref{con}, even after fixing the variable \me{\my}, the problem is nonconvex due to the \ac{DC} constraint \eqref{con-dc}. We adopt \ac{SCA} presented in \cite{lipp2014variations,lanckriet2009convergence,scutari_1} by relaxing the nonconvex set by a sequence of convex subsets. Since it involves two nested iterations, we denote the \ac{AO} iteration index by a superscript \me{(i)} and the \ac{DC} constraint relaxations by a subscript \me{k}. Let \me{\iter{\mx}{\ast}{i}} be the value of \me{\mx} when the \ac{SCA} iteration converges in the \me{\ith{i}} \ac{AO} iteration and let \me{\iter{\mz}{\ast|\my}{i}} be the solution for \me{\mz} obtained in the \me{\ith{i}} \ac{AO} iteration for a fixed \me{\my}. 
 
-To begin with, let us consider the variable \me{\my} is fixed for the \ac{AO} \me{i} with the optimal value achieved from the previous iteration \me{i-1} as \me{\iter{\my}{\ast}{i-1}}. In order to solve for \me{\mx} in the \ac{SCA} iteration \me{k}, we linearize the nonconvex function \me{g_0} using previous \ac{SCA} iterate \me{\iter{\mx}{k}{i}} of \me{\mx} as
+To begin with, let us consider the variable \me{\my} is fixed for the \me{\ith{i}} \ac{AO} with the optimal value achieved from the previous iteration \me{i-1} as \me{\iter{\my}{\ast}{i-1}}. In order to solve for \me{\mx} in the \ac{SCA} iteration \me{k}, we linearize the nonconvex function \me{g_0} using previous \ac{SCA} iterate \me{\iter{\mx}{k}{i}} of \me{\mx} as
 \iftoggle{single_column}{
 \begin{equation}\label{con-relax}
 \hat{g}_o(\mx,\iter{\my}{\ast}{i-1};\iter{\mx}{k}{i}) = {g}_0(\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1}) + \nabla g_0(\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1})^{\mathrm{T}} (\mx - \iter{\mx}{k}{i}).
@@ -40,7 +40,7 @@ To begin with, let us consider the variable \me{\my} is fixed for the \ac{AO} \m
 \begin{multline} \label{con-relax}
 \hat{g}_o(\mx,\iter{\my}{\ast}{i-1};\iter{\mx}{k}{i}) = {g}_0(\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1}) \\ + \nabla g_0(\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1})^{\mathrm{T}} (\mx - \iter{\mx}{k}{i}).
 \end{multline}}
-Let \me{\iter{\mc{X}}{k}{i}} be the feasible set for the \eqn{\ith{i}} \ac{AO} iteration and the \me{\ith{k}} \ac{SCA} point for a fixed \me{\iter{\my}{\ast}{i-1}} and \me{\iter{\mx}{k}{i}}. Similarly, \me{\iter{\mc{Y}}{k}{i}} denotes the feasible set for a fixed \me{\iter{\mx}{\ast}{i}} and \me{\iter{\my}{k}{i}}. Using \eqref{con-relax}, the convex subproblem for \me{\ith{i}} \ac{AO} iteration and \me{\ith{k}} \ac{SCA} point for the variable \me{\mx} and \me{\mz} is given by
+Let \me{\iter{\mc{X}}{k}{i}} be the feasible set for the \eqn{\ith{i}} \ac{AO} iteration and the \me{\ith{k}} \ac{SCA} point for a fixed \me{\iter{\my}{\ast}{i-1}} and \me{\iter{\mx}{k}{i}}. Similarly, \me{\iter{\mc{Y}}{k}{i}} denotes the feasible set for a fixed \me{\iter{\mx}{\ast}{i}} and \me{\iter{\my}{k}{i}}. Using \eqref{con-relax}, the convex subproblem for the \me{\ith{i}} \ac{AO} iteration and the \me{\ith{k}} \ac{SCA} point for the variable \me{\mx} and \me{\mz} is given by
 \begin{subeqnarray} \label{con-m}
 	\underset{\mx,\mz}{\text{minimize}} && f(\mx,\iter{\my}{\ast}{i-1},\mz) \eqsub \slabel{con-obj-m} \\
 	\text{subject to} && h(\mz) - \hat{g}_0(\mx,\iter{\my}{\ast}{i-1};\iter{\mx}{k}{i}) \leq 0 \eqsub \slabel{con-dc-m} \\
@@ -87,7 +87,7 @@ The uniqueness of the iterates \eqn{\{\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1},\it
 
 In general, to ensure the uniqueness of the transmit precoders and the receive beamformers in all iterations, \textit{i.e}, even when the objective value is zero, the convex subproblems in \eqref{eqn-9} and \eqref{eqn-mse-2} can be regularized with a strongly convex function. The objective function for the \me{\ith{i+1}} iteration can be regularized as
 \begin{equation}
-\| \tilde{\mbf{v}} \|_q + c \, \| \mbf{x} - \mbf{x}^{(i)} \|^2
+\| \tilde{\mbf{v}} \|_q + c \, \| \mbf{x} - \mbf{x}^{(i)} \|^2_2
 \end{equation}
 where \me{\mbf{x}} is the vector containing all the optimization variables and \me{c} is a positive constant to make the objective strongly convex. The uniqueness of the minimizer is guaranteed by the strongly convex objective function \cite{scutari_1}. The vector \me{\mbf{x}^{(i)}} is the value of \me{\mbf{x}} obtained from the \me{\ith{i}} iteration.
 
