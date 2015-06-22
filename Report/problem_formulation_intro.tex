@@ -10,7 +10,7 @@ Explicitly, the objective of the problem considered is given as \me{\sum_{k \in 
 \underset{\substack{\mvec{m}{l,k,n},\mvec{w}{l,k,n}}}{\text{minimize}} &\quad& \|  \tilde{\mbf{v}}  \|_q\IEEEyessubnumber \label{eqn-3-1.a} \\
 \text{subject to} & \quad&\sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}} \fall b \IEEEyessubnumber \eqspace \label{eqn-4.3}
 \end{IEEEeqnarray}
-where \me{\tilde{v}_k \triangleq a_k^{1/{q}}v_k} is the element of vector \me{\tilde{\mbf{v}}}, and \me{a_k} is the weighting factor, which is used to alter the user priority based on the \ac{QoS} constraints \review{such as packet delay requirements and packet waiting time, since they are proportional to the corresponding number of backlogged packets.} The \ac{BS} specific power constraint for all sub-channels is considered in \eqref{eqn-4.3}.
+where \me{\tilde{v}_k \triangleq a_k^{1/{q}}v_k} is the element of vector \me{\tilde{\mbf{v}}}, and \me{a_k} is the weighting factor, which is used to alter the user priority based on the \ac{QoS} constraints such as packet delay requirements and packet waiting time, since they are proportional to the corresponding number of backlogged packets. The \ac{BS} specific power constraint for all sub-channels is considered in \eqref{eqn-4.3}.
 
 For practical reasons, we impose a constraint on the maximum number of transmitted bits for the user \me{k}, since it is limited by the total number of backlogged packets available at the transmitter. As a result, the number of backlogged packets \me{v_k} for user \me{k} remaining in the system is given by
 \begin{equation} \label{rate_constraint_a}

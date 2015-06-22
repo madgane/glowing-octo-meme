@@ -1,0 +1,104 @@
+In this paper, the authors proposed a traffic aware resource allocation scheme for multi-cell MIMO-OFDM systems, where the precoders at all BSs are chosen to minimize the total user queue deviations. The problem is nonconvex and the authors proposed two centralized algorithms based on the successive approximation (SCA) technique to find a stationary point. Moreover, several distributed algorithms are also proposed using primal decomposition, alternating directions method of multipliers (ADMM), and decomposition via KKT conditions, respectively.
+
+Most sections of this paper are well written. The results and algorithms also seem valid. However, the motivation of minimizing the total user queue deviations is not well justified. The convergence results of some algorithms are not clearly presented. The presentation of the distributed solutions needs significant improvement. Analysis and comparison of the signaling overhead and computational complexity between the centralized and distributed algorithms are also necessary to justify the advantages of distributed algorithms.
+
+\vspace{0.1in}
+\review{We thank the reviewer for providing valuable and insightful comments.}
+
+\begin{enumerate}
+\cmnt{1} In Section II.B, please provides more justifications for the problem formulation in (6). For example, the Queue weighted sum rate maximization (Q-WSRM) is throughput optimal, i.e., if there exists a scheme which can make all queues stable, then the Q-WSRM can also do this. How about the proposed formulation in (6)? Is it also throughput optimal?
+
+\resp \review{We thank the reviewer for the comment. 
+	\begin{enumerate}
+		\item The reformulation for the problem defined in (6) is required, since the SINR expression in (2) cannot be handled directly in the problem. Note that the equality constraint imposed by the SINR expression in (2) is handled by two explicit inequality constraints (16b) and (16c), leading to an approximation for the original problem in (6). We have provided justifications for the problem formulation in (6) and (16) in the paragraph before (16).
+		\item The Q-WSRM scheme and the proposed schemes are all throughput optimal. It can be seen that the proposed extension Q-WSRME and the JSFRA formulations aim at minimizing the number of backlogged packets in addition to avoiding the over allocation of available resources. The JSFRA formulation using \me{\ell_1} norm as the objective minimizes the number of backlogged packets in a greedy manner at each time instant. By increasing the exponent \me{q \rightarrow \infty}, we obtain fair allocation at every transmission instant. We have included the discussions on the average of number of backlogged packets after each transmission instant for different arrival rates in Section V-C. 
+		\item The equivalence between the Q-WSRM scheme and the \me{\ell_2} norm objective in the JSFRA formulation can be seen when the queue size increases. We have clarified this point in the revised manuscript. Please refer to the first paragraph in Section III-B.
+	\end{enumerate}
+		}
+
+\cmnt{2} Do the proposed solutions based on (6) achieve better average delay performance than the existing solutions? By the way, in the simulations, you should also add a figure comparing the average delay performance, instead of just comparing the performance metric defined by (6). This will better justify the advantage of the proposed solutions.
+
+\resp \review{	\begin{enumerate}
+		\item In the previous manuscript, we primarily focused on evaluating the performance of all schemes by comparing the total number of backlogged packets retained in the system after each transmission instant. Since the delay is proportional to the average number of backlogged packets in the system, this implies that the delay performance was indirectly evaluated in the previous manuscript. In addition, the average delay of a particular user can be reduced by controlling the priority factor \me{a_k} in (6a), which alters the resources allocated to a particular user. We have included this statement in the manuscript in Section II-B after (6). We can also control the delay by changing the exponent used in the objective \me{\ell_q} of the JSFRA problem as discussed in bullet points before Section III.
+		\item We considered the residual number of backlogged packets as a performance measure, since we assume only the instantaneous channel state informations and together with the number of backlogged packets, resources can be allocated only for a given instant.
+		\item We agree with the reviewer that the delay should be compared directly to justify the advantages of the proposed schemes. In this regard, we have included a new figure to clarify this point. Please refer to Fig. 4 and the associated text in Section V-C. As can be seen, the proposed methods outperforms the existing schemes.
+	\end{enumerate}
+	}
+
+\cmnt{3} In Section III.B, the convergence conditions under Algorithm 1 are not clear. First, you should be more specific about what is the SCA subproblem. Do you mean problem (19)? Second, does the uniqueness of the transmit and receive beamformers mean that the solution of the original problem in (16) is unique, or the solutions of the subproblems in (19) and (20) are unique, respectively?
+
+\resp \review {	\begin{enumerate}
+	\item We thank the reviewer for the comment. The convergence analysis has been clearly rewritten in Appendix A on the supplementary document. The discussions are provided for the convergence of the iterative Algorithm 1, \textit{i.e}, the  problem defined in (16). 
+	\item The uniqueness of the convex subproblem (20) can be guaranteed by the linear constraint (19), if the initial feasible operating point is matched, \textit{i.e}, \me{q_{l,k,n} = \Im \{ \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n}\} = 0} while starting the iterative solution. On the other hand, the constraint in (16b) is not unique, since the precoder is inside the absolute value operator. Once the algorithm finds a unique set of transmit precoders, all unitary rotations are also valid for the original problem in (16). The uniqueness of the transmit and the receive beamformers are discussed in detail in Appendix A-C on the supplementary document.
+	\item The solution for the problem (16) is not unique, since all unitary transformations on the precoders identified by the iterative algorithm (20) are indeed the solutions for (16). 
+	\item The uniqueness of the transmit precoders can be guaranteed by adding a strongly convex function in the objective as discussed in Appendix A-C on the supplementary document.
+	\end{enumerate}
+}
+
+\cmnt{4} It is better to clearly summarize the convergence conditions and results (i.e., does it converge to a stationary point or the optimal solution) for all algorithms in a theorem/proposition.
+
+\resp \review{The discussions on the convergence of the centralized algorithms are provided in Appendix A and on the distributed algorithms in Appendix B. The discussion on the convergence to a stationary point is presented in Appendix A-E on the supplementary document.}
+
+\cmnt{5} At the end of Section III, you mentioned that the proposed reduced complexity resource allocation scheme is sensitive to the order in which the subchannels are selected for the optimization problem. Please provide a discussion how to choose this order.
+
+\resp \review{Since the sub-channel wise resource allocation considers each sub-channel at a given time for designing the precoders, the performance of this scheme depend on the selection order of the sub-channels. For instance, to design the precoders for the sub-channel \me{j+1}, we assume the transmit precoders and the rates of all users are all evaluated up until previous sub-channels \me{\{1,2,\dotsc,j\}}, considering the normal ordering for selection. At this point, we have to estimate the number of backlogged packets left over in the system, if the sub-channels \me{\{1,2,\dotsc,j\}} are transmitted with the precoders designed so far. Now, the number of backlogged packets for the \me{\ith{j+1}} sub-channel is given by 
+\begin{equation} \label{eqn-1-review}
+\max \Big( Q_k - \sum_{i=1}^j \sum_{l=1}^L t_{l,k,i},0 \Big).
+\end{equation}
+Since \eqref{eqn-1-review} depends on the rates of the already evaluated sub-channels \me{\{1,2,\dotsc,j\}}, the overall achievable throughput is susceptible to the ordering used to determine the precoders in each sub-channels. It has been discussed in detail in Section III-D. Note that the performance will be closer to the JSFRA centralized scheme, if we select the best sub-channel ordering through an exhaustive search. In this case, the performance loss is mainly due to the maximum power constraint imposed on each sub-channel.}
+
+\cmnt{6} In the distributed algorithms, it is not clear what exact information is exchanged between the BSs or between the BSs and users. Moreover, the signaling overhead should be analyzed and compared with the centralized solution. The proposed distributed algorithms require exchanging over-the-air signaling or backhaul signaling for many times within each channel coherent time (e.g., from Fig. 2, the distributed algorithm requires 20-30 iterations to converge even when there are only 3 subchannels). I don’t think this is acceptable in practice. Is the signaling overhead of the distributed algorithm really smaller than the centralized algorithm which only requires exchange the CSI between the BSs for once within each channel coherent time?
+
+\resp \review{
+	\begin{enumerate}
+		\item The distributed algorithms are derived for the convex subproblem, which leads to the same stationary point asymptotically as that of the centralized solution, but indeed we would require a large number of iterations for the convergence. In reality, we have to limit the number of iterations required for each distributed algorithm, thereby leading to a point which may not be the same as when the algorithm is allowed to converge. The number of ADMM or primal updates can be controlled by \me{J_{\max}} in the Algorithm 2.
+		\item Note that the size of the channel state information depends on the number of transmit antennas. Thus exchanging channels is not efficient when the number of transmit antennas is large. On the other hand, the amount of exchanging interference vector only depends on the number of base stations. In practice, we can limit the primal or ADMM update for a few iterations, then the distributed algorithms are still be efficient.
+		\item To address this concern, we propose a practical scheme in Section IV-D. Note that in the time-correlated case, it is often enough to update the precoders once per radio frame. The decentralized schemes are not necessary to converge until the end, it is only important to follow the fading process when \me{J_{\max} = 1}. The performance of the distributed algorithm based on dual decomposition scheme is discussed for the time-correlated fading in Section C of [13], which shows that it is enough for the distributed precoder design to follow the fading process to provide desired performance. The distributed algorithm for the time correlated case is not provided in the current manuscript, since it is not in the scope of the precoder design algorithms considered in this manuscript.
+	\end{enumerate}
+	}
+
+\cmnt{7} The convergence analysis of the distributed algorithms is not clear. For example, what is the exact condition to ensure the convergence of the distributed algorithms. Does the distributed algorithms also converge to a stationary point?
+
+\resp \review{We have updated the manuscript to include the discussions on the convergence of the distributed algorithm in Appendix B. The distributed algorithm attains the same stationary point as that of the centralized algorithm if we let the inner loop in Algorithm 2 to converge, \textit{i.e}, the dual or the coupling variables are updated until convergence.}
+
+\cmnt{8} I’m totally confused with the ADMM approach in Section IV.A. Many notations, such as the local interference vector and consensus interference vector are used without formal definition. What is the difference between the local interference vector and consensus interference vector? What are their relationships with the actual interference vector. It seems that you are using the same notation for all of these interference vectors and I can’t tell when a notation refers to a local interference vector, a consensus interference vector, or the actual interference vector. These questions should be clarified and perhaps you should choose the notation system more carefully. For example, in (36), there are 3 similar notations and I don’t know which one is local interference vector and which one is the actual interference vector.
+
+\resp \review{
+	\begin{enumerate}
+		\item We have defined all the variables mentioned by the reviewer in the revised manuscript on Section VI-B
+		\item Since the coupling between the distributed precoder designs are the interference between the BSs and the users, in the ADMM approach, the interference is treated as a local variable, which is then included in the precoder design problem for each coordinating BS. This is treated as a local variable for a specific BS. Note that the local variable is an assumption made by the BS on the actual interference caused by the neighboring BSs. Since the actual interference caused is different, the consensus has to be made between the local interference variable maintained at each BS with the global consensus interference variable, which is nothing but the average between the corresponding BSs interference. These discussions have been made in the revised manuscript in Section IV-B. For further details we have also referred the interested reader to [11], which discusses exclusively about the ADMM approach.
+		\item We have revised the manuscript to avoid the subscript confusions in the ADMM approach. 
+	\end{enumerate}}
+
+\cmnt{9} In the distributed algorithms, it is not clear what information is available at each node. For example, what are your assumption on CSIT (CSI knowledge at each BS) and CSIR (CSI knowledge at each user)? How to 2 obtain the information used to perform the required calculation at each node (such as calculating the actual interference, MMSE receiver and the dual variables)?
+
+\resp \review{We thank the reveiwer for the valuable comment. For the distributed precoder designs, we assume that each \ac{BS} \me{b} knows the equivalent downlink channel \me{\mvec{w}{l,k,n}^\herm \mbf{H}_{b,k,n}} of all users in the system by using precoded uplink pilots, where the precoders are the MMSE receiver of all the users. Note that it includes the equivalent downlink channels of all the users in the system. To update the MMSE receiver, the equivalent channel for the \me{\ith{k}} user \me{\mbf{H}_{b,k,n} \mvec{m}{l,k^\prime,n}, \forall k^\prime \in \mc{U}_b, \forall b \in \mc{B}} is obtained from the BSs through user specific downlink precoded pilots. We have included the information on what each network entity knows in the paragraph after (36). We have included the type of duplexing scheme adopted in the model, \textit{i.e}, TDD system, in the system description in the last paragraph of Section II.}
+
+\cmnt{10} Do you have any convergence result for the proposed distributed solution based on the KKT conditions in Section IV.B? It seems that the iterative method to solve the KKT conditions is totally heuristic.
+
+\resp \review{
+	\begin{enumerate}
+		\item The heuristic part is that instead of updating the involved variables sequentially, we allow all the variables to be updated at the same time. Due to this idea, the convergence is not always guaranteed as in standard methods, but we have observed significantly improved convergence results in all numerical examples.
+		\item It follows the same points as that of the centralized approach if the algorithm is iterated in the same order, \textit{i.e} the dual variables are allowed to converge before the update of the fixed operating point and the receiver. Here instead we perform the update of the transmit precoders, receive beamformers and the dual variables all at once in each iteration. Thus, we sacrifice the formal convergence for the improved speed of convergence. 
+		\item Since the update of the optimization variables are grouped together, it is difficult to prove the monotonicity of the objective function theoretically to prove the convergence of the algorithm. However, in all the numerical experiments in Section V-B, the proposed KKT conditions based algorithm converges, which can be seen from Fig. 3.
+		\item We have provided the discussions on the convergence of the KKT based approach in the Appendix B on the supplementary document.
+	\end{enumerate}}
+
+\cmnt{11} Since queue is a dynamic system evolving according to (3), it doesn’t make sense to compare the queue deviations at a given time. You should compare average queue deviations in the simulations. Moreover, you should also compare the average delay performance instead of just comparing the performance metric (queue deviations) defined in this paper. Using the queue deviations as the performance metric also needs more justification.
+
+\resp \review{
+	\begin{enumerate}
+		\item We agree with the reviewer comment and is in line with Q.2. Please refer to the response for the comment on delay as the performance metric discusion. 
+		\item In accordance with the reviewer comment, we have included Section V-C to discuss the queue deviation over multiple transmission slots. We have presented Fig. 4a by comparing the average number of backlogged packets for different algorithms with various arrival rates and Fig. 4b for the number of backlogged packets at each instant. Note that the question on delay arises when we are considering the resource allocation over certain duration. Since the paper is about the precoder design to minimize the number of backlogged packets at each instant, it may not be a valid performance metric for our objective. 
+		\item We agree that delay can be controlled by reducing the number of packets on an average, as we can see from Fig. 4, the proposed algorithm performs better in comparison with the existing schemes in minimizing the average number of backlogged packets. Note that we can also prioritize the users by controlling the variable \me{a_k} in (6a) to address the QoS constraints for a particular user. In addition to that, we can also change the objective to \me{\ell_2} and \me{\ell_{\infty}} norm to address the delay and the fairness implicitly. It is included in Section II-B after (6) and in the enumerated listing following (7).
+	\end{enumerate}}
+
+\cmnt{12} What is “SRA” in the simulation figures?
+
+\resp \review{SRA stands for spatial resource allocation (SRA). It is updated in the revised manuscript in Section III-D.}
+
+\cmnt{13} In the discussion for Fig. 1, you mentioned that JSFRA converge to the optimal point, and all algorithms are Pareto-optimal. Since the problem is non-convex, why these algorithm can find optimal solution or Paretooptimal point?
+
+\resp \review{Since the problem is nonconvex, the JSFRA formulation can find a stationary point upon convergence. The converged point of the JSFRA problem is in fact a stationary point of the original nonconvex problem, which is discussed in Appendix A-E provided on the supplementary document. We have removed the statement mentioning the Pareto-optimal solutions in the discussions on Fig. 1 in the revised manuscript.}
+
+\end{enumerate}

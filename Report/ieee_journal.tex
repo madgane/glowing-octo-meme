@@ -1,5 +1,4 @@
-
-\documentclass[10pt,journal,twocolumn,letterpaper]{./../Styles/IEEEtran}
+\documentclass[10pt,journal,final,letterpaper]{./../Styles/IEEEtran}
 
 \usepackage{amsmath,amssymb}
 \usepackage{acronym,etoolbox}
@@ -7,7 +6,7 @@
 \usepackage[ruled]{algorithm2e}
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage[subrefformat=parens,labelformat=parens,labelseparator=period,caption=false,font=footnotesize]{subfig}
-\usepackage{subeqnarray,multirow,cite,array,setspace,fixltx2e,lineno,verbatim,mathtools,url}
+\usepackage{multirow,cite,array,setspace,fixltx2e,lineno,verbatim,mathtools,url,subeqnarray}
 
 \graphicspath{{./../Figures/}{./../Figures/Linux/}{./../Figures/Review/}}
 \DeclareGraphicsExtensions{.eps}
@@ -75,11 +74,10 @@ Convex approximations, \ac{MIMO}-\acs{IBC}, \ac{MIMO}-\ac{OFDM}, precoder design
 \input{mse_formulation}
 
 \subsection{Reduced Complexity Spatial Resource Allocation (\acs{SRA})} \label{sec-3.4}
-\review{\input{sub_channel_wsrm}}
+{\input{sub_channel_wsrm}
 
 \section{Distributed Solutions} \label{sec-4}
-
-\review{\input{decomposition_solutions}}
+\input{decomposition_solutions}
 
 %\subsection{Decomposition based Approaches} \label{sec-4a}
 
@@ -104,16 +102,11 @@ Convex approximations, \ac{MIMO}-\acs{IBC}, \ac{MIMO}-\ac{OFDM}, precoder design
 \input{simulation_distributed}
 
 \subsection{Queuing Analysis over Multiple Transmission Slots} \label{time-correlated}
-\review{\input{time_correlated}}
+\input{time_correlated}
 
 %acresetall
 \section{Conclusions} \label{sec-6}
 \input{conclusions}
-
-\bibliographystyle{./../Styles/IEEEtran}
-\bibliography{./../Library/IEEEabrv,./../Library/kirja_survey}
-
-\clearpage
 
 \appendices
 
@@ -132,5 +125,7 @@ Convex approximations, \ac{MIMO}-\acs{IBC}, \ac{MIMO}-\ac{OFDM}, precoder design
 \section{\ac{KKT} conditions for \ac{MSE} approach} \label{a-1}
 \input{kkt_appendix}
 
+\bibliographystyle{./../Styles/IEEEtran}
+\bibliography{./../Library/IEEEabrv,./../Library/kirja_survey}
 
 \end{document}

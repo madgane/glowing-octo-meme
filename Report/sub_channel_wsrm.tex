@@ -1,6 +1,6 @@
-The complexity of the \ac{JSFRA} algorithm scales quickly with the number of sub-channels, since the complexity of the interior point method, which is used to solve the problem, increases quickly with the problem size. Thus, we can use the decomposition methods presented in \cite{palomar2006tutorial,boyd2011distributed} to overcome this complexity by designing precoders for each sub-channels independently with minimal information exchange.
+The complexity of the \ac{JSFRA} algorithm scales quickly with the number of sub-channels, since the complexity of the interior point method, which is used to solve the problem, increases with the problem size. Thus, we can use the decomposition methods presented in \cite{palomar2006tutorial,boyd2011distributed} to overcome this complexity by designing precoders for each sub-channels independently with minimal information exchange.
 
-As an alternative sub-optimal solution, we present \acl{QM} \ac{SRA}, which solves for the precoders using \ac{JSFRA} formulation for a specific sub-channel \me{i} with a fixed transmit power \me{P_{\max,i}}. The sharing of power can be equal or based on a predetermined pattern as in partial frequency reuse for the sub-channels as given by
+As an alternative sub-optimal solution, we present a \acl{QM} \ac{SRA}, which solves for the precoders using \ac{JSFRA} formulation for a specific sub-channel \me{i} with a fixed transmit power \me{P_{\max,i}}. The sharing of power can be equal or based on a predetermined pattern as in partial frequency reuse for the sub-channels as given by
 \begin{equation}
 \sum_{i=1}^N P_{\max,i} = P_{\max}.
 \end{equation}
@@ -8,7 +8,8 @@ Even though \me{N} sub-channels are present at any given scheduling instant, pre
 \begin{equation}	\label{eqn-weight}
 	Q_{k,i+1} = \max \Big ( Q_k - \sum_{j = 1}^{i} \, \sum_{l = 1}^{L} \, t_{l,k,j} ,0 \Big ) \; \forall \; k \in \mathcal{U}
 \end{equation}
-where \me{t_{l,k,j}} denotes the rate corresponding to the user \me{k} on the \me{\ith{j}} sub-channel and \me{\ith{l}} spatial stream. Note that the proposed scheme is sensitive to the order of the sub-channel selection due to the sequential precoder design for each sub-channel. However, the \ac{SRA} approach provides faster convergence in contrast to the \ac{JSFRA} formulation due to the substantial reduction in the optimization variables for each sub-channel problem. As the number of users in the system increases, the \ac{SRA} formulation will be insensitive to the sub-channel ordering due to the multi-user diversity.
+where \me{t_{l,k,j}} denotes the rate corresponding to the user \me{k} on the \me{\ith{j}} sub-channel and \me{\ith{l}} spatial stream. \review{Inspite of the improved covergence speed over the \ac{JSFRA} approach, the \ac{SRA} scheme is sensitive to the order in which the sub-channels are selected. Heuristically, we can adopt \ac{MU}-\ac{MIMO} scheduling scheme in \cite{sus2006zfbf} to find an efficient subset of users and the corresponding sum rate using zero-forcing precoders in each sub-channel, which can be used to determine the selection order. Since the scheduling is based on the infinite buffer model, it is used only in the sub-channel ordering. However, as the number of users in the system increases, the \ac{SRA} scheme will be insensitive to the sub-channel ordering due to the multi-user diversity.}
+
 %The algorithmic representation of the \ac{SRA} scheme is shown in Algorithm \ref{algo-5}
 %\begin{algorithm}
 % \SetAlgoLined

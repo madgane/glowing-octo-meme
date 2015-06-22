@@ -1,0 +1,20 @@
+The authors have addressed many of my previous comments. However, there are still several major issues that need further clarification.
+
+\vspace{0.1in}
+\review{We would like to thank the reviewer for providing valuable comments.}
+
+\begin{enumerate}
+\cmnt{1} The revised paper did not address my previous comment about how to select the sub-channel ordering. I understand that finding the best sub-channel ordering requires exhaustive search which has extremely high complexity. But it is important to provide a guidance on what would be a good choice of sub-channel ordering. For example, can we achieve a good performance by using a low complexity ordering algorithm such as a greedy sub-channel ordering algorithm?
+
+\resp \review{}
+
+\cmnt{2} The authors mentioned that the signaling overhead of the distributed algorithm can be reduced by using a smaller number of iterations \eqn{J_{\max}}. But still, you didn't answer my question about whether the signaling overhead of the distributed algorithm is smaller than the centralized algorithm. You should first analyze the signaling overhead of the distributed algorithm for fixed \eqn{J_{\max}} and the signaling overhead of the centralized algorithm. Then you should point out under what \eqn{J_{\max}} the distributed algorithm will have less signaling overhead than the centralized algorithm. Is it possible that the distributed algorithm always has more signaling overhead than the centralized algorithm even when \eqn{J_{\max} = 1}? Finally, there is a tradeoff between performance and signaling overhead (\eqn{J_{\max}}) for the distributed algorithm. For the same signaling overhead (we can control \eqn{J_{\max}} to make the signaling overhead of the distributed algorithm approximately equal to that of the centralized algorithm), does the distributed algorithm achieve better performance than the centralized algorithm?
+
+\resp \review{
+}
+
+\cmnt{3} If the authors can't prove the convergence of the ADMM algorithm (or the decomposition approach via KKT conditions) in Section IV.B, then at least, you should discuss the property of the fixed point of the algorithm. For example, does there exist a fixed point of the algorithm? If so, is the fixed point of the algorithm unique? Is any fixed point of the algorithm also the optimal solution of the original problem in (20)? Assuming that the ADMM algorithm converges to a fixed point, will the interference vector in (39) converges to the actual interference in the network? These questions must be clarified in the paper. Otherwise, it is not clear how the ADMM algorithm is related to the original problem in (20). Similar questions should also be answered for the decomposition approach via KKT conditions. 
+
+\resp \review{}
+
+\end{enumerate}
