@@ -14,13 +14,13 @@ The minimum value of the norm operator in the objective is zero, \textit{i.e}, \
 
 \subsection{Monotonicity of the Objective Sequence} \label{mcity}
 In this section, we show the nonincreasing behavior of the objective values in each \ac{SCA} and \ac{AO} update. Let us consider a general formulation for the problems in \eqref{eqn-6} and \eqref{eqn-mse-1} as
-\begin{subeqnarray} \label{con}
-	\underset{\mx,\my,\mz}{\text{minimize}} &\quad& f(\mx,\my,\mz) \eqsub \slabel{con-obj} \\
-	\text{subject to} &\quad& h(\mz) - g_0(\mx,\my) \leq 0 \eqsub \slabel{con-dc} \\
-	&\quad& g_1(\mx,\my) \leq 0 \eqsub \slabel{con-cvx-blk} \\
-	&\quad& g_2(\mx) \leq 0 \eqsub \slabel{con-cvx}
-\end{subeqnarray}
-where \me{g_2,f} are convex and \me{h} is a linear function. Let \me{g_0,g_1} be convex in either \me{\mx} or \me{\my} but not on both. The constraint in \eqref{con-dc} corresponds to \eqref{eqn-6.2} or \eqref{eqn-mse-1.2} and the constraint \eqref{con-cvx-blk} correspond to \eqref{eqn-6.3} or \eqref{eqn-mse-1.3}. Other convex constraints are addressed by \eqref{con-cvx} and the feasible set of \eqref{con} is given by 
+\begin{IEEEeqnarray}{RcL} \label{con} \neqsub
+	\underset{\mx,\my,\mz}{\text{minimize}} &\quad& f(\mx,\my,\mz) \eqsub \label{con-obj} \\
+	\text{subject to} &\quad& h(\mz) - g_0(\mx,\my) \leq 0 \eqsub \label{con-dc} \\
+	&\quad& g_1(\mx,\my) \leq 0 \eqsub \label{con-cvx-blk} \\
+	&\quad& g_2(\mx) \leq 0 \eqsub \label{con-cvx}
+\end{IEEEeqnarray}
+where \me{g_2} is convex and \me{h} is a linear function. Let \me{g_0,g_1} be convex in either \me{\mx} or \me{\my} but not on both. \review{Let \eqn{f} be a strongly convex function. Even though the objective function in \eqref{eqn-6.1} is not strongly convex, it can be regularized with an additional quadratic term as discussed in the next section to transform it to a strongly convex function.} The constraint in \eqref{con-dc} corresponds to \eqref{eqn-6.2} or \eqref{eqn-mse-1.2} and the constraint \eqref{con-cvx-blk} correspond to \eqref{eqn-6.3} or \eqref{eqn-mse-1.3}. Other convex constraints are addressed by \eqref{con-cvx} and the feasible set of \eqref{con} is given by 
 \iftoggle{single_column}{
 \begin{equation}
 \mc{F} = \{ \; \mx,\my,\mz \; \big | h(\mz) - g_0(\mx,\my) \leq 0, g_1(\mx,\my) \leq 0, g_2(\mx) \leq 0 \}.
@@ -41,11 +41,11 @@ To begin with, let us consider the variable \me{\my} is fixed for the \me{\ith{i
 \hat{g}_o(\mx,\iter{\my}{\ast}{i-1};\iter{\mx}{k}{i}) = {g}_0(\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1}) \\ + \nabla g_0(\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1})^{\mathrm{T}} (\mx - \iter{\mx}{k}{i}).
 \end{multline}}
 Let \me{\iter{\mc{X}}{k}{i}} be the feasible set for the \eqn{\ith{i}} \ac{AO} iteration and the \me{\ith{k}} \ac{SCA} point for a fixed \me{\iter{\my}{\ast}{i-1}} and \me{\iter{\mx}{k}{i}}. Similarly, \me{\iter{\mc{Y}}{k}{i}} denotes the feasible set for a fixed \me{\iter{\mx}{\ast}{i}} and \me{\iter{\my}{k}{i}}. Using \eqref{con-relax}, the convex subproblem for the \me{\ith{i}} \ac{AO} iteration and the \me{\ith{k}} \ac{SCA} point for the variable \me{\mx} and \me{\mz} is given by
-\begin{subeqnarray} \label{con-m}
-	\underset{\mx,\mz}{\text{minimize}} && f(\mx,\iter{\my}{\ast}{i-1},\mz) \eqsub \slabel{con-obj-m} \\
-	\text{subject to} && h(\mz) - \hat{g}_0(\mx,\iter{\my}{\ast}{i-1};\iter{\mx}{k}{i}) \leq 0 \eqsub \slabel{con-dc-m} \\
-	&& g_1(\mx,\iter{\my}{\ast}{i-1}) \leq 0, \quad g_2(\mx) \leq 0 \eqsub \slabel{con-cvx-blk-m}
-\end{subeqnarray}
+\begin{IEEEeqnarray}{rCl} \label{con-m} \neqsub
+	\underset{\mx,\mz}{\text{minimize}} &\quad& f(\mx,\iter{\my}{\ast}{i-1},\mz) \eqsub \label{con-obj-m} \\
+	\text{subject to} &\quad& h(\mz) - \hat{g}_0(\mx,\iter{\my}{\ast}{i-1};\iter{\mx}{k}{i}) \leq 0 \eqsub \label{con-dc-m} \\
+	&\quad& g_1(\mx,\iter{\my}{\ast}{i-1}) \leq 0, \quad g_2(\mx) \leq 0 \eqsub \label{con-cvx-blk-m}
+\end{IEEEeqnarray}
 The feasible set defined by the problem in \eqref{con-m} is denoted as \me{\iter{\mc{X}}{k}{i} \subset \mc{F}}. To prove the convergence of the \ac{SCA} updates in the \me{\ith{i}} \ac{AO} iteration, let us consider that \eqref{con-m} yields 
 \me{\iter{\mx}{k+1}{i}} and \me{\iter{\mz}{k+1}{i}} as the solution in the \me{\ith{k}} iteration. The point \me{\iter{\mx}{k+1}{i}} and \me{\iter{\mz}{k+1}{i}}, which minimizes the objective function satisfies
 \iftoggle{single_column}{
@@ -53,7 +53,8 @@ The feasible set defined by the problem in \eqref{con-m} is denoted as \me{\iter
 h(\iter{\mz}{k+1}{i}) - {g}_0(\iter{\mx}{k+1}{i},\iter{\my}{\ast}{i-1}) \leq - \hat{g}_0(\iter{\mx}{k+1}{i},\iter{\my}{\ast}{i-1};\iter{\mx}{k}{i}) + h(\iter{\mz}{k+1}{i}) \leq h(\iter{\mz}{k}{i}) - \hat{g}_0(\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1};\iter{\mx}{k}{i}) \leq 0. 
 \end{equation}}{
 \begin{multline}\label{con-sub-set}\allowdisplaybreaks
-h(\iter{\mz}{k+1}{i}) - {g}_0(\iter{\mx}{k+1}{i},\iter{\my}{\ast}{i-1}) \leq - \hat{g}_0(\iter{\mx}{k+1}{i},\iter{\my}{\ast}{i-1};\iter{\mx}{k}{i}) \\ + h(\iter{\mz}{k+1}{i}) \leq h(\iter{\mz}{k}{i}) - \hat{g}_0(\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1};\iter{\mx}{k}{i}) \leq 0. 
+h(\iter{\mz}{k+1}{i}) - {g}_0(\iter{\mx}{k+1}{i},\iter{\my}{\ast}{i-1}) \leq \\
+h(\iter{\mz}{k+1}{i}) - \hat{g}_0(\iter{\mx}{k+1}{i},\iter{\my}{\ast}{i-1};\iter{\mx}{k}{i}) \leq 0. 
 \end{multline}}
 Using \eqref{con-sub-set}, we can show that \me{\{\iter{\mx}{k+1}{i},\iter{\my}{\ast}{i-1}, \iter{\mz}{k+1}{i}\}} is feasible, since the initial \ac{SCA} operating point \me{\iter{\mx}{\ast}{i-1}} was chosen to be feasible from the \me{\ith{i-1}} \ac{AO} iteration. At each \ac{SCA} update, the feasible set includes the solution from the previous iteration as \me{\{\iter{\mx}{k+1}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{k+1}{i}\} \in \iter{\mc{X}}{k+1}{i} \subset \mc{F}}, therefore, it decreases the objective as \cite{lanckriet2009convergence,scutari_1,quoc2011sequential}
 \iftoggle{single_column}{
@@ -63,7 +64,7 @@ f(\iter{\mx}{0}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{0}{i}) \geq f(\iter{\mx}{k}{
 \begin{multline} \label{con-convergence}
 f(\iter{\mx}{0}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{0}{i}) \geq f(\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{k}{i}) \\ \geq f(\iter{\mx}{k+1}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{k+1}{i}) \geq f(\iter{\mx}{\ast}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{\ast|\my}{i}). 
 \end{multline}}
-Thus the sequence \me{f(\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{k}{i})} is nonincreasing and approaches a limit point of the \ac{SCA} as \me{k \rightarrow \infty}. The equality in \eqref{con-convergence} is achieved upon the \ac{SCA} convergence. The feasible point \me{\{\iter{\mx}{\ast}{i}, \iter{\my}{\ast}{i-1},\iter{\mz}{\ast|\my}{i}\}} need not to be a stationary point of \eqref{con}, since it is a minimizer over the set \me{\iter{\mc{X}}{\ast}{i} \subset \mc{F}}.
+Thus the sequence \me{f(\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{k}{i})} is nonincreasing and approaches a limit point of the \ac{SCA} as \me{k \rightarrow \infty}. The equality in \eqref{con-convergence} is achieved upon the \ac{SCA} convergence. The feasible point \me{\{\iter{\mx}{\ast}{i}, \iter{\my}{\ast}{i-1},\iter{\mz}{\ast|\my}{i}\}} need not to be a stationary point of \eqref{con}, since it is a minimizer over the set \me{\iter{\mc{X}}{\ast}{i} \subset \mc{F}}. \review{Since the function \eqn{f} is strongly convex, the minimizer \me{\{\iter{\mx}{\ast}{i}, \iter{\my}{\ast}{i-1},\iter{\mz}{\ast|\my}{i}\}} obtained by the iterative \ac{SCA} algorithm is unique.}
 
 Once the solution is found for a fixed \me{\my}, it is then optimized by fixing \me{\mx} as \me{\iter{\mx}{\ast}{i}}. Even after treating \me{\mx} as a constant, the problem is nonconvex due to the \ac{DC} constraint. Following similar approach as above, we can find a minimizer \me{ \{\iter{\mx}{\ast}{i},\iter{\my}{k+1}{i},\iter{\mz}{k+1}{i}\}} for a similar convex subproblem \eqref{con-m} at each iteration \me{{k}}. Note that \me{\iter{\mz}{k+1}{i}} is reused since the variable \me{\mx} is fixed in the \me{\ith{i}} \ac{AO} iteration. The convergence and the nonincreasing behavior of the objective follows similar arguments as above.\footnote{Note that we can also use the \ac{MMSE} receiver in \eqref{eqn-10} instead of performing the \ac{SCA} updates until convergence for the optimal receiver.} The limit point of the converged \ac{SCA} subproblems with \me{\my} as a variable is given by \me{\{\iter{\mx}{\ast}{i}, \iter{\my}{\ast}{i},\iter{\mz}{\ast|\mx}{i}\}}, which is a minimizer in the set \me{\iter{\mc{Y}}{\ast}{i} \subset \mc{F}}.
 
@@ -80,16 +81,17 @@ Let \me{\iter{\mx}{\ast}{i}} and \me{\iter{\mz}{\ast|\my}{i}} be the solution ob
 \begin{equation} \label{fixed_point}
 f(\iter{\mx}{\ast}{i},\iter{\my}{0}{i},\iter{\mz}{0}{i}) \leq f(\iter{\mx}{\ast}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{\ast|\mx}{i}).
 \end{equation}
-The \ac{AO} update follows \eqn{\{\iter{\mx}{\ast}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{\ast|\my}{i}\} \in \{ \iter{\mc{X}}{\ast}{i} \cap \iter{\mc{Y}}{0}{i} \}}. Using (a),(b) and (c), we can guarantee the convergence of the objective value sequence generated by the iterative algorithm.
+The \ac{AO} update follows \eqn{\{\iter{\mx}{\ast}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{\ast|\my}{i}\} \in \{ \iter{\mc{X}}{\ast}{i} \cap \iter{\mc{Y}}{0}{i} \}}. 
 
-\subsection{Uniqueness of the Beamformer Iterates}
+\subsection{Uniqueness of the Iterates and Strong Convexity}
 The uniqueness of the iterates \eqn{\{\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{k|\my}{i}\}} are guaranteed for the \ac{MSE} reformulated problem in \eqref{eqn-mse-2} when all the constraints are active. However when \eqn{f(\iter{\mx}{k}{i},\iter{\my}{\ast}{i-1},\iter{\mz}{k|\my}{i}) = 0} after some iteration, say \me{k} and \me{i}, the uniqueness of the iterates are not guaranteed since there are many solutions satisfying the constraints without affecting the objective value. Similarly, when the objective is non-zero, problem defined in \eqref{eqn-9} has a unique minimizer if the receivers are matched to the corresponding transmit beamformers, \textit{i.e}, \me{q_{l,k,n} = 0} in \eqref{eqn-wsrm-expr},  while choosing a feasible operating point \me{\iter{\mx}{0}{0}} and \me{\iter{\my}{0}{0}} to initialize the iterative procedure.
 
-In general, to ensure the uniqueness of the transmit precoders and the receive beamformers in all iterations, \textit{i.e}, even when the objective value is zero, the convex subproblems in \eqref{eqn-9} and \eqref{eqn-mse-2} can be regularized with a strongly convex function. The objective function for the \me{\ith{i+1}} iteration can be regularized as
-\begin{equation}
-\| \tilde{\mbf{v}} \|_q + c \, \| \mbf{x} - \mbf{x}^{(i)} \|^2_2
+To ensure the uniqueness of the transmit precoders and the receive beamformers on all iterations, \textit{i.e}, even when the objective value is zero, the convex subproblems in \eqref{eqn-9} and \eqref{eqn-mse-2} can be regularized with a strongly convex function. Now, the objective function for the iteration \me{\{k+1,i\}} is given as
+\begin{equation} \label{mod_obj}
+\| \tilde{\mbf{v}} \|_q + c \, \| \mbf{z} - \mbf{z}^{(i)}_{k} \|^2_2
 \end{equation}
-where \me{\mbf{x}} is the vector containing all the optimization variables and \me{c} is a positive constant to make the objective strongly convex. The uniqueness of the minimizer is guaranteed by the strongly convex objective function \cite{scutari_1}. The vector \me{\mbf{x}^{(i)}} is the value of \me{\mbf{x}} obtained from the \me{\ith{i}} iteration.
+where the vector \eqn{\mbf{z}} is either \eqn{[\mx,\iter{\my}{\ast}{i-1},\mz]} or \eqn{[\iter{\mx}{\ast}{i},\my,\mz]} depending on the optimization variables and \me{c} is a positive constant to make the objective strongly convex. The uniqueness of the minimizer is guaranteed by the strongly convex objective function \cite{scutari_1}. The vector \me{\mbf{z}^{(i)}_{k}} is the value of \me{\mbf{z}} obtained from the earlier iteration \me{\{k,i\}}. \review{Note that the modified objective in \eqref{mod_obj} is strongly convex, and therefore has an unique minimizer, which is obtained by the \ac{SCA} algorithm.}
+
 
 %The uniqueness of the transmit precoders and the receive beamformers for the \ac{MSE} reformulation in \eqref{eqn-mse-2} can be guaranteed in each iteration by the \ac{MSE} constraint in \eqref{eqn-mse-1.3}. The uniqueness of the iterates for the problem in \eqref{eqn-9} can be guaranteed in each convex subproblem if the receivers are matched to the equivalent downlink channel with the initially chosen feasible transmit precoders, \textit{i.e}, \me{q_{l,k,n} = 0 \: \forall \, l,k,n} in \eqref{eqn-wsrm-expr} while beginning the \ac{SCA} iteration.
 %
@@ -98,21 +100,27 @@ where \me{\mbf{x}} is the vector containing all the optimization variables and \
 %\| \tilde{\mbf{v}} \|_q + c \, \| \mbf{x} - \mbf{x}^{(i)} \|^2
 %\end{equation}
 %where \me{\mbf{x}} is the vector containing all the optimization variables and \me{c} is a positive constant. The vector \me{ \mbf{x}^{(i)}} is the value of \me{\mbf{x}} in the \me{\ith{i}} iteration. %Note that the uniqueness of the transmit precoders and the receive beamformers for each convex subproblem can be shown by using the constraint \eqref{eqn-8} for the problem \eqref{eqn-9} and \eqref{eqn-mse-1.3} for the \ac{MSE} reformulation in \eqref{eqn-mse-2}. The receive beamformers \me{\mvec{w}{l,k,n}} in \eqref{eqn-10} are also unique for the given set of transmit precoders, since the convex subproblems in \eqref{eqn-9} and \eqref{eqn-mse-2} are susceptible to the transmit precoder phase rotations, \textit{i.e}, unitary transformations. When the objective function is zero, the uniqueness of the transmit precoders are not guaranteed by using \eqref{eqn-8} and \eqref{eqn-mse-1.3} constraints, since they are not active at the optimal solution of the subproblems. To obtain unique set of transmit precoders when the objective is zero even for a single \ac{BS}, we can regularize the objective with the transmit power as discussed in Appendix \ref{a-3} without affecting the optimal value.
+\subsection{Strict Monotonicity of the Objective Sequence} \label{c-e}
+\review{So far we have discussed the uniqueness of the iterates at each \ac{SCA} update points and the monotonicity requirement for the \ac{SCA} convergence. In this, we discuss the strict monotonicity requirement of the objective function, which is required for the global convergence proof as in \cite{zangwill1969nonlinear,meyer1976sufficient}. In order to prove that, let \me{\ma \triangleq [\iter{\mx}{\ast}{i},\iter{\my}{\ast}{i},\iter{\mz}{\ast|\mx}{i}]} be the stacked vector of the solution point in the \eqn{\ith{i}} \ac{AO} iteration and let \me{\mc{A}} be the point-to-set mapping algorithm defined as
+\begin{equation} \label{g-algo}
+\iterate{\ma}{i+1} \in \mc{A}(\iterate{\ma}{i}) =
+\begin{cases}
+\underset{\mx,\mz}{\mathrm{argmin}} \; f(\mx,\mz;\iter{\my}{\ast}{i-1})& \forall \mx,\mz \in \iter{\mc{X}}{\ast}{i} \\
+\underset{\my,\mz}{\mathrm{argmin}} \; f(\my,\mz;\iter{\mx}{\ast}{i})& \forall \my,\mz \in \iter{\mc{Y}}{\ast}{i} 
+\end{cases}
+\end{equation}
+Note that each iteration \me{i} of the algorithm \eqn{\mc{A}} in \eqref{g-algo} includes two \ac{SCA} updates performed until convergence, \textit{i.e}, one for the variable \me{\mx} by keeping \me{\my} fixed and another for \me{\my} by fixing \me{\mx} as constant. At each \ac{SCA} convergence points, the objective holds with equality, and therefore it is not strictly monotonic. However, since the algorithm is defined to include two \ac{SCA} updates until convergence, the objective decreases monotonically at every update points \me{i}. Using the strong convexity of the objective function, it can be ensured that the decrement is strictly monotonic and it also has a unique minimizer. Using (a),(b) and (c), we can guarantee the convergence of the objective value sequence generated by the iterative algorithm.}
 
 \subsection{Convergence of the Beamformer Iterates} \label{c-b}
-So far, we have considered the convergence of the objective sequence. In this section, we discuss the convergence of the beamformer iterates generated by the iterative algorithm for \eqref{con} using \cite{zangwill1969nonlinear,meyer1976sufficient}. Let \me{\ma \triangleq [\iter{\mx}{\ast}{i},\iter{\my}{\ast}{i},\iter{\mz}{\ast|\mx}{i}]} be the stacked vector of the solution point in the \eqn{\ith{i}} \ac{AO} iteration and let \me{\mc{A}} be the point-to-set mapping algorithm defined as
-\begin{equation} \label{algorithm_fixed}
-\iterate{\ma}{i+1} \in \mc{A}(\iterate{\ma}{i}) : \underset{\ma}{\mathrm{argmin}} \; f(\ma;\iterate{\ma}{i}) \; \forall \ma \in \iter{\mc{Y}}{\ast}{i} \subset \mc{F}.
-\end{equation}
-Since the algorithm finds a unique solution in each iteration,\footnote{Index \me{i} denotes the \ac{AO} iteration to update the vector \me{\ma}, which involves two \ac{SCA} iterations performed until convergence, \textit{i.e}, one for the variable \me{\mx} by keeping \me{\my} fixed and another for the variable \me{\my} by fixing \me{\mx} as constant.} the mapping denoted by \me{\iterate{\ma}{i+1} = \mc{A}(\iterate{\ma}{i})}. Let \me{\mc{F}^\ast \subset \mc{F}} be the set of fixed points, \textit{i.e}, \me{\forall {\ma}^{\ast} \in \mc{F}^\ast, \, {\ma}^{\ast} = \mc{A}({\ma}^{\ast})}, identified by the algorithm \me{\mc{A}} for different initialization points.
+Since the algorithm \eqn{\mc{A}} finds an unique minimizer after two inner \ac{SCA} convergence, the algorithm mapping can be defined as \me{\iterate{\ma}{i+1} = \mc{A}(\iterate{\ma}{i})}. In order to prove the convergence of the beamformer iterates, we define \me{\mc{F}^\ast \subset \mc{F}} as the set of fixed points, \textit{i.e}, \me{\forall {\ma}^{\ast} \in \mc{F}^\ast, \, {\ma}^{\ast} = \mc{A}({\ma}^{\ast})}, identified by the algorithm \me{\mc{A}} for different initialization points. 
 
-Using \cite[Th. 3.1]{meyer1976sufficient}, convergence of the iterates to a fixed point can be shown, if the following conditions are satisfied.
+Now by using \cite[Th. 3.1]{meyer1976sufficient}, convergence of the iterates to a fixed point can be shown, if the following conditions are satisfied.
 \begin{itemize}
 \item Objective function \me{f} should be bounded and continuous.
 \item The feasible set \me{\iter{\mc{Y}}{\ast}{i}} in each iteration should be compact.
 \item The sequence \me{\{\iterate{\ma}{i}\}} generated by the algorithm \me{\mc{A}} should be strictly monotonic with respect to the objective function \me{f}, \textit{i.e}, \me{\ma^\prime = \mc{A}(\ma)} implies \me{f(\ma^\prime) < f(\ma)} whenever \me{\ma} is not a fixed point.
 \end{itemize}
-Note that the above conditions are satisfied by the proposed algorithm \me{\mc{A}} in \eqref{algorithm_fixed} and the strict monotonicity can also be verified from \eqref{fixed_point}. Using \cite{zangwill1969nonlinear} and \cite[Th. 3.1]{meyer1976sufficient}, we can show that (i) all limit points will be a fixed point, (ii) \eqn{f(\iterate{\ma}{i}) \rightarrow f(\ma^\ast)}, where \eqn{\ma^\ast} is a fixed point, and (iii) \eqn{\ma^\ast} is a regular point, \textit{i.e}, \eqn{\|\iterate{\ma}{i} - \mc{A}(\iterate{\ma}{i}) \| \rightarrow 0}. Even though the fixed points in the set \me{\mc{F}^\ast} can be achieved by the algorithm \me{\mc{A}} for different initial points, the algorithm \me{\mc{A}} achieves a unique limit point, \textit{i.e}, \me{\mc{F}^\ast = \{\ma^\ast\}}, once a feasible point is chosen to be the operating point while initializing \me{\mc{A}}.
+\review{Note that the above conditions are satisfied by the proposed algorithm \me{\mc{A}} in \eqref{g-algo} and the strict monotonicity is guaranteed from Section \ref{c-e} with modified objective in \eqref{mod_obj}}. Using \cite{zangwill1969nonlinear} and \cite[Th. 3.1]{meyer1976sufficient}, we can show that (i) all limit points will be a fixed point, (ii) \eqn{f(\iterate{\ma}{i}) \rightarrow f(\ma^\ast)}, where \eqn{\ma^\ast} is a fixed point, and (iii) \eqn{\ma^\ast} is a regular point, \textit{i.e}, \eqn{\|\iterate{\ma}{i} - \mc{A}(\iterate{\ma}{i}) \| \rightarrow 0}. Even though the fixed points in the set \me{\mc{F}^\ast} can be achieved by the algorithm \me{\mc{A}} for different initial points, the algorithm \me{\mc{A}} achieves a unique limit point, \textit{i.e}, \me{\mc{F}^\ast = \{\ma^\ast\}}, once a feasible point is chosen to be the operating point while initializing \me{\mc{A}}.
 
 \begin{comment}
 and \me{\mc{A}} be a point-to-set mapping algorithm from \me{\mc{F}} into the nonempty subsets of \me{\mc{F}}, \textit{i.e}, \eqn{\iterate{\ma}{i+1} \in \mc{A}(\iterate{\ma}{i})}. The set of accumulation or the limit points in the compact set \me{\mc{F}} be denoted by \me{\mc{F}^\ast} and the objective function be \me{f} is closed and continuous. Let \me{\{\iterate{\ma}{i}\}} be the sequence of iterates generated by the algorithm \me{\mc{A}} and the objective function \me{f}. If the mapping is strictly monotonic and uniformly compact, then the following conditions hold \cite{zangwill1969nonlinear} and \cite[Theorem 3.1]{meyer1976sufficient}.

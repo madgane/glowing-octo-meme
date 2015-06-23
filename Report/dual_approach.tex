@@ -1,44 +1,15 @@
 The \ac{ADMM} approach is used to decouple the precoder design across multiple \acp{BS} to solve the convex problem in \eqref{eqn-decent-1}. The \ac{ADMM} is preferred over the \ac{DD} approach in \cite{tolli2011decentralized} for its robustness and improved convergence behavior \cite{boyd2011distributed}. In contrast to the \acl{PD}, the \ac{ADMM} approach relaxes the interference constraints by including in the objective function of each subproblem with a penalty pricing \cite{palomar2006tutorial,boyd2011distributed}. Similar approach for the precoder design in the minimum power context is considered in \cite{admm_robust}.
-\begin{algorithm}
-	\SetAlgoLined
-	\DontPrintSemicolon
-	\BlankLine
-	\SetKwInput{KwInit}{Initialize}
-	\KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}, \fall n \in \mathcal{N}}}
-	\KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l}}
-	\KwInit{\me{i=0} and \me{{\mbf{m}}_{l,k,n}} randomly satisfying \eqref{power_update}}
-	update \me{\mvec{w}{l,k,n}} with \eqref{eqn-10} and \me{\tilde{\mbf{u}}_{l,k,n}} using \eqref{eqn-6.3} and \eqref{eqn-wsrm-expr} \;
-	initialize the interference vectors \me{\mbfa{\zeta}^{(0)}_b = \mbfa{0}^{\mathrm{T}}, \forall b \in\mc{B}} \;
-	initialize the dual vectors \me{\mbfa{\nu}^{(0)}_b = \mbfa{0}^{\mathrm{T}}, \forall b \in \mc{B}} \;
-	\ForEach{\ac{BS} \me{b \in \mc{B}}}{
-		\Repeat{convergence or \me{i \geq I_{\max}}}{
-			initialize \me{j=0} \;
-			\Repeat{convergence or \me{j \geq J_{\max}}}{
-				solve for \me{\mvec{m}{l,k,n}} and \me{\mbfa{\zeta}_{b}} with \eqref{eqn-dual-3} using \me{\mbfa{\zeta}^{(j)}_{b}} \;
-				exchange \me{\mbfa{\zeta}_{b}} among \acp{BS} in \me{\mc{B}} \;
-				update \me{\mbfa{\zeta}^{(j+1)}_b} and \me{\mbfa{\nu}^{(j+1)}_b} using \eqref{if-sg-update} and \eqref{dual-sg-update}\;
-				\me{j = j + 1}\;
-			}
-			precoded downlink pilot transmission with \me{\mvec{m}{l,k,n}}\;
-			update \me{\mvec{w}{l,k,n}} to all \acp{BS} in \me{\mc{B}} using precoded uplink pilots \cite{komulainen2013effective}\;
-			update \me{\tilde{\mbf{u}}_{l,k,n}} using \eqref{eqn-6.3} and \eqref{eqn-wsrm-expr} for \ac{SCA} point or \me{\tilde{\epsilon}_{l,k,n}} using \eqref{eqn-mse-1.3} for \ac{MSE} operating point \;
-			$i = i + 1$ \;
-		}
-	}
-	\caption{Distributed \ac{JSFRA} scheme using \ac{ADMM}}
-	\label{algo-3}
-\end{algorithm}
 
 Using the formulation presented in \cite{boyd2011distributed,admm_robust}, we can write the \ac{BS} \me{b} specific \ac{ADMM} subproblem for the \me{\ith{i}} iteration as
 \iftoggle{single_column}{\allowdisplaybreaks
-\begin{IEEEeqnarray}{rCl} \label{eqn-dual-3}\allowdisplaybreaks
+\begin{IEEEeqnarray}{rCl} \label{eqn-dual-3}\allowdisplaybreaks \neqsub
 \underset{\substack{\gamma_{l,k,n}, \mvec{m}{l,k,n} \\ \beta_{l,k,n}, \mbfa{\zeta}_b}}{\text{minimize}} &\quad& \| \tilde{\mbf{v}}_{b} \|_q + \mbfa{\nu}^{(i)\,\tran}_b  \left ( \mbfa{\zeta}_b - \mbfa{\zeta}^{(i)}_b \right ) +  \frac{\rho}{2} \left \| \mbfa{\zeta}_b - \mbfa{\zeta}^{(i)}_b \right \|^2 \eqsub \eqspace \\
 \text{subject to} &\quad& \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}} \eqsub \label{power_update} \\
 &\quad&\sum_{\bar{b} \in \bar{\mc{B}}_b} \zeta_{l,k,n,\bar{b}} + \sum_{\mathclap{\{\bar{l},\bar{k}\}\neq\{l,k\}}} |\mvec{w}{l,k,n}^\herm \mvec{H}{b,k,n} \mvec{m}{\bar{l},\bar{k},n} |^2 + \enoise \leq \beta_{l,k,n} \eqspace \eqsub \\
 &\quad& \sum_{k \in \mc{U}_b} \sum_{l=1}^L |\mvec{w}{\bar{l},\bar{k},n}^\herm \mvec{H}{b,\bar{k},n} \mvec{m}{l,k,n} |^2 \leq \zeta_{\bar{l},\bar{k},n,b} \; \forall \bar{k} \in \bar{\mc{U}}_b \; \forall n \eqsub \\
 &\quad& \text{and } \eqsub \eqref{eqn-8}
 \end{IEEEeqnarray}
-}{\begin{IEEEeqnarray}{rl} \label{eqn-dual-3}\allowdisplaybreaks
+}{\begin{IEEEeqnarray}{rl} \label{eqn-dual-3}\allowdisplaybreaks \neqsub
 &\underset{\substack{\gamma_{l,k,n}, \mvec{m}{l,k,n} \\ \beta_{l,k,n}, \mbfa{\zeta}_b}}{\text{minimize}} \: \; \| \tilde{\mbf{v}}_{b} \|_q + \mbfa{\nu}^{(i)\,\tran}_b  \left ( \mbfa{\zeta}_b - \mbfa{\zeta}^{(i)}_b \right ) +  \frac{\rho}{2} \left \| \mbfa{\zeta}_b - \mbfa{\zeta}^{(i)}_b \right \|^2 \eqsub \eqspace \\
 &\text{subject to} \quad \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}} \eqsub \label{power_update} \\
 &\sum_{\bar{b} \in \bar{\mc{B}}_b} \zeta_{l,k,n,\bar{b}} + \sum_{\mathclap{\{\bar{l},\bar{k}\}\neq\{l,k\}}} |\mvec{w}{l,k,n}^\herm \mvec{H}{b,k,n} \mvec{m}{\bar{l},\bar{k},n} |^2 + \enoise \leq \beta_{l,k,n} \eqspace \eqsub \\
@@ -61,6 +32,34 @@ The dual vector for the next iteration is updated by using the subgradient searc
 \label{dual-sg-update}
 \end{equation}
 where step size parameter \me{\rho} is chosen in accordance with \cite{boyd2011distributed} to depend on the system model under consideration. The convergence rate of the distributed algorithm is susceptible to the choice of step size parameter \me{\rho}. For our simulation models, we consider step size parameter \me{\rho=2}. The above iteration is performed until convergence or for certain accuracy in the variation of the objective value between two consecutive updates. The distributed precoder design using the \ac{ADMM} approach is shown in Algorithm \ref{algo-3}. The convergence analysis of the distributed algorithms are discussed in Appendix \ref{sec-dist-conv}.
+\begin{algorithm}
+	\SetAlgoLined
+	\DontPrintSemicolon
+	\BlankLine
+	\SetKwInput{KwInit}{Initialize}
+	\KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}, \fall n \in \mathcal{N}}}
+	\KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l}}
+	\KwInit{\me{i=0,j=0} and \me{{\mbf{m}}_{l,k,n}} satisfying \eqref{power_update}}
+	update \me{\mvec{w}{l,k,n}} with \eqref{eqn-10} and \me{\tilde{\mbf{u}}_{l,k,n}} using \eqref{eqn-6.3} and \eqref{eqn-wsrm-expr} \;
+	initialize the interference vectors \me{\mbfa{\zeta}^{(0)}_b = \mbfa{0}^{\mathrm{T}}, \forall b \in\mc{B}} \;
+	initialize the dual vectors \me{\mbfa{\nu}^{(0)}_b = \mbfa{0}^{\mathrm{T}}, \forall b \in \mc{B}} \;
+	\ForEach{\ac{BS} \me{b \in \mc{B}}}{
+		\Repeat{convergence or \me{i \geq I_{\max}}}{
+			\Repeat{convergence or \me{j \geq J_{\max}}}{
+				solve for \me{\mvec{m}{l,k,n}} and \me{\mbfa{\zeta}_{b}} with \eqref{eqn-dual-3} using \me{\mbfa{\zeta}^{(j)}_{b}} \;
+				exchange \me{\mbfa{\zeta}_{b}} among \acp{BS} in \me{\mc{B}} \;
+				update \me{\mbfa{\zeta}^{(j+1)}_b} and \me{\mbfa{\nu}^{(j+1)}_b} using \eqref{if-sg-update} and \eqref{dual-sg-update}\;
+				\me{j = j + 1}\;
+			}
+			precoded downlink pilot transmission with \me{\mvec{m}{l,k,n}}\;
+			update \me{\mvec{w}{l,k,n}} to all \acp{BS} in \me{\mc{B}} using precoded uplink pilots \cite{komulainen2013effective}\;
+			update \me{\tilde{\mbf{u}}_{l,k,n}} using \eqref{eqn-6.3} and \eqref{eqn-wsrm-expr} for \ac{SCA} point or \me{\tilde{\epsilon}_{l,k,n}} using \eqref{eqn-mse-1.3} for \ac{MSE} operating point \;
+			$i = i + 1$, \me{j=0} \;
+		}
+	}
+	\caption{Distributed \ac{JSFRA} scheme using \ac{ADMM}}
+	\label{algo-3}
+\end{algorithm}
 
 \begin{comment}
 The \ac{ADMM} decomposition method is based on the \acl{DD}, however it shows better convergence properties. In contrast to the \acl{PD} problem, the \ac{ADMM} method relaxes the interference constraints by including it in the objective function of each subproblem with a penalty pricing \cite{palomar2006tutorial,boyd2011distributed}. In order to decouple the problem \eqref{eqn-decent-1}, the coupling variables \me{\zeta_{l,k,n,b}} in \eqref{eqn-decent-3} are replaced by the respective local copies \me{\mbfa{\zeta}^{\set{b}}, \forall b \in \mc{B}}, which are then solved for an optimal solution. Now the sub problems are coupled by the global consensus vector \me{\mbfa{\zeta}} maintaining the complete stacked  interference profile of all users in the system as
