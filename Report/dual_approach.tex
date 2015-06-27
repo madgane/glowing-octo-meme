@@ -31,7 +31,7 @@ The dual vector for the next iteration is updated by using the subgradient searc
 \mbfa{\nu}_b^{(i+1)} = \mbfa{\nu}_b^{(i)} + \rho \left (\mbfa{\zeta}_b - \mbfa{\zeta}_b^{(i+1)} \right )
 \label{dual-sg-update}
 \end{equation}
-where step size parameter \me{\rho} is chosen in accordance with \cite{boyd2011distributed} to depend on the system model under consideration. The convergence rate of the distributed algorithm is susceptible to the choice of step size parameter \me{\rho}. For our simulation models, we consider step size parameter \me{\rho=2}. The above iteration is performed until convergence or for certain accuracy in the variation of the objective value between two consecutive updates. The distributed precoder design using the \ac{ADMM} approach is shown in Algorithm \ref{algo-3}. The convergence analysis of the distributed algorithms are discussed in Appendix \ref{sec-dist-conv}.
+where step size parameter \me{\rho} is chosen in accordance with \cite{boyd2011distributed} to depend on the system model under consideration. The convergence rate of the distributed algorithm is susceptible to the choice of step size parameter \me{\rho}. For our simulation models, we consider step size parameter \me{\rho=2}. The above iteration is performed until convergence or for certain accuracy in the variation of the objective value between two consecutive updates. The distributed precoder design using the \ac{ADMM} approach is shown in Algorithm \ref{algo-3}. The convergence analysis of the distributed algorithms are discussed in Appendix \ref{sec-dist-conv}. 
 \begin{algorithm}
 	\SetAlgoLined
 	\DontPrintSemicolon
@@ -60,7 +60,6 @@ where step size parameter \me{\rho} is chosen in accordance with \cite{boyd2011d
 	\caption{Distributed \ac{JSFRA} scheme using \ac{ADMM}}
 	\label{algo-3}
 \end{algorithm}
-
 \begin{comment}
 The \ac{ADMM} decomposition method is based on the \acl{DD}, however it shows better convergence properties. In contrast to the \acl{PD} problem, the \ac{ADMM} method relaxes the interference constraints by including it in the objective function of each subproblem with a penalty pricing \cite{palomar2006tutorial,boyd2011distributed}. In order to decouple the problem \eqref{eqn-decent-1}, the coupling variables \me{\zeta_{l,k,n,b}} in \eqref{eqn-decent-3} are replaced by the respective local copies \me{\mbfa{\zeta}^{\set{b}}, \forall b \in \mc{B}}, which are then solved for an optimal solution. Now the sub problems are coupled by the global consensus vector \me{\mbfa{\zeta}} maintaining the complete stacked  interference profile of all users in the system as
 \begin{IEEEeqnarray}{ll}

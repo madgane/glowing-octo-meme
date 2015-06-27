@@ -1,33 +1,30 @@
 Comments:
-The response to the reviewer's concerns are generally satisfying, except the convergence proof.
+\review{The response to the reviewer's concerns are generally satisfying, except the convergence proof.}
 
 \vspace{0.1in}
-\review{We thank the reviewer for providing valuable and insightful comments.}
+We thank the reviewer for providing valuable and insightful comments.
 
 For the resubmitted manuscript, the reviewer still has the following concerns
 
 \begin{enumerate}
-\cmnt{1} Considering the length of the manuscript, it would be better to shorten some parts that are not new in this manuscript, e.g. III.A. More space can be left for convergence proof, which is very important. 
+\cmnt{1} \review{Considering the length of the manuscript, it would be better to shorten some parts that are not new in this manuscript, e.g. III.A. More space can be left for convergence proof, which is very important. }
 
-\resp \review{We thank the reviewer for the comment. 
-		}
+\resp We understand the reviewer concern. Based on the suggestion, we have removed couple of paragraphs from Section III.A and shortened the discussions on the simulation section to provide additional details for the convergence proof. 
 
-\cmnt{2} In convergence proof (48), why does the 2nd inequality hold? In fact, to prove the feasibility of  \eqn{{m_{k+1}^{(i)}, w_{*}^{(i-1)};m_k^{(i)} }}, the part between 2nd and 3rd inequality is not necessary, ''<=0'' directly follows the 2nd inequality since the solution \eqn{m_{k+1}^{(i)}, \gamma_{k+1}^{(i)} } is the optimal solution, and therefore  feasible.  
+\cmnt{2} \review{In convergence proof (48), why does the 2nd inequality hold? In fact, to prove the feasibility of  \eqn{{m_{k+1}^{(i)}, w_{*}^{(i-1)};m_k^{(i)} }}, the part between 2nd and 3rd inequality is not necessary, \eqn{\leq 0} directly follows the 2nd inequality since the solution \eqn{m_{k+1}^{(i)}, \gamma_{k+1}^{(i)} } is the optimal solution, and therefore feasible.  }
 
-\resp \review{
-	}
+\resp We thank the reviewer for the critical comment. It is not possible to define the inequality with the previous optimal point. Since it is not possible to comment on the inclusion of the previous constraint set in the current update (except the earlier optimal point), the inequality is not guaranteed. Based on the comment from the reviewer, we have removed the inequality specifying the previous operating point from (48), since the newly found optimal point is inside the feasible set. 
 
-\cmnt{3} The solutions SCA iterations \eqn{m^{(i)}_k} does not necessarily converge. In fact \eqn{m} has compact feasible region, and thus \eqn{m^{(i)}_k} has limit points for any specific \eqn{i}.  However \eqn{m_{*}^{(i)}} does not necessarily exist( the whole sequence \eqn{m^{(i)}_k} may be not convergent). Similar problem happens to \eqn{w^{(i)}_k}. 
+\cmnt{3} \review{The solutions SCA iterations \eqn{\mbf{m}^{(i)}_k} does not necessarily converge. In fact \eqn{\mbf{m}} has compact feasible region, and thus \eqn{\mbf{m}^{(i)}_k} has limit points for any specific \eqn{i}.  However \eqn{m_{*}^{(i)}} does not necessarily exist( the whole sequence \eqn{\mbf{m}^{(i)}_k} may be not convergent). Similar problem happens to \eqn{\mbf{w}^{(i)}_k}. }
 
-\resp \review {	
-}
+\resp We understand the reviewer concern. Even though the \ac{SCA} algorithm converges, it is not guaranteed that the iterates involved in the iterative algorithm, namely, \eqn{\mbf{m}^{(i)}_k} and \eqn{\mbf{w}^{(i)}_k} to converge. It is true that the iterates need not converge when the objective function is convex. We have modified the discussion on the strong convexity of the objective function to impose the uniqueness of the iterates in each \ac{SCA} update as well. By regularizing the objective function with a strongly convex term like \eqn{\|\mbf{m} - \mbf{m}^{(i)}_k\|^2}, we can guarantee the uniqueness of the iterates upon the \ac{SCA} convergence. We thank the reviewer for citing this issue on the sequence convergence and the uniqueness of the minimizer. We have included this information in the centralized convergence proof on Appendix A-B after (44), after (49) and on Appendix A-C to describe the strong convexity.
 
-\cmnt{4} Strict monotonicity with respect to the objective function \eqn{f} should be rigorously proved. Note that to guarantee the uniqueness of the beamformer iterates, (52) instead of the objective function is used. 
+\cmnt{4} \review{Strict monotonicity with respect to the objective function \eqn{f} should be rigorously proved. Note that to guarantee the uniqueness of the beamformer iterates, (52) instead of the objective function is used.} 
 
-\resp \review{}
+\resp We thank the reviewer for the pointing out the issue involving the strict monotonicity. As suggested by the reviewer, we have included Appendix A-D to discuss the strict monotonicity of the objective function in each update point of the algorithm. Due to the strong convexity of the objective function, strict monotonicity is ensured after each update and also upon convergence. In order to ensure the strict monotonicity in the objective until convergence, \textit{i.e}, \eqn{f(\mbf{z}^{(i)}_{k+1}) \leq f(\mbf{z}^{(i)}_k), \forall k} and equal only when \eqn{\mbf{z}^{(i)}_k = \mbf{z}^{(i)}_{k+1}}, which is a limit point. Since each of the earlier update in the \ac{SCA} are strictly monotonic, we consider the point where the original convex function, say, \eqn{\hat{f}} has multiple limit points with the same objective value \eqn{\hat{f}(\mbf{z})}, where \eqn{f(\mbf{z}) = \hat{f}(z) + \|\mbf{z} - \mbf{z}_k^{(i)}\|^2} is the modified objective function from the \eqn{\ith{k+1}} iteration. Since \eqn{\hat{f}(\mbf{z})} is convex, it can have multiple limit points, therefore, it is monotonic. However, due to the strong convexity of \eqn{f(\mbf{z})} in (52), the limit point of the \ac{SCA} updates is also unique, and therefore has strict monotonicity in \eqn{f(\mbf{z}^{(i)}_k)} in each update. It can be justified, if \eqn{f(\mbf{z}^{(i)}_k)} is the unique minimizer in two consecutive steps even by including other limit points in the feasible set \eqn{\iter{\mc{X}}{k+1}{i}} with the same original objective value as \eqn{\hat{f}(\mbf{z}^{(i)}_{k})}. This information and the proof is also included in the revised manuscript in Appendix A-D.
 
-\cmnt{5} Note that the conclusions [32, Thm 2] and [26, Thm 10] have lots of assumptions. To invoke these reference, explicit exposition should be provided to show that these conclusions can be applied to our problem. The same questions occur to the proof in Appendix B, where conclusions in [11] [36] and [37] are used. Too many details are omitted to make the proof convincing and clear. 
+\cmnt{5} \review{Note that the conclusions [32, Thm 2] and [26, Thm 10] have lots of assumptions. To invoke these reference, explicit exposition should be provided to show that these conclusions can be applied to our problem. The same questions occur to the proof in Appendix B, where conclusions in [11] [36] and [37] are used. Too many details are omitted to make the proof convincing and clear. }
 
-\resp \review{}
+\resp We thank the reviewer for raising the concern. We have updated the manuscript to include the details regarding the stationary point discussion in Appendix A-F and the convergence proof analysis for the primal and the \ac{ADMM} algorithms in Appendix B. Additional detail includes the conditions required for showing the stationarity of the limit point and we have included more details to utilize the conclusions from [37] to show the convergence of the ADMM scheme.
 
 \end{enumerate}

@@ -68,28 +68,6 @@ It can be seen that the optimal receiver in \eqref{opt-rx} is in fact a scaled v
 Since the scaling present in the optimal receiver \eqref{opt-rx} has no impact on the received \acp{SINR}, the \ac{MMSE} receiver in \eqref{eqn-10} can also be used without compromising the performance.
 
 The proposed subproblems in \eqref{eqn-9} and \eqref{eqn-9--1} are solved iteratively by updating the operating point from the previous iteration. The iterative algorithm is referred as \acl{QM} \ac{JSFRA} scheme, and it is outlined in Algorithm \ref{algo-1}. \review{The initial feasible point \me{\tilde{\mbf{u}}_{l,k,n}} is obtained by initializing \me{\tilde{\mbf{m}}_{l,k,n}} with the single user beamformers satisfying the total power constraint \eqref{eqn-9.1d}, \me{\tilde{\mbf{w}}_{l,k,n}} with the corresponding \ac{MMSE} receivers \eqref{eqn-10}, and \me{\tilde{\mbf{\beta}}_{l,k,n}} is updated using \eqref{eqn-9.1c} with the chosen transmit precoders and the receivers.} For a fixed receiver \me{\mvec{w}{l,k,n}}, the \ac{SCA} iteration is carried out until convergence or for predefined number of iterations, say, \me{J_{\max}} to find an optimal transmit precoders \me{\mvec{m}{l,k,n}}. Next, the receivers are updated based on either \eqref{opt-rx} or \eqref{eqn-10} using the fixed transmit precoders \me{\mvec{m}{l,k,n}}. The iterative procedure is performed until convergence or for fixed number of iterations \me{I_{\max}} as shown in Algorithm \ref{algo-1}. The convergence analysis is given in Appendix \ref{sec-3.5}.
-\begin{algorithm}
-	\SetAlgoLined
-	\DontPrintSemicolon
-	\BlankLine
-	\SetKwInput{KwInit}{Initialize}
-	\KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}, \fall n \in \mathcal{N}}}
-	\KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l \in \set{1,2,\dotsc,L}}}
-	\KwInit{\me{i=0,j=0} and \me{\tilde{\mbf{m}}_{l,k,n}} using single user beamformer satisfying power constraint \eqref{eqn-9.1d}}
-	update \me{\tilde{\mbf{w}}_{l,k,n}, \tilde{\mbf{\beta}}_{l,k,n}} using \eqref{eqn-10} and \eqref{eqn-9.1c} with \me{\tilde{\mbf{m}}_{l,k,n}} \;
-	\Repeat{Queue convergence or \me{i \geq I_{\max}}}{
-		\Repeat{\ac{SCA} convergence or \me{j \geq J_{\max}}}{
-			solve for the transmit precoders \me{\mvec{m}{l,k,n}} using \eqref{eqn-9}\;
-			update the constraint set \eqref{eqn-8} with \me{{\mbf{u}}_{l,k,n}} and \me{\mvec{m}{l,k,n}} using \eqref{eqn-wsrm-expr}\;
-			$j = j + 1$\;
-		}
-		update the receive beamformers \me{\mvec{w}{l,k,n}} using \eqref{eqn-9--1} or \eqref{eqn-10} with the updated precoders \me{\mvec{m}{l,k,n}}\;
-		$i = i + 1$, \me{j = 0}\;
-	}
-	\caption{Algorithm of \acs{JSFRA} scheme}
-	\label{algo-1}
-\end{algorithm}
-
 \begin{comment}
 \subsubsection*{Convergence}
 In order to prove the convergence of the proposed iterative algorithm, following conditions are to be satisfied \cite{scutari}

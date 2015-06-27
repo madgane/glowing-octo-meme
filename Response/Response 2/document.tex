@@ -2,6 +2,7 @@
 
 \usepackage[left=1.0in,right=1.0in,top=1in,bottom=1in]{geometry}
 \usepackage{amsmath,amssymb}
+\usepackage[dvipdfmx]{graphicx}
 \usepackage{acronym,etoolbox,color,multicol,xcolor}
 \usepackage{subeqnarray,multirow,cite,array,setspace,fixltx2e,lineno,verbatim,mathtools}
 
@@ -12,6 +13,9 @@
 \input{./../../Report/shortcuts}
 \input{./../../Report/acronyms}
 
+
+\DeclareGraphicsExtensions{{eps}}
+\graphicspath{{Figures/}}
 \renewcommand \thesection{\Roman{section}}
 \renewcommand \thesubsection{\arabic{section}.\arabic{subsection}}
 

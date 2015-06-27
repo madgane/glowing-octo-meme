@@ -29,6 +29,27 @@ Let \me{{v}^{\prime}_k = Q_k - \sum_{n=1}^N \sum_{l=1}^L t_{l,k,n}} denote the q
 	& \qquad + \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 \leq \epsilon_{l,k,n}\IEEEyessubnumber \label{eqn-mse-1.3} \\
 	& \quad \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}} \; \fall b. \IEEEyessubnumber  \eqspace \label{eqn-mse-1.4}
 \end{IEEEeqnarray}}
+\begin{algorithm}
+	\SetAlgoLined
+	\DontPrintSemicolon
+	\BlankLine
+	\SetKwInput{KwInit}{Initialize}
+	\KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}, \fall n \in \mathcal{N}}}
+	\KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l \in \set{1,2,\dotsc,L}}}
+	\KwInit{\me{i=0,j=0} and \me{\tilde{\mbf{m}}_{l,k,n}} using single user beamformer satisfying power constraint \eqref{eqn-9.1d}}
+	update \me{\tilde{\mbf{w}}_{l,k,n}, \tilde{\mbf{\beta}}_{l,k,n}} using \eqref{eqn-10} and \eqref{eqn-9.1c} with \me{\tilde{\mbf{m}}_{l,k,n}} \;
+	\Repeat{Queue convergence or \me{i \geq I_{\max}}}{
+		\Repeat{\ac{SCA} convergence or \me{j \geq J_{\max}}}{
+			solve for the transmit precoders \me{\mvec{m}{l,k,n}} using \eqref{eqn-9}\;
+			update the constraint set \eqref{eqn-8} with \me{{\mbf{u}}_{l,k,n}} and \me{\mvec{m}{l,k,n}} using \eqref{eqn-wsrm-expr}\;
+			$j = j + 1$\;
+		}
+		update the receive beamformers \me{\mvec{w}{l,k,n}} using \eqref{eqn-9--1} or \eqref{eqn-10} with the updated precoders \me{\mvec{m}{l,k,n}}\;
+		$i = i + 1$, \me{j = 0}\;
+	}
+	\caption{Algorithm of \acs{JSFRA} scheme}
+	\label{algo-1} 
+\end{algorithm}
 
 The alternative \ac{MSE} formulation given by \eqref{eqn-mse-1} is non-convex even for the fixed \me{\mvec{w}{l,k,n}} due to the constraint \eqref{eqn-mse-1.2}, which is in fact a \ac{DC} constraint. We resort to the \ac{SCA} approach \cite{marks1978technical} by relaxing the constraint by a sequence of convex subsets using first order Taylor series approximation around a fixed \ac{MSE} point \me{\tilde{\epsilon}_{l,k,n}} as
 \begin{IEEEeqnarray}{rCl}

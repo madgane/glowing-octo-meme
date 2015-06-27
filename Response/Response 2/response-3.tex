@@ -1,57 +1,57 @@
-The authors have introduced changes in the manuscript that improved the paper's quality. Additionally, the authors have taken into account the reviewers' comments giving clarifications and modifying the content when required. More specifically, the following aspects have been treated:
+\review{The authors have introduced changes in the manuscript that improved the paper's quality. Additionally, the authors have taken into account the reviewers' comments giving clarifications and modifying the content when required. More specifically, the following aspects have been treated:}
 
 \vspace{0.1in}
-\review{We thank the reviewer for reading the manuscript and providing valuable comments. The comments are really helps to improve the manuscript.}
+\review{We thank the reviewer for recognizing the changes made on our earlier manuscript. We also thank the reviewer for providing constructive comments to help us to improve our manuscript.}
 
 \begin{enumerate}
-\cmnt{1} Convexity of problem (16). The paragraphs surrounding (16) allow a better understanding of the usage of the additional variables, i.e. gamma and beta, to remove the equality constraint in (2). For the reviewer remains however unclear, the procedure/criterion to determine the operating point for the parameter \eqn{\tilde{\beta}} required in (19) and used in the convex subproblems (20) and (21).
+\cmnt{1} \review{Convexity of problem (16). The paragraphs surrounding (16) allow a better understanding of the usage of the additional variables, i.e. gamma and beta, to remove the equality constraint in (2). For the reviewer remains however unclear, the procedure/criterion to determine the operating point for the parameter \eqn{\tilde{\beta}} required in (19) and used in the convex subproblems (20) and (21).}
 
-\resp \review{
-	}
+\resp We understand the reviewer concern. The initial operating point for the \ac{SCA} approach can be identified by initializing the transmit precoders \eqn{\mvec{m}{l,k,n}} with the single user transmit beamformers satisfying the total power constraint at each \ac{BS}. Once the transmit precoders are initialized, the receive beamformers \eqn{\mvec{w}{l,k,n}} can be initialized with the \ac{MMSE} receiver based on (23). Upon initializing both transmit and the receive beamformers, the interference term \eqn{\beta_{l,k,n}} can be initialized from (20b). This information is included in the revised manuscript in the paragraph on Section III-B following after (23).
 
-\cmnt{2} Proof of convergence. The proof of convergence introduced by the authors in the Appendix seems correct and enhances the content of the manuscript.
+\cmnt{2} \review{Proof of convergence. The proof of convergence introduced by the authors in the Appendix seems correct and enhances the content of the manuscript.}
 
-\resp \review{}
+\resp We thank the reviewer for the comment. We have updated the manuscript further for better clarity and understanding based on the other reviewers.
 
 Additional Comments - 
 
 \begin{enumerate}
 	
-	\cmnts{a} - {The reviewer considers that closing statements regarding the applicability of the proposed schemes are missing. Since the results are quite similar (when not identical), which formulation is preferable between the centralized schemes? Which one for the distributed solutions?}
+	\cmnts{a} - \review{The reviewer considers that closing statements regarding the applicability of the proposed schemes are missing. Since the results are quite similar (when not identical), which formulation is preferable between the centralized schemes? Which one for the distributed solutions?}
 	
-	\resp \review{}
+	\resp We understand the reviewer concern. We have updated the manuscript to include a discussion on the choice of selecting an algorithm for the practical purposes. The choice of selecting a centralized algorithm is equally fair when \eqn{N_R > 1}. For a single antenna receiver, the \ac{JSFRA} formulation in Section III-B is efficient, as there is no receiver update, and therefore has less complexity. The distributed algorithms based on primal and \ac{ADMM} schemes are favorable when \eqn{N_R = 1} due to the limited signaling between the coordinating \acp{BS}, involving the scalar interference values. However, when \eqn{N_R > 1}, the \ac{KKT} based distributed approach is much more efficient, since it has less signaling overhead for a given throughput. The choice of the \eqn{\ell_q} norm is as discussed in Section II-B. These lines are included in the paragraph before the Conclusions section. If the reviewer is interested on the practical usage of the algorithms, please refer to the response for the reviewer 2's question 2 in this response document for more details involving the performance of the KKT based distributed algorithm.
 	
-	\cmnts{b} - {The last discussion in section IV-C could benefit from restructuring. The information on how to obtain a practical distributed precoder design and to avoid backhaul exchange is too condensed and difficult to understand.}
+	\cmnts{b} - \review{The last discussion in section IV-C could benefit from restructuring. The information on how to obtain a practical distributed precoder design and to avoid backhaul exchange is too condensed and difficult to understand.}
 	
-	\resp \review{}
+	\resp It is rewritten to provide additional clarity as suggested by the reviewer. We have included the reference [28] for more illustrative discussions on the backhaul signaling. 
 	
-	\cmnts{c} - {For the simulation results, why not to unify configurations when possible? Having to read a different configuration for each graph is cumbersome and no additional comparisons are possible between figures. E.g. PL uniformly distributed between [0,-6] dB in Fig. 2 and [0,-3] dB in Fig. 3.}
+	\cmnts{c} - \review{For the simulation results, why not to unify configurations when possible? Having to read a different configuration for each graph is cumbersome and no additional comparisons are possible between figures. E.g. PL uniformly distributed between [0,-6] dB in Fig. 2 and [0,-3] dB in Fig. 3.}
 	
-	\resp \review{}
+	\resp We understand the reviewer concern. We used different path loss models for improved clarity and to show that the proposed algorithms works reasonably well on all scenarios. To provide a fair comparison, we have also included the centralized algorithm to draw the difference between the other schemes. We will consider the reviewer comment in our future work. However, if the reviewer insists on the unanimous configuration across the figures, we will revise the manuscript accordingly.
 	
-	\cmnts{d} - {In Fig. 1, the description of the system model does not agree with the statement of N = 3 subchannels.}
+	\cmnts{d} - \review{In Fig. 1, the description of the system model does not agree with the statement of N = 3 subchannels.}
 	
-	\resp \review{}
+	\resp We apologize for the error. We have modified the text to agree with the simulation Fig. 1.
 	
-	\cmnts{e} - {In Fig. 4(b), the performance of Q-WSRME seems to be (in average) worse than Q-WSRM. However, that should not be the case, since Q-WSRME is taking into account the over allocation. Any reason for this?}
+	\cmnts{e} - \review{In Fig. 4(b), the performance of Q-WSRME seems to be (in average) worse than Q-WSRM. However, that should not be the case, since Q-WSRME is taking into account the over allocation. Any reason for this?}
 	
-	\resp \review{}
+	\resp The performance of the Q-WSRME is better than Q-WSRM in Fig. 4(b). Since we have plotted the instantaneous arrival rates also in the same figure, it is difficult to discriminate between the colors. We have updated the manuscript to provide better clarity in the figure.
 	
-	\cmnts{f} - {p 6, col 2, row 49: it should be \eqn{t_{l,k,n}} instead of \eqn{t_{l,n,k}}}
+	\cmnts{f} - \review{p 6, col 2, row 49: it should be \eqn{t_{l,k,n}} instead of \eqn{t_{l,n,k}}}
 	
-	\resp \review{}
+	\resp We have update the manuscript with the proper subscript.
 	
-	\cmnts{g} - {p 10, col 1, row 28: is it \eqn{\lambda} a dual variable?}
+	\cmnts{g} - \review{p 10, col 1, row 28: is it \eqn{\lambda} a dual variable?}
 	
-	\resp \review{}
+	\resp We thank the reviewer for pointing out the mistake. It is the dual variable \eqn{\sigma_{l,k,n}} and not \eqn{\lambda_{l,k,n}}. We have updated the manuscript accordingly.
 	
-	\cmnts{h} - {p 10, col 2, row 59: typo wHith}
+	\cmnts{h} - \review{p 10, col 2, row 59: typo wHith}
 	
-	\resp \review{}
+	
+	\resp We have updated the manuscript with the proper word.
 	
 	\cmnts{i} - {In general, a grammar check is recommended, several mistakes with respect to singular and plural nouns have been observed, e.g. -p 6, col 2, row 56 "... for A fixed receiverS" is not correct.}
 	
-	\resp \review{}
+	\resp We have updated the manuscript with the singular tense and we have also verified the grammatical validity of the manuscript as per the reviewer suggestion.
 	
 \end{enumerate}
 
