@@ -1,15 +1,16 @@
 Comments:
 \review{The response to the reviewer's concerns are generally satisfying, except the convergence proof.}
 
-\vspace{0.1in}
-We thank the reviewer for providing valuable and insightful comments.
+\vspace{1eM}
+\underline{\textit{Reply:}} We thank the reviewer for providing valuable and insightful comments.
 
+\vspace{1eM}
 For the resubmitted manuscript, the reviewer still has the following concerns
 
 \begin{enumerate}
 \cmnt{1} \review{Considering the length of the manuscript, it would be better to shorten some parts that are not new in this manuscript, e.g. III.A. More space can be left for convergence proof, which is very important. }
 
-\resp We understand the reviewer concern. Based on the suggestion, we have removed couple of paragraphs from Section III.A and shortened the discussions on the simulation section to provide additional details for the convergence proof. 
+\resp After a careful check of the manuscript, we have removed couple of paragraphs from Section III.A and shortened the discussions on the simulation section to provide additional details for the convergence proof. We believe the removed parts don't affect the readability of the paper and the added text regarding convergence proof certainly improves the quality. 
 
 \cmnt{2} \review{In convergence proof (48), why does the 2nd inequality hold? In fact, to prove the feasibility of  \eqn{{m_{k+1}^{(i)}, w_{*}^{(i-1)};m_k^{(i)} }}, the part between 2nd and 3rd inequality is not necessary, \eqn{\leq 0} directly follows the 2nd inequality since the solution \eqn{m_{k+1}^{(i)}, \gamma_{k+1}^{(i)} } is the optimal solution, and therefore feasible.  }
 
@@ -23,7 +24,7 @@ For the resubmitted manuscript, the reviewer still has the following concerns
 
 \resp We thank the reviewer for the pointing out the issue involving the strict monotonicity. As suggested by the reviewer, we have included Appendix A-D to discuss the strict monotonicity of the objective function in each update point of the algorithm. 
 
-Let \eqn{\mbf{z}} be the stacked vector of optimization variables that can either be \eqn{[\mx,\iter{\my}{\ast}{i-1},\mz]} or \eqn{[\iter{\mx}{\ast}{i},\my,\mz]} depending on the optimization problem that we are trying to solve, \textit{i.e}, either solving for \eqn{\mx} and \eqn{\mz} by fixing \eqn{\iter{\my}{\ast}{i-1}} or solving for \eqn{\my} and \eqn{\mz} by keeping \eqn{\iter{\mx}{\ast}{i}} fixed. 
+Let \eqn{\mbf{z}} be the stacked vector of optimization variables that can be either \eqn{[\mx,\iter{\my}{\ast}{i-1},\mz]} or \eqn{[\iter{\mx}{\ast}{i},\my,\mz]} depending on the optimization problem that we are trying to solve, \textit{i.e}, either solving for \eqn{\mx} and \eqn{\mz} by fixing \eqn{\iter{\my}{\ast}{i-1}} or solving for \eqn{\my} and \eqn{\mz} by keeping \eqn{\iter{\mx}{\ast}{i}} fixed. 
 
 Due to the strong convexity of the modified objective \eqn{f(\mbf{z})}, there exist an unique minimizer in each \ac{SCA} step \eqn{k}. Moreover, in each \ac{SCA} step \eqn{k}, the feasible set \eqn{\mc{X}_{k}^{(i)}} includes the earlier optimal point \eqn{\mbf{z}^{(i)}_k}, therefore, the objective decreases strictly unless \eqn{\mbf{z}^{(i)}_k} is a fixed point or a limit point of the \ac{SCA} iterations [22]. Following the strong convexity of \eqn{f(\mbf{z})}, we have
 \begin{equation} \label{strict_monotonicity}

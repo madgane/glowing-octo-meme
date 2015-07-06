@@ -4,7 +4,13 @@
 \usepackage{amsmath,amssymb}
 \usepackage[dvipdfmx]{graphicx}
 \usepackage{acronym,etoolbox,color,multicol,xcolor}
-\usepackage{subeqnarray,multirow,cite,array,setspace,fixltx2e,lineno,verbatim,mathtools}
+%\usetikzlibrary{plotmarks}
+\usepackage{subeqnarray,multirow,cite,array,setspace,fixltx2e,lineno,verbatim,mathtools,pgfplots,subfig}
+
+\pgfplotsset{compat=newest}
+\pgfplotsset{plot coordinates/math parser=false}
+\newlength\figureheight
+\newlength\figurewidth
 
 \newcommand{\cmnt}[1]{\item}
 \newcommand{\cmnts}[1]{\item[(#1)]}
@@ -21,6 +27,8 @@
 
 \begin{document}
 
+
+\usetikzlibrary{plotmarks}
 \title{Reviewers Comments \& Authors Replies}
 
 \date{}
@@ -33,7 +41,7 @@
 \end{tabular}
 
 \vspace{0.5in}
-The authors would like to thank the associate editor and the reviewers for their valuable comments on the manuscript of the paper, which have been greatly helpful to improve the paper quality. Based on the comments, we have made several major revisions to the paper, following the suggestions of the reviewers. In what follows, the comments are listed, each followed immediately by the corresponding reply from the authors. The revisions in the revised manuscript are highlighted using blue color and the authors responses are also presented in blue color text. Following is the summary of the revision made on the manuscript in accordance with the reviewers comments.
+The authors would like to thank the associate editor and the reviewers for their valuable comments on the manuscript of the paper, which have been greatly helpful to improve the paper quality. Based on the comments, we have made several major revisions to the paper, following the suggestions of the reviewers. In what follows, the comments are listed, each followed immediately by the corresponding reply from the authors. The reviewers questions in the revised manuscript are highlighted in blue color and the authors responses are presented in black. Following is the summary of the revision made on the manuscript in accordance with the reviewers comments.
 \input{additions}
 
 \newpage

@@ -2,7 +2,7 @@ The convergence of the distributed algorithm in Algorithm \ref{algo-3} follows t
 
 \review{To show the convergence of \ac{ADMM} approach, we use the discussions in \cite[Prop. 4.2]{bertsekas1989parallel} by writing the problem as
 \begin{IEEEeqnarray}{rCl} \neqsub
-	\underset{\mbf{x} \in \mc{C}_1,\mbf{z} \in \mc{C}_2}{\text{minimize}} &\quad& G(\mbf{x}) + H(\mbf{y}) \eqsub \\
+	\underset{\mbf{x} \in \mc{C}_1,\mbf{z} \in \mc{C}_2}{\text{minimize}} &\quad& G(\mbf{x}) + H(\mbf{z}) \eqsub \\
 	\text{subject to} &\quad& \mbf{A} \mbf{x} = \mbf{z} \eqsub \label{const-admm}
 \end{IEEEeqnarray}
 the following conditions are required for the convergence.
