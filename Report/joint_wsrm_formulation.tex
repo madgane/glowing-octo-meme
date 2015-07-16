@@ -1,10 +1,10 @@
-The queue minimizing algorithms have been studied extensively in the networking context for providing congestion-free routing between any two nodes in the network. One such algorithm is the \emph{backpressure algorithm} \cite{georgiadis2006resource,neely2010stochastic}. It finds an optimal control policy in the form of resource allocation by utilizing differential packets between any two nodes. %Even though the algorithm is primarily designed for the wired infrastructure, it can be extended to the wireless networks by designing the user rate variable \me{t_k} in accordance to the wireless network.
+The queue minimizing algorithms have been studied extensively in the networking context to provide congestion-free routing between any two nodes in the network. One such is the \emph{backpressure algorithm} \cite{georgiadis2006resource,neely2010stochastic}. It finds an optimal control policy in the form of rate or resource allocation by considering differential backlogged packets between any two entities. %Even though the algorithm is primarily designed for the wired infrastructure, it can be extended to the wireless networks by designing the user rate variable \me{t_k} in accordance to the wireless network.
 
-The \ac{Q-WSRM} formulation extends the \emph{backpressure algorithm} to the downlink \ac{MIMO}-\ac{OFDM} framework, in which the multiple \acp{BS} act as the source nodes and the user terminals as the receiver nodes. The control policy in the form of transmit precoders aims at minimizing the number of queued packets waiting in the \acp{BS}. In order to find the optimal strategy, we resort to the Lyapunov theory, which is predominantly used in the control theory to achieve system stability. Since at each time slot, the system is described by the channel conditions and the number of backlogged packets of each user, the Lyapunov function is used to provide a scalar measure, which grows large when the system moves toward the undesirable state. By following \cite{neely2010stochastic}, the scalar measure for the queue stability is given by
+The \ac{Q-WSRM} formulation extends the \emph{backpressure algorithm} to the downlink \ac{MIMO}-\ac{OFDM} framework, in which the \acp{BS} acts as the source nodes and the users as the receivers. The control policy in the form of transmit precoders aims at minimizing the number of queued packets waiting in the \acp{BS}. To find an optimal strategy, we resort to the Lyapunov theory, which is predominantly used in control theory to achieve system stability. Since at each time slot, the system is described by the channel conditions and the number of backlogged packets for each user, the Lyapunov function is used to provide a scalar measure, which grows large when the system moves towards an undesirable state \cite{neely2010stochastic}. The scalar measure for queue stability is given by
 \begin{equation}
 \mathrm{L}\sset{\mbf{Q}(i)} = \frac{1}{2} \, \sum_{k \in \mc{U}} Q_k^2(i)
 \end{equation}
-where \me{\mbf{Q}(i) = \sset{Q_1(i),Q_2(i),\dotsc,Q_K(i)}^\mathrm{T}} and \me{\tfrac{1}{2}} is used for the convenience. It provides a scalar measure of congestion present in the system \cite[Ch. 3]{neely2010stochastic}. 
+where \me{\mbf{Q}(i) = \sset{Q_1(i),Q_2(i),\dotsc,Q_K(i)}^\mathrm{T}}. It provides a scalar measure of congestion in the system \cite[Ch. 3]{neely2010stochastic}. 
 
 To minimize the total number of backlogged packets for time instant \me{i}, the optimal transmission rate of all users is obtained by minimizing the Lyapunov drift expressed as  
 \iftoggle{single_column}{
@@ -14,35 +14,33 @@ To minimize the total number of backlogged packets for time instant \me{i}, the 
 \begin{multline} \label{eqn-3.1}
 \mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} = \\ \frac{1}{2} \Big [ \sum_{k \in \mc{U}} \, \Big ( \left [ Q_k(i) - t_k(i) \right ]^+ + \lambda_k(i) \Big )^2 - Q^2_k(i) \Big ].
 \end{multline}}
-In order to eliminate the nonlinear operator \me{[x]^+}, we bound the expression in \eqref{eqn-3.1} as
+To eliminate the nonlinear operator \me{[x]^+}, we bound \eqref{eqn-3.1} as
 \begin{equation}
 \leq \sum_{k \in \mc{U}} \, \frac{\lambda^2_k(i) + t_k^2(i)}{2} + \sum_{k \in \mc{U}} Q_k(i) \set{ \lambda_k(i) - t_k(i) }
 \label{drift-exp}
 \end{equation}
-%by using the following inequality 
-%\begin{equation}
-%\sset{\max(Q-t,0) + \lambda)}^2 \leq Q^2 + t^2 + \lambda^2 + 2 Q (\lambda - t).
-%\end{equation}
+by using the following inequality 
+\begin{equation}
+\sset{\max(Q-t,0) + \lambda)}^2 \leq Q^2 + t^2 + \lambda^2 + 2 Q (\lambda - t).
+\end{equation}
 The total number of backlogged packets at any given instant \me{i} is reduced by minimizing the conditional expectation of the Lyapunov drift expression \eqref{drift-exp} given the current number of queued packets \me{\mbfa{Q}(i)} waiting in the system. The expectation is taken over all possible arrival and transmission rates of the users to obtain the optimal rate allocation strategy. 
 
 Now, the conditional Lyapunov drift, denoted by \me{\Delta{(\mbfa{Q}(i))}}, is given by the infimum over the transmission rate as
-\iftoggle{single_column}{ \allowdisplaybreaks
+\iftoggle{single_column}{
 \begin{IEEEeqnarray}{rCl} \label{backpressure-approx} \neqsub
 	\underset{\mbf{t}}{\text{inf}} &\quad& \Delta(\mbf{Q}(i)) \triangleq \mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set{\mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} \vert \mbf{Q}(i)} \IEEEyessubnumber \\
 	&\leq& \underbrace{\mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set {\sum_{k \in \mc{U}} \, \frac{\lambda^2_k(i) + t_k^2(i)}{2} \vert \mbf{Q}(i)}}_{\le B} + \sum_{k \in \mc{U}} Q_k(i) A_k(i) - \mathbb{E}_{\mbfa{\lambda},\mbf{t}}\set{\sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i)}, \eqsub \label{backpressure-approx-1b}
-\end{IEEEeqnarray}}{ \allowdisplaybreaks
+\end{IEEEeqnarray}}{
 \begin{IEEEeqnarray}{CL} \label{backpressure-approx} \neqsub
 	\underset{\mbf{t}}{\text{inf}} \quad & \mathbb{E}_{\mbfa{\lambda},\mbf{t}} \set{\mathrm{L}\sset{\mbf{Q}(i+1)} - \mathrm{L}\sset{\mbf{Q}(i)} \vert \mbf{Q}(i)} \eqsub \\
 	\leq & \underbrace{\mathbb{E}_{\mbfa{\lambda},\mbf{t}} \Big \lbrace \sum_{k \in \mc{U}} \frac{\lambda^2_k(i) + t_k^2(i)}{2} \vert \mbf{Q}(i) \Big \rbrace }_{\le B} + \sum_{k \in \mc{U}} Q_k(i) A_k(i) \nonumber \\
 	& \qquad \qquad {} - \mathbb{E}_{\mbfa{\lambda},\mbf{t}}\Big \lbrace \sum_{k \in \mc{U}} Q_k(i) t_k(i)  \vert \mbf{Q}(i) \Big \rbrace, \eqsub \label{backpressure-approx-1b}
 \end{IEEEeqnarray}}
-where \me{\mbf{t}} and \me{\mbfa{\lambda}} are the vectors formed by stacking the transmission and the arrival rate of all users in the system. Since the second order moments of \me{\mbf{t}} and \me{\mbfa{\lambda}} are bounded, it can be replaced by a constant \me{B} in \eqref{backpressure-approx-1b} as discussed in \cite{neely2010stochastic}. The second term in \eqref{backpressure-approx-1b} follows from the Poisson arrival process.
+where \me{\mbf{t}} and \me{\mbfa{\lambda}} are the vectors formed by stacking the transmission and the arrival rate of all users. Since they are bounded, the second order moments on the first term in \eqref{backpressure-approx-1b} can be bounded by a constant \me{B} without affecting the optimal solution \cite{neely2010stochastic}. The second term in \eqref{backpressure-approx-1b} follows the Poisson arrivals.
 
-%where the subscripts \me{\mbf{t}} and \me{\mbfa{\lambda}} represents the vector formed by stacking the transmission and the arrival rate of all users. Since the transmission and the arrival rates are bounded, the second order moments in the first term of \eqref{backpressure-approx-1b} can be bounded by a constant \me{B} without affecting the optimal solution of the problem \cite{neely2010stochastic}. The second term in \eqref{backpressure-approx-1b} follows from the Poisson arrival process.
-
-The expression in \eqref{backpressure-approx} looks similar to the \ac{WSRM} formulation if the weights in the \ac{WSRM} problem are replaced by the numbers of backlogged packets of the corresponding users. The above approach was extended for the wireless networks in \cite{weeraddana2011resource}, in which the queues were used as weights in the \ac{WSRM} formulation to determine the transmit precoders. Since the expectation is minimized by minimizing the function inside, the \ac{Q-WSRM} formulation is given by 
+The expression in \eqref{backpressure-approx} looks similar to the \ac{WSRM} formulation if the weights in the \ac{WSRM} problem are replaced by the numbers of backlogged packets of the corresponding users. The above approach was extended to the wireless networks in \cite{weeraddana2011resource}, in which the queues were used as weights in the \ac{WSRM} formulation to determine the transmit precoders. Since the expectation is minimized by minimizing the function inside, the \ac{Q-WSRM} formulation is given by 
 \begin{IEEEeqnarray}{LCl} \label{q_gen_sum} \neqsub
-\underset{\substack{\mvec{m}{l,k,n}, \mvec{w}{l,k,n}}}{\text{maximize}} &\quad& \sum_{k \in \mc{U}} \, Q_k \left ( \sum_{n = 1}^N \sum_{l=1}^L \log_2(1 + \gamma_{l,k,n}) \right ) \IEEEyessubnumber \label{eqn-3.1.1} \\
+\underset{\substack{\mvec{m}{l,k,n}, \mvec{w}{l,k,n}}}{\text{maximize}} &\quad& \sum_{k \in \mc{U}} \, Q_k \Big ( \sum_{n = 1}^N \sum_{l=1}^L \log_2(1 + \gamma_{l,k,n}) \Big ) \IEEEyessubnumber \label{eqn-3.1.1} \\
 \text{subject to.} & \quad & \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}} \fall b. \IEEEyessubnumber \eqspace \label{eqn-3.1.3}
 \end{IEEEeqnarray}
 
@@ -50,6 +48,6 @@ To avoid excessive allocation of the resources, we include an additional rate co
 \begin{IEEEeqnarray}{rCl} \label{eqn-3.1.4}
 \sum_{n=1}^N \sum_{l = 1}^L \log_2(1 + \gamma_{l,k,n}) \leq Q_k \: \fall k \in \mc{U}
 \end{IEEEeqnarray}
-where the precoders are associated with \me{\gamma_{l,k,n}} defined in \eqref{eq:SINR}. %By using the number of queued packets as the weights, the resources can be allocated to the user with more backlogged packets; this essentially results in greedy allocation.
+where the precoders are associated with \me{\gamma_{l,k,n}} defined in \eqref{eq:SINR}. By using the number of queued packets as the weights, the resources can be allocated to the user with more backlogged packets; this essentially results in greedy allocation.
 
 %As a special case of the problem defined in \eqref{q_gen_sum}, we can formulate the sum rate maximization problem by setting the weights in \eqref{eqn-3.1.1} as unity, leading to the problem as in \eqref{q_gen_sum} with \me{Q_k = 1, \forall k \in \mc{U}}. This approach provides a greedy queue minimizing allocation as compared to \ac{Q-WSRME}, since the resource allocation is driven by the channel conditions in comparison to the number of queued packets as in \ac{Q-WSRME}. Note that in both formulations, the resources allocated to the users are limited by the number of backlogged packets with an explicit maximum rate constraint defined by \eqref{eqn-3.1.4}.

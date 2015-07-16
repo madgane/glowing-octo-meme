@@ -41,7 +41,14 @@ Fig. \ref{fig-review-1} compares different ordering of sub-channels with the tot
 		
 		\item Using the above discussion, we can say that when the system size is huge, it would be favorable to consider the distributed algorithm over the centralized approach due to the huge signaling overhead involved in exchanging the channels.
 		
-		\item In particular, \ac{ADMM} and primal approach requires significant overhead compared to the centralized algorithm for a small system, since by exchanging the quantized channels, each \ac{BS} can perform the centralized algorithm independently until convergence. However, it depends on the channel quantizer, which is likely to be based on the channel density function (eg. Lloyd quantizer). For a system involving more coordinating \acp{BS}, users and antenna elements, it would be beneficial to use distributed algorithm with \eqn{J_{\max} > 1} to have a strictly monotonic decrease in the objective. If we set \eqn{J_{\max} = 1}, the proposed algorithms still converge (but monotonicity of SCA is not guaranteed).
+		\item In particular, \ac{ADMM} and primal approach requires significant overhead compared to the centralized algorithm for a small system, since by exchanging the quantized channels, each \ac{BS} can perform the centralized algorithm independently until convergence. However, it depends on the channel quantizer, which is likely to be based on the channel density function (eg. Lloyd quantizer). For a system involving more coordinating \acp{BS}, users and antenna elements, it would be beneficial to use distributed algorithm with \eqn{J_{\max} > 1} to have a strictly monotonic decrease in the objective. If we set \eqn{J_{\max} = 1}, the proposed algorithms still converge (but monotonicity of SCA is not guaranteed). It can be easily verified from Fig. \ref{fig-review-2-a}, which has same configuration as that of Fig. \ref{fig-review-1a}.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.8\columnwidth]{reviewer_2_Q1C.eps}
+			\caption{Convergence of the algorithms for \me{\lbrace N,N_B,K,N_T,N_R \rbrace = \lbrace 4,2,12,4,1 \rbrace} using \me{\ell_1} norm}
+			\label{fig-review-2-a}
+		\end{figure}
+		Note that Fig. \ref{fig-review-2-a} plots the queue deviation at the \ac{SCA} update points only. The number of backlogged packets in each \ac{ADMM} iteration is not shown for clarity reason.		
 		
 	\end{enumerate}
 	

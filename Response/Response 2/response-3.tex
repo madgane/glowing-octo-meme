@@ -6,12 +6,11 @@
 \begin{enumerate}
 \cmnt{1} \review{Convexity of problem (16). The paragraphs surrounding (16) allow a better understanding of the usage of the additional variables, i.e. gamma and beta, to remove the equality constraint in (2). For the reviewer remains however unclear, the procedure/criterion to determine the operating point for the parameter \eqn{\tilde{\beta}} required in (19) and used in the convex subproblems (20) and (21).}
 
-\resp We thank the reviewer for the comment. The initial operating point for the \ac{SCA} approach can be identified by initializing the transmit precoders \eqn{\mvec{m}{l,k,n}} with the single user transmit beamformers satisfying the total power constraint at each \ac{BS}. Once the transmit precoders are initialized, the receive beamformers \eqn{\mvec{w}{l,k,n}} can be initialized with the \ac{MMSE} receiver based on (23). Upon initializing both transmit and the receive beamformers, the interference term \eqn{\beta_{l,k,n}} can be initialized from (20b). The operating point for \eqn{\tilde{\mbf{m}}_{l,k,n}^{(i+1)}} is updated using as 
+\resp We thank the reviewer for the comment. We have included additional information on how to choose the operating point while initializing the iterative algorithm. It is included in the fourth paragraph following (23). We have also provided a detailed discussion on how to update the operating point after each iteration in the paragraph following (23). Note that the objective function is convex, and therefore we can update operating point for the current step with the solution obtained in the previous iteration as
 \begin{equation}
-\tilde{\mbf{m}}_{l,k,n}^{(i+1)} = \mvec{m}{l,k,n}^{(i)} + \varphi^{(i)} \: (\mbf{m}_{l,k,n} - \mbf{m}_{l,k,n}^{(i+1)})
+\tilde{\mbf{m}}_{j}^{(i)} = \mvec{m}{j}^{(i)}
 \end{equation}
-where \eqn{\varphi^{(i)} \in (0,1]} is the step size used to update the operating variables. The choice of the variable \eqn{\varphi^{(i)}} can be selected such that \eqn{\sum_{i} \varphi^{(i)} = \infty} as discussed in [32].
-This information is included in the revised manuscript in the paragraph on Section III-B following after (23).
+where \eqn{\tilde{\mbf{m}}_{j}^{(i)}} denotes the operating point for the \eqn{\ith{j+1}} \ac{SCA} iteration in the \eqn{\ith{i}} \ac{AO} step and \eqn{\mbf{m}_{j}^{(i)}} is the solution obtained by solving (20) in the \eqn{\ith{j}} \ac{SCA} iteration.
 
 \cmnt{2} \review{Proof of convergence. The proof of convergence introduced by the authors in the Appendix seems correct and enhances the content of the manuscript.}
 
@@ -23,11 +22,15 @@ Additional Comments -
 	
 	\cmnts{a} - \review{The reviewer considers that closing statements regarding the applicability of the proposed schemes are missing. Since the results are quite similar (when not identical), which formulation is preferable between the centralized schemes? Which one for the distributed solutions?}
 	
-	\resp We have updated the manuscript to include a discussion on the choice of selecting an algorithm for the practical purposes. The choice of selecting a centralized algorithm is equally fair when \eqn{N_R > 1}. For a single antenna receiver, the \ac{JSFRA} formulation in Section III-B is efficient, as there is no receiver update, and therefore has less complexity. The distributed algorithms based on primal and \ac{ADMM} schemes are favorable when \eqn{N_R = 1} due to the limited signaling between the coordinating \acp{BS}, involving the scalar interference values. However, when \eqn{N_R > 1}, the \ac{KKT} based distributed approach is much more efficient, since it has less signaling overhead for a given throughput. The choice of the \eqn{\ell_q} norm is discussed in Section II-B. These lines have been included in the paragraph before the Conclusions section. For the practical usage of the algorithms, please refer to the response for the reviewer 2's question 2 in this response document for more details involving the performance of the KKT based distributed algorithm.
+	\resp We have updated the manuscript to include a discussion on the possible conditions for selecting an algorithm for a specific implementation. The choice of considering a centralized approach is equally good when the number of receive antenna is greater than one, \textit{i.e.}, \eqn{N_R > 1}. However, in case of a single antenna receiver, the \ac{JSFRA} formulation outlined in Section III-B is more efficient than the \ac{MSE} reformulation, as there is no need for the receiver update, thereby reducing the complexity significantly. 
+	
+	As far as the distributed approaches are concerned, the primal and the \ac{ADMM} schemes are equally favorable when \eqn{N_R = 1} since the signaling required to be exchanged between the coordinating \acp{BS} involves only the scalar interference values. However, when \eqn{N_R > 1}, then the \ac{KKT} based distributed approach is more efficient than the primal or the \ac{ADMM} schemes, since it has less signaling overhead for a throughput improvement. The choice of selecting \eqn{\ell_q} norm is discussed in Section II-B last paragraph. The above information is included in the paragraph before the simulations section in Section IV.
+	
+	However, if the reviewer is interested to understand the performance of the \ac{KKT} based scheme in a fading environment, please refer to the response provided for the reviewer 2, question 2 in this document for more details.
 	
 	\cmnts{b} - \review{The last discussion in section IV-C could benefit from restructuring. The information on how to obtain a practical distributed precoder design and to avoid backhaul exchange is too condensed and difficult to understand.}
 	
-	\resp The part mentioned above has been rewritten to improve its readability as suggested by the reviewer. We have included the reference [28] for more illustrative discussions on the backhaul signaling. 
+	\resp It has been rewritten to improve the readability as suggested by the reviewer. We have included the reference [28] for more illustrative discussions on the backhaul signaling.
 	
 	\cmnts{c} - \review{For the simulation results, why not to unify configurations when possible? Having to read a different configuration for each graph is cumbersome and no additional comparisons are possible between figures. E.g. PL uniformly distributed between [0,-6] dB in Fig. 2 and [0,-3] dB in Fig. 3.}
 	

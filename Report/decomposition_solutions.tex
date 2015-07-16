@@ -7,7 +7,8 @@ Let us consider the convex subproblem with the fixed receive beamformers \me{\mv
 \end{IEEEeqnarray}
 where \me{\tilde{\mbf{v}}_b} denotes the vector of weighted queue deviation corresponding to users \me{k \in \mc{U}_b}.
 
-To begin with, let \me{\bar{\mc{B}}_b} denote the set \me{\mc{B} \backslash \{b\}} and \me{\bar{\mc{U}}_b} represents the set \me{\mc{U} \backslash \mc{U}_b}. Following an approach similar to the one presented in \cite{pennanen2011decentralized,tolli2011decentralized}, the coupling constraint \eqref{eqn-9.1c} or \eqref{eqn-mse-1.3} can be expressed by grouping the interference from all \acp{BS} in \me{\bar{\mc{B}}_{b_k}} as
+To begin with, let \me{\bar{\mc{B}}_b} be the set \me{\mc{B} \backslash \{b\}} and \me{\bar{\mc{U}}_b} represents the set \me{\mc{U} \backslash \mc{U}_b}. Following an approach similar to the one presented in \cite{pennanen2011decentralized,tolli2011decentralized}, the coupling constraint \eqref{eqn-9.1c} or \eqref{eqn-mse-1.3} can be 
+expressed by stacking the interference from all \acp{BS} in \me{\bar{\mc{B}}_{b_k}} as
 \iftoggle{single_column}{
 \begin{equation}\label{eqn-decent-3}
 \beta_{l,k,n} \geq \sum_{\substack{j = 1\\j \neq l}}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{j,k,n} |^2 + \sum_{i \in \mc{U}_{b_k} \backslash \{k\}} \sum_{j = 1}^L |\mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{j,i,n} |^2 + \sum_{b \in \bar{\mc{B}}_{b_k}} \zeta_{l,k,n,b} \; + \; \enoise
