@@ -1,4 +1,4 @@
-The simulations carried out in this work consider the \ac{PL} varying uniformly across all users in the system with the channels drawn from the \textit{i.i.d.} samples. The queues are generated based on the Poisson process with the average values specified in each section presented. 
+The simulations carried out in this work consider the \ac{PL} varying uniformly across all users in the system with the small-scale fading drawn from the \textit{i.i.d.} samples. The queues are generated based on the Poisson process with the average values specified for each numerical experiments. 
 \begin{table*}
 	\centering
 	\caption{Sub-channel-wise listing of channel gains and rate allocations by different algorithms for a scheduling instant}
@@ -21,10 +21,10 @@ The simulations carried out in this work consider the \ac{PL} varying uniformly 
 \end{table*}
 \begin{figure*}
 	\centering
-	\subfloat[][System Model \me{\lbrace N,N_B,K,N_T,N_R \rbrace = \lbrace 4,3,9,4,1\rbrace}]{
+	\subfloat[][System model \me{\lbrace N,N_B,K,N_T,N_R \rbrace = \lbrace 4,3,9,4,1\rbrace}, number of backlogged bits for each user \eqn{Q_k = [14,15,14,8,12,9,12,11,11]} bits]{
 		\includegraphics[width=0.5\textwidth]{fig-1-4}
 		\label{fig-1}}
-	\subfloat[][System Model \me{\lbrace N,N_B,K,N_T,N_R \rbrace = \lbrace 2,3,9,4,2\rbrace}]{
+	\subfloat[][System model \me{\lbrace N,N_B,K,N_T,N_R \rbrace = \lbrace 2,3,9,4,2\rbrace}, number of backlogged bits for each user \me{Q_k = [9,12,8,12,5,4,10,8,5]} bits]{
 		\includegraphics[width=0.5\textwidth]{fig-2-5}
 		\label{fig-2}}
 	\caption{Total number of backlogged packets \me{\chi} present in the system after each \ac{SCA} updates using \me{\ell_1 (q = 1)} norm for \ac{JSFRA} schemes}
