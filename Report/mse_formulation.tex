@@ -13,7 +13,7 @@ where \me{\hat{d}_{l,k,n}} is the estimate of the transmitted symbol. Plugging t
 \end{equation}
 The above equivalence is valid only if the receivers are based on the \ac{MMSE} criterion. Using the equivalence in \eqref{eqn-mse-eq}, the \ac{WSRM} objective can be reformulated as the \ac{WMMSE} to obtain the precoders for the \acs{MU}-\acs{MIMO} scenario as discussed in \cite{christensen2008weighted,wmmse_shi,hong2012decomposition}. Note that the receive beamformers based on the \ac{MMSE} criterion are independent of the choice of the \me{\ell_q} norm used in the objective function to obtain the optimal transmit precoders \me{\mvec{m}{l,k,n}}.
 
-Let \me{{v}^{\prime}_k = Q_k - \sum_{n=1}^N \sum_{l=1}^L t_{l,k,n}} denote the queue deviation corresponding to user \me{k} and \me{\tilde{{v}}^{\prime}_k \triangleq a_k^{1/{q}}v^{\prime}_k} represent the weighted formulation. By using the relaxed \ac{MSE} expression in \eqref{mse-error}, we can reformulate \eqref{eqn-3} as
+Before proceeding futher, let \me{{v}^{\prime}_k = Q_k - \sum_{n=1}^N \sum_{l=1}^L t_{l,k,n}} denotes the queue deviation corresponding to user \me{k} and \me{\tilde{{v}}^{\prime}_k \triangleq a_k^{1/{q}}v^{\prime}_k} be the corresponding weighted objective.By using the relaxed \ac{MSE} expression in \eqref{mse-error}, we can reformulate \eqref{eqn-3} as
 \iftoggle{single_column}{
 \begin{IEEEeqnarray}{rCl}\label{eqn-mse-1} \neqsub \allowdisplaybreaks
 \underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\\ \epsilon_{l,k,n},\mvec{w}{l,k,n}}} {\text{minimize}} & \quad & \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-1.1} \\

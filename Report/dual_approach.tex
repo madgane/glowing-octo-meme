@@ -31,7 +31,7 @@ The dual vector for the next iteration is updated by using the subgradient searc
 \mbfa{\nu}_b^{(i+1)} = \mbfa{\nu}_b^{(i)} + \rho \left (\mbfa{\zeta}_b - \mbfa{\zeta}_b^{(i+1)} \right )
 \label{dual-sg-update}
 \end{equation}
-where step size parameter \me{\rho} is chosen in accordance with \cite{boyd2011distributed} to depend on the system model under consideration. The convergence rate of the distributed algorithm is susceptible to the choice of step size parameter \me{\rho}. For our simulation models, we consider step size parameter \me{\rho=2}. The above iterative procedure is performed until convergence or terminated when exceeding a predetermined number of iterations. The distributed precoder design using the \ac{ADMM} approach is shown in Algorithm \ref{algo-3}. The convergence analysis of the distributed algorithms are discussed in Appendix \ref{sec-dist-conv}. 
+where step size parameter \me{\rho} is chosen in accordance with \cite{boyd2011distributed} to depend on the system model under consideration. The convergence rate of the distributed algorithm is susceptible to the choice of step size parameter \me{\rho}. In numerical simulations, we consider step size \me{\rho=2}. The above iterative procedure is performed until convergence or terminated when exceeding a predetermined number of iterations, say, \eqn{J_{\max}}. The \ac{ADMM} based precoder design is outlined in Algorithm \ref{algo-3}.
 \begin{algorithm}
 	\SetAlgoLined
 	\DontPrintSemicolon
@@ -60,6 +60,9 @@ where step size parameter \me{\rho} is chosen in accordance with \cite{boyd2011d
 	\caption{Distributed \ac{JSFRA} scheme using \ac{ADMM}}
 	\label{algo-3}
 \end{algorithm}
+
+The convergence analysis for the distributed algorithms is provided in Appendix \ref{sec-dist-conv}. \review{In practice, to reduce the amount of information exchange among the coupling \acp{BS}, often distributed schemes are iterated for few number of steps, say, \eqn{J_{\max}}. If so, the convergence of the iterates is not guaranteed, since it is difficult to show the monotonicity of objective in each \ac{SCA} step. It follows from the fact that in each primal or \ac{ADMM} update, the global objective need not be decreasing monotonically, despite reaching the centralized solution upon convergence. However, if the distributed algorithms are performed for adequate number of iterations to ensure strict monotonicity of the objective in each \ac{SCA} step, then the limit point of the sequence of iterates is a stationary point of \eqref{eqn-6}.}
+
 \begin{comment}
 \begin{algorithm}
 \SetAlgoLined

@@ -10,7 +10,7 @@ Even though \me{N} sub-channels are present at any given scheduling instant, pre
 \end{equation}
 where \me{t_{l,k,j}} is the \me{\ith{k}} user rate on sub-channel \me{j}. 
 
-\review{For simplicity we use random sub-channel ordering in our paper, \textit{i.e.}, after finding the precoders for a current sub-channel, we can choose any previously unselected sub-channels as the next candidate sub-channel for which the precoders are identified using the updated backlogged packets. We can also use greedy ordering by considering the norm of the channel between a user and the corresponding serving \ac{BS}, but this comes at the cost of increased complexity. However, as the number of users in the system increases, the \ac{SRA} scheme will be insensitive to the sub-channel ordering due to the available multi-user diversity.}
+\review{For simplicity we use random sub-channel ordering in our paper, \textit{i.e.}, after finding the precoders for a current sub-channel, we can choose any previously unselected sub-channels as the next candidate sub-channel for which the precoders are identified using the updated backlogged packets. Additionally, we can also use greedy ordering by considering the channel norm between all users in the system and the corresponding serving \acp{BS}, but this comes at the cost of increased complexity. However, it is worth noting that, as the number of users in the system increases, the \ac{SRA} scheme will be insensitive to the sub-channel ordering due to the available multi-user diversity present in the system.}
 
 %The algorithmic representation of the \ac{SRA} scheme is shown in Algorithm \ref{algo-5}
 %\begin{algorithm}

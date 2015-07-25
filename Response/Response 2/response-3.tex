@@ -6,11 +6,11 @@
 \begin{enumerate}
 \cmnt{1} \review{Convexity of problem (16). The paragraphs surrounding (16) allow a better understanding of the usage of the additional variables, i.e. gamma and beta, to remove the equality constraint in (2). For the reviewer remains however unclear, the procedure/criterion to determine the operating point for the parameter \eqn{\tilde{\beta}} required in (19) and used in the convex subproblems (20) and (21).}
 
-\resp We thank the reviewer for the comment. We have included additional information on how to choose the operating point while initializing the iterative algorithm. It is written in the fourth paragraph following (23). We have also provided a detailed discussion on how to update the operating point after each iteration in the paragraph following (23). Note that the objective function is convex, and therefore we can update operating point for the current step with the solution obtained in the previous iteration as
+\resp We thank the reviewer for the comment. We have included additional material on how to choose the operating point while initializing the iterative algorithm. It is described briefly in the fourth paragraph following (23). We have also provided a detailed discussion on how to update the operating point after each iteration in the paragraph following (23). Since the objective function is convex, we can update the current operating point with the solution obtained from the previous iteration as
 \begin{equation}
-\tilde{\mbf{m}}_{j}^{(i)} = \mvec{m}{j}^{(i)}
+\tilde{\mbf{m}}_{j}^{(i)} = \mvec{m}{j}^{(i)}.
 \end{equation}
-where \eqn{\tilde{\mbf{m}}_{j}^{(i)}} denotes the operating point for the \eqn{\ith{j+1}} \ac{SCA} iteration in the \eqn{\ith{i}} \ac{AO} step and \eqn{\mbf{m}_{j}^{(i)}} is the solution obtained by solving (20) in the \eqn{\ith{j}} \ac{SCA} iteration.
+Note that \eqn{\tilde{\mbf{m}}_{j}^{(i)}} is the operating point for the \eqn{\ith{(j+1)}} \ac{SCA} iteration in the \eqn{\ith{i}} \ac{AO} step and \eqn{\mbf{m}_{j}^{(i)}} is the solution obtained by solving (20) in the \eqn{\ith{j}} \ac{SCA} iteration.
 
 \cmnt{2} \review{Proof of convergence. The proof of convergence introduced by the authors in the Appendix seems correct and enhances the content of the manuscript.}
 
@@ -22,13 +22,13 @@ Additional Comments -
 	
 	\cmnts{a} - \review{The reviewer considers that closing statements regarding the applicability of the proposed schemes are missing. Since the results are quite similar (when not identical), which formulation is preferable between the centralized schemes? Which one for the distributed solutions?}
 	
-	\resp We have updated the manuscript to discuss possible options for selecting an algorithm for a specific implementation. The choice of considering a centralized approach is equally good when the number of receive antenna is greater than one, \textit{i.e.}, \eqn{N_R > 1}. However, in case of a single antenna receiver, the \ac{JSFRA} formulation outlined in Section III-B is more efficient than the \ac{MSE} reformulation, as there is no need for the receiver update, thereby reducing the complexity significantly. 
+	\resp We have updated the manuscript to discuss possible options for selecting an algorithm for a specific implementation. The choice of considering a centralized approach is equally good when the number of receive antenna is greater than one, \textit{i.e.}, \eqn{N_R > 1}. However, in case of a single antenna receiver, the \ac{JSFRA} formulation outlined in Section III-B is more efficient than the \ac{MSE} reformulation, as there is no need for the receiver update, thereby reducing the complexity significantly.
 	
-	As far as the distributed approaches are concerned, the primal and the \ac{ADMM} schemes are equally favorable when \eqn{N_R = 1} since the signaling required to be exchanged between the coordinating \acp{BS} involves only the scalar interference values. However, when \eqn{N_R > 1}, then the \ac{KKT} based distributed approach is more efficient than the primal and the \ac{ADMM} schemes, since it has less signaling overhead. The choice of selecting \eqn{\ell_q} norm is discussed in Section II-B last paragraph. The above information is included in the paragraph before the simulations section in Section IV.
+	As far as the distributed approaches are concerned, the primal and the \ac{ADMM} schemes are equally favorable when \eqn{N_R = 1} since the signaling required to be exchanged between the coordinating \acp{BS} involves only the scalar interference values. However, when \eqn{N_R > 1}, then the \ac{KKT} based distributed approach is more efficient than the primal and the \ac{ADMM} schemes, since it has less signaling overhead. The choice of selecting \eqn{\ell_q} norm is discussed in Section II-B last paragraph. The above information is included in Section IV last paragraph, \textit{i.e.}, before the simulations section.
 	
 	\cmnts{b} - \review{The last discussion in section IV-C could benefit from restructuring. The information on how to obtain a practical distributed precoder design and to avoid backhaul exchange is too condensed and difficult to understand.}
 	
-	\resp It has been rewritten to improve the readability as suggested by the reviewer. We have included the reference [28] for more illustrative discussions on the backhaul signaling.
+	\resp It has been rewritten to improve the readability as suggested by the reviewer.
 	
 	\cmnts{c} - \review{For the simulation results, why not to unify configurations when possible? Having to read a different configuration for each graph is cumbersome and no additional comparisons are possible between figures. E.g. PL uniformly distributed between [0,-6] dB in Fig. 2 and [0,-3] dB in Fig. 3.}
 	
