@@ -6,11 +6,11 @@
 \begin{enumerate}
 \cmnt{1} \review{Convexity of problem (16). The paragraphs surrounding (16) allow a better understanding of the usage of the additional variables, i.e. gamma and beta, to remove the equality constraint in (2). For the reviewer remains however unclear, the procedure/criterion to determine the operating point for the parameter \eqn{\tilde{\beta}} required in (19) and used in the convex subproblems (20) and (21).}
 
-\resp We thank the reviewer for the comment. We have included additional material on how to choose the operating point while initializing the iterative algorithm. It is described briefly in the fourth paragraph following (23). We have also provided a detailed discussion on how to update the operating point after each iteration in the paragraph following (23). Since the objective function is convex, we can update the current operating point with the solution obtained from the previous iteration as
+\resp We thank the reviewer for the comment. We have included additional material on how to choose the operating point while initializing the iterative algorithm. It is described briefly in the fourth paragraph following (23). We have also provided a detailed discussion on how to update the operating point after each iteration in the paragraphs following (23). Since the objective function is convex, we can update the current operating point with the solution obtained from the previous iteration as
 \begin{equation}
-\tilde{\mbf{m}}_{j}^{(i)} = \mvec{m}{j}^{(i)}.
+\tilde{\mbf{m}}_{j}^{(i)} = \mvec{m}{j}^{(i)}
 \end{equation}
-Note that \eqn{\tilde{\mbf{m}}_{j}^{(i)}} is the operating point for the \eqn{\ith{(j+1)}} \ac{SCA} iteration in the \eqn{\ith{i}} \ac{AO} step and \eqn{\mbf{m}_{j}^{(i)}} is the solution obtained by solving (20) in the \eqn{\ith{j}} \ac{SCA} iteration.
+where \eqn{\mbf{m} = \{\mbf{m}_{l,k,n} \}_{\forall l, \forall k \in \mc{U}, \forall n}} corresponds to the collection of all transmit precoders in the system. Note that \eqn{\tilde{\mbf{m}}_{j}^{(i)}} is the operating point for the \eqn{\ith{(j+1)}} \ac{SCA} iteration in the \eqn{\ith{i}} \ac{AO} step and \eqn{\mbf{m}_{j}^{(i)}} is the solution obtained by solving (20) in the \eqn{\ith{j}} \ac{SCA} iteration.
 
 \cmnt{2} \review{Proof of convergence. The proof of convergence introduced by the authors in the Appendix seems correct and enhances the content of the manuscript.}
 
