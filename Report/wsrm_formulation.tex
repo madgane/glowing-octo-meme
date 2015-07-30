@@ -68,7 +68,7 @@ Note that the scaling present in the optimal receiver \eqref{opt-rx} has no impa
 
 \review{The proposed solution involves two nested iterations, \textit{i.e.}, one for the outer \ac{AO} loop and the second for the inner \ac{SCA} loop. Each \ac{AO} iteration involves two steps, one for finding the transmit precoders by solving \eqref{eqn-9} iteratively until convergence for fixed receivers, and the other for updating the receive beamformers with the previously found fixed transmit precoders by either solving \eqref{opt-rx} recursively or by using \eqref{eqn-10}.
 	
-Let us consider the \eqn{\ith{j}} \ac{SCA} iteration in the \eqn{\ith{i}} \ac{AO} step to find the transmit precoders by solving the subproblem \eqref{eqn-9}. Let \eqn{\{\mbf{m}^{(i)}_j, \mbf{\beta}^{(i)}_{j}\}} be the solution obtained by solving \eqref{eqn-9} in the \eqn{\ith{(j-1)}} \ac{SCA} step. In order to proceed with the iterative procedure, the operating point for the \eqn{\ith{(j+1)}} \ac{SCA} step is updated as \eqn{\tilde{\mbf{u}} = \mbf{z}^{(i)}_{j} \triangleq \{\mbf{m}^{(i)}_j, \mbf{w}^{(i-1)}_{\ast}, \mbf{\beta}^{(i)}_{j} \}}, where \eqn{\mbf{w}^{(i-1)}_{\ast}} is the receiver obtained by solving either \eqref{opt-rx} recursively or by using the \ac{MMSE} receiver \eqref{eqn-10} from the \eqn{\ith{(i-1)}} \ac{AO} step.
+Let us consider the \eqn{\ith{j}} \ac{SCA} iteration in the \eqn{\ith{i}} \ac{AO} step to find the transmit precoders by solving the subproblem \eqref{eqn-9}. Let \eqn{\mbf{m},\mbf{w}}, and \eqn{\mbfa{\beta}} denote the corresponding sets obtained by grouping all transmit precoders, receive beamformers and interference values respectively in the system. Let \eqn{\{\mbf{m}^{(i)}_{j}, \mbfa{\beta}^{(i)}_{j}\}} be the solution obtained by solving \eqref{eqn-9} in the \eqn{\ith{(j-1)}} \ac{SCA} step. In order to proceed with the iterative procedure, the operating point for the \eqn{\ith{(j+1)}} \ac{SCA} step is updated as \eqn{\tilde{\mbf{u}} = \mbf{z}^{(i)}_{j} \triangleq \{\mbf{m}^{(i)}_{j}, \mbf{w}^{(i-1)}_{\ast}, \mbfa{\beta}^{(i)}_{j} \}}, where \eqn{\mbf{w}^{(i-1)}_{\ast}} is the receiver obtained by solving either \eqref{opt-rx} recursively or by using the \ac{MMSE} receiver \eqref{eqn-10} from the \eqn{\ith{(i-1)}} \ac{AO} step.
 \begin{algorithm}
 	\SetAlgoLined
 	\DontPrintSemicolon
@@ -79,10 +79,9 @@ Let us consider the \eqn{\ith{j}} \ac{SCA} iteration in the \eqn{\ith{i}} \ac{AO
 	\KwInit{\me{i=0,j=0} and \me{\tilde{\mbf{m}}_{l,k,n}} using single user beamformer satisfying power constraint \eqref{eqn-9.1d}}
 	update \me{\tilde{\mbf{w}}_{l,k,n}, \tilde{\mbf{\beta}}_{l,k,n}} using \eqref{eqn-10} and \eqref{eqn-9.1c} with \me{\tilde{\mbf{m}}_{l,k,n}} \;
 	\Repeat{Queue convergence or \me{i \geq I_{\max}}}{
-		\Repeat{\ac{SCA} convergence or \me{j \geq J_{\max}}}{
+		\Repeat{\ac{SCA} convergence or \me{j \geq K_{\max}}}{
 			solve for the transmit precoders \me{\mvec{m}{l,k,n}} using \eqref{eqn-9}\;
-			update \me{\tilde{\mbf{u}}_{l,k,n}} and the constraint set \eqref{eqn-8} with the newly found \me{\mvec{m}{l,k,n}} and \me{\mvec{\beta}{l,k,n}} using \eqref{eqn-wsrm-expr}\;
-			$j = j + 1$\;
+			update the constraint set \eqref{eqn-8} with \me{{\mbf{u}}_{l,k,n}} and \me{\mvec{m}{l,k,n}} using \eqref{eqn-wsrm-expr} and increment $j = j + 1$\;
 		}
 		update the receive beamformers \me{\mvec{w}{l,k,n}} using \eqref{eqn-9--1} or \eqref{eqn-10} with the updated precoders \me{\mvec{m}{l,k,n}}\;
 		$i = i + 1$, \me{j = 0}\;

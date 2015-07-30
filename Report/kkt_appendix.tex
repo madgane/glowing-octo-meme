@@ -1,4 +1,5 @@
-In order to solve for an iterative precoder design algorithm, the \ac{KKT} expressions for the problem in \eqref{kkt-mse-1} are obtained by differentiating the Lagrangian by assuming the equality constraint for \eqref{kkt-mse-1.2} and \eqref{kkt-mse-1.3}. At the stationary points, following conditions are satisfied.
+
+To design the transmit precoders iteratively, we solve the \ac{KKT} conditions of problem \eqref{kkt-mse-1} by assuming \eqref{kkt-mse-1.2} and \eqref{kkt-mse-1.3} hold with equality. Hence, we obtain the following equations.
 \iftoggle{single_column}{
 \begin{IEEEeqnarray}{RCL} \label{kkt-mse-2} \neqsub
 \nabla_{t_{l,k,n}} : &-q \left [ a_k \, \left (Q_k - \sum_{n = 1}^N \sum_{l=1}^L t_{l,k,n} \right )^{(q-1)} \right ] + \sigma_{l,k,n}\,\log(2) &= 0 \IEEEyessubnumber \label{kkt-mse-2.1} \\
