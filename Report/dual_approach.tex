@@ -1,4 +1,4 @@
-The \ac{ADMM} approach can also be used to decouple the precoder design across multiple \acp{BS} to solve the convex problem in \eqref{eqn-decent-1}. Generally, the \ac{ADMM} is preferred over the \ac{DD} approach in \cite{tolli2011decentralized} for its robustness and improved convergence behavior \cite{boyd2011distributed}. In contrast to the \acl{PD}, the \ac{ADMM} relaxes the interference constraints by including in the objective function of each subproblem with a penalty pricing \cite{palomar2006tutorial,boyd2011distributed}. Similar approach for the precoder design in the minimum power context was considered in \cite{admm_robust}.
+The \ac{ADMM} approach can also be used to decouple the precoder design across multiple \acp{BS} to solve the convex subproblem in \eqref{eqn-decent-1}. Generally, the \ac{ADMM} is preferred over the \acl{DD} in \cite{tolli2011decentralized} for its robustness and improved convergence behavior \cite{boyd2011distributed}. In contrast to the \acl{PD}, the \ac{ADMM} relaxes the interference constraints by including in the objective function of each subproblem with a penalty pricing \cite{palomar2006tutorial,boyd2011distributed}. Similar approach for the precoder design in the minimum power context was considered in \cite{admm_robust}.
 
 Using the formulation presented in \cite{boyd2011distributed,admm_robust}, we can write the \ac{BS} \me{b} specific \ac{ADMM} subproblem for the \me{\ith{i}} iteration as
 \iftoggle{single_column}{\allowdisplaybreaks
@@ -41,8 +41,7 @@ where step size parameter \me{\rho} is chosen in accordance with \cite{boyd2011d
 	\KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l}}
 	\KwInit{\me{i=0,j=0} and \me{{\mbf{m}}_{l,k,n}} satisfying \eqref{power_update}}
 	update \me{\mvec{w}{l,k,n}} with \eqref{eqn-10} and \me{\tilde{\mbf{u}}_{l,k,n}} using \eqref{eqn-6.3} and \eqref{eqn-wsrm-expr} \;
-	initialize the interference vectors \me{\mbfa{\zeta}^{(0)}_b = \mbfa{0}^{\mathrm{T}}, \forall b \in\mc{B}} \;
-	initialize the dual vectors \me{\mbfa{\nu}^{(0)}_b = \mbfa{0}^{\mathrm{T}}, \forall b \in \mc{B}} \;
+	initialize the vectors \me{\mbfa{\nu}^{(0)}_b = \mbfa{0}^{\mathrm{T}}, \mbfa{\zeta}^{(0)}_b = \mbfa{0}^{\mathrm{T}}, \forall b \in \mc{B}} \;
 	\ForEach{\ac{BS} \me{b \in \mc{B}}}{
 		\Repeat{convergence or \me{i \geq I_{\max}}}{
 			\Repeat{convergence or \me{j \geq J_{\max}}}{
@@ -61,7 +60,7 @@ where step size parameter \me{\rho} is chosen in accordance with \cite{boyd2011d
 	\label{algo-3}
 \end{algorithm}
 
-The convergence analysis for the distributed algorithms is provided in Appendix \ref{sec-dist-conv}. \review{In practice, to reduce the amount of information exchange among the coupling \acp{BS}, often distributed schemes are iterated for few number of steps, say, \eqn{J_{\max}}. If so, the convergence of the iterates is not guaranteed, since it is difficult to show the monotonicity of objective in each \ac{SCA} step. It follows from the fact that in each primal or \ac{ADMM} update, the global objective need not be decreasing monotonically, despite reaching the centralized solution upon convergence. However, if the distributed algorithms are performed for adequate number of iterations to ensure strict monotonicity of the objective in each \ac{SCA} step, then the limit point of the sequence of iterates is a stationary point of \eqref{eqn-6}.}
+The convergence analysis for the distributed algorithms is provided in Appendix \ref{sec-dist-conv}. \review{In practice, to reduce the amount of information exchange among the coupling \acp{BS}, often distributed schemes are iterated for few steps, say, \eqn{J_{\max}}. If so, the convergence of the iterates is not guaranteed, since it is difficult to show the monotonicity of objective in each \ac{SCA} step. It follows from the fact that in each primal or \ac{ADMM} update, the global objective need not be decreasing monotonically, despite reaching the centralized solution upon convergence. However, if the distributed methods are performed for an adequate number of iterations to ensure strict monotonicity of the objective in each \ac{SCA} step, then the limit point of the sequence of iterates is a stationary point of \eqref{eqn-6}. Additionally, if the receiver is updated together with the transmit precoder in each \ac{SCA} step as in Algorithm \ref{algo-3}, then the convergence of the iterates is still guaranteed. It follows from the feasibility of the solution and the strict monotonicity of the objective after the combined update.}
 
 \begin{comment}
 \begin{algorithm}

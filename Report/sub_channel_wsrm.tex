@@ -6,7 +6,7 @@ As an alternative sub-optimal solution, we present a \acl{QM} \ac{SRA}, which so
 \end{equation}
 Even though \me{N} sub-channels are present at any given scheduling instant, precoders are computed for each sub-channel sequentially with \me{P_{\max,i}} and the residual number of backlogged packets. Let \me{Q_{k,i}} be the number of backlogged packets associated with user \me{k} while determining the precoders for the \eqn{\ith{i}} sub-channel. Since the precoder design is sequential, \textit{i.e}, the precoders are designed for sub-channels \me{[0,i-1]} before the \me{\ith{i}} sub-channel, the number of backlogged packets for the initial sub-channel is initialized as \me{Q_{k,1} = Q_k}. The queues associated with the consecutive sub-channels are given by
 \begin{equation}	\label{eqn-weight}
-	Q_{k,i+1} = \max \Big ( Q_k - \sum_{j = 1}^{i} \, \sum_{l = 1}^{L} \, t_{l,k,j} ,0 \Big ) \; \forall \; k \in \mathcal{U}
+Q_{k,i+1} = \max \Big ( Q_k - \sum_{j = 1}^{i} \, \sum_{l = 1}^{L} \, t_{l,k,j} ,0 \Big ) \; \forall \; k \in \mathcal{U}
 \end{equation}
 where \me{t_{l,k,j}} is the \me{\ith{k}} user rate on sub-channel \me{j}. 
 

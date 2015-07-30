@@ -22,23 +22,25 @@ Additional Comments -
 	
 	\cmnts{a} - \review{The reviewer considers that closing statements regarding the applicability of the proposed schemes are missing. Since the results are quite similar (when not identical), which formulation is preferable between the centralized schemes? Which one for the distributed solutions?}
 	
-	\resp We have updated the manuscript to discuss possible options for selecting an algorithm for a specific implementation. The choice of considering a centralized approach is equally good when the number of receive antenna is greater than one, \textit{i.e.}, \eqn{N_R > 1}. However, in case of a single antenna receiver, the \ac{JSFRA} formulation outlined in Section III-B is more efficient than the \ac{MSE} reformulation, as there is no need for the receiver update, thereby reducing the complexity significantly.
+	\resp We have updated the manuscript to discuss possible options for selecting an algorithm for a specific implementation. The choice of considering a centralized approach is equally good when the number of receive antennas is larger than one, \textit{i.e.}, \eqn{N_R > 1}. However, in case of a single antenna receiver, the \ac{JSFRA} formulation outlined in Section III-B is more efficient than the \ac{MSE} reformulation, as there is no need for the receiver update, thereby reducing the complexity significantly.
 	
 	As far as the distributed approaches are concerned, the primal and the \ac{ADMM} schemes are equally favorable when \eqn{N_R = 1} since the signaling required to be exchanged between the coordinating \acp{BS} involves only the scalar interference values. However, when \eqn{N_R > 1}, then the \ac{KKT} based distributed approach is more efficient than the primal and the \ac{ADMM} schemes, since it has less signaling overhead. The choice of selecting \eqn{\ell_q} norm is discussed in Section II-B last paragraph. The above information is included in Section IV last paragraph, \textit{i.e.}, before the simulations section.
 	
 	\cmnts{b} - \review{The last discussion in section IV-C could benefit from restructuring. The information on how to obtain a practical distributed precoder design and to avoid backhaul exchange is too condensed and difficult to understand.}
 	
-	\resp It has been rewritten to improve the readability as suggested by the reviewer.
+	\resp It has been rewritten to improve the readability as suggested by the reviewer. For additional information, the reviewer is requested to refer [R1].
+	
+	[R1] Changxin Shi, Berry R.A., Honig M.L., ``{Bi-Directional Training for Adaptive Beamforming and Power Control in Interference Networks}," \textit{IEEE Transactions on Signal Processing}, vol.62, no.3, pp.607,618, Feb.1, 2014
 	
 	\cmnts{c} - \review{For the simulation results, why not to unify configurations when possible? Having to read a different configuration for each graph is cumbersome and no additional comparisons are possible between figures. E.g. PL uniformly distributed between [0,-6] dB in Fig. 2 and [0,-3] dB in Fig. 3.}
 	
-	\resp We thank the reviewer for the comment. The main purpose of considering several path loss models is simply to show that the proposed algorithms works reasonably well on various scenarios. For benchmarking, we have also included the centralized algorithm to draw the difference between the other schemes. We are conducting more numerical experiments to have a more complete comparison of all the schemes. Unfortunately those results cannot be included in the current manuscript due to space limitation. We aim to make them available online as a companion technical report whey they are ready.
+	\resp The main purpose of considering several path loss models is simply to show that the proposed algorithms works reasonably well on various scenarios mentioned in Section V (Simulation Section). For benchmarking, we have also included the centralized algorithm to draw the difference between the other schemes. We are conducting more numerical experiments to have a more complete comparison of all the schemes. Unfortunately those results cannot be included in the current manuscript due to space limitation. We aim at making them available online as a companion technical report whey they are ready.
 	
 	\cmnts{d} - \review{In Fig. 1, the description of the system model does not agree with the statement of N = 3 subchannels.}
 	
-	\resp We apologize for the error which has been fixed in the revised manuscript.
+	\resp The error has been fixed in the revised manuscript.
 	
-	\cmnts{e} - \review{In Fig. 4(b), the performance of Q-WSRME seems to be (in average) worse than Q-WSRM. However, that should not be the case, since Q-WSRME is taking into account the over allocation. Any reason for this?}
+	\cmnts{e} - \review{In Fig. 4(b), the performance of Q-WSRME seems to be (in average) worse than that of Q-WSRM. However, that should not be the case, since Q-WSRME is taking into account the over allocation. Any reason for this?}
 	
 	\resp Indeed the performance of the Q-WSRME is better than Q-WSRM in Fig. 4(b). The misleading observation was probably due to the visualization effect where the colors representing the performance of sum arrivals and Q-WSRME are quite similar. We have updated Fig. 4 (and all other figures) in the revised manuscript to avoid such visualization problems.
 	
@@ -48,7 +50,7 @@ Additional Comments -
 	
 	\cmnts{g} - \review{p 10, col 1, row 28: is it \eqn{\lambda} a dual variable?}
 	
-	\resp We thank the reviewer for pointing out the mistake. In fact, it should be the dual variable \eqn{\sigma_{l,k,n}} and not \eqn{\lambda_{l,k,n}}. We have fixed this problem in the revised manuscript.
+	\resp In fact, it should be the dual variable \eqn{\sigma_{l,k,n}} and not \eqn{\lambda_{l,k,n}}. We have fixed this problem in the revised manuscript.
 	
 	\cmnts{h} - \review{p 10, col 2, row 59: typo wHith}	
 	
