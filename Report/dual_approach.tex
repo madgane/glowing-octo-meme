@@ -10,12 +10,13 @@ Using the formulation presented in \cite{boyd2011distributed,admm_robust}, we ca
 &\quad& \text{and } \eqsub \eqref{eqn-8}
 \end{IEEEeqnarray}
 }{\begin{IEEEeqnarray}{rl} \label{eqn-dual-3}\allowdisplaybreaks \neqsub
-&\underset{\substack{\gamma_{l,k,n}, \mvec{m}{l,k,n} \\ \beta_{l,k,n}, \mbfa{\zeta}_b}}{\text{minimize}} \: \; \| \tilde{\mbf{v}}_{b} \|_q + \mbfa{\nu}^{(j)\,\tran}_b  \left ( \mbfa{\zeta}_b - \mbfa{\zeta}^{(j)}_b \right ) +  \frac{\rho}{2} \left \| \mbfa{\zeta}_b - \mbfa{\zeta}^{(j)}_b \right \|^2 \eqsub \eqspace \\
-&\text{subject to} \quad \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}} \eqsub \label{power_update} \\
-&\sum_{\bar{b} \in \bar{\mc{B}}_b} \zeta_{l,k,n,\bar{b}} + \sum_{\mathclap{\{\bar{l},\bar{k}\}\neq\{l,k\}}} |\mvec{w}{l,k,n}^\herm \mvec{H}{b,k,n} \mvec{m}{\bar{l},\bar{k},n} |^2 + \enoise \leq \beta_{l,k,n} \eqspace \eqsub \\
-&\sum_{k \in \mc{U}_b} \sum_{l=1}^L |\mvec{w}{\bar{l},\bar{k},n}^\herm \mvec{H}{b,\bar{k},n} \mvec{m}{l,k,n} |^2 \leq \zeta_{\bar{l},\bar{k},n,b} \; \forall \bar{k} \in \bar{\mc{U}}_b \; \forall n \eqsub \\
-& \text{and } \eqsub \eqref{eqn-8}
-\end{IEEEeqnarray}}
+	&\underset{\substack{\gamma_{l,k,n}, \mvec{m}{l,k,n} \\ \beta_{l,k,n}, \mbfa{\zeta}_b}}{\text{minimize}} \: \; \| \tilde{\mbf{v}}_{b} \|_q + \mbfa{\nu}^{(j)\,\tran}_b   ( \mbfa{\zeta}_b - \mbfa{\zeta}^{(j)}_b  ) +  \tfrac{\rho}{2}  \| \mbfa{\zeta}_b - \mbfa{\zeta}^{(j)}_b  \|^2 \eqsub \eqspace \\
+	&\text{subject to} \quad \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}} \eqsub \label{power_update} \\
+	&\sum_{\bar{b} \in \bar{\mc{B}}_b} \zeta_{l,k,n,\bar{b}} + \sum_{\mathclap{\{\bar{l},\bar{k}\}\neq\{l,k\}}} |\mvec{w}{l,k,n}^\herm \mvec{H}{b,k,n} \mvec{m}{\bar{l},\bar{k},n} |^2 + \enoise \leq \beta_{l,k,n} \eqspace \eqsub \\
+	&\sum_{k \in \mc{U}_b} \sum_{l=1}^L |\mvec{w}{\bar{l},\bar{k},n}^\herm \mvec{H}{b,\bar{k},n} \mvec{m}{l,k,n} |^2 \leq \zeta_{\bar{l},\bar{k},n,b} \; \forall \bar{k} \in \bar{\mc{U}}_b \; \forall n \eqsub \\
+	& \text{and } \eqsub \eqref{eqn-8}
+\end{IEEEeqnarray}
+}
 where \me{\mbfa{\zeta}^{(j)}_b} denotes the interference vector updated from the earlier iteration and \me{\mbfa{\nu}^{(j)}_b} represents the dual vector corresponding to the equality constraint at the \me{\ith{j}} iteration as
 \begin{equation} \label{const-admm1}
 \mbfa{\zeta}_b = \mbfa{\zeta}^{(j)}_b.
@@ -28,10 +29,10 @@ Upon solving \eqref{eqn-dual-3} for \me{\mbfa{\zeta}_b \forall b} in the \me{\it
 \end{equation}
 The dual vector for the next iteration is updated by using the subgradient search to maximize the dual objective as
 \begin{equation}
-\mbfa{\nu}_b^{(j+1)} = \mbfa{\nu}_b^{(j)} + \rho \left (\mbfa{\zeta}_b - \mbfa{\zeta}_b^{(j+1)} \right )
+\mbfa{\nu}_b^{(j+1)} = \mbfa{\nu}_b^{(j)} + \rho \: (\mbfa{\zeta}_b - \mbfa{\zeta}_b^{(j+1)}  )
 \label{dual-sg-update}
 \end{equation}
-where step size parameter \me{\rho} is chosen in accordance with \cite{boyd2011distributed} to depend on the system model under consideration. The convergence rate of the distributed algorithm is susceptible to the choice of step size parameter \me{\rho}. In numerical simulations, we consider step size \me{\rho=2}. The above iterative procedure is performed until convergence or terminated when exceeding a predetermined number of iterations, say, \eqn{J_{\max}}. The \ac{ADMM} based precoder design is outlined in Algorithm \ref{algo-3}.
+where step size parameter \me{\rho} is chosen in accordance with \cite{boyd2011distributed} to depend on the system model. The convergence rate is susceptible to the choice of step size parameter \me{\rho}. In numerical simulations, we consider step size \me{\rho=2}. The above iterative procedure is performed until convergence or terminated when exceeding a predetermined number of steps, say, \eqn{J_{\max}}. Algorithm \ref{algo-3} outlines a practical way of implementing the \ac{ADMM} based precoder design with minimal signaling overhead.
 \begin{algorithm}
 	\SetAlgoLined
 	\DontPrintSemicolon
@@ -50,8 +51,8 @@ where step size parameter \me{\rho} is chosen in accordance with \cite{boyd2011d
 				update \me{\mbfa{\zeta}^{(j+1)}_b} and \me{\mbfa{\nu}^{(j+1)}_b} using \eqref{if-sg-update} and \eqref{dual-sg-update}\;
 				update \me{j = j + 1}\;
 			}
-			send precoded downlink pilot with \me{\mbf{m}}\;
-			evaluate \me{\mvec{w}{l,k,n}} at each user and inform to all \acp{BS} in \eqn{\mc{B}} using uplink precoded pilots \cite{komulainen2013effective} \;
+			send precoded downlink pilot with \me{\mbf{m}_{l,k,n}}\;
+			evaluate \me{\mvec{w}{l,k,n}} using \eqref{eqn-10} at each user \;
 			update \me{\tilde{\mbf{u}}_{l,k,n}} using \eqref{eqn-6.3} and \eqref{eqn-wsrm-expr} for \ac{SCA} point or \me{\tilde{\epsilon}_{l,k,n}} using \eqref{eqn-mse-1.3} for \ac{MSE} operating point \;
 			$i = i + 1$, \me{j=0} \;
 		}
@@ -88,7 +89,10 @@ where step size parameter \me{\rho} is chosen in accordance with \cite{boyd2011d
 %	\label{algo-3}
 %\end{algorithm}
 
-The convergence analysis for the distributed algorithms is provided in Appendix \ref{sec-dist-conv}. \review{To reduce the amount of information exchange among the coupling \acp{BS}, often distributed schemes are iterated for few steps, say, \eqn{J_{\max}}. If so, the convergence of the iterates is not guaranteed, since it is difficult to show the monotonicity of objective in each \ac{SCA} step. The reason is that in each primal or \ac{ADMM} update, the global objective need not be decreasing monotonically, despite reaching the centralized solution upon convergence. However, if the distributed methods are performed for an adequate number of iterations to ensure the strict monotonicity of the objective sequence in each \ac{SCA} update, then the limit point of the sequence of iterates is a stationary point of the nonconvex problem \eqref{eqn-6}.} %Note that the receivers can also be updated together with the transmit precoders in each \ac{SCA} step, \textit{i.e.}, \eqn{K_{\max} = 1}, since the \ac{MMSE} receivers are optimal for fixed transmit precoders obtained in each \ac{SCA} step.}
+The convergence analysis for the distributed algorithms is provided in Appendix \ref{sec-dist-conv}. \review{To reduce the amount of information exchange among the coupling \acp{BS}, often distributed schemes are iterated for few steps, say, \eqn{J_{\max}}. If so, the convergence of the iterates is not guaranteed, since it is difficult to show the monotonicity of objective in each \ac{SCA} step. The reason is that in each primal or \ac{ADMM} update, the global objective need not be decreasing monotonically, despite reaching the centralized solution upon convergence. However, if the following conditions are satisfied in each \ac{SCA} step, \textit{i.e.}, (i) by ensuring uniqueness of the minimizer, and (ii) by choosing \eqn{J_{\max}} to be sufficiently large to ensure strict monotonicity of the objective, then the convergence can be guaranteed (see Appendices \ref{sec-3.5} and \ref{sec-dist-conv}). Moreover, if the receivers are updated together with the transmit precoders as in Algorithm \ref{algo-3}, then strict monotonic decrease of the objective sequence is still ensured. The reason is that the \ac{MMSE} receiver is optimal for the fixed transmit precoders obtained after each \ac{SCA} update.}
+	
+%	Additionally, if the receivers are updated together with the transmit precoders using \eqref{eqn-10} in each \ac{SCA} step, strict monotonicity is still ensured, since the \ac{MMSE} receivers are optimal for the fixed transmit precoders.}
+%However, if the distributed methods are performed for an adequate number of iterations to ensure the strict monotonicity in each \ac{SCA} update, then the limit point of the sequence of iterates is a stationary point of the nonconvex problem \eqref{eqn-6}. Note that the receivers can also be updated together with the transmit precoders in each \ac{SCA} step, \textit{i.e.}, \eqn{K_{\max} = 1}, since the \ac{MMSE} receivers are optimal for fixed transmit precoders obtained in each \ac{SCA} step.}
 
 \begin{comment}
 \begin{algorithm}

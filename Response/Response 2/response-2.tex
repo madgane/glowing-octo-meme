@@ -96,18 +96,36 @@ Additionally, to reduce the signaling overhead involved with the information exc
 
 For our simulation scenario, we have fixed the maximum number of \ac{ADMM} iterations in each \ac{SCA} step as \eqn{J_{\max} = 20}. Note that it is sufficient to ensure strict monotonic decrease of the objective value in each \ac{SCA} step. However, the number of iterations to ensure strict monotonicity of the objective depends on the problem under consideration. The practical significance of limited number of \ac{ADMM} iterations is discussed briefly in [10, Section 3.2.2].
 
-Response for the reviewer questions related to the \ac{ADMM} convergence for subproblem (20).
+Regarding the specific comments related to the \ac{ADMM} convergence for subproblem (20), we provide the following remarks by considering that the objective is regularized by a quadratic term as discussed in Appendix A-B to ensure strongly convexity.
 
-\begin{itemize}
-\item Note that the objective is regularized with a quadratic term to ensure strong convexity as discussed in [30], [31]. Since the primal objective and the augmented Lagrangian are strongly convex, the optimal solution is unique due to the convexity of the feasible domain. Therefore, the limit point of the \ac{ADMM} algorithm is unique, which guarantees the existence of fixed point.
+\begin{enumerate}
+\item The primal objective and the augmented Lagrangian are strongly convex, therefore, the optimal solution exists and is unique in the feasible convex set of subproblem (20). It follows from that the \ac{ADMM} algorithm converges to a unique limit point, which is a fixed point of the iterative \ac{ADMM} algorithm.
 
-\item Note that if the objective function is convex, then it can have multiple optimal solutions. However, due to the additional quadratic term in the objective of (20) in each \ac{SCA} step, uniqueness of the minimizer is ensured. Therefore, even though the original problem (20) with the convex objective has a set of fixed points, due to the strong convexity of the modified objective, the \ac{ADMM} will find a fixed point upon convergence. However, note that the choice of fixed point depends on the \ac{SCA} operating point, since it is also used to regularize the objective as in (46b).
+\item In general, the fixed point of the subproblem (20) is not unique. It is due to the fact that the original objective is convex, and therefore it can have multiple solutions in the feasible convex set. Therefore, the \ac{ADMM} algorithm can have a set of fixed points in the feasible set. However, if we regularize the objective with a strongly convex quadratic term as discussed in Appendix A-B, then the distributed approach finds a fixed point of the original convex subproblem.
 
-\item Using the earlier argument, any fixed point is a solution for the problem (20), since the original convex objective can have multiple solutions. The particular choice of the fixed point of the \ac{ADMM} approach depends on the operating point used in the regularization term in the objective.
+\item By using previous argument, any fixed point of the algorithm is a solution for the problem (20), since the original convex objective can have multiple solutions. The particular choice of the fixed point of the \ac{ADMM} approach depends on the operating point used in the regularization term in the objective.
 
 \item Upon convergence of the \ac{ADMM} approach, the interference vector is guaranteed to be equal to the actual interference seen in the network. This is the main principle of \ac{ADMM} where the local variables (the vectors in (38)) converge to the global variables, which are the actual inference vectors.
 
+\end{enumerate}
+
+However, to answer the reviewer questions in relation to the overall convergence of the distributed method presented in Algorithm 2, we consider the following conditions are satisfied in each \ac{SCA} update step.
+\begin{itemize}
+	\item The objective function is regularized by a quadratic term as discussed in Appendix A-B to ensure strict convexity of the objective function, which leads to the uniqueness of the solution.
+	\item The distributed algorithms are performed until convergence or for sufficient number of iterations to ensure strict monotonic decrease of the objective sequence.
 \end{itemize}
+Upon satisfying the above conditions, even if we update the receive beamformers using the \ac{MMSE} receiver in (23b) after each \ac{SCA} step for solving the transmit precoders, strict monotonicity is still ensured. It follows from the fact that the \ac{MMSE} receivers are optimal for the fixed transmit precoders, and therefore the objective sequence decreases monotonically after each update in strict sense.
+
+\begin{enumerate}
+	\item Since the above conditions are satisfied by Algorithm 2, then the existence of a fixed point for Algorithm 2 is guaranteed by following the arguments in [27].
+	
+	\item In general, fixed point of Algorithm 2 is not unique. Note that the iterative nature of the \ac{SCA} approach is based on approximating the nonconvex constraint by a convex one around some fixed operating point. While initializing the iterative Algorithm 2, we need to find a fixed operating point upon which the convex function is approximated. Therefore, depending on the choice of initial feasible point, the algorithm terminates at different fixed point upon convergence. Hence, there exist a set of fixed points for Algorithm 2.
+	
+	\item The nonconvex problem (16) can have multiple stationary points and the iterative method proposed in Algorithm 2 finds a stationary point of the nonconvex problem. Therefore, all fixed points found by Algorithm 2 upon convergence are indeed the stationary points of the original nonconvex problem.
+		
+	\item Upon convergence of the \ac{ADMM} approach, the interference vector is guaranteed to be equal to the actual interference seen in the network. This is the main principle of \ac{ADMM} where the local variables (the vectors in (38)) converge to the global variables, which are the actual inference vectors.
+	
+\end{enumerate}
 
 On the other hand, the iterative method described in Algorithm 3 is based on a heuristic iterative approach to find a solution of \ac{KKT} equations, we cannot prove its convergence. When Algorithm 3 terminates, we will use the transmit and receive beamforming vectors to calculate the original objective. Based on the reviewer comments, we have mentioned that the convergence of the Algorithm 3 cannot be proved theoretically (see Appendix B last paragraph).
 
