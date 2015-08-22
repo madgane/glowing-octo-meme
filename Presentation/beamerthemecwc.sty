@@ -1,0 +1,56 @@
+\ProvidesPackage{beamerthemecwc}[2011/09/30 v0.9 for beamer 3.01]
+
+% CWC beamer theme
+% 
+% Usage:
+%
+% \documentclass{beamer}
+% \usetheme{cwc}
+% ...
+% 
+% Jarkko Kaleva <jarkko.kaleva@ee.oulu.fi>
+
+\institute[CWC]{Centre for Wireless Communications (CWC), \\ Department of Communications Engineering (DCE), \\ University of Oulu, Oulu, FI-90014}
+\date{}
+
+\mode<presentation>
+
+% hide controls
+\beamertemplatenavigationsymbolsempty
+
+% colors
+\definecolor{footgrey}{RGB}{171,176,179}
+
+\setbeamercolor{headcolor}{fg=white,bg=structure}
+\setbeamercolor{footcolor}{fg=footgrey,bg=white}
+
+\usecolortheme[RGB={166,200,66}]{structure}
+
+\setbeamerfont{section in head/foot}{series=\normalfont}
+
+\setbeamertemplate{headline}
+{
+    \linethickness{0.25pt}
+    \begin{beamercolorbox}[wd=\paperwidth,ht=10pt]{headcolor}
+        \usebeamerfont{section in head/foot}%
+        \hspace{1.0cm}\raisebox{3pt}{\insertdate}
+        \hfill
+        \raisebox{3pt}{\insertframenumber}\hspace{1.5cm}
+    \end{beamercolorbox}
+}
+
+\setbeamertemplate{footline}
+{
+    \linethickness{0.25pt}
+    \begin{beamercolorbox}[leftskip=.3cm,wd=\paperwidth,ht=1cm,sep=0.1cm]{footcolor}
+        \usebeamerfont{section in head/foot}%
+        \includegraphics[width=0.33\textwidth]{cwc-logo}
+        \hfill
+        \raisebox{6pt}{\tiny{\copyright} Centre for Wireless Communications (CWC)}%{\insertinstitute}
+        \hfill
+        \raisebox{4pt}{\includegraphics[width=0.15\textwidth]{unioulu-logo}}
+        \hspace{0.75cm}
+    \end{beamercolorbox}
+}
+
+\mode<all>
