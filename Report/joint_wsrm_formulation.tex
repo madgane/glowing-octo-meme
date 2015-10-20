@@ -41,7 +41,7 @@ where \me{\mbf{t}} and \me{\mbfa{\lambda}} are the vectors formed by stacking th
 The expression in \eqref{backpressure-approx} looks similar to the \ac{WSRM} formulation if the weights in the \ac{WSRM} problem are replaced by the numbers of backlogged packets of the corresponding users. The above approach was extended to the wireless networks in \cite{weeraddana2011resource}, in which the queues were used as weights in the \ac{WSRM} formulation to determine the transmit precoders. Since the expectation is minimized by minimizing the function inside, the \ac{Q-WSRM} formulation is given by 
 \begin{IEEEeqnarray}{LCl} \label{q_gen_sum} \neqsub
 \underset{\substack{\mvec{m}{l,k,n},\\ \mvec{w}{l,k,n}}}{\text{maximize}} &\quad& \sum_{k \in \mc{U}} \, Q_k \Big ( \sum_{n = 1}^N \sum_{l=1}^L \log_2(1 + \gamma_{l,k,n}) \Big ) \IEEEyessubnumber \label{eqn-3.1.1} \\
-\text{subject to.} & \quad & \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}} \fall b. \IEEEyessubnumber \eqspace \label{eqn-3.1.3}
+\text{subject to} & \quad & \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}} \fall b. \IEEEyessubnumber \eqspace \label{eqn-3.1.3}
 \end{IEEEeqnarray}
 
 To avoid excessive allocation of the resources, we include an additional rate constraint \me{t_k \leq Q_k} to address \me{[x]^+} operation in \eqref{eqn-2a}. The rate constrained version of the \ac{Q-WSRM}, denoted by \ac{Q-WSRME} problem for a cellular system, is given by \label{q_gen_sum-1} with the additional constraints as
