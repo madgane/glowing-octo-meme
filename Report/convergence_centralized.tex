@@ -427,19 +427,22 @@ In this section, we discuss the convergence of the sequence of iterates generate
 
 Using the discussions in Appendices \ref{b_obj} and \ref{mcity}, we can show that the sequence of objective values \eqn{\{f(\ma^t)\}} converges.  Note that similar claim cannot be made on the convergence of \eqn{\{\ma^t\}}, since the sequence need not be monotonic. However, due to the compactness of the feasible set, the sequence of iterates \eqn{\{\ma^t\}} is bounded. Therefore, there exists at least one subsequence that converges to a limit point in the feasible set \cite[Th. 3.6]{rudin1964principles}. Note that the sequence of iterates \eqn{\{\ma^t\}} need not be a convergent sequence, as there can possibly be two subsequences of \eqn{\{\ma^t\}} that converges to different limit points.
 
-Therefore, we can only claim that every limit point of the sequence \eqn{\{\ma^t\}} is a stationary point, \textit{i.e.,} the limit point of every convergent subsequence is a stationary point. To prove that, let us consider a subsequence \eqn{\{\ma^{t_j} \, | \, j = 0,1,\dotsc\}} of \eqn{\{\ma^t\}} that converges to a limit point \eqn{\bar{\ma}}, where \eqn{\bar{\ma} = \lim_{j \rightarrow \infty} \ma^{t_j}}. It follows from \eqref{con-convergence}, \eqref{strict_monotonicity}, and \eqref{fixed_point} that
+Therefore, we can only claim that every limit point of the sequence \eqn{\{\ma^t\}} is a stationary point, \textit{i.e.,} the limit point of every convergent subsequence is a stationary point. To prove that, let us consider a subsequence \eqn{\{\ma^{t_j} \, | \, j = 0,1,\dotsc\}} of \eqn{\{\ma^t\}} that converges to \eqn{\bar{\ma}}, where \eqn{\bar{\ma} = \lim_{j \rightarrow \infty} \ma^{t_j}}. It follows from Appendices \ref{c-a} and \ref{mcity} that
 \begin{equation} \label{seq_mon}
 f(\ma^{t_{j+1}}) < f(\ma^{t_{j}}) < f(\ma^{t_{j-1}}).
 \end{equation}
-Eq. \eqref{seq_mon} holds strictly while alternating the optimization variables as shown in \eqref{fixed_point}. Now, by taking the limit as \eqn{j \rightarrow \infty} and by using the continuity of objective function \eqn{f}, we obtain
+Note that \eqref{seq_mon} holds strictly while alternating the optimization variables as shown in \eqref{fixed_point}. Now, by taking the limit as \eqn{j \rightarrow \infty} and by using the continuity of objective function \eqn{f}, we obtain
 \begin{equation} \label{limpoint}
-\lim_{j \rightarrow \infty} f(\ma^{t_j}) = f(\lim_{j \rightarrow \infty} \ma^{t_{j}}) = f(\bar{\ma}).
+\lim_{t \rightarrow \infty} f(\ma^{t}) = \lim_{j \rightarrow \infty} f(\ma^{t_j}) = f(\lim_{j \rightarrow \infty} \ma^{t_{j}}) = f(\bar{\ma})
 \end{equation}
-Using strict monotonicity in \eqn{\{f(\ma^{t_j})\}} and the fact that as \eqn{j \rightarrow \infty}, \eqn{|f(\ma^{t_{j}}) - f(\ma^{t_{j+1}})| \rightarrow 0}, we can show that limit point \eqn{\bar{\ma}} satisfies the optimality condition \cite[Prop. 2.1.2]{bertsekas1999nonlinear} as 
+and therefore \eqn{\bar{\ma}} is a limit point of the sequence \eqn{\{\ma^t\}}. 
+
+In order to show that \eqn{\bar{\ma}} is a stationary point, let us assume by contradiction that \eqn{\nabla f(\bar{\ma}) \neq 0}. Now, by using strict monotonicity of \eqn{\{f(\ma^{t_j})\}}, it follows that as \eqn{j \rightarrow \infty}, \eqn{\ma^{t_j} \rightarrow \bar{\ma}} and
+\eqn{f(\ma^{t_{j}}) - f(\ma^{t_{j+1}}) \rightarrow 0}, which contradicts the initial assumption. Therefore, by using \eqref{seq_mon}, we can show that the limit point \eqn{\bar{\ma}} satisfies the optimality condition as 
 \begin{equation} \label{seq_mon1}
 \nabla f (\bar{\ma}) (\ma - \bar{\ma}) \geq 0, \; \fall \ma \in \mc{Q} \subset \mc{F} \eqsub
 \end{equation}
-where \eqn{\mc{Q}} is a convex subset defined by \eqref{con-dc-m} and \eqref{con-cvx-blk-m} as \eqn{k \rightarrow \infty, i \rightarrow \infty}. Hence, the limit point \eqn{\bar{\ma}} is a stationary point of \eqref{con-m} as \eqn{k \rightarrow \infty, i \rightarrow \infty}.
+where \eqn{\mc{Q}} is a convex subset defined by \eqref{con-dc-m} and \eqref{con-cvx-blk-m} as \eqn{k \rightarrow \infty, i \rightarrow \infty}. Hence, \eqn{\bar{\ma}} is a stationary point of \eqref{con-m}.
 
 Now to show that \eqn{\bar{\ma}} is a stationary point of original nonconvex problem \eqref{con}, we show the equivalence between the gradient of the subproblem \eqref{con-m} and \eqref{con} at stationary point \eqn{\bar{\ma}}. In order to show that \eqn{\bar{\ma}} is a \ac{KKT} point for \eqref{con}, it must satisfy the gradient condition of \eqref{con}, \textit{i.e.},
 \begin{equation} \label{kkt_expr}
