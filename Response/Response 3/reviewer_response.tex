@@ -1,0 +1,54 @@
+\documentclass[10pt,letterpaper,onecolumn]{article}
+
+\usepackage[left=1.0in,right=1.0in,top=1in,bottom=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{acronym,etoolbox,color,multicol,xcolor}
+\usepackage{subeqnarray,multirow,cite,array,setspace,fixltx2e,lineno,verbatim,mathtools,pgfplots,subfig}
+
+\input{./../../Report/shortcuts}
+\input{./../../Report/acronyms}
+
+\DeclareGraphicsExtensions{{eps}}
+\graphicspath{{Figures/}}
+\renewcommand \thesection{\Roman{section}}
+\renewcommand \thesubsection{\arabic{section}.\arabic{subsection}}
+
+\renewcommand{\thefigure}{\Roman{figure}}
+\renewcommand{\thesubfigure}{\alph{subfigure}}
+\renewcommand{\theequation}{\roman{equation}}
+
+\begin{document}
+
+\title{Reviewers Comments \& Authors Replies}
+
+\date{}
+\maketitle
+
+\begin{tabular}{p{1.25in}p{4.25in}}
+\textbf{Manuscript No.} & Paper T-SP-18051-2014, submitted to \emph{``IEEE Transactions on Signal Processing"} \\ \\
+\textbf{Title} & ``Traffic Aware Resource Allocation Schemes for Multi-Cell MIMO-OFDM Systems" \\ \\
+\textbf{Authors} & Ganesh Venkatraman, Antti T\"{o}lli, Markku Juntti, and Le-Nam Tran
+\end{tabular}
+
+\vspace{0.5in}
+The authors would like to thank the associate editor and the reviewers for their valuable comments on the manuscript, which have been greatly helpful to improve the paper quality. Based on the comments, we have made several revisions to the paper, which are summarized below. 
+\input{additions}
+
+\newpage
+\section*{Response to first reviewer comments}
+\input{response-1}
+
+\newpage
+\section*{Response to second reviewer comments}
+\input{response-2}
+
+\newpage
+\section*{Response to third reviewer comments}
+\input{response-3}
+
+\newpage
+\section*{Response to fourth reviewer comments}
+\input{response-4}
+
+\end{document}
