@@ -90,7 +90,7 @@ Let us consider the \eqn{\ith{j}} \ac{SCA} iteration in the \eqn{\ith{i}} \ac{AO
 	\label{algo-1} 
 \end{algorithm}
 	
-Upon convergence of the objective sequence, receivers are updated using fixed transmit precoders \eqn{\mbf{m}^{(i)}_{\lpointx}} obtained from the previous \ac{SCA} step. Once the receivers are updated, transmit precoders are again evaluated using the newly found receivers by solving \eqref{eqn-9} or \eqref{eqn-10}. The above procedure is repeated until \eqn{i \to \infty} or for some fixed \eqn{I_{\max}} as outlined in Algorithm \ref{algo-1}.
+Upon convergence of the objective sequence or for some fixed \eqn{K_{\max}}, receivers are then updated using fixed \eqn{\mbf{m}^{(i)}_{\lpointx}} found in previous \ac{SCA} step. Once the receivers are updated, transmit precoders are again evaluated using the newly found receivers by solving \eqref{eqn-9} or \eqref{eqn-10}. The above procedure is repeated until \eqn{i \to \infty} or for some fixed \eqn{I_{\max}} as outlined in Algorithm \ref{algo-1}.
 
 A feasible initial point \me{\tilde{\mbf{u}}_{l,k,n}} is obtained by fixing \me{\tilde{\mbf{m}}_{l,k,n}} with the respective single-user precoders satisfying total power constraint in \eqref{eqn-9.1d} and \me{\tilde{\mbf{w}}_{l,k,n}}'s are updated by using the \ac{MMSE} receiver in \eqref{eqn-10}. Now, for fixed transmit and receive beamformers, \me{\tilde{\mbf{\beta}}_{l,k,n}}'s are evaluated using \eqref{eqn-9.1c}. 	
 	
