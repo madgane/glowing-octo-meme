@@ -24,19 +24,20 @@ where \me{\zeta_{l,k,n,b}} is the total interference caused by the transmission 
 
 The decentralization is achieved by decomposing the original convex problem in \eqref{eqn-decent-1} to a parallel subproblems coordinated by either primal or \acl{DD} update. The coupling variables are updated in each iteration by exchanging limited information among the \acp{BS}. Before proceeding further, let \me{\bar{\mbfa{\zeta}}_b} be the vector formed by stacking interference terms \eqref{inter_exp} from the neighboring \acp{BS} to the users of \ac{BS} \me{b} and \me{\hat{\mbfa{\zeta}}_{b}} be the stacked interference terms caused by \ac{BS} \me{b} to all users in the neighboring \acp{BS} \me{\bar{\mc{B}}_b}, represented for each \eqn{b \in \mc{B}} as
 \begin{IEEEeqnarray}{rCl} \neqsub
-\bar{\mbfa{\zeta}}_{b} &=& \left [ {\zeta}_{1,\mc{U}_b(1),1,\bar{\mc{B}}_b(1)}, \dotsc, {\zeta}_{L,\mc{U}_b(|\mc{U}_b|),N,\bar{\mc{B}}_b(|\bar{\mc{B}}_b|)} \right]^\tran \eqsub \\
-\hat{\mbfa{\zeta}}_{b} &=& \left [ {\zeta}_{1,\bar{\mc{U}}_b(1),1,b}, \dotsc, {\zeta}_{L,\bar{\mc{U}}_b(|\bar{\mc{U}}_b|),N,b} \right]^\tran. \eqsub
+\bar{\mbfa{\zeta}}_{b} &=&  \left[ {\zeta}_{1,\mc{U}_b(1),1,\bar{\mc{B}}_b(1)}, \dotsc, {\zeta}_{L,\mc{U}_b(|\mc{U}_b|),N,\bar{\mc{B}}_b(|\bar{\mc{B}}_b|)} \right ]^\tran \eqsub \\
+\hat{\mbfa{\zeta}}_{b} &=&  \left [ {\zeta}_{1,\bar{\mc{U}}_b(1),1,b}, \dotsc, {\zeta}_{L,\bar{\mc{U}}_b(|\bar{\mc{U}}_b|),N,b} \right ]^\tran. \eqsub
 \end{IEEEeqnarray}
 Let us define the vector \me{\mbfa{\zeta}_b}, formed by stacking the interference terms corresponding to the \ac{BS} \me{b} as
 \begin{equation}
-\mbfa{\zeta}_{b} = \left [\hat{\mbfa{\zeta}}_{b}^\tran, \bar{\mbfa{\zeta}}_{b}^\tran \right ]^\tran. \label{if_vector}
+\mbfa{\zeta}_{b} = \left [ \hat{\mbfa{\zeta}}_{b}^\tran, \bar{\mbfa{\zeta}}_{b}^\tran \right ]^\tran. \label{if_vector}
 \end{equation}
 Since the decentralization solution is an iterative procedure, we represent the \me{\ith{j}} iteration index as \me{x^{(j)}}. Let \me{\mbfa{\zeta}_{b}(b_k)} denote the interference terms corresponding to \ac{BS} \me{b_k} in \ac{BS} \me{b} as
-\begin{equation}
-\mbfa{\zeta}_{b}(b_k) = \left [ {\zeta}_{1,\mc{U}_b(1),1,b_k},\dotsc, {\zeta}_{L,\mc{U}_b(|\mc{U}_b|),N,b_k} \right].
-\end{equation}
+\begin{multline}
+\mbfa{\zeta}_{b}(b_k) = [ {\zeta}_{1,\mc{U}_b(1),1,b_k},\dotsc, {\zeta}_{L,\mc{U}_b(|\mc{U}_b|),N,b_k} \\
+{\zeta}_{1,\mc{U}_{b_k}(1),1,b},\dotsc, {\zeta}_{L,\mc{U}_{b_k}(|\mc{U}_{b_k}|),N,b_k} ].
+\end{multline}
 
-To decentralize the problem in \eqref{eqn-decent-1}, the \ac{BS} specific vector \me{\mbfa{\zeta}_b} in \eqref{if_vector}, which are relevant for the \ac{BS} \me{b}, can either be fixed or treated as a variable in accordance to the decomposition method. To decouple the precoder design across \acp{BS}, the equivalent downlink channels \me{\mvec{w}{l,k,n}^\herm \mvec{H}{b,k,n}, \forall k \in {\mc{U}}} are to be known at each \ac{BS} \me{b} through the precoded uplink pilots from all the users in the system, where the linear precoders are evaluated at the user using \ac{MMSE} formulation in \eqref{eqn-mse-2}. Similarly, to update the \ac{MMSE} receivers at each user \me{k}, the equivalent channels \me{\mvec{H}{b,k,n} \mvec{m}{l,k^{\prime},n}, \forall k^{\prime} \in {\mc{U}_b}, \forall b \in \mc{B}} need to be known. It is obtained through the user specific downlink pilots precoded with the newly obtained transmit beamformers \me{\mvec{m}{l,k,n}, \forall k \in \mc{B}} evaluated at the \ac{BS} \me{b} using the equivalent downlink channels as discussed in \cite{komulainen2013effective}.
+To decentralize \eqref{eqn-decent-1}, the \ac{BS} specific vector \me{\mbfa{\zeta}_b} in \eqref{if_vector}, which are relevant for the \ac{BS} \me{b}, can either be fixed or treated as a variable in accordance to the decomposition method. To decouple the precoder design across \acp{BS}, the equivalent downlink channels \me{\mvec{w}{l,k,n}^\herm \mvec{H}{b,k,n}, \forall k \in {\mc{U}}} are to be known at each \ac{BS} \me{b} through the precoded uplink pilots from all the users in the system, where the linear precoders are evaluated at the user using \ac{MMSE} formulation in \eqref{eqn-mse-2}. Similarly, to update the \ac{MMSE} receivers at each user \me{k}, the equivalent channels \me{\mvec{H}{b,k,n} \mvec{m}{l,k^{\prime},n}, \forall k^{\prime} \in {\mc{U}_b}, \forall b \in \mc{B}} need to be known. It is obtained through the user specific downlink pilots precoded with the newly obtained transmit beamformers \me{\mvec{m}{l,k,n}, \forall k \in \mc{B}} evaluated at the \ac{BS} \me{b} using equivalent downlink channels \cite{komulainen2013effective}.
 
 
 
