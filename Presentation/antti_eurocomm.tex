@@ -2,9 +2,12 @@
 \usetheme{cwc} 
 
 \usepackage{amsmath,amssymb}
-\usepackage{graphicx,acronym,setspace,epstopdf}
+\usepackage{graphicx,acronym,setspace,epstopdf,IEEEtrantools}
 \usepackage[ruled]{algorithm2e}
 \usepackage{subeqnarray,multirow,cite,array,color,mathtools,setspace,geometry}
+
+\let\oldfootnote\footnote
+\renewcommand\footnote[1][]{\oldfootnote[frame,#1]}
 
 \acrodef{MSE}{mean squared error}
 \acrodef{BC}{broadcast channel}
@@ -31,11 +34,12 @@
 \acrodef{GP}{geometric programming}
 \acrodef{SOC}{second-order cone}
 \acrodef{BCDM}{block coordinate descent method}
+\acrodef{BiT}{Bi-directional training}
 
 \input{./../Report/shortcuts}
 \input{./../Report/acronyms}
 
-\graphicspath{{./../Figures/}{./../Figures/Linux/}{./../Figures/Review/}{./../../flaming-octo-dangerzone/TeX3/Figures}}
+\graphicspath{{./}{./../Figures/}{./../Figures/Linux/}{./../Figures/Review/}{./../../flaming-octo-dangerzone/TeX3/Figures/}}
 \DeclareGraphicsExtensions{.eps}
 
 \epstopdfsetup{update,prepend,prefersuffix=false,suffix=}
@@ -45,6 +49,7 @@
 \linespread{1.4}
 
 \title{Traffic Aware Precoder Design for Space Frequency Resource Allocation}
+
 \author{{Ganesh Venkatraman\eqn{^\dagger}, Antti T\"{o}lli, Le-Nam Tran and Markku Juntti} \\ \scriptsize{Email: \{gvenkatr, antti.tolli, le.nam.tran, markku.juntti\}@ee.oulu.fi}}
 
 
@@ -109,6 +114,13 @@
 \end{itemize}
 \end{frame}
 
+\begin{frame}{System Model with User Queues}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\columnwidth]{system-scenario.pdf}
+	\end{figure}
+\end{frame}
+
 \begin{frame}{Queueing Model}
 \begin{itemize}
 \item Each user is associated with backlogged packets of size \me{Q_k} packets.
@@ -136,14 +148,11 @@ Q_k(i+1) = \Big [ Q_k(i) - t_k(i) \Big ]^+ + \lambda_k(i)
 
 \begin{frame}{Queue-Weighted Sum Rate Maximization (\acs{Q-WSRM})}
 \begin{itemize}
-\item \acs{Q-WSRM} formulation is the result of \textcolor{blue}{minimizing the conditional Lyapunov drift}\eqn{^\dagger}
+\item \acs{Q-WSRM} formulation is the result of \textcolor{blue}{minimizing the conditional Lyapunov drift}\footnote{Neely, Michael J. "Stochastic network optimization with application to communication and queueing systems." Synthesis Lectures on Communication Networks 3.1 (2010): 1-211.}
 \item \acs{Q-WSRM} formulation is also called as \alert{back pressure algorithm}, since it acts greedily in minimizing the backlogged packets at each instant
 \[ \underset{t_{l,k,n}}{\text{minimize}} \quad \sum_{k \in \mc{U}} \left \lbrace Q_k(i)^2 - Q_k(i-1)^2 \right \rbrace, \]
 \item where \me{Q_k} follows the dynamic Queue expression in \eqref{eqn-2a}
 \end{itemize}
-
-\vspace{2eM}
-\eqn{^\dagger}\footnotesize{Neely, Michael J. "Stochastic network optimization with application to communication and queueing systems." Synthesis Lectures on Communication Networks 3.1 (2010): 1-211.}
 \end{frame}
 
 \begin{frame}{Queue-Weighted Sum Rate Maximization (\acs{Q-WSRM})}
@@ -232,6 +241,14 @@ Q_k(i+1) = \Big [ Q_k(i) - t_k(i) \Big ]^+ + \lambda_k(i)
 	\end{figure}
 \end{frame}
 
+\begin{frame}{Time Correlated Fading - Centralized Performance}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.75\textwidth]{average_queue_over_time-3}
+		\caption{System Model - \me{\lbrace N,N_B,K,N_R \rbrace = \lbrace 3,2,8,1 \rbrace} after \eqn{250} transmissions}
+	\end{figure}
+\end{frame}
+
 \section{Distributed Solutions}
 
 \subsection{Primal \& \acs{ADMM} based decompositions}
@@ -282,7 +299,6 @@ Q_k(i+1) = \Big [ Q_k(i) - t_k(i) \Big ]^+ + \lambda_k(i)
 	\end{itemize}
 \end{frame}
 
-
 \subsection{Simulation Results}
 
 \begin{frame}{Performance of Distributed Solutions}
@@ -303,13 +319,128 @@ Q_k(i+1) = \Big [ Q_k(i) - t_k(i) \Big ]^+ + \lambda_k(i)
 
 \section{Time Correlated Fading Performance}
 
-\begin{frame}{Time Correlated Fading - Centralized Performance}
+\subsection{Methods to Update Precoders via \acs{OTA}}
+
+\begin{frame}{Time Correlated Precoder Design - Introduction}
+	\begin{itemize}
+		\item So far, we have discussed few methods to design precoders in a distributed manner
+		\item Now, we discuss a \textcolor{red}{practical approach to design precoders with minimal backhaul usage}
+		\item To discuss further, we consider \ac{KKT} based design for following reasons
+		\begin{itemize}
+			\item Due to closed form solution, \textcolor[rgb]{0,0.6,0}{each \ac{SCA} update requires only single exchange of coupling variables}
+			\item Moreover, transmit and receive precoders expressions can be formed by using precoded pilot transmissions
+		\end{itemize}
+		\item We \textcolor[rgb]{0,0,0.6}{adopt \ac{BiT}} to update transmit and receive beamformers \footnote{P. Komulainen, A. T\"olli \& M. Juntti, “Effective CSI Signaling and Decentralized Beam Coordination in TDD Multi-Cell MIMO Systems”, IEEE Transactions on Signal Processing, vol. 61, no. 9, pp. 2204 -- 2218, May 2013}
+	\end{itemize}	
+\end{frame}
+
+\begin{frame}{Time Correlated Precoder Design - Strategy A}
+	\begin{itemize}
+		\item To devise \ac{OTA} based iterative algorithm - let us consider transmit and receive beamformer expressions
+		\begin{IEEEeqnarray*}{ll}
+		\mvec{m}{l,k,n}^{(i)} &= \Big (\displaystyle \sum_{x \in \mc{U}} \sum_{y=1}^L \alpha_{y,x,n}^{(i-1)} \mvec{H}{b_k,x,n}^\herm \mvec{w}{y,x,n}^{(i-1)} \mvec{w}{y,x,n}^{\herm \, {(i-1)}} \mvec{H}{b_k,x,n} + \delta_b \mbf{I}_{N_T} \Big )^{-1} \alpha^{(i-1)}_{l,k,n} \mvec{H}{b_k,k,n}^\herm \mvec{w}{l,k,n}^{(i-1)}  \\
+		\mvec{w}{l,k,n}^{(i)} &= \Big (\displaystyle \sum_{x\in\mc{U}}\sum_{y=1}^L \mvec{H}{b_x,k,n} \mvec{m}{y,x,n}^{(i)} \mvec{m}{y,x,n}^{\herm \, (i)} \mvec{H}{b_{x},k,n}^\herm + N_0 \mathbf{I}_{N_R} \Big ) ^{-1} \; \mvec{H}{b_k,k,n} \; \mvec{m}{l,k,n}^{(i)}
+		\end{IEEEeqnarray*}
+		\item Note that transmit precoders \eqn{\mvec{m}{l,k,n}} depend on \eqn{\mvec{H}{b_k,i,n}^\tran \mvec{u}{l,i,n}}, \textit{i.e.}, \textcolor{blue}{effective uplink channel}
+		\item Similarly, receive beamformers \eqn{\mvec{w}{l,k,n}} depend on \eqn{\mvec{H}{b_k,i,n} \mvec{m}{l,k,n}}, \textit{i.e.}, \textcolor[rgb]{0,0.6,0}{effective downlink channel}
+	\end{itemize}	
+\end{frame}
+
+\begin{frame}{Time Correlated Precoder Design - Strategy A}
+	\begin{itemize}
+		\item To update receive beamformers at the user terminals, \textcolor{blue}{each \ac{BS} transmits precoded downlink pilots orthogonally} by using \eqn{\mvec{m}{l,k,n}^{(i)}}
+		\item Upon receiving effective channel, each user update the respective receive beamformer
+		\item Similarly, to update transmit beamformers at \acp{BS}, \textcolor[rgb]{0,0.6,0}{each user transmits two precoded pilot transmission}, namely, \eqn{\sqrt{\alpha_{l,k,n}^{(i-1)}} \mvec{w}{l,k,n}^\ast} and \eqn{\alpha_{l,k,n} \mvec{w}{l,k,n}^{\ast}}
+		\item Upon receiving two uplink precoded pilots, each \ac{BS} then evaluates the respective transmit beamformers of all users
+		\item The above iterative procedure is performed until convergence or for predetermined number of updates - \alert{Strategy A}
+	\end{itemize}	
+\end{frame}
+
+\begin{frame}{Bi-directional Frame Structure}
+	\begin{itemize}
+		\item To perform iterative \ac{OTA} based update, we \textcolor[rgb]{0.7,0,0}{consider \ac{TDD} frame format}
+		\item Using \ac{OTA} transmissions, \textcolor[rgb]{0,0.6,0}{effective channel can be conveyed to \acp{BS} and users by precoded pilots}
+	\end{itemize}
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.75\textwidth]{average_queue_over_time-3}
-		\caption{System Model - \me{\lbrace N,N_B,K,N_R \rbrace = \lbrace 3,2,8,1 \rbrace} after \eqn{250} transmissions}
+		\includegraphics[trim=4mm 40mm 10mm 10mm,clip, width=\columnwidth ]{bit_model.pdf}
+		\label{fig-a}
 	\end{figure}
 \end{frame}
+
+\begin{frame}{Time Correlated Precoder Design - Strategy B}
+	\begin{itemize}
+		\item To \alert{speed up the convergence} of iterative algorithm, we update the precoders of desired users \textcolor[rgb]{0,0.6,0}{locally by fixing neighboring \acp{BS} transmit beamformers}
+		\item To do so, in addition to the signaling requirements in strategy A, \textcolor[rgb]{0,0,0.6}{inter-cell interference covariance seen by desired users} is also fed back to serving \ac{BS}, \textit{i.e.},
+		\begin{equation}
+		\mvec{Z}{l,k,n} = \sum_{i \in \mc{U} \backslash \mc{U}_b} \mvec{H}{b_i,i,n} \mvec{m}{l,i,n} \mvec{m}{l,i,n}^\herm \mvec{H}{b_i,i,n}^\herm + N_0 \mbf{I}_{N_R}.
+		\end{equation}
+		\item Since inter-cell interference covariance is not required explicitly, \textcolor[rgb]{0.6,0,0}{effective whitened channel is enough to evaluate precoders}
+		\item The whitening filter \eqn{\mvec{Q}{l,k,n}} is given by \eqn{\mvec{Z}{l,k,n}^{-1} = \mvec{Q}{l,k,n}^\herm \mvec{Q}{l,k,n}}
+		\item Whitened channel is constructed at \ac{BS} by \textcolor[rgb]{0,0.6,0}{transmitting columns of \eqn{\mvec{Q}{l,k,n}} orthogonally from each user}
+	\end{itemize}	
+\end{frame}
+
+\begin{frame}{Time Correlated Precoder Design - Strategy B}
+	\begin{itemize}
+		\item Upon receiving \eqn{\mvec{Q}{l,k,n}}, \textcolor[rgb]{0,0.6,0}{each \ac{BS} can construct whitened channel} as \eqn{\mvec{\bar{H}}{b_k,k} = \mvec{Q}{l,k,n} \mvec{H}{b_k,k}}
+		\item The \ac{BS} specific local iteration \eqn{j} to update transmit and receive beamformer is given as
+	\end{itemize}	
+\begin{IEEEeqnarray*}{ll} \label{kkt-mse-x} \neqsub
+	\mvec{m}{l,k,n}^{(j)} =& \Big ( \sum_{x \in \mc{U}_b} \sum_{y=1}^L \alpha_{y,x,n}^{(j-1)} \mvec{\bar{H}}{b_k,x,n}^\herm \mvec{w}{y,x,n}^{(j-1)} \mvec{w}{y,x,n}^{\herm \, {(j-1)}} \mvec{\bar{H}}{b_k,x,n} + \delta_b \mbf{I}_{N_T} \Big )^{-1} \alpha^{(j-1)}_{l,k,n} \mvec{\bar{H}}{b_k,k,n}^\herm \mvec{w}{l,k,n}^{(j-1)} \\
+	\mvec{w}{l,k,n}^{(j)} =& \Big ( \sum_{x\in\mc{U}_b}\sum_{y=1}^L \mvec{\bar{H}}{b_x,k,n} \mvec{m}{y,x,n}^{(j)} \mvec{m}{y,x,n}^{\herm \, (j)} \mvec{\bar{H}}{b_{x},k,n}^\herm + \mathbf{I}_{N_R} \Big ) ^{-1} \; \mvec{\bar{H}}{b_k,k,n} \; \mvec{m}{l,k,n}^{(j)} 
+\end{IEEEeqnarray*}
+\begin{itemize}
+	\item The above iterative procedure is performed until convergence or for predetermined number of updates - \alert{Strategy B}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Summary - Signaling Requirement for OTA based Updates}
+\begin{figure}
+	\centering
+	\includegraphics[trim=0mm 10mm 0mm 10mm, width=\columnwidth ]{Doc2.pdf}
+	\caption{\ac{TDD} frame structure with \ac{BiT} signaling}
+	\label{fig-a}
+\end{figure}
+\end{frame}
+
+\subsection{Simulation Results}
+
+\begin{frame}{Assumptions and Evaluation Model}
+	\begin{itemize}
+		\item Every \ac{BS} and user terminal uses \textcolor[rgb]{0,0.6,0}{orthogonal pilots in UL and DL \ac{OTA} signaling}
+		\item For simplicity, pilot transmissions used to convey the equivalent channel information in one \ac{BiT} iteration - \textcolor[rgb]{0,0,0.6}{consume \eqn{\eta} resource share}.\footnote{In practice, the performance depends on the amount of available pilots and the size of coherence block.}
+		\item Under this assumption, the effective rate by considering the signaling overhead is given as
+		\begin{equation} \label{penalty}
+		\tilde{t}_{l,k,n} = \left ( 1 - I_{\max} \, \eta \right ) \times t_{l,k,n}
+		\end{equation}
+		\item Total number of backlogged packets is evaluated as - \eqn{\textstyle \chi = \sum_{k = 1}^K \; [ Q_k - \tilde{t}_k ]^+}
+		\item In all simulations, \textcolor[rgb]{0.6,0,0}{we consider \eqn{\eta = 1 \%}}
+	\end{itemize}	
+\end{frame}
+
+\begin{frame}{Average Backlogged Packets - Distributed Design}
+	\begin{figure}
+		\centering
+		\includegraphics[trim=5mm 90mm 5mm 90mm,clip, width=\columnwidth]{ICC-A-B-1}
+		\caption{Average backlogged packets for \eqn{\lbrace N,N_B,K,N_T,N_R \rbrace = \lbrace 3,2,12,4,2 \rbrace} evaluated over \eqn{250} slots with \eqn{f_dT_s\approx 0.1}}
+		\label{fig-1}
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}{Average Backlogged Packets - Distributed Design}
+	\begin{figure}
+		\centering
+		\includegraphics[trim=5mm 90mm 5mm 90mm,clip, width=\columnwidth]{ICC-A-B1}
+		\caption{Average backlogged packets for \eqn{\lbrace N,N_B,K,N_T,N_R \rbrace = \lbrace 3,2,12,4,2 \rbrace} evaluated over \eqn{250} slots with \eqn{f_dT_s\approx 0.01}}
+		\label{fig-2}
+	\end{figure}
+\end{frame}
+
+
+
 
 %\begin{frame}{Time Correlated Fading Performance}
 %	\begin{figure}
@@ -336,7 +467,7 @@ Q_k(i+1) = \Big [ Q_k(i) - t_k(i) \Big ]^+ + \lambda_k(i)
 \item We studied cross layer problem of designing transmit and receive beamformers based on the number of residual packets
 \item Since the problem is nonconvex, we solve the problem iteratively by solving convex subproblems in each iteration
 \item We also proposed a practical way of implementing the precoder design in a distributed manner by solving the \ac{KKT} expressions
-\item Extensions of the proposed work in time-correlated fading scenario with limited number of information exchange cycle is in progress
+\item Extensions of the proposed work in time-correlated fading scenario with limited number of information exchange cycle is also presented
 \end{itemize}
 \end{frame}
 

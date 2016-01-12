@@ -21,7 +21,10 @@
 % colors
 \definecolor{footgrey}{RGB}{171,176,179}
 
-\setbeamercolor{headcolor}{fg=white,bg=structure}
+\definecolor{footgrey}{RGB}{171,176,179}
+\definecolor{headgreen}{RGB}{166,200,66}
+
+\setbeamercolor{headcolor}{fg=white,bg=headgreen}
 \setbeamercolor{footcolor}{fg=footgrey,bg=white}
 
 \usecolortheme[RGB={166,200,66}]{structure}
@@ -52,5 +55,32 @@
         \hspace{0.75cm}
     \end{beamercolorbox}
 }
+
+\newcommand{\ccite}[1]{{\color{blue}\scriptsize\cite{#1}}}
+\newcommand{\dis}{\hspace{0.1cm}} % splitting point in the equation
+\definecolor{cwcgray}{rgb}{0.373,0.373,0.373}
+\definecolor{cwcblack}{rgb}{0.2,0.2,0.2}
+
+\setbeamercolor{title}{fg=cwcgray}%green!70!black,bg=green!10!white}
+\setbeamercolor{item}{fg=yellow!50!red}
+\setbeamercolor{frametitle}{fg=cwcblack}
+
+\setbeamersize{text margin left=0.5cm, text margin right=0.5cm}
+
+%\setbeamertemplate{frametitle}[default][center]
+\setbeamertemplate{frametitle}{
+	\leavevmode
+	\begin{beamercolorbox}[wd=\paperwidth]{}
+		\begin{center}
+			\vspace{-0.4cm}
+			\insertframetitle
+		\end{center}
+		\vspace{-0.4cm}
+	\end{beamercolorbox}
+}
+
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{itemize item}[square]
+\setbeamertemplate{itemize subitem}[triangle]
 
 \mode<all>
