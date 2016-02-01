@@ -3,11 +3,11 @@ We consider a downlink \ac{MIMO} \ac{IBC} scenario in an \ac{OFDM} framework wit
 We adopt linear transmit beamforming technique at \acp{BS}. Specifically, the data symbols \me{d_{l,k,n}} for  user \me{k} on the \me{\ith{l}} spatial stream over sub-channel \me{n} is multiplied with beamformer \me{\mvec{m}{l,k,n} \in \mathbb{C}^{N_T \times 1}} before being transmitted. In order to detect  multiple spatial streams at the user terminal, receive beamforming vector \me{\mvec{w}{l,k,n}} is employed for each user. Consequently, the received data estimate corresponding to the \me{\ith{l}} spatial stream over sub-channel \me{n} at user $k$ is given by
 \iftoggle{single_column}{
 \begin{equation}\label{eqn-1}
-\hat{d}_{l,k,n} = \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \,\mvec{m}{l,k,n} d_{l,k,n} + \mvec{w}{l,k,n}^\herm \sum_{i \in \mc{U} \backslash \set{k}} \mvec{H}{b_i,k,n} \sum_{j = 1}^L \mvec{m}{j,i,n}d_{j,i,n} + \mvec{w}{l,k,n}^\herm \mvec{n}{l,k,n}
+\hat{d}_{l,k,n} = \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \sum_{j = 1}^L \mvec{m}{j,k,n} d_{j,k,n} + \mvec{w}{l,k,n}^\herm \sum_{i \in \mc{U} \backslash \set{k}} \mvec{H}{b_i,k,n} \sum_{j = 1}^L \mvec{m}{j,i,n}d_{j,i,n} + \mvec{w}{l,k,n}^\herm \mvec{n}{l,k,n}
 \end{equation}
 }{
 \begin{multline}\label{eqn-1}
-\hat{d}_{l,k,n} = \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \,\mvec{m}{l,k,n} d_{l,k,n} + \mvec{w}{l,k,n}^\herm \mvec{n}{l,k,n} \\ 
+\hat{d}_{l,k,n} = \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \sum_{j = 1}^L \mvec{m}{j,k,n} d_{j,k,n} + \mvec{w}{l,k,n}^\herm \mvec{n}{l,k,n} \\ 
 + \mvec{w}{l,k,n}^\herm \sum_{i \in \mc{U} \backslash \set{k}} \mvec{H}{b_i,k,n} \sum_{j = 1}^L \mvec{m}{j,i,n}d_{j,i,n}
 \end{multline}
 }
