@@ -1,0 +1,76 @@
+In the second method, we solve the \ac{JSFRA} problem by exploiting the relation between the \ac{MSE} and the achievable \ac{SINR} when the \ac{MMSE} receivers are used at the user terminals \cite{mse_duality,christensen2008weighted}. The \ac{MSE} \me{\epsilon_{l,k,n}}, for a data symbol \me{d_{l,k,n}} is given by
+\iftoggle{single_column}{
+\begin{equation} \label{mse-error}
+	\mathbb{E} \big [ ( d_{l,k,n} - \hat{d}_{l,k,n} )^2 \big ] = \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + \enoise = \epsilon_{l,k,n}
+\end{equation}}{\allowdisplaybreaks
+\begin{multline} \label{mse-error}
+ \mathbb{E} \big [ ( d_{l,k,n} - \hat{d}_{l,k,n} )^2 \big ] = \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 \\
+ + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + \enoise = \epsilon_{l,k,n}
+\end{multline}}
+where \me{\hat{d}_{l,k,n}} is the estimate of the transmitted symbol. Plugging the \ac{MMSE} receivers in \eqref{eqn-10} into the \ac{MSE} expression in \eqref{mse-error} and into the \ac{SINR} expression in \eqref{eq:SINR}, we arrive at 
+\begin{equation} \label{eqn-mse-eq}
+\epsilon_{l,k,n} = (1 + \gamma_{l,k,n})^{-1}.
+\end{equation}
+The above equivalence is valid only if the receivers are based on the \ac{MMSE} criterion. Using the equivalence in \eqref{eqn-mse-eq}, the \ac{WSRM} objective can be reformulated as the \ac{WMMSE} to obtain the precoders for the \acs{MU}-\acs{MIMO} scenario as discussed in \cite{christensen2008weighted,wmmse_shi,kaleva2012weighted}. Note that the receive beamformers based on the \ac{MMSE} criterion are independent of the choice of the \me{\ell_q} norm used in the objective function to obtain the optimal transmit precoders \me{\mvec{m}{l,k,n}}.
+
+Before proceeding futher, let \me{{v}^{\prime}_k = Q_k - \sum_{n=1}^N \sum_{l=1}^L t_{l,k,n}} denotes the queue deviation corresponding to user \me{k} and \me{\tilde{{v}}^{\prime}_k \triangleq a_k^{1/{q}}v^{\prime}_k} be the corresponding weighted objective.By using the relaxed \ac{MSE} expression in \eqref{mse-error}, we can reformulate \eqref{eqn-3} as
+\iftoggle{single_column}{
+\begin{IEEEeqnarray}{rCl}\label{eqn-mse-1} \neqsub \allowdisplaybreaks
+\underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\\ \epsilon_{l,k,n},\mvec{w}{l,k,n}}} {\text{minimize}} & \quad & \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-1.1} \\
+\text{subject to} & \quad & t_{l,k,n} \leq -\log_2(\epsilon_{l,k,n}) \IEEEyessubnumber \label{eqn-mse-1.2} \\
+ & \quad & \epsilon_{l,k,n} \geq  \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 + \sum_{\mathclap{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + \enoise \eqspace \IEEEyessubnumber \label{eqn-mse-1.3} \\
+& \quad & \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}} \; \fall b. \IEEEyessubnumber  \eqspace \label{eqn-mse-1.4}
+\end{IEEEeqnarray}
+}{\allowdisplaybreaks
+\begin{IEEEeqnarray}{CL}\label{eqn-mse-1} \neqsub \allowdisplaybreaks
+	\underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\\ \epsilon_{l,k,n},\mvec{w}{l,k,n}}} {\text{minimize}} & \quad \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-1.1} \\
+	\text{subject to} & t_{l,k,n} \leq -\log_2(\epsilon_{l,k,n}) \IEEEyessubnumber \label{eqn-mse-1.2} \\
+	& \sum_{{(j,i) \neq (l,k)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + \enoise \nonumber \\	
+	& \qquad + \left | 1 - \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right |^2 \leq \epsilon_{l,k,n}\IEEEyessubnumber \label{eqn-mse-1.3} \\
+	& \quad \sum_{n = 1}^N \sum_{k \in \mathcal{U}_b} \sum_{l=1}^L \trace \, (\mvec{m}{l,k,n} \mvec{m}{l,k,n}^\herm) \leq P_{{\max}} \; \fall b. \IEEEyessubnumber  \eqspace \label{eqn-mse-1.4}
+\end{IEEEeqnarray}}
+
+The alternative \ac{MSE} formulation given by \eqref{eqn-mse-1} is nonconvex even for a fixed \me{\mvec{w}{l,k,n}} due to the constraint \eqref{eqn-mse-1.2}. Again we resort to the \ac{SCA} approach \cite{marks1978technical} by relaxing the constraint by a sequence of convex subsets using the first order Taylor approximation around a fixed \ac{MSE} point \me{\tilde{\epsilon}_{l,k,n}} as
+\begin{IEEEeqnarray}{rCl}
+- \log_2(\tilde{\epsilon}_{l,k,n}) - \frac{\left ( {\epsilon}_{l,k,n} - \tilde{\epsilon}_{l,k,n} \right ) }{\log(2) \, \tilde{\epsilon}_{l,k,n}} &\geq& t_{l,k,n}
+\label{mse-lin}
+\end{IEEEeqnarray}
+
+Using the above approximation for the rate constraint, the problem defined in \eqref{eqn-mse-1} is solved for optimal transmit precoders \me{\mvec{m}{l,k,n}}, \acp{MSE} \me{\epsilon_{l,k,n}}, and the user rates over each sub-channel \me{t_{l,k,n}} for fixed receivers. The optimization subproblem to find transmit precoders for fixed \me{\mvec{w}{l,k,n}} is given by
+\begin{IEEEeqnarray}{CCl}\label{eqn-mse-2} \neqsub
+\underset{\substack{t_{l,k,n},\mvec{m}{l,k,n},\epsilon_{l,k,n}}}{\text{minimize}} &\quad& \|  \tilde{\mbf{v}}^{\prime}  \|_q \IEEEyessubnumber \label{eqn-mse-2.1} \\
+\text{subject to} & \quad & \eqref{eqn-mse-1.3},\eqref{eqn-mse-1.4},\,\text{and} \:\eqref{mse-lin}. \IEEEyessubnumber \label{eqn-mse-2.2}
+\end{IEEEeqnarray}
+For fixed receivers, transmit precoders are obtained by solving \eqref{eqn-mse-2} iteratively by updating \me{\tilde{\epsilon}_{l,k,n}} with \me{{\epsilon}_{l,k,n}} found in previous step until termination as in Section \ref{sec-3.2.1} and Algorithm \ref{algo-1}. 
+
+In all our numerical simulations, the objective sequence generated by Algorithm \ref{algo-1} converges. However, to provide a formal convergence analysis, we consider using a regularized objective in \eqref{mod_obj} instead of using \eqref{eqn-6.1} and \eqref{eqn-mse-1.1}. The proximal term in \eqref{mod_obj} ensures strong convexity, thereby enforcing the uniqueness of the minimizer in each iteration. Note that the feasible set of problems \eqref{eqn-3} and \eqref{eqn-mse-1} is bounded. However, for problem \eqref{eqn-6}, the feasible set need not be bounded due to newly introduced variables in \eqref{eqn-6.2} and \eqref{eqn-6.3} to relax the \ac{SINR} expression in \eqref{eq:SINR}. This follows from the fact that  \eqn{\beta_{l,k,n}} can take any value by satisfying \eqref{eqn-6.3} without violating the constraints of problem \eqref{eqn-6} when \eqn{\gamma_{l,k,n} = 0}. Nevertheless, we can limit \eqn{\beta_{l,k,n}}'s by using a maximum interference threshold depending on \eqn{P_{\max}} and the channel gains, and thus the feasible set can be bounded without affecting the optimality of the considered problem. With the above assumptions, convergence analysis of Algorithm \ref{algo-1} is discussed in Appendix \ref{sec-3.5}.
+
+%In all our simulations, the objective sequence generated by the Algorithm \ref{algo-1} converges. \reviewF{However, for a formal convergence analysis, we consider a regularized objective in \eqref{mod_obj} instead of \eqref{eqn-6.1} and \eqref{eqn-mse-2.1}. The quadratic term in the objective ensures strong convexity, thereby enforcing the uniqueness of minimizer in each step. Even though the feasible set of \eqref{eqn-3} and \eqref{eqn-mse-2} are bounded, the feasible set of \eqref{eqn-6} need not be bounded due to the newly introduced variables in \eqref{eqn-6.2} and \eqref{eqn-6.3} to relax \eqref{eq:SINR}. Since, \eqn{\beta_{l,k,n}} can assume any value satisfying \eqref{eqn-6.3} without violating any other constraints in \eqref{eqn-6} when \eqn{\gamma_{l,k,n} = 0}. However, it can be avoided by bounding \eqn{\beta_{l,k,n}}'s with a maximum interference value depending on \eqn{P_{\max}}. By doing so, the domain of other variables are not affected by restricting \eqn{\beta_{l,k,n}}. Alternatively, if \eqref{mod_obj} is used instead of \eqref{eqn-6.1}, then the additional constraint is not required, since \eqn{\beta_{l,k,n}} is bounded due to the proximal term in \eqref{mod_obj}. With the above assumptions, convergence proof is presented in Appendix \ref{sec-3.5}.}
+	
+%In all our simulations, the objective sequence generated by the Algorithm \ref{algo-1} converges. \reviewF{However, for a formal convergence analysis, we consider a regularized objective in \eqref{mod_obj} for \eqref{eqn-6.1} and \eqref{eqn-mse-1.1}. The proximal term in \eqref{mod_obj} ensures strong convexity, thereby enforcing the uniqueness of minimizer in each step. Even though the feasible set of \eqref{eqn-3} and the relaxed problem in \eqref{eqn-mse-1} are bounded, the feasible set of \eqref{eqn-6} need not be bounded due to the newly introduced variables in \eqref{eqn-6.2} and \eqref{eqn-6.3} to relax \eqref{eq:SINR}. Since, \eqn{\beta_{l,k,n}} can assume any value satisfying \eqref{eqn-6.3} without violating any other constraints in \eqref{eqn-6} when \eqn{\gamma_{l,k,n} = 0}. Note that it can be avoided by bounding \eqn{\beta_{l,k,n}}'s with a maximum interference constraint depending on \eqn{P_{\max}} without altering the solution space of other variables. However, as a consequence of considering a regularized objective as in \eqref{mod_obj}, the additional constraint is not required, since \eqn{\beta_{l,k,n}} is bounded due to the proximal term in \eqref{mod_obj}. With the above assumptions, convergence proof is presented in Appendix \ref{sec-3.5}.}
+
+
+%In all simulations, objective sequence generated by Algorithm \ref{algo-1} converges. \reviewF{However, for formal convergence analysis, following alterations are assumed. (i) Instead of \eqref{eqn-6.1} and \eqref{eqn-mse-2.1}, we consider a regularized objective as in \eqref{mod_obj} to ensure uniqueness of the minimizer in each step. (ii) Even though the feasible set of \eqref{eqn-3} is compact, it is due to the newly introduced variables in \eqref{eqn-6}, the feasible set in \eqref{eqn-9} and \eqref{eqn-9--1} can become unbounded. Since when \eqn{\gamma_{l,k,n} = 0}, \eqn{\beta_{l,k,n}} can assume any value satisfying \eqref{eqn-6.3} without violating other constraints. Therefore, to bound \eqn{\beta_{l,k,n}}, we introduce an additional constraint to limit \eqn{\beta_{l,k,n}} for some large \eqn{B_{\max} \gg P_{\max}} as \eqn{\beta_{l,k,n} \leq B_{\max}} without altering the problem. Now, with these assumptions, convergence proof is dealt in Appendix \ref{sec-3.5}.}
+
+%Note that due to the newly introduced variables in \eqref{eqn-6}, the feasible set of \eqref{eqn-9} and \eqref{eqn-9--1} can become unbounded even if the feasible set of \eqref{eqn-3} is bounded. It happens only when \eqn{\gamma_{l,k,n} = 0}, since \eqn{\beta_{l,k,n}} can assume any value satisfying \eqref{eqn-6.3} without violating other constraints in \eqref{eqn-6}. However, as a result of using \eqref{mod_obj}, the feasible set of \eqref{eqn-9} and \eqref{eqn-9--1} are always bounded. Now, by using the modified objective in \eqref{mod_obj}, convergence of Algorithm \ref{algo-1} is dealt in Appendix \ref{sec-3.5}.}
+
+%In all our numerical simulations, the objective sequence generated by the Algorithm \ref{algo-1} converges. However, for a theoretical convergence analysis, we consider a regularized objective function as in \eqref{mod_obj} instead of \eqref{eqn-6.1} and \eqref{eqn-mse-2.1}. The proximal term in \eqref{mod_obj} is introduced to guarantee strict monotonicity of the objective function, thereby ensuring unique minimizer in every \ac{SCA} and \ac{AO} step. By using the modified objective function in \eqref{mod_obj}, the convergence analysis of the proposed iterative algorithms is discussed in Appendix \ref{sec-3.5}.
+
+\begin{comment}
+\subsubsection*{Convergence}
+Following similar approach as in Section \ref{sec-3.2.1}, at each iteration, the \ac{SCA} subproblems converge to a stationary point of the original nonconvex problem. The uniqueness of the precoders are justified if there is no phase ambiguity in the stationary solution. By reorganizing \eqref{eqn-mse-1.3} as
+\iftoggle{single_column}{
+\begin{equation}
+\epsilon_{l,k,n} \geq  1 - 2 \Re{ \left \lbrace \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right \rbrace} + \sum_{\mathclap{\forall (j,i)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2,
+\end{equation}
+}{
+\begin{multline}
+	\epsilon_{l,k,n} \geq  1 - 2 \Re{ \left \lbrace \mvec{w}{l,k,n}^\herm \mvec{H}{b_k,k,n} \mvec{m}{l,k,n} \right \rbrace} \\ 
+	+ \sum_{\mathclap{\forall (j,i)}} \left | \mvec{w}{l,k,n}^\herm \mvec{H}{b_i,k,n} \mvec{m}{j,i,n} \right |^2 + N_0 \, \|\mvec{w}{l,k,n}\|^2,
+\end{multline}
+}
+we can see that the ambiguity in the phase rotations for the transmit and the receive beamformers are eliminated by the presence of real component in the \ac{MSE} expression. 
+
+At each \ac{SCA} update, the transmit precoders are obtained uniquely by minimizing \eqref{eqn-mse-1} due to the convex nature of the relaxed problem. For a fixed transmit precoders, the \ac{MMSE} receiver improves the objective value \cite{christensen2008weighted,wmmse_shi}, leading to the monotonic convergence of the objective function. At each \ac{SCA} step, the optimal value of the previous iteration is also included in the domain of the problem, and the objective value can either decrease or stays the same after each iteration. Note that the objective function improves at each iteration, whereas the sum rate need not follow the same behavior.
+
+\end{comment}

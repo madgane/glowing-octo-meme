@@ -1,0 +1,46 @@
+The \ac{JSFRA} algorithm complexity scales with the number of sub-channels, since the complexity of interior point method, used to solve the problem, increases with the problem size. Thus, we can use the decomposition methods in \cite{palomar2006tutorial,boyd2011distributed} for designing precoders of each sub-channel with less complexity by using additional coupling variables among the subproblems.
+
+As an alternative sub-optimal solution, we present \acl{QM} \ac{SRA}, which solves for precoders using \ac{JSFRA} formulation for a specific sub-channel \me{i} with fixed transmit power \me{P_{\max,i}}. For each sub-channel, power sharing can either be equal or based on some predetermined limits as in partial frequency reuse satisfying
+\begin{equation}
+\sum_{i=1}^N P_{\max,i} = P_{\max}.
+\end{equation}
+Even though \me{N} sub-channels are present at any given scheduling instant, precoders are computed for each sub-channel sequentially with \me{P_{\max,i}} and the residual number of backlogged packets. Let \me{Q_{k,i}} be the number of backlogged packets associated with user \me{k} while designing the precoders for the \eqn{\ith{i}} sub-channel. Since the precoder design is sequential, \textit{i.e}, the precoders are designed for sub-channels \me{[0,i-1]} before the \me{\ith{i}} sub-channel, the number of queued packets for the first chosen sub-channel is given by \me{Q_{k,1} = Q_k}. The queues associated with the consecutive sub-channels are updated as
+\begin{equation}	\label{eqn-weight}
+Q_{k,i+1} = \max \Big ( Q_k - \sum_{j = 1}^{i} \, \sum_{l = 1}^{L} \, t_{l,k,j} ,0 \Big ) \; \forall \; k \in \mathcal{U}
+\end{equation}
+where \me{t_{l,k,j}} is the \me{\ith{k}} user rate on sub-channel \me{j}. 
+
+For simplicity we use random sub-channel ordering in our paper, \textit{i.e.}, after finding the precoders for a current sub-channel, we can choose any previously unselected sub-channels as the next candidate sub-channel for which the precoders are identified using the updated backlogged packets. Alternatively, we can also use greedy ordering to select the sub-channels by sorting the norm of the channel seen between the users and the respective serving \acp{BS}. However, it comes at the cost of increased complexity. Nevertheless, the \ac{SRA} scheme will be insensitive to the sub-channel ordering as the number of users in the system increases, due to the available multi-user diversity in the system.
+
+	
+%	the sub-channel selection can also be performed deterministically by using greedy ordering, in which the norm of the channel between the users and the corresponding serving \acp{BS} in the system. However, it comes with the cost of increased complexity. %Note that the interference cannot be considered in this selection process, since the precoders are designed only after the sub-channel selection. 
+%It is worth noting that, as the number of users in the system increases, the \ac{SRA} scheme will be insensitive to the sub-channel ordering due to the available multi-user diversity present in the system.}
+
+%The algorithmic representation of the \ac{SRA} scheme is shown in Algorithm \ref{algo-5}
+%\begin{algorithm}
+% \SetAlgoLined
+% \DontPrintSemicolon
+% \BlankLine
+% \SetKwInput{KwInit}{Initialize}
+% \KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}}}
+% \KwIn{permute \me{\mathcal{N} \rightarrow \tilde{\mathcal{N}}}}
+% \For{\me{n \leftarrow 1 } \KwTo \me{N}}{
+% update \me{Q_{k,n}} using \eqref{eqn-weight} and let \me{\hat{n} = \tilde{\mathcal{N}}(n)}\;
+% \KwOut{\me{\mvec{m}{l,k,\hat{n}}} and \me{\mvec{w}{l,k,\hat{n}} \fall l \in \set{1,2,\dotsc,L}}}
+% \KwInit{\me{i=0} and \me{\tilde{\mbf{m}}_{l,k,\hat{n}}} randomly satisfying per sub-channel power constraint \me{P_{\max,\hat{n}}}}
+% update \me{\mvec{w}{l,k,\hat{n}}} and \me{\tilde{\mbf{u}}_{l,k,\hat{n}}} using \eqref{eqn-10} and \eqref{eqn-8}\;
+% \Repeat{Queue convergence or \me{i \geq I_{\max}}}{
+% initialize \me{j = 0}\;
+% \Repeat{\ac{SCA} convergence or \me{j \geq J_{\max}}}{
+% solve for \me{\mvec{m}{l,k,\hat{n}}} using \eqref{eqn-9} with per sub-channel power constraint \me{P_{\max,\hat{n}}}\;
+% update the constraint set \eqref{eqn-8} with \me{\tilde{u}_{l,k,\hat{n}}} and \me{\mvec{m}{l,k,\hat{n}}} using \eqref{eqn-wsrm-expr}\;
+% $j = j + 1$\;
+% }
+% update \me{\mvec{w}{l,k,n}} using \eqref{eqn-10} with the updated precoders \me{\mvec{m}{l,k,n}}\;
+% $i = i + 1$\;
+% }
+% }
+% \caption{Algorithm of \acs{SRA} scheme}
+% \label{algo-5}
+%\end{algorithm}
+%

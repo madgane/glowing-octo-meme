@@ -1,0 +1,63 @@
+The primal decomposition approach is modeled by having a master controller, which controls the resources allocated to each \acp{BS} based on which the optimization is carried out locally at each \ac{BS}. In this scheme, the problem described in \eqref{eqn-9} is decomposed in a way that the precoders intended for the users associated with each \ac{BS} are designed locally with the additional constraint on the interference caused by the transmission to the neighboring \ac{BS} users. The interference thresholds are set by the centralized controller for each data stream of the users in the system, which needs to be satisfied by the neighboring \acp{BS} while designing the precoders.
+
+Let \me{\tilde{\mc{B}}_{b}} represent the coordinating \acp{BS} set \me{\{\mc{B} \backslash b \}}. In order to design the precoders for the users \me{\mc{U}_b} belonging to the \ac{BS} \me{b} locally, the precoders related to the neighbouring users \me{\pr{k} \notin \mc{U}_b} are to be removed from the \ac{SINR} expression \eqref{eq:SINR}. To decouple the precoder design, the total interference caused by a \ac{BS} \me{\pr{b} \in \tilde{\mc{B}}_b} is replaced by a fixed interference level \me{\chi_{l,\pr{b},k,n}} associated with the \me{\ith{l}} spatial stream of the user \me{k \in \mc{U}_b}. The interference constraint used in the precoder design problem of the \ac{BS} \me{b} is given by
+\begin{equation}
+\sum_{\pr{k} \in \mc{U}_b} \text{tr} \left ( \mvec{w}{l,k,n}^H \mvec{H}{b,k,n} \mvec{M}{\pr{k},n} \mvec{M}{\pr{k},n}^H \mvec{H}{b,k,n}^H \mvec{w}{l,k,n} \, \right ) \leq \chi_{l,b,k,n}, \forall k \notin \mc{U}_b
+\label{eq-primal-constr}
+\end{equation}
+Now, the \ac{SINR} expression for the spatial stream \me{l} of a user \me{k \in \mc{U}_b} is given by
+\begin{equation}\label{eq:SINR-primal}
+\bar{\gamma}_{l,k,n} = \frac{\left | \mvec{w}{l,k,n}^H \mvec{H}{b,k,n} \mvec{m}{l,k,n} \right |^2}{\displaystyle \sum_{\pr{b} \in \tilde{\mc{B}}_{b} } \chi_{l,\pr{b},k,n} + \rho_{l,k,n} + N_0} \leq \gamma_{l,k,n},
+\end{equation}
+where the inter-cell interference component \me{\rho_{l,k,n}} is given by
+\begin{equation}
+\rho_{l,k,n} = \sum_{\substack{\pr{l} = 1 ,\\ \pr{l} \neq l}}^L \left | \mvec{w}{l,k,n}^H \mvec{H}{b,k,n} \mvec{m}{\pr{l},k,n} \right |^2 + \sum_{\pr{k} \in \{\mc{U}_{b} \backslash k \}} \sum_{\pr{l}=1}^L \left | \mvec{w}{l,k,n}^H \mvec{H}{b,k,n} \mvec{m}{\pr{l},\pr{k},n} \right |^2.
+\label{eqn-rho}
+\end{equation}
+
+In order to decouple the precoder design, \acp{BS} use the fixed interference levels set by the centralized controller in the \ac{SINR} expression \eqref{eq:SINR-primal} and additional interference constraints to limit the interference caused by the \ac{BS} \me{b} to the neighboring users \me{\pr{k} \notin \mc{U}_b} is given by \eqref{eq-primal-constr}. Using the above constraints and approximations, the precoder design problem for a \ac{BS} \me{b} using the fixed interference level is given by
+\begin{IEEEeqnarray}{rCl}\label{primal-problem}
+\underset{\substack{\mvec{m}{l,k,n},p_{l,k,n},\\q_{l,k,n},\beta_{l,k,n}}}{\text{minimize}} & \quad & \| \tilde{\mbf{v}}_{b} \|_q \IEEEyessubnumber \\
+\text{subject to} & \quad & \bar{\gamma}_{l,k,n} \leq \dfrac{p_{l,k,n}^2 + q_{l,k,n}^2}{\beta_{l,k,n}} \IEEEyessubnumber \label{eqn-sg-b} \\
+& \quad & N_0 + \rho_{l,k,n} + \sum_{\pr{b} \in \tilde{\mc{B}}_{b}} \chi_{l,\pr{b},k,n} \leq \beta_{l,k,n} \IEEEyessubnumber \label{eqn-sg-d} \\
+& \quad & \eqref{eqn-4.3}, \eqref{eqn-8}, \text{ and } \eqref{eq-primal-constr}, \IEEEyessubnumber
+\end{IEEEeqnarray}
+where \me{p_{l,k,n}, q_{l,k,n}, \bar{\gamma}_{l,k,n}}, and \me{\rho_{l,k,n}} are as defined in \eqref{eqn-wsrm-expr}, \eqref{eq:SINR-primal} and \eqref{eqn-rho} respectively. The weighted deviation vector \me{\tilde{\mbf{v}}_{b}} stack the weighted deviation metric of users belonging to the \ac{BS} \me{b} as the component elements as discussed earlier.
+
+The local optimization problem solved at the \acp{BS} are coordinated by exchanging minimal information through the backhaul link across the coordinating \acp{BS} to design the optimum set of precoders at each \ac{BS}. The master problem, which determines the interference level for each \ac{BS} is obtained by solving the subgradient of the original problem \cite{palomar2006tutorial} and \cite{pennanen2011decentralized}. In order to obtain the dual variables corresponding to the coupling constraints, partial Lagrangian of the decentralized problem involving the coupling variable \me{\chi_{l,b,\pr{k},n}} is solved. The Lagrangian of the problem outlined in \eqref{primal-problem} is given by
+\begin{IEEEeqnarray}{rCl}\label{lagr-primal}
+\underset{\substack{\mvec{m}{l,k,n},p_{l,k,n},\\q_{l,k,n},\beta_{l,k,n},\mbfa{\mu}^{(b)}}}{\text{minimize}} &\quad& \|\tilde{\mbf{v}}_{b}\|_q + \sum_{k \in \mc{U}_{b}} \sum_{l = 1}^L \mu^{(b)}_{l,k,n} \left ( \beta_{l,k,n} - N_0 - \rho_{l,k,n} - \sum_{\pr{b} \in \tilde{\mc{B}}_{b}} \chi_{l,\pr{b},k,n} \right ) \nonumber \\
+&\quad& + \sum_{\pr{k} \notin \mc{U}_b} \sum_{\pr{l} = 1}^L \mu^{(b)}_{\pr{l},\pr{k},n} \left ( \chi_{\pr{l},b,\pr{k},n} - \sum_{k \in \mc{U}_{b}} \text{tr} \left ( \mvec{w}{\pr{l},\pr{k},n}^H \mvec{H}{b,\pr{k},n} \mvec{M}{k,n} \mvec{M}{k,n}^H \mvec{H}{b,\pr{k},n}^H \mvec{w}{\pr{l},\pr{k},n} \, \right ) \right ) \IEEEyessubnumber \\
+\text{subject to}&\quad& \eqref{eqn-4.3}, \eqref{eqn-8}, \text{and} \, \eqref{eqn-sg-b} \IEEEyessubnumber
+\end{IEEEeqnarray}
+where \me{\mu^{(b)}_{l,k,n}} represent the dual variable for the constraint \eqref{eqn-sg-d} and \me{\mu^{(b)}_{\pr{l},\pr{k},n}} denote the dual variable for the constraint \eqref{eq-primal-constr} respectively. In order to solve the master problem, the dual variables of the \acp{BS}, which are linked by the interference constraint, need to be exchanged between the \acp{BS} \me{b} and \me{\pr{b}} only. For example, in order to find the interference threshold \me{\chi_{l,\pr{b},k,n}} for the \me{\ith{(i+1)}} iteration, the dual variables and the interference threshold levels of the \me{\ith{(i)}} iteration are exchanged to update \me{\chi_{l,\pr{b},k,n}}. The subgradient update for \me{\chi_{l,\pr{b},k,n}} is given by
+\begin{equation}
+\chi_{l,\pr{b},k,n}(i + 1) = \left [ \; \chi_{l,\pr{b},k,n}(i) - \sigma(i) \, s^{(\pr{b})}_{l,k,n}(i) \; \right ]^+, \; \forall \pr{b} \in \mc{B}, \forall k \notin \mc{U}_{b}
+\label{eqn-primal-sg}
+\end{equation}
+where \me{\sigma} is the positive step-size which determines the convergence behavior, and \me{s^{(\pr{b})}_{l,k,n}} is the global subgradient evaluated at the point \me{\chi_{l,\pr{b},k,n}}. Since the inter-cell interference term \me{\chi_{l,\pr{b},k,n}} couples exactly two \acp{BS}, \me{b} and \me{\pr{b}}, the global subgradient can be expressed as \me{s^{(\pr{b})}_{l,k,n}(i) = \mu^{(b)}_{l,k,n}(i) - \mu^{(\pr{b})}_{l,k,n}(i), \, \forall \pr{b} \in \tilde{\mc{B}}_b, \forall k \notin \mc{U}_{b}}.
+
+\begin{algorithm}
+ \SetAlgoLined
+ \DontPrintSemicolon
+ \BlankLine
+ \SetKwInput{KwInit}{Initialize}
+ \KwIn{\me{a_k, \, Q_k, \, \mvec{H}{b,k,n},\; \fall b \in \mathcal{B}, \, \fall k \in \mathcal{U}, \fall n \in \mathcal{C}}}
+ \KwOut{\me{\mvec{m}{l,k,n}} and \me{\mvec{w}{l,k,n} \fall l \in \set{1,2,\dotsc,L}}}
+ \KwInit{\me{i=0} and the transmit precoders \me{\tilde{\mbf{m}}_{l,k,n}} randomly satisfying the total power constraint \eqref{eqn-4.3}}
+ update \me{\mvec{w}{l,k,n}} with \eqref{eqn-10} and \me{\tilde{\mbf{u}}_{l,k,n}} with \eqref{eqn-8} using \me{\tilde{\mbf{m}}_{l,k,n}} \;
+ initialize the interference threshold \me{\chi_{l,b,k,n} \forall b \in \mc{B}, \forall k \in \tilde{\mc{U}}_{b_k}, \forall l,n} \;
+ \Repeat{convergence or \me{i \geq I_{\max}}}{
+    initialize \me{j=0} \;
+    \Repeat{convergence or \me{j \geq J_{\max}}}{
+        solve for the transmit precoders \me{\mvec{m}{l,k,n}} and dual variables \me{\mu^{(b)}_{l,k,n}} using \eqref{lagr-primal} \;
+        update \me{\chi_{l,b,k,n}} using \eqref{eqn-primal-sg} \;
+        \me{j = j + 1} \;
+    }
+    update \me{\tilde{\mbf{u}}_{l,k,n}} with the current update of \me{{\mbf{u}}_{l,k,n}} using \eqref{eqn-8}\;
+    update the receive beamformers \me{\mvec{w}{l,k,n}} using \eqref{eqn-10} with the recent precoders \me{\mvec{m}{l,k,n}} \;
+    $i = i + 1$ \;
+  }
+ \caption{Algorithm of \acs{JSFRA} Primal scheme}
+  \label{algo-2}
+\end{algorithm}

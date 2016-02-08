@@ -1,0 +1,24 @@
+In this section, we discuss the alternative approach of decentralizing the precoder design problem using the dual decomposition approach. It differs from the primal approach by fixing the interference price instead of fixing the interference level, which is the case in the primal design. As in the primal approach, in order to decentralize the precoder design problem, the interference terms present in the \ac{SINR} expression \eqref{eq:SINR} using the precoders of the neighboring \acp{BS} \me{\tilde{\mc{B}}_b} are to be decoupled from the \ac{BS} \me{b}.
+
+In contrast to the primal approach, which decouples the interference by a fixed threshold level as in \eqref{eq-primal-constr}, the dual decomposition decouples the interference by fixing the interference price for all \ac{BS} \me{b} to a user \me{k \in \tilde{\mc{U}_b}} at each iteration. The interference constraint limit as in primal approach is given by
+\begin{equation}
+\sum_{\pr{k} \in \mc{U}_b} \text{tr} \left ( \mvec{w}{l,k,n}^H \mvec{H}{b,k,n} \mvec{M}{\pr{k},n} \mvec{M}{\pr{k},n}^H \mvec{H}{b,k,n}^H \mvec{w}{l,k,n} \, \right ) \leq \zeta_{l,b,k,n}, \forall k \notin \mc{U}_b
+\end{equation}
+In order to relax the interference constraint, the dual decomposition approach replaces the interference threshold level \me{\zeta_{l,b,k,n}} by a local copy \me{\zeta^{(b)}_{l,b,k,n}} for each \ac{BS} \me{b \in \mc{B}}. The additional constraint relating the local interference copies to the global interference thresholds are added as
+\begin{IEEEeqnarray}{rCl}\label{eq-dual-constr}
+\zeta_{l,b,k,n} & \geq & \sum_{\pr{k} \in \mc{U}_b} \text{tr} \left ( \mvec{w}{l,k,n}^H \mvec{H}{b,k,n} \mvec{M}{\pr{k},n} \mvec{M}{\pr{k},n}^H \mvec{H}{b,k,n}^H \mvec{w}{l,k,n} \, \right ), \forall k \notin \mc{U}_b \IEEEyessubnumber \\
+\zeta^{(b)}_{l,b,k,n} & = & \zeta_{l,b,k,n}, \forall b. \IEEEyessubnumber \label{eqn-dual-x}
+\end{IEEEeqnarray}
+
+The equivalent problem with the local interference variable is written as
+\begin{IEEEeqnarray}{rCl}\label{dual-problem}
+\underset{\substack{\mvec{m}{l,k,n},p_{l,k,n},\\q_{l,k,n},\beta_{l,k,n},\mbfa{\zeta}^{(b)}}}{\text{minimize}} & \quad & \| \tilde{\mbf{v}}_{b} \|_q \IEEEyessubnumber \\
+\text{subject to} & \quad & \bar{\gamma}_{l,k,n} \leq \dfrac{p_{l,k,n}^2 + q_{l,k,n}^2}{\beta_{l,k,n}} \IEEEyessubnumber \label{eqn-dual-1} \\
+& \quad & N_0 + \rho_{l,k,n} + \sum_{\pr{b} \in \tilde{\mc{B}}_{b}} \zeta^{(b)}_{l,\pr{b},k,n} \leq \beta_{l,k,n} \IEEEyessubnumber \label{eqn-dual-2} \\
+& \quad & \eqref{eqn-4.3}, \eqref{eqn-8}, \text{ and } \eqref{eq-dual-constr}, \IEEEyessubnumber
+\end{IEEEeqnarray}
+where \me{\bar{\gamma}_{l,k,n}} is given by
+\begin{equation}\label{eq:SINR-dual}
+\bar{\gamma}_{l,k,n} = \frac{\left | \mvec{w}{l,k,n}^H \mvec{H}{b,k,n} \mvec{m}{l,k,n} \right |^2}{\displaystyle \sum_{\pr{b} \in \tilde{\mc{B}}_{b} } \zeta^{(b)}_{l,\pr{b},k,n} + \rho_{l,k,n} + N_0},
+\end{equation}
+where \me{p_{l,k,n}, q_{l,k,n}, \bar{\gamma}_{l,k,n}}, and \me{\rho_{l,k,n}} are as defined in \eqref{eqn-wsrm-expr}, \eqref{eq:SINR-dual} and \eqref{eqn-rho} respectively. In order to obtain the distributed algorithm, dual decomposition approach \cite{tolli2011decentralized}, \cite{palomar2006tutorial} is used for the equality constraint given by \eqref{eqn-dual-x}.

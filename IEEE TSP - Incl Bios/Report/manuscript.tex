@@ -1,0 +1,125 @@
+\documentclass[10pt,journal,final,letterpaper,twocolumn]{./../IEEE/IEEEtran/IEEEtran}
+
+\usepackage{amsmath,amssymb}
+\usepackage{acronym,etoolbox}
+\usepackage{graphicx,epstopdf}
+\usepackage[ruled]{algorithm2e}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[subrefformat=parens,labelformat=parens,labelseparator=period,caption=false,font=footnotesize]{subfig}
+\usepackage{multirow,cite,setspace,fixltx2e,lineno,verbatim,mathtools,url,cases,algorithmic,placeins}
+
+\graphicspath{{./../Figures/}{./../Bios/}}
+\DeclareGraphicsExtensions{.pdf}
+
+\setlength{\floatsep}{0.5\baselineskip}
+\setlength{\textfloatsep}{0.5\baselineskip}
+
+\captionsetup{width=0.48\textwidth}
+
+\input{shortcuts}
+\input{acronyms}
+\newtoggle{single_column}
+\togglefalse{single_column}
+
+\title{Traffic Aware Resource Allocation Schemes for Multi-Cell \acs{MIMO}-\acs{OFDM} Systems}
+\author{
+	\IEEEauthorblockN{Ganesh Venkatraman \IEEEmembership{Student Member,~IEEE}\thanks{This work has been supported by the Finnish Funding Agency for Innovation (Tekes), Nokia Networks, Xilinx, Elektrobit, the Riitta ja Jorma Takanen Foundation, and the Academy of Finland. This work was supported by a research grant from Science Foundation Ireland and is co-funded by the European Regional Development Fund under Grant 13/RC/2077. Part of this work is presented in ICASSP 2014.}, Antti T\"{o}lli \IEEEmembership{Senior Member,~IEEE}, Markku Juntti \IEEEmembership{Senior Member,~IEEE}, and Le-Nam Tran \IEEEmembership{Member,~IEEE}}\thanks{
+	G. Venkatraman, A. T\"{o}lli and M. Juntti are with Department of Communications Engineering (DCE), Centre for Wireless Communications (CWC), University of Oulu, Oulu, FI-90014, (e-mail: \{ganesh.venkatraman, antti.tolli, markku.juntti\}@ee.oulu.fi)}\thanks{L.-N. Tran is with the Department of Electronic Engineering, Maynooth University, Maynooth, Co. Kildare, Ireland, (e-mail:ltran@eeng.nuim.ie).}}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+
+\begin{IEEEkeywords}
+\ac{MIMO}-\acs{IBC}, \ac{MIMO}-\ac{OFDM}, precoder design, \acs{SCA}, \acs{WSRM}, nonconvex problem, convergence analysis.
+\end{IEEEkeywords}
+
+\acresetall 
+\acused{MU}
+
+\section{Introduction} \label{sec-1}
+\input{introduction}
+
+\section{System Model and Problem Formulation} \label{sec-2-3.2}
+\subsection{System Model} \label{sec-2}
+\input{system_model}
+\subsection{Problem Formulation} \label{sec-3.2}
+\input{problem_formulation_intro}
+
+\section{Proposed Queue Minimizing Precoder Designs} \label{sec-3}
+\input{queue_minimizing_intro}
+
+\subsection{Queue Weighted Sum Rate Maximization (\acs{Q-WSRM})} \label{sec-3.1} %\acused{Q-WSRM}
+\input{joint_wsrm_formulation}
+
+\subsection{\acs{JSFRA} Scheme via \ac{SINR} Relaxation} \label{sec-3.2.1}
+\input{problem_formulation}
+
+\input{wsrm_formulation}
+
+\subsection{\ac{JSFRA} Scheme via \ac{MSE} Reformulation} \label{sec-3.3}
+\input{mse_formulation}
+
+\subsection{Reduced Complexity Spatial Resource Allocation (\acs{SRA})} \label{sec-3.4}
+{\input{sub_channel_wsrm}
+
+\section{Distributed Solutions} \label{sec-4}
+\input{decomposition_solutions}
+
+%\subsection{Decomposition based Approaches} \label{sec-4a}
+
+\subsection{Primal Decomposition} \label{sec-4.1}
+\input{primal_approach} %\vspace{-0.25em}
+%\input{primal_algorithm}
+
+\subsection{Alternating Directions Method of Multipliers (ADMM)} \label{sec-4.2}
+\input{dual_approach}
+%\input{dual_algorithm}
+
+\subsection{Decomposition via \ac{KKT} Conditions for \ac{MSE} Formulation} \label{sec-4.3}
+\input{kkt_mse_approach}
+
+\section{Simulation Results} \label{sec-5}
+\input{simulation_intro}
+
+\subsection{Centralized Solutions}
+\input{simulation_results}
+
+\subsection{Distributed Solutions} \label{sec-5.2}
+\input{simulation_distributed}
+
+\subsection{Queuing Analysis over Multiple Transmission Slots} \label{time-correlated}
+\input{time_correlated}
+
+%acresetall
+\section{Conclusions} \label{sec-6}
+\input{conclusions}
+
+\appendices
+
+%\section{\acl{PD} approach} \label{a-2}
+%\input{primal_approach_appendix}
+
+%\section{Tightness of \ac{SINR} relaxation} \label{a-3}
+%\input{appendix_tightness}
+
+\section{Convergence Proof for Centralized Algorithm} \label{sec-3.5}
+\input{convergence_centralized}
+
+\section{Convergence Proof for Distributed Algorithms} \label{sec-dist-conv}
+\input{convergence_distributed}
+
+\section{\ac{KKT} conditions for \ac{MSE} approach} \label{a-1}
+\input{kkt_appendix}
+
+\bibliographystyle{./../IEEE/IEEEtranBST/IEEEtran}
+\bibliography{./../Library/IEEEabrv,./../Library/kirja_survey}
+
+%\input{biography}
+
+\end{document}
+
